@@ -1,2 +1,16 @@
+# SO / escritorio
+.DS_Store
+Thumbs.db
 
-/Sources/
+# Obsidian (estado de UI)
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/graph.json
+
+# Editores
+.vscode/
+.idea/
+
+# Miscelánea
+*.log
+
