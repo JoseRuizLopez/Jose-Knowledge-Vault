@@ -2,10 +2,14 @@
 .DS_Store
 Thumbs.db
 
-# Obsidian (estado de UI)
-.obsidian/workspace.json
-.obsidian/workspace-mobile.json
-.obsidian/graph.json
+# Ignorar estado/ajustes locales de Obsidian
+.obsidian/*
+# (opcional) permitir estas carpetas si quieres versionarlas
+!.obsidian/plugins/
+!.obsidian/snippets/
+!.obsidian/themes/
+# (opcional) permitir la lista de plugins
+!.obsidian/community-plugins.json
 
 # Editores
 .vscode/
