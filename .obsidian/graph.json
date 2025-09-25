@@ -1,0 +1,86 @@
+{
+  "collapse-filter": true,
+  "search": "",
+  "showTags": false,
+  "showAttachments": false,
+  "hideUnresolved": false,
+  "showOrphans": true,
+  "collapse-color-groups": false,
+  "colorGroups": [
+    {
+      "query": "path:Writings/Entrevistas  ",
+      "color": {
+        "a": 1,
+        "rgb": 14069084
+      }
+    },
+    {
+      "query": "path:Writings  ",
+      "color": {
+        "a": 1,
+        "rgb": 11392604
+      }
+    },
+    {
+      "query": "path:Programming  ",
+      "color": {
+        "a": 1,
+        "rgb": 6084188
+      }
+    },
+    {
+      "query": "path:\"Machine Learning/Redes Neuronales\"  ",
+      "color": {
+        "a": 1,
+        "rgb": 6084269
+      }
+    },
+    {
+      "query": "path:Estadística  ",
+      "color": {
+        "a": 1,
+        "rgb": 6073814
+      }
+    },
+    {
+      "query": "path:\"Herramientas y Librerías\"  ",
+      "color": {
+        "a": 1,
+        "rgb": 8477910
+      }
+    },
+    {
+      "query": "path:\"Machine Learning\"  ",
+      "color": {
+        "a": 1,
+        "rgb": 14048348
+      }
+    },
+    {
+      "query": "tag:#Concept  ",
+      "color": {
+        "a": 1,
+        "rgb": 14048397
+      }
+    },
+    {
+      "query": "tag:#Index",
+      "color": {
+        "a": 1,
+        "rgb": 4798031
+      }
+    }
+  ],
+  "collapse-display": true,
+  "showArrow": false,
+  "textFadeMultiplier": 0,
+  "nodeSizeMultiplier": 1,
+  "lineSizeMultiplier": 1,
+  "collapse-forces": false,
+  "centerStrength": 0.325363825363825,
+  "repelStrength": 11.4137214137214,
+  "linkStrength": 0.816008316008316,
+  "linkDistance": 288,
+  "scale": 0.7840526816831348,
+  "close": true
+}
