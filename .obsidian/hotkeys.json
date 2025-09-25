@@ -1,0 +1,18 @@
+{
+  "window:zoom-in": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "+"
+    }
+  ],
+  "window:zoom-out": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "-"
+    }
+  ]
+}
