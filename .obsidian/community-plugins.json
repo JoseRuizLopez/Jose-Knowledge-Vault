@@ -1,5 +1,6 @@
 [
   "image-converter",
   "graph-banner",
-  "obsidian-git"
+  "obsidian-git",
+  "obsidian-version-history-diff"
 ]

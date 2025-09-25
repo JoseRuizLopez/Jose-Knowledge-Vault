@@ -4,20 +4,39 @@
     "type": "split",
     "children": [
       {
-        "id": "f4fb6385502161bc",
+        "id": "956fa605ee8b6a17",
         "type": "tabs",
         "children": [
           {
-            "id": "9d612075c78cfb13",
+            "id": "84bb1581487d20d0",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "007 Master.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "007 Master"
+            }
+          },
+          {
+            "id": "b2b1044d65862a35",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Master/007 - 010 Metodologia de la Investigacion.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "007 - 010 Metodologia de la Investigacion"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -90,6 +109,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Master/007 - 010 Metodologia de la Investigacion.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -99,7 +119,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for 007 - 010 Metodologia de la Investigacion"
             }
           },
           {
@@ -108,11 +128,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Master/007 - 010 Metodologia de la Investigacion.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links"
+              "title": "Outgoing links from 007 - 010 Metodologia de la Investigacion"
             }
           },
           {
@@ -136,12 +157,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "Master/007 - 010 Metodologia de la Investigacion.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of 007 - 010 Metodologia de la Investigacion"
             }
           },
           {
@@ -159,7 +181,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 317.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -173,8 +195,16 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "1aa0d449de48ee38",
+  "active": "17e6ea769cd864a2",
   "lastOpenFiles": [
+    "Master/007 - 011 Teoria.md",
+    "Master/007 - 010 Metodologia de la Investigacion.md",
+    "007 Master.md",
+    "Estadística/001 - 010 Estadística.md",
+    "006 Career.md",
+    "Career/AI Consultant -- Servinform.md",
+    "005  Sources.md",
+    "002  Herramientas y Librerías.md",
     "Writings/Entrevistas/Preguntas para hacer.md",
     "Writings/Entrevistas/Entrevista con Keysight Technologies.md",
     "Writings/Entrevistas/Entrevista con Hypatos.md",
@@ -193,20 +223,12 @@
     "Programming/A-B testing.md",
     "Programming/001 - 030 Programming.md",
     "Programming",
-    "Master/Taller en Metodología de la Investigación.md",
     "Master",
     "Machine Learning/Redes Neuronales/001 - 0217 Redes Transformers.md",
     "Machine Learning/Redes Neuronales/001 - 0215 Redes Generativas.md",
     "Machine Learning/Redes Neuronales/001 - 0216 Redes Autoencoder.md",
     "Machine Learning/Redes Neuronales/001 - 0214 Redes LSTM y GRU.md",
     "Machine Learning/Redes Neuronales/001 - 0213 Redes Neuronales Recurrentes.md",
-    "Machine Learning/Redes Neuronales/001 - 0212 Redes Neuronales Convolucionales.md",
-    "Machine Learning/Redes Neuronales/001 - 0211 Perceptrón y Perceptrón Multicapa.md",
-    "Machine Learning/Redes Neuronales/001 - 021 Redes Neuronales.md",
-    "Machine Learning/Underfitting.md",
-    "Machine Learning/Subsampling.md",
-    "Machine Learning/Series Temporales.md",
-    "Machine Learning/River Data Drift.md",
     "Machine Learning/Redes Neuronales",
     "Machine Learning",
     "Images/transformer.png",
