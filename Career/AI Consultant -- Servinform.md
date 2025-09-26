@@ -3,7 +3,6 @@ links: [[006 Career |Career]]
 
 # Información General
 **Fecha de Inicio**: 28/05/2025
-**Sueldo Inicial**: 26.000€
 
 # Proyectos
 ## Onboarding
