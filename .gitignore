@@ -2,13 +2,19 @@
 .DS_Store
 Thumbs.db
 
-# Ignorar estado/ajustes locales de Obsidian
-.obsidian/*
-# (opcional) permitir estas carpetas si quieres versionarlas
-!.obsidian/plugins/
-!.obsidian/snippets/
+# Obsidian: ignora solo estado local, NO la apariencia/temas/plugins
+.obsidian/backups/
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/graph.json
+.obsidian/app.json
+
+# Mantener personalización y plugins
+!.obsidian/
+!.obsidian/appearance.json
 !.obsidian/themes/
-# (opcional) permitir la lista de plugins
+!.obsidian/snippets/
+!.obsidian/plugins/
 !.obsidian/community-plugins.json
 
 # Editores
