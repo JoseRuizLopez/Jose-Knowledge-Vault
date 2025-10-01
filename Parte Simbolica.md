@@ -109,3 +109,30 @@ Eso conecta directamente con su marco y con los papers que revisamos (EXPLANet, 
 |**Inferir**|Deduce relaciones adicionales basadas en reglas|
 |**Explicar**|Justifica decisiones con conocimiento explícito|
 |**Guiar**|(Opcional) Aporta restricciones o feedback al entrenamiento|
+
+
+
+Podemos usar LlaVa,
+
+Les interesa publicar
+Usar algo mas actualizado como transformer o gpts.
+
+No funcionan bien el ChatGPT para clasificarlo con las descripciones de las imágenes.
+Se podría centrar en las interacciones de los humanos con el entorno.
+Se puede probar que cuando falla, con la explicación del fallo aprenda a clasificarlo bien.
+
+Podemos usar varios Llama que uno aprendido la gastronomía española y otro no, si podemos detectar si olvida conocimiento. Para detectar también si podemos detectas si se ha aprendido conocimiento.
+
+# Tareas
+- revisar bases de datos actuales/estándares para modelos simbólicos.
+- hacer revision bibliografica del campo, modelos, evolucion de los modelos, y por donde van,
+- determinar por donde tiramos, una solucion concreta y las mejoramos o cogemos varios.
+- que modelos coger
+- mejorar un modelo o que?
+- Modelos Nesi o Lenguaje-visión.
+
+- Hay benchmark dentro de Nesi: Para ver que evalúan o que podemos echar en falta, y ver algún estado del arte y poder mejorarlo.
+- Explicabilidad esos modelos.
+- Cubick de Natalia Diaz, sobre los sesgos usando embeddings.
+https://ieeexplore.ieee.org/abstract/document/9991965
+https://openaccess.thecvf.com/content/WACV2024/papers/Koch_SGRec3D_Self-Supervised_3D_Scene_Graph_Learning_via_Object-Level_Scene_Reconstruction_WACV_2024_paper.pdf
