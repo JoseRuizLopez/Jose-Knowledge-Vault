@@ -197,6 +197,7 @@ Otra idea sería usar varios Llama que uno aprendido la gastronomía española y
 - Hay benchmark dentro de Nesy: Para ver que evalúan o que podemos echar en falta, y ver algún estado del arte y poder mejorarlo.
 - Busca forma de explicabilidad en esos modelos.
 - Buscar sobre [CUBIC](https://arxiv.org/pdf/2505.11060) de Natalia Diaz Rodriguez, sobre los sesgos usando embeddings.
-https://ieeexplore.ieee.org/abstract/document/9991965
-https://openaccess.thecvf.com/content/WACV2024/papers/Koch_SGRec3D_Self-Supervised_3D_Scene_Graph_Learning_via_Object-Level_Scene_Reconstruction_WACV_2024_paper.pdf
+- Algunas papers relacionados al TFM que pueden ser interesantes:
+	- https://ieeexplore.ieee.org/abstract/document/9991965
+	- https://openaccess.thecvf.com/content/WACV2024/papers/Koch_SGRec3D_Self-Supervised_3D_Scene_Graph_Learning_via_Object-Level_Scene_Reconstruction_WACV_2024_paper.pdf
 
