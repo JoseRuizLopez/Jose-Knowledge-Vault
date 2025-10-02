@@ -1,6 +1,6 @@
 ## _EXplainable Neural-Symbolic Learning (X-NeSyL) methodology to fuse deep learning representations with expert knowledge graphs: the MonuMAI cultural heritage use case”_
 
-(N. Díaz-Rodríguez, A. Lamas, J. Sánchez, G. Franchi, I. Donadello, S. Tabik, D. Filliat, P. Cruz, R. Montes, F. Herrera) [arXiv](https://arxiv.org/abs/2104.11914?utm_source=chatgpt.com)
+(N. Díaz-Rodríguez, A. Lamas, J. Sánchez, G. Franchi, I. Donadello, S. Tabik, D. Filliat, P. Cruz, R. Montes, F. Herrera) [arXiv](https://arxiv.org/abs/2104.11914)
 
 **Objetivo / Problema**  
 Este es el paper base de **X-NeSyL**. Su meta es fusionar representaciones aprendidas por redes profundas con conocimiento experto (KG) de modo que el modelo sea más explicable para humanos. Se orienta al trade-off entre rendimiento predictivo y explicabilidad simbólica. [arXiv+1](https://arxiv.org/abs/2104.11914?utm_source=chatgpt.com)
