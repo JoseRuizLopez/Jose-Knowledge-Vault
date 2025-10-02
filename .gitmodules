@@ -1,0 +1,4 @@
+[submodule "Sources"]
+	path = Sources
+	url = git@github.com:JoseRuizLopez/Jose-Knowledge-Vault-private.git
+	branch = main

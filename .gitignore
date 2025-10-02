@@ -6,7 +6,6 @@ Thumbs.db
 .obsidian/backups/
 .obsidian/workspace.json
 .obsidian/workspace-mobile.json
-.obsidian/graph.json
 .obsidian/app.json
 
 # Mantener personalización y plugins
@@ -16,6 +15,7 @@ Thumbs.db
 !.obsidian/snippets/
 !.obsidian/plugins/
 !.obsidian/community-plugins.json
+!.obsidian/graph.json
 
 # Editores
 .vscode/

@@ -3,7 +3,7 @@ links: [[007 - 010 Metodologia de la Investigacion|Metodología de la Investigac
 # Practicas
 *Ir a ...*
 - [[Tarea 1 - Análisis de un problema]]
-- [[|Practicas]]
+- 
 
 
 ## Tarea 1: Análisis de un Problema

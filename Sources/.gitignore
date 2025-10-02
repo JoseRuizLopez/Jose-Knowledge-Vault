@@ -1,8 +1,0 @@
-# Ignora todo el contenido de esta carpeta (archivos y subcarpetas)
-*
-*/
-
-# Pero conserva estos archivos "marcadores"
-!.gitignore
-!.gitkeep
-
