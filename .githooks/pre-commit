@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+set -e
+
+SUBMODULE_PATH="Sources"
+
+# ¿Existe el submódulo?
+if [ -d "$SUBMODULE_PATH/.git" ] || git ls-files --stage | grep -q "160000.*$SUBMODULE_PATH$"; then
+  echo "[pre-commit] Revisando cambios en submódulo: $SUBMODULE_PATH"
+
+  # Asegurar que el submódulo está inicializado
+  git submodule update --init $SUBMODULE_PATH
+
+  # ¿Hay cambios sin commitear dentro del submódulo?
+  if ! git -C "$SUBMODULE_PATH" diff --quiet || ! git -C "$SUBMODULE_PATH" diff --cached --quiet; then
+    echo "[pre-commit] Cambios detectados en $SUBMODULE_PATH → comiteando en el repo privado..."
+    git -C "$SUBMODULE_PATH" add -A
+    # Mensaje de commit heredado del padre si existe, si no, genérico
+    MSG="$(git log -1 --pretty=%B)"
+    git -C "$SUBMODULE_PATH" commit -m "$MSG" || true
+    # Empuja al remoto del submódulo
+    git -C "$SUBMODULE_PATH" push || {
+      echo "[pre-commit] Aviso: no se pudo hacer push del submódulo. Revisa credenciales/red."
+      exit 1
+    }
+    # Actualiza el puntero del submódulo en el repo padre
+    git add "$SUBMODULE_PATH"
+    echo "[pre-commit] Submódulo actualizado. Continúo con el commit del padre."
+  fi
+fi
