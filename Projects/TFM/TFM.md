@@ -164,12 +164,38 @@ Imagen → Red Neuronal (DETR/[[CLIP]])  → Scene Graph  → Mapeo labels ↔ K
 ---
 ## ✅ Checklist final
 
-- [ ] Tener PDF del proyecto abierto.  
-- [ ] Conocer 2–3 papers de [[X-NeSyL]] y MonuMAI.  
-- [ ] Saber explicar qué es la parte simbólica.  
-- [ ] Mostrar claridad conceptual en la integración DL + KG.  
+- [x] Tener PDF del proyecto abierto.  
+- [x] Conocer 2–3 papers de [[X-NeSyL]] y MonuMAI.  
+- [x] Saber explicar qué es la parte simbólica.  
+- [x] Mostrar claridad conceptual en la integración DL + KG.  
 - [ ] Preparar 2–3 preguntas técnicas abiertas.  
-- [ ] Mostrar disposición a aprender de su enfoque. 
+- [x] Mostrar disposición a aprender de su enfoque. 
 - [ ] Preguntar si puedo asistir a alguna clase suya.
 ---
 
+
+# Apuntes de la Reunión
+Podemos usar LlaVa,
+
+Les interesa publicar
+Usar algo mas actualizado como transformer o GPTs.
+
+No funcionan bien el ChatGPT para clarificarlo con las descripciones de las imágenes.
+Se podría centrar en las interacciones de los humanos con el entorno.
+Se puede probar que cuando falla, con la explicación del fallo aprenda a clarificarlo bien.
+
+Podemos usar varios Llama que uno aprendido la gastronomía española y otro no, si podemos detectar si olvida conocimiento. Para detectar también si podemos detectas si se ha aprendido conocimiento. Pero esto se desvía demasiado de la idea original, mejor ajustar primero la idea original.
+
+# Tareas
+- revisar bases de datos actuales/estándares para modelos simbólicos.
+- hacer revisión bibliográfica del campo, modelos, evolución de los modelos, y por donde van,
+- determinar por donde tiramos, una solución concreta y las mejoramos o cogemos varios.
+- que modelos coger
+- mejorar un modelo o que?
+- Modelos Nesy o Lenguaje-visión.
+
+- Hay benchmark dentro de Nesy: Para ver que evalúan o que podemos echar en falta, y ver algún estado del arte y poder mejorarlo.
+- Explicabilidad esos modelos.
+- Cubick de Natalia Diaz, sobre los sesgos usando embeddings.
+https://ieeexplore.ieee.org/abstract/document/9991965
+https://openaccess.thecvf.com/content/WACV2024/papers/Koch_SGRec3D_Self-Supervised_3D_Scene_Graph_Learning_via_Object-Level_Scene_Reconstruction_WACV_2024_paper.pdf
