@@ -1,3 +1,5 @@
+links: [[TFM]] 
+
 ## Parte simbólica en un modelo neurosimbólico
 
 En general, el componente simbólico:
@@ -111,3 +113,7 @@ Eso conecta directamente con su marco y con los papers que revisamos (EXPLANet, 
 |**Guiar**|(Opcional) Aporta restricciones o feedback al entrenamiento|
 
 
+
+---
+tags:
+	#Index #TFM
