@@ -175,16 +175,16 @@ Imagen → Red Neuronal (DETR/[[CLIP]])  → Scene Graph  → Mapeo labels ↔ K
 
 
 # Apuntes de la Reunión
-Podemos usar LlaVa,
+Mis tutoras les interesa publicar.
+Pero debemos de buscar para usar algo mas actualizado como transformer o GPTs.
 
-Les interesa publicar
-Usar algo mas actualizado como transformer o GPTs.
+Como idea podríamos usar LlaVa.
+Como idea que explorar: 
+- So funcionan bien el ChatGPT para clarificarlo con las descripciones de las imágenes (se puede buscar una posible solución)
+- Se podría centrar en las interacciones de los humanos con el entorno, como en el caso de Sierra Nevada viendo que tipo de turismo hacen (gastronómico, de actividad, de paisaje, etc).
+- Como posible idea se puede probar que cuando falla, con la explicación del fallo aprenda a clarificarlo bien, aunque eso parece que si que no habría que probar ya que si rectifica si se lo dices.
 
-No funcionan bien el ChatGPT para clarificarlo con las descripciones de las imágenes.
-Se podría centrar en las interacciones de los humanos con el entorno.
-Se puede probar que cuando falla, con la explicación del fallo aprenda a clarificarlo bien.
-
-Podemos usar varios Llama que uno aprendido la gastronomía española y otro no, si podemos detectar si olvida conocimiento. Para detectar también si podemos detectas si se ha aprendido conocimiento. Pero esto se desvía demasiado de la idea original, mejor ajustar primero la idea original.
+Otra idea sería usar varios Llama que uno aprendido la gastronomía española y otro no, si podemos detectar si olvida conocimiento. Para detectar también si podemos detectas si se ha aprendido conocimiento. Pero esto se desvía demasiado de la idea original, mejor ajustar primero la idea original.
 
 # Tareas
 - revisar bases de datos actuales/estándares para modelos simbólicos.
@@ -195,7 +195,8 @@ Podemos usar varios Llama que uno aprendido la gastronomía española y otro no,
 - Modelos Nesy o Lenguaje-visión.
 
 - Hay benchmark dentro de Nesy: Para ver que evalúan o que podemos echar en falta, y ver algún estado del arte y poder mejorarlo.
-- Explicabilidad esos modelos.
-- Cubick de Natalia Diaz, sobre los sesgos usando embeddings.
+- Busca forma de explicabilidad en esos modelos.
+- Buscar sobre [CUBIC](https://arxiv.org/pdf/2505.11060) de Natalia Diaz Rodriguez, sobre los sesgos usando embeddings.
 https://ieeexplore.ieee.org/abstract/document/9991965
 https://openaccess.thecvf.com/content/WACV2024/papers/Koch_SGRec3D_Self-Supervised_3D_Scene_Graph_Learning_via_Object-Level_Scene_Reconstruction_WACV_2024_paper.pdf
+
