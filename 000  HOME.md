@@ -6,6 +6,8 @@ All roads leads to home. This is the launchpad and homebase.
 - [[004  Interests]] — #MOC
 - [[005  Sources]] — #Source
 - [[006 Career]] — #Career
+- [[007 Master]] — #Master
+- [[008 Summaries]] — #Summary 
 - [[100  Projects]] — #Project 
 
 

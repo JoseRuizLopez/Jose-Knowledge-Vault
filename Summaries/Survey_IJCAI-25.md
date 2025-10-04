@@ -2,8 +2,9 @@ links: [[008 Summaries|Summaries]]
 
 
 
-_Resumen del articulo "[[Survey_IJCAI-25.pdf|Neuro-Symbolic Artificial Intelligence: A Task-Directed Survey in the Black-Box Models Era]]"_
 # Survey_IJCAI-25
+_Resumen del articulo "[[Survey_IJCAI-25.pdf|Neuro-Symbolic Artificial Intelligence: A Task-Directed Survey in the Black-Box Models Era]]"_
+
 El artículo defiende que, tras el “boom” de modelos _black-box_, la IA **neuro-simbólica (NeSy)** vuelve a ser clave para ganar **explicabilidad, coherencia lógica y generalización composicional**. Lo hace con una revisión “**orientada a tareas**” (no solo por arquitecturas) de trabajos 2017–2024 en NLP y Visión, y compara el rendimiento NeSy vs. black-box en _benchmarks_ reales (no solo sintéticos). Además, sanea el término NeSy: aquí **solo** cuenta lo que **integra redes neuronales con componentes simbólicos** (solvers, reglas lógicas, autómatas, etc.), excluyendo “explicabilidad post-hoc” sin estructura simbólica real.
 
 ### Metodología de la revisión
