@@ -1,9 +1,8 @@
 links: [[008 Summaries|Summaries]] 
 
 
-# HAKE
-_Resumen del articulo "[[HAKE.pdf|HAKE: A Knowledge Engine Foundation for Human Activity Understanding]]"_
-
+Reference: [[HAKE.pdf|HAKE: A Knowledge Engine Foundation for Human Activity Understanding]]
+# Resumen del HAKE
 **Problema:**  
 Los modelos de visión profunda tradicionales (CNN, DETR, etc.) funcionan bien para reconocer **objetos**, pero fallan al interpretar **actividades humanas** (como _“lavar el coche”_ o _“montar a caballo”_).  
 Las actividades requieren **relaciones entre partes del cuerpo, objetos y acciones**; no basta con detectar píxeles o categorías.
@@ -198,4 +197,4 @@ Además, demuestra **gran capacidad de transferencia** entre datasets sin reentr
 
 ---
 tags:
-	#Index #Summary 
+	#Writing #Summary
