@@ -4,69 +4,83 @@ links: [[TFM]]
 
 ## Taxonomía del campo
 
-- Arquitecturas NeSy: lógica probabilística/difusa (DeepProbLog, LTN), verificación/constraints, abducción; concept-based models (CBM) y bottlenecks; razonamiento en embedding space; pipelines modulares percepción→razonamiento.
+- **Arquitecturas NeSy:** lógica probabilística y diferenciable ([DeepProbLog](https://arxiv.org/abs/1805.10872), [Logic Tensor Networks](https://arxiv.org/abs/2012.13635)), razonamiento abductivo (Evans & Grefenstette, 2018); _[concept-based models](https://arxiv.org/abs/2007.04612)_ y _bottlenecks_ interpretables; pipelines percepción→razonamiento ([Garcez et al., 2019](https://arxiv.org/abs/1905.06088)).
     
-- LVLMs/MLLMs: modelos visión-lenguaje de propósito general (LLaVA, InternVL2/2.5, Qwen2‑VL, Idefics2) frente a modelos de HOI/SGG específicos (HOTR, QPIC, FGAHOI, STIP) y 3D (SGRec3D).
+- **LVLMs/MLLMs:** modelos de visión-lenguaje generales: LLaVA-1.6, InternVL2, Qwen2-VL, Idefics2; frente a modelos HOI/SGG específicos: HOTR, QPIC, FGAHOI, STIP y SGRec3D.
     
-- Explicabilidad y sesgos: reglas auditables (HAKE), diagnósticos de conceptos (CUBIC), suites generales (HELM, BIG-bench/BBH), reasoning shortcuts (rsbench).
+- **Explicabilidad y sesgos:** reglas auditables (HAKE), diagnóstico de conceptos ([CUBIC](https://arxiv.org/abs/2505.11060?utm_source=chatgpt.com)), benchmarks de razonamiento (rsbench), y evaluación global ([HELM](https://crfm.stanford.edu/helm/?utm_source=chatgpt.com), BIG-Bench, [BIG-Bench Hard](https://arxiv.org/abs/2210.09261?utm_source=chatgpt.com)).
     
+
+---
 
 ## Evolución 2017–2025 (hitos)
 
-- 2017–2019: datasets diagnósticos (CLEVR, GQA); primeros NeSy modernos (Neuro‑Symbolic Concept Learner); auge SGG/HOI.
+- **2017–2019:** datasets diagnósticos (CLEVR, GQA); primer _Neuro-Symbolic Concept Learner_ (Mao et al., 2019).
     
-- 2020–2022: paradigmas de lógica diferenciable y CBM; métodos HOI DETR‑based (QPIC/HOTR); HAKE como KB de primitivas + reglas.
+- **2020–2022:** _Concept Bottleneck Models_ (Koh et al., 2020); lógica diferenciable (DeepProbLog, LTN); modelos HOI DETR-based (QPIC, HOTR); HAKE como base de primitivas + reglas.
     
-- 2023–2024: LVLMs de instrucción (LLaVA), escalado (InternVL2/2.5, Qwen2‑VL), MLLMs eficientes (Idefics2). Aparecen splits SG para medir generalización sistemática (HICO‑DET‑SG, V‑COCO‑SG). rsbench unifica evaluación de reasoning shortcuts.
+- **2023–2024:** _Instruction-tuned LVLMs_ (LLaVA-1.6), escalado multimodal (InternVL2, Qwen2-VL), MLLMs eficientes (Idefics2); splits SG (HICO-DET-SG / V-COCO-SG); benchmark de razonamiento (rsbench).
     
-- 2025: CUBIC para detectar sesgos con embeddings de conceptos en VLM/LVLM; HELM amplía evaluación multimodal y de seguridad; consolidación de dinámicas de resolución variable y test‑time scaling en LVLMs.
+- **2025:** sesgos y fairness ([CUBIC](https://arxiv.org/abs/2505.11060?utm_source=chatgpt.com)); [HELM 2.0](https://crfm.stanford.edu/helm/?utm_source=chatgpt.com) amplía evaluación multimodal; consolidación de _test-time scaling_ (Qwen2-VL).
     
+
+---
 
 ## Modelos representativos y aportes
 
-- LLaVA/1.6: afinado por instrucciones multimodales; fuerte en VQA y caption, coste accesible.
+- **LLaVA-1.6**: fine-tuning instruccional multimodal, excelente en VQA/caption.
     
-- InternVL2/2.5: escalado progresivo, destaca en OCR, documentos y gráficos; test‑time scaling.
+- **InternVL2/2.5**: escalado progresivo, alto rendimiento en OCR y documentos.
     
-- Qwen2‑VL: tokens visuales a resolución dinámica; versiones 2B/8B/72B.
+- **Qwen2-VL**: resolución dinámica y _multi-scale RoPE_.
     
-- Idefics2 (8B): diseño eficiente y resultados SOTA en su tamaño; buenas prácticas de preentrenamiento.
+- **Idefics2 (8B)**: modelo eficiente y reproducible con alineamiento texto-imagen.
     
-- HOI/SGG: QPIC/HOTR (DETR‑based) y STIP (dos etapas) como baselines; FGAHOI (features agrupadas). SGRec3D en 3D.
+- **HOI/SGG:** QPIC, HOTR, STIP, FGAHOI, SGRec3D.
     
-- NeSy/Explicabilidad: HAKE (PaSta+reglas) para razonamiento composicional y transferencia; rsbench para medir atajos de razonamiento y calidad de conceptos; CUBIC para descubrir sesgos sin anotación.
+- **NeSy/Explicabilidad:** HAKE; rsbench para _shortcuts_; [CUBIC](https://arxiv.org/abs/2505.11060?utm_source=chatgpt.com) para sesgos.
     
+
+---
 
 ## Benchmarks y lecciones
 
-- HOI generalización sistemática: fuertes caídas de mAP en HICO‑DET‑SG y V‑COCO‑SG; la diversidad del entrenamiento mitiga parcialmente.
+- Generalización sistemática: HICO-DET-SG / V-COCO-SG muestran caída de mAP en combinaciones no vistas.
     
-- Concept quality y RS: rsbench muestra que incluso NeSy/CBM sufren baja calidad de conceptos y OOD drops; necesidad de verificar semántica de conceptos.
+- _Reasoning Shortcuts:_ rsbench evidencia errores de concepto en NeSy/CBM.
     
-- Fairness/robustez: HELM (múltiples dimensiones, incluye seguridad); BIG‑bench/BBH para razonamiento general. CUBIC identifica conceptos sesgados de forma no supervisada.
+- Fairness y robustez: [HELM](https://crfm.stanford.edu/helm/?utm_source=chatgpt.com), BIG-Bench, [BBH](https://arxiv.org/abs/2210.09261?utm_source=chatgpt.com), [CUBIC](https://arxiv.org/abs/2505.11060?utm_source=chatgpt.com).
     
+
+---
 
 ## Tendencias actuales
 
-- Modularidad NeSy + LVLM como “juez/clarificador”.
+- Integración **NeSy + LVLM** como clarificador/juez.
     
-- Reglas/ontologías ligeras para verificación/repair post‑hoc.
+- Uso de **reglas y ontologías ligeras** para _repair post-hoc_.
     
-- Resolución dinámica y reducción de tokens visuales en LVLMs.
+- Eficiencia en LVLMs con **resolución dinámica** y **reducción de tokens visuales**.
     
-- Evaluación OOD y sesgos a nivel de conceptos, no solo accuracy.
+- Evaluación OOD y fairness centrada en **conceptos y trazas de razonamiento**.
     
 
-## Implicaciones para el [[TFM]]
+---
 
-- Adoptar HICO‑DET‑SG/V‑COCO‑SG como núcleo de evaluación.
-    
-- Combinar baseline HOI (STIP o QPIC) con capa simbólica tipo [[HAKE]] y un LVLM (LLaVA/InternVL/Qwen2‑VL) como clarificador.
-    
-- Incluir diagnóstico de sesgos con CUBIC y tareas rsbench para validar calidad de conceptos.
-    
-- Reportar métricas de fairness y trazas de reglas junto con mAP/Recall@K.
+## Implicaciones para el TFM
 
+- Usar HICO-DET-SG / V-COCO-SG como benchmark principal.
+    
+- Integrar capa simbólica tipo HAKE con LVLM (LLaVA/InternVL/Qwen2-VL).
+    
+- Analizar sesgos con [CUBIC](https://arxiv.org/abs/2505.11060?utm_source=chatgpt.com) y razonamiento con rsbench.
+    
+- Reportar métricas de fairness (HELM) y generalización sistemática (SG-splits).
+    
+
+---
+
+## Posible línea de proceso
 
 
 ---

@@ -124,6 +124,8 @@ Tareas centradas en imagen (y opcionalmente vídeo corto) con foco en interaccio
 2. Correr baselines iniciales.  
 3. Implementar capa simbólica mínima y validarla.  
 4. Primera evaluación de sesgos con CUBIC + informe preliminar.
+## Posible Pipeline
+**Pipeline:** HOI/SGG → capa simbólica tipo HAKE → LVLM clarificador (LLaVA / InternVL / Qwen2-VL) → diagnóstico [CUBIC](https://arxiv.org/abs/2505.11060?utm_source=chatgpt.com)/rsbench → métricas [HELM](https://crfm.stanford.edu/helm/?utm_source=chatgpt.com) / fairness + SG-splits
 
 ## Referencias clave
 
