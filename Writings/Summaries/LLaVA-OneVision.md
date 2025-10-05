@@ -147,7 +147,7 @@ Para el TFM, puede servirme como **componente perceptual y de razonamiento ling�
     
 - Describe semánticamente la escena.
     
-- Tú puedes luego **mapear esas descripciones a un grafo de conocimiento** y aplicar razonamiento simbólico (tipo HAKE + KG).
+- Puedo luego **mapear esas descripciones a un grafo de conocimiento** y aplicar razonamiento simbólico (tipo HAKE + KG).
 
 
 ---

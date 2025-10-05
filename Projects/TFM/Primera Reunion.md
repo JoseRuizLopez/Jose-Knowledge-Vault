@@ -169,7 +169,7 @@ Pero debemos de buscar para usar algo mas actualizado como transformer o GPTs.
 
 Como idea podríamos usar LlaVa.
 Como idea que explorar: 
-- So funcionan bien el ChatGPT para clarificarlo con las descripciones de las imágenes (se puede buscar una posible solución)
+- No funcionan bien el ChatGPT para clarificarlo con las descripciones de las imágenes (se puede buscar una posible solución)
 - Se podría centrar en las interacciones de los humanos con el entorno, como en el caso de Sierra Nevada viendo que tipo de turismo hacen (gastronómico, de actividad, de paisaje, etc).
 - Como posible idea se puede probar que cuando falla, con la explicación del fallo aprenda a clarificarlo bien, aunque eso parece que si que no habría que probar ya que si rectifica si se lo dices.
 
@@ -189,7 +189,9 @@ Otra idea sería usar varios Llama que uno aprendido la gastronomía española y
 - Algunas papers relacionados al TFM que pueden ser interesantes:
 	- https://ieeexplore.ieee.org/abstract/document/9991965
 	- https://openaccess.thecvf.com/content/WACV2024/papers/Koch_SGRec3D_Self-Supervised_3D_Scene_Graph_Learning_via_Object-Level_Scene_Reconstruction_WACV_2024_paper.pdf
-
+	- HELM: [https://urldefense.com/v3/__https://crfm.stanford.edu/helm/__;!!D9dNQwwGXtA!ToMK3fi1RR2boCoH6Q2v-K9hC7rA3lPs2_91-oPv6TrbtCGX4hSR2wk5yz5lxN9DH6fCz2wHZDQw_5KBWcIJkrm7ml4TLgazhX5J$](https://urldefense.com/v3/__https://crfm.stanford.edu/helm/__;!!D9dNQwwGXtA!ToMK3fi1RR2boCoH6Q2v-K9hC7rA3lPs2_91-oPv6TrbtCGX4hSR2wk5yz5lxN9DH6fCz2wHZDQw_5KBWcIJkrm7ml4TLgazhX5J$)  
+	- Can serve as baseline to  compare bias mitigation:  
+	  BIG-BENCH: Evaluating the capabilities and biases of large language models [https://urldefense.com/v3/__https://deepgram.com/learn/big-bench-llm-benchmark-guide__;!!D9dNQwwGXtA!ToMK3fi1RR2boCoH6Q2v-K9hC7rA3lPs2_91-oPv6TrbtCGX4hSR2wk5yz5lxN9DH6fCz2wHZDQw_5KBWcIJkrm7ml4TLshgJaNJ$](https://urldefense.com/v3/__https://deepgram.com/learn/big-bench-llm-benchmark-guide__;!!D9dNQwwGXtA!ToMK3fi1RR2boCoH6Q2v-K9hC7rA3lPs2_91-oPv6TrbtCGX4hSR2wk5yz5lxN9DH6fCz2wHZDQw_5KBWcIJkrm7ml4TLshgJaNJ$)
 
 
 ---
