@@ -4,6 +4,7 @@ links: [[100  Projects|Projects]]
 *Ir a ...*
 -  [[Parte Simbolica|Parte Simbólica]]
 -  [[Primera Reunion|Primera Reunión]]
+- [[Inicio de Planificación]]
 
 
 

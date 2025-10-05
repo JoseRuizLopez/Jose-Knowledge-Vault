@@ -1,4 +1,9 @@
-# EXplainable Neural-Symbolic Learning (X-NeSyL) methodology to fuse deep learning representations with expert knowledge graphs: the MonuMAI cultural heritage use case
+links: [[008 Summaries|Summaries]] 
+
+
+Reference: [[X-NeSyL.pdf|EXplainable Neural-Symbolic Learning (X-NeSyL) methodology to fuse deep learning representations with expert knowledge graphs: the MonuMAI cultural heritage use case]]
+
+# X-NeSyL
 _(N. Díaz-Rodríguez, A. Lamas, J. Sánchez, G. Franchi, I. Donadello, S. Tabik, D. Filliat, P. Cruz, R. Montes, F. Herrera) [arXiv](https://arxiv.org/abs/2104.11914)_
 
 **Objetivo / Problema**  
@@ -20,3 +25,8 @@ Este es el paper base de **X-NeSyL**. Su meta es fusionar representaciones apren
 - Puedo reutilizar su métrica de alineación explicativa, o adaptarla para tu dominio.
 - Puedo estudiar y comparar tu **SAG vs KG** como ellos hacen, pero en un dominio diferente.
 - Si Siham pregunta “¿qué se ha hecho ya con X-NeSyL?”, este es el paper que se debe dominar.
+
+
+---
+tags:
+	#Writing #Summary
