@@ -81,7 +81,7 @@ Formula una sola frase que combine **qué se busca** y **para qué**.
 - INE, Eurostat, Open Data municipal, OpenStreetMap, registros de transporte o clima.
 
 ### Marco simbólico
-- OWL/RDF, ontologías urbanas, lógicas descriptivas para normativas.
+- [[OWL]]/[[RDF]], ontologías urbanas, lógicas descriptivas para normativas.
 
 ### Tecnologías
 - Neo4j / RDFLib → grafos.
@@ -146,7 +146,7 @@ Formula una sola frase que combine **qué se busca** y **para qué**.
 - **Objetivo general:** Integrar datos urbanos y normativa para simular escenarios explicables.  
 - **Interés:** Nuevo *digital twin* explicable útil para administración y ciudadanía.  
 - **Novedad:** Reglas legales + grafos + IA profunda = simulaciones auditables.  
-- **Viabilidad:** Datos abiertos + ontologías OWL + Neo4j/PyTorch + prototipo inicial.  
+- **Viabilidad:** Datos abiertos + ontologías [[OWL]] + Neo4j/PyTorch + prototipo inicial.  
 - **Resultados esperados:** % reducción tráfico, cambios en precios, coherencia normativa.  
 
 ---

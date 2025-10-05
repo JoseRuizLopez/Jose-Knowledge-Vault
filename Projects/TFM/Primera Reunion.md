@@ -96,11 +96,11 @@ Traducir las **predicciones del modelo neuronal** a **conceptos simbólicos**.
 - **Inferir** nuevas relaciones (“Si hay semáforo rojo, los coches deben estar detenidos”).  
 - **Explicar** decisiones (“Es una calle porque hay coches, peatones y semáforos”).  
 ### 4. Implementación práctica
-| Nivel | Herramienta | Dificultad | Aporte |
-|-------|--------------|-------------|---------|
-| Básico | Python + diccionarios | 🟢 | Verificación |
-| Medio | Neo4j / RDF + SPARQL | 🟠 | Consultas semánticas |
-| Avanzado | OWL / Prolog / Datalog | 🔴 | Razonamiento completo |
+| Nivel    | Herramienta                | Dificultad | Aporte                |
+| -------- | -------------------------- | ---------- | --------------------- |
+| Básico   | Python + diccionarios      | 🟢         | Verificación          |
+| Medio    | Neo4j / [[RDF]] + SPARQL   | 🟠         | Consultas semánticas  |
+| Avanzado | [[OWL]] / Prolog / Datalog | 🔴         | Razonamiento completo |
 
 ---
 ## Esquema conceptual del sistema

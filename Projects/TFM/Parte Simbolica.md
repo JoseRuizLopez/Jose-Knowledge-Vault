@@ -26,7 +26,7 @@ El DL detecta objetos y relaciones, pero se define un **grafo de conocimiento (K
 `Regla 1: "Si un objeto es Persona y otro es Coche, la relación válida es 'conduce' o 'entra_en', pero no 'parte_de'." Regla 2: "Si un objeto es Edificio, puede tener relación 'parte_de' con Ciudad."`
 
 📘 Técnicamente, esto se puede almacenar como:
-- Un **ontología OWL/RDF** (para razonamiento lógico formal).
+- Un **ontología [[OWL]]/[[RDF]]** (para razonamiento lógico formal).
 - Un **Neo4j graph** (si priorizas consultas estructuradas).
 - Un **diccionario Python + reglas simbólicas** (más simple, pero suficiente para un prototipo).
 
@@ -45,7 +45,7 @@ Esto implica:
 > El modelo detecta “Coche sobre Persona” → la parte simbólica verifica que **esa relación no es coherente** → puede marcarla como inconsistente o corregirla.
 
 📘 Aquí entra el razonamiento simbólico:  
-usando lógicas tipo **Datalog, Prolog, OWL Reasoner** o incluso comprobaciones heurísticas, puedes **detectar contradicciones o anomalías**.
+usando lógicas tipo **Datalog, Prolog, [[OWL]] Reasoner** o incluso comprobaciones heurísticas, puedes **detectar contradicciones o anomalías**.
 
 ---
 ### 🔹 Nivel 3 — _Razonamiento y explicabilidad simbólica_
@@ -87,8 +87,8 @@ Dependiendo del enfoque y tiempo que tengas, hay varios niveles de profundidad:
 | Nivel    | Herramienta / Enfoque                       | Dificultad | Qué aporta                                           |
 | -------- | ------------------------------------------- | ---------- | ---------------------------------------------------- |
 | Básico   | Diccionario + comprobación lógica en Python | 🟢Fácil    | Verificación básica de relaciones válidas            |
-| Medio    | Neo4j o RDF + SPARQL                        | 🟠Media    | Consultas estructuradas y reglas declarativas        |
-| Avanzado | OWL Reasoner / Prolog / Datalog             | 🔴Alta     | Razonamiento lógico complejo e inferencia automática |
+| Medio    | Neo4j o [[RDF]] + SPARQL                    | 🟠Media    | Consultas estructuradas y reglas declarativas        |
+| Avanzado | [[OWL]] Reasoner / Prolog / Datalog         | 🔴Alta     | Razonamiento lógico complejo e inferencia automática |
 
 ---
 ## 🧭 5. Cómo explicárselo a Siham Tabik

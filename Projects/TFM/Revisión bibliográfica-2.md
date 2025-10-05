@@ -3,17 +3,17 @@ links: [[TFM]]
 # Revisión bibliográfica
 ## Bases de datos y estándares actuales para modelos simbólicos  
 ### Estándares de representación y validación  
-RDF/OWL/RDFS como núcleo del stack Semántico (razonamiento monotónico bajo OWA). Buenas prácticas y límites en control de calidad y consistencia. [2024.eswc-conferences.org+1](https://2024.eswc-conferences.org/wp-content/uploads/2024/05/77770375.pdf)  
+[[RDF]]/[[OWL]]/RDFS como núcleo del stack Semántico (razonamiento monotónico bajo OWA). Buenas prácticas y límites en control de calidad y consistencia. [2024.eswc-conferences.org+1](https://2024.eswc-conferences.org/wp-content/uploads/2024/05/77770375.pdf)  
 
 
-SHACL como estándar W3C para validar grafos RDF con constraints (complementa OWL; útil para “reglas de coherencia” de escenas). Hay trabajos recientes proponiendo frameworks de calidad y aceleración de validación. **Implicación:** usar SHACL para verificar consistencia simbólica de las salidas del modelo. [OUP Academic+2openreview.net+2](https://academic.oup.com/dsh/advance-article/doi/10.1093/llc/fqaf067/8213722?searchresult=1&utm_source=chatgpt.com)
+[[SHACL]] como estándar W3C para validar grafos [[RDF]] con constraints (complementa [[OWL]]; útil para “reglas de coherencia” de escenas). Hay trabajos recientes proponiendo frameworks de calidad y aceleración de validación. **Implicación:** usar [[SHACL]] para verificar consistencia simbólica de las salidas del modelo. [OUP Academic+2openreview.net+2](https://academic.oup.com/dsh/advance-article/doi/10.1093/llc/fqaf067/8213722?searchresult=1&utm_source=chatgpt.com)
 
 
 ### Recursos de conocimiento reutilizables (para mapeo y “commonsense”)  
 - Wikidata/DBpedia/Schema.org (ontologías generales + tipologías). 
 - WordNet/ConceptNet/CSKG (commonsense para enriquecer relaciones). 
 
-En 2025 aparecen propuestas de “enriquecimiento NeSy” de grafos de escena con CSKG para VQA/razonamiento. **Implicación:** usar grafos generales + CSKG como capa simbólica inicial y especializar con SHACL. [SpringerLink](https://link.springer.com/article/10.1007/s41060-025-00827-7)
+En 2025 aparecen propuestas de “enriquecimiento NeSy” de grafos de escena con CSKG para VQA/razonamiento. **Implicación:** usar grafos generales + CSKG como capa simbólica inicial y especializar con [[SHACL]]. [SpringerLink](https://link.springer.com/article/10.1007/s41060-025-00827-7)
 
 ## Revisión bibliográfica del campo: modelos, evolución y hacia dónde va  
 ### Neuro-Simbólico (NeSy)  
@@ -23,7 +23,7 @@ Encuestas y síntesis 2024–2025 destacan integración de aprendizaje neuronal 
 
 ***Marcos recientes:*** CCN+ (compliance “by design” con requisitos lógicos sobre la salida del modelo), grafos de escena enriquecidos con conocimiento (NeSyGRN). 
 
-**Implicación:** imponer requisitos simbólicos (SHACL/OWL) y/o enrutar razonamiento paso a paso sobre grafos. [ScienceDirect+1](https://www.sciencedirect.com/science/article/pii/S0888613X24000112)
+**Implicación:** imponer requisitos simbólicos ([[SHACL]]/[[OWL]]) y/o enrutar razonamiento paso a paso sobre grafos. [ScienceDirect+1](https://www.sciencedirect.com/science/article/pii/S0888613X24000112)
 
 ### Modelos Visión-Lenguaje (LVLM/MLLM)  
 Las encuestas 2025 reportan transición hacia modelos de razonamiento visual más generalistas, con nuevas técnicas de alineación y un ecosistema de benchmarks amplio (MMBench, MMMU, etc.). El énfasis actual: fidelidad del razonamiento, reducción de alucinaciones y evaluación multimodal más válida. [arXiv+2arXiv+2](https://arxiv.org/abs/2501.02189)  
@@ -33,9 +33,9 @@ Modelos recientes para razonamiento visual multimodal muestran avances en tareas
 
 ## ¿Por dónde tirar? Estrategias de solución  
 ### Opción A: Pipeline NeSy “ligero” y verificable  
-Percepción con LVLM sólido → construcción de scene graph → mapeo a KG de dominio → validación SHACL + reglas OWL/SPARQL → métricas de coherencia simbólica.  
+Percepción con LVLM sólido → construcción de scene graph → mapeo a KG de dominio → validación [[SHACL]] + reglas [[OWL]]/SPARQL → métricas de coherencia simbólica.  
 - Pros: ingeniería controlada, explicabilidad clara, rápido de iterar. 
-- Contras: el razonamiento simbólico es post-hoc. Soporte bibliográfico en SHACL/OWL y enriquecimiento con CSKG. [OUP Academic+22024.eswc-conferences.org+2](https://academic.oup.com/dsh/advance-article/doi/10.1093/llc/fqaf067/8213722?searchresult=1&utm_source=chatgpt.com)
+- Contras: el razonamiento simbólico es post-hoc. Soporte bibliográfico en [[SHACL]]/[[OWL]] y enriquecimiento con CSKG. [OUP Academic+22024.eswc-conferences.org+2](https://academic.oup.com/dsh/advance-article/doi/10.1093/llc/fqaf067/8213722?searchresult=1&utm_source=chatgpt.com)
 
 
 ### Opción B: NeSy “profundo” con restricciones durante entrenamiento o decodificación  
@@ -56,15 +56,15 @@ Elegir un LVLM actual con buen trade-off y tool-use: p.ej., familias recientes r
 
 
 ### Capa simbólica  
-KG en RDF/OWL, validación con SHACL; añadir reglas SHACL-SPARQL para “políticas” de escena (p.ej., incompatibilidades espaciales/funcionales). 
+KG en [[RDF]]/[[OWL]], validación con [[SHACL]]; añadir reglas [[SHACL]]-SPARQL para “políticas” de escena (p.ej., incompatibilidades espaciales/funcionales). 
 
 **Opcional:** CSKG/ConceptNet para completar relaciones no observadas. Evidencia de efectividad en VQA razonado. [MDPI+2OUP Academic+2](https://www.mdpi.com/2078-2489/15/12/759)
 
 ### NeSy “compliance by design”  
-Si se opta por entrenamiento con restricciones: CCN+ como referencia metodológica para imponer requisitos sobre salidas. [ScienceDirect](https://www.sciencedirect.com/science/article/pii/S0888613X24000112)
+Si se opta por entrenamiento con restricciones: [[001 - 0212 Redes Neuronales Convolucionales|CCN]]+ como referencia metodológica para imponer requisitos sobre salidas. [ScienceDirect](https://www.sciencedirect.com/science/article/pii/S0888613X24000112)
 
 ## ¿Mejorar un modelo o qué hacer?  
-- Mejora focalizada y publicable: añadir “validador simbólico” (SHACL) que detecte/penalice incoherencias del LVLM y retroalimente prompts/decodificación (self-refine simbólico). Literatura reciente sostiene la validez de SHACL para garantizar consistencia de KG, un vacío habitual en LVLMs. [OUP Academic+1](https://academic.oup.com/dsh/advance-article/doi/10.1093/llc/fqaf067/8213722?searchresult=1&utm_source=chatgpt.com)  
+- Mejora focalizada y publicable: añadir “validador simbólico” ([[SHACL]]) que detecte/penalice incoherencias del LVLM y retroalimente prompts/decodificación (self-refine simbólico). Literatura reciente sostiene la validez de [[SHACL]] para garantizar consistencia de KG, un vacío habitual en LVLMs. [OUP Academic+1](https://academic.oup.com/dsh/advance-article/doi/10.1093/llc/fqaf067/8213722?searchresult=1&utm_source=chatgpt.com)  
 - Alternativa: entrenar/ajustar un decodificador con pérdidas por violación de constraints (inspiración CCN+). [ScienceDirect](https://www.sciencedirect.com/science/article/pii/S0888613X24000112)  
 - En paralelo: enriquecer el scene graph con CSKG y usar un enrutador simbólico paso a paso (NeSyGRN). [SpringerLink](https://link.springer.com/article/10.1007/s41060-025-00827-7)
 
@@ -84,28 +84,28 @@ Tendencia 2025: los LVLMs avanzan en benchmarks de razonamiento, pero la fidelid
 ## Propuesta concreta (MVP publicable)  
 ### Pipeline  
 - Paso 1: LVLM SOTA (evaluado previamente en MMBench/MMMU) produce detecciones, relaciones y caption/CoT. 
-- Paso 2: Construcción de scene graph y mapeo a KG (RDF/OWL). 
-- Paso 3: Validación SHACL de restricciones espaciales/funcionales; registro de violaciones (log de incoherencias). 
+- Paso 2: Construcción de scene graph y mapeo a KG ([[RDF]]/[[OWL]]). 
+- Paso 3: Validación [[SHACL]] de restricciones espaciales/funcionales; registro de violaciones (log de incoherencias). 
 - Paso 4: Bucle de auto-refinamiento guiado por violaciones (prompting penaliza hipótesis incoherentes; o reranking simbólico). 
 - Paso 5: Explicación híbrida: conceptos intermedios + reglas satisfechas/violadas (tabla de trazabilidad).  
 
 
-Justificación: se alinea con la dirección 2025 de evaluar fidelidad del razonamiento/explícito, aprovechando estándares W3C y benchmarks nuevos de explicación. [arXiv+1](https://arxiv.org/html/2503.11557v1)
+**Justificación:** se alinea con la dirección 2025 de evaluar fidelidad del razonamiento/explícito, aprovechando estándares W3C y benchmarks nuevos de explicación. [arXiv+1](https://arxiv.org/html/2503.11557v1)
 
 ### Métricas  
 - Métricas LVLM: exactitud/EM/F1 en QA multimodal (MMBench/MMMU). 
-- Métricas simbólicas: tasa de violación de constraints SHACL, número de inferencias válidas, cobertura conceptual. 
+- Métricas simbólicas: tasa de violación de constraints [[SHACL]], número de inferencias válidas, cobertura conceptual. 
 - Métricas de explicabilidad: fidelidad (VERIFY), precisión/consistencia de conceptos (CBM/TCAV). [GitHub+2hai.stanford.edu+2](https://github.com/open-compass/MMBench)
 ###  Riesgos y mitigaciones  
 - Hallucinations del LVLM → reforzar con constraints y enriquecimiento CSKG. 
-- Coste de ingeniería de KG → empezar con ontología mínima + reglas SHACL de alto impacto y crecer iterativamente. 
-- Generalización a dominios nuevos → separar claramente perceptrón (LVLM) de reglas (SHACL) para portabilidad.
+- Coste de ingeniería de KG → empezar con ontología mínima + reglas [[SHACL]] de alto impacto y crecer iterativamente. 
+- Generalización a dominios nuevos → separar claramente perceptrón (LVLM) de reglas ([[SHACL]]) para portabilidad.
 
 ## Plan de trabajo  
-- Selección LVLM y línea base en MMBench/MMMU; curación de ontología mínima y 10–15 reglas SHACL de alto valor. 
+- Selección LVLM y línea base en MMBench/MMMU; curación de ontología mínima y 10–15 reglas [[SHACL]] de alto valor. 
 - Implementación del validador simbólico y logging de incoherencias; análisis de errores.
 - Lazo de auto-refinamiento (prompts/decodificación condicionada por violaciones) + evaluación en VERIFY/NTSEBENCH. 
-- Estudio ablation: sin SHACL vs con SHACL; sin enriquecimiento vs con CSKG; reporte de explicabilidad con CBM/TCAV en subconjunto anotado. [ACL Anthology+3GitHub+3hai.stanford.edu+3](https://github.com/open-compass/MMBench)
+- Estudio ablation: sin [[SHACL]] vs con [[SHACL]]; sin enriquecimiento vs con CSKG; reporte de explicabilidad con CBM/TCAV en subconjunto anotado. [ACL Anthology+3GitHub+3hai.stanford.edu+3](https://github.com/open-compass/MMBench)
 
 
 ---

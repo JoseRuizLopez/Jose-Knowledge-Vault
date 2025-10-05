@@ -164,7 +164,7 @@ Además, demuestra **gran capacidad de transferencia** entre datasets sin reentr
     
 - Puede fallar en razonamientos multi-paso o en escenas sin partes corporales claras.
     
-- Futuro: integrar **Knowledge Graphs** externos (commonsense), **ontologías OWL** y **razonamiento simbólico más completo (FOL o PSL)**.
+- Futuro: integrar **Knowledge Graphs** externos (commonsense), **ontologías [[OWL]]** y **razonamiento simbólico más completo (FOL o PSL)**.
     
 
 
