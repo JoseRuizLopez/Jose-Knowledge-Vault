@@ -38,5 +38,5 @@ tags:
 [^1]: https://es.wikipedia.org/wiki/Agencia_Espa%C3%B1ola_de_Supervisi%C3%B3n_de_la_Inteligencia_Artificial
 	
 
-[^2]: https://elpais.com/tecnologia/2025-03-11/el-gobierno-aprueba-la-norma-para-el-buen-uso-de-la-ia-que-obliga-a-etiquetar-contenidos-creados-con-esta-tecnologia.html?utm_source=chatgpt.com
+[^2]: https://elpais.com/tecnologia/2025-03-11/el-gobierno-aprueba-la-norma-para-el-buen-uso-de-la-ia-que-obliga-a-etiquetar-contenidos-creados-con-esta-tecnologia.html
 	

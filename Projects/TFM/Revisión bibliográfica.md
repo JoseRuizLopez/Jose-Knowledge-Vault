@@ -8,7 +8,7 @@ links: [[TFM]]
     
 - **LVLMs/MLLMs:** modelos de visión-lenguaje generales: LLaVA-1.6, InternVL2, Qwen2-VL, Idefics2; frente a modelos HOI/SGG específicos: HOTR, QPIC, FGAHOI, STIP y SGRec3D.
     
-- **Explicabilidad y sesgos:** reglas auditables (HAKE), diagnóstico de conceptos ([CUBIC](https://arxiv.org/abs/2505.11060?utm_source=chatgpt.com)), benchmarks de razonamiento (rsbench), y evaluación global ([HELM](https://crfm.stanford.edu/helm/?utm_source=chatgpt.com), BIG-Bench, [BIG-Bench Hard](https://arxiv.org/abs/2210.09261?utm_source=chatgpt.com)).
+- **Explicabilidad y sesgos:** reglas auditables (HAKE), diagnóstico de conceptos ([CUBIC](https://arxiv.org/abs/2505.11060)), benchmarks de razonamiento (rsbench), y evaluación global ([HELM](https://crfm.stanford.edu/helm/), BIG-Bench, [BIG-Bench Hard](https://arxiv.org/abs/2210.09261)).
     
 
 ---
@@ -21,7 +21,7 @@ links: [[TFM]]
     
 - **2023–2024:** _Instruction-tuned LVLMs_ (LLaVA-1.6), escalado multimodal (InternVL2, Qwen2-VL), MLLMs eficientes (Idefics2); splits SG (HICO-DET-SG / V-COCO-SG); benchmark de razonamiento (rsbench).
     
-- **2025:** sesgos y fairness ([CUBIC](https://arxiv.org/abs/2505.11060?utm_source=chatgpt.com)); [HELM 2.0](https://crfm.stanford.edu/helm/?utm_source=chatgpt.com) amplía evaluación multimodal; consolidación de _test-time scaling_ (Qwen2-VL).
+- **2025:** sesgos y fairness ([CUBIC](https://arxiv.org/abs/2505.11060)); [HELM 2.0](https://crfm.stanford.edu/helm/) amplía evaluación multimodal; consolidación de _test-time scaling_ (Qwen2-VL).
     
 
 ---
@@ -38,7 +38,7 @@ links: [[TFM]]
     
 - **HOI/SGG:** QPIC, HOTR, STIP, FGAHOI, SGRec3D.
     
-- **NeSy/Explicabilidad:** HAKE; rsbench para _shortcuts_; [CUBIC](https://arxiv.org/abs/2505.11060?utm_source=chatgpt.com) para sesgos.
+- **NeSy/Explicabilidad:** HAKE; rsbench para _shortcuts_; [CUBIC](https://arxiv.org/abs/2505.11060) para sesgos.
     
 
 ---
@@ -49,7 +49,7 @@ links: [[TFM]]
     
 - _Reasoning Shortcuts:_ rsbench evidencia errores de concepto en NeSy/CBM.
     
-- Fairness y robustez: [HELM](https://crfm.stanford.edu/helm/?utm_source=chatgpt.com), BIG-Bench, [BBH](https://arxiv.org/abs/2210.09261?utm_source=chatgpt.com), [CUBIC](https://arxiv.org/abs/2505.11060?utm_source=chatgpt.com).
+- Fairness y robustez: [HELM](https://crfm.stanford.edu/helm/), BIG-Bench, [BBH](https://arxiv.org/abs/2210.09261), [CUBIC](https://arxiv.org/abs/2505.11060).
     
 
 ---
@@ -73,7 +73,7 @@ links: [[TFM]]
     
 - Integrar capa simbólica tipo HAKE con LVLM (LLaVA/InternVL/Qwen2-VL).
     
-- Analizar sesgos con [CUBIC](https://arxiv.org/abs/2505.11060?utm_source=chatgpt.com) y razonamiento con rsbench.
+- Analizar sesgos con [CUBIC](https://arxiv.org/abs/2505.11060) y razonamiento con rsbench.
     
 - Reportar métricas de fairness (HELM) y generalización sistemática (SG-splits).
     

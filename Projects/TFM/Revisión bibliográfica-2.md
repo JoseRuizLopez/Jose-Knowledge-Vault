@@ -6,7 +6,7 @@ links: [[TFM]]
 [[RDF]]/[[OWL]]/RDFS como núcleo del stack Semántico (razonamiento monotónico bajo OWA). Buenas prácticas y límites en control de calidad y consistencia. [2024.eswc-conferences.org+1](https://2024.eswc-conferences.org/wp-content/uploads/2024/05/77770375.pdf)  
 
 
-[[SHACL]] como estándar W3C para validar grafos [[RDF]] con constraints (complementa [[OWL]]; útil para “reglas de coherencia” de escenas). Hay trabajos recientes proponiendo frameworks de calidad y aceleración de validación. **Implicación:** usar [[SHACL]] para verificar consistencia simbólica de las salidas del modelo. [OUP Academic+2openreview.net+2](https://academic.oup.com/dsh/advance-article/doi/10.1093/llc/fqaf067/8213722?searchresult=1&utm_source=chatgpt.com)
+[[SHACL]] como estándar W3C para validar grafos [[RDF]] con constraints (complementa [[OWL]]; útil para “reglas de coherencia” de escenas). Hay trabajos recientes proponiendo frameworks de calidad y aceleración de validación. **Implicación:** usar [[SHACL]] para verificar consistencia simbólica de las salidas del modelo. [OUP Academic+2openreview.net+2](https://academic.oup.com/dsh/advance-article/doi/10.1093/llc/fqaf067/8213722?searchresult=1)
 
 
 ### Recursos de conocimiento reutilizables (para mapeo y “commonsense”)  
@@ -35,7 +35,7 @@ Modelos recientes para razonamiento visual multimodal muestran avances en tareas
 ### Opción A: Pipeline NeSy “ligero” y verificable  
 Percepción con LVLM sólido → construcción de scene graph → mapeo a KG de dominio → validación [[SHACL]] + reglas [[OWL]]/SPARQL → métricas de coherencia simbólica.  
 - Pros: ingeniería controlada, explicabilidad clara, rápido de iterar. 
-- Contras: el razonamiento simbólico es post-hoc. Soporte bibliográfico en [[SHACL]]/[[OWL]] y enriquecimiento con CSKG. [OUP Academic+22024.eswc-conferences.org+2](https://academic.oup.com/dsh/advance-article/doi/10.1093/llc/fqaf067/8213722?searchresult=1&utm_source=chatgpt.com)
+- Contras: el razonamiento simbólico es post-hoc. Soporte bibliográfico en [[SHACL]]/[[OWL]] y enriquecimiento con CSKG. [OUP Academic+22024.eswc-conferences.org+2](https://academic.oup.com/dsh/advance-article/doi/10.1093/llc/fqaf067/8213722?searchresult=1)
 
 
 ### Opción B: NeSy “profundo” con restricciones durante entrenamiento o decodificación  
@@ -64,7 +64,7 @@ KG en [[RDF]]/[[OWL]], validación con [[SHACL]]; añadir reglas [[SHACL]]-SPARQ
 Si se opta por entrenamiento con restricciones: [[001 - 0212 Redes Neuronales Convolucionales|CCN]]+ como referencia metodológica para imponer requisitos sobre salidas. [ScienceDirect](https://www.sciencedirect.com/science/article/pii/S0888613X24000112)
 
 ## ¿Mejorar un modelo o qué hacer?  
-- Mejora focalizada y publicable: añadir “validador simbólico” ([[SHACL]]) que detecte/penalice incoherencias del LVLM y retroalimente prompts/decodificación (self-refine simbólico). Literatura reciente sostiene la validez de [[SHACL]] para garantizar consistencia de KG, un vacío habitual en LVLMs. [OUP Academic+1](https://academic.oup.com/dsh/advance-article/doi/10.1093/llc/fqaf067/8213722?searchresult=1&utm_source=chatgpt.com)  
+- Mejora focalizada y publicable: añadir “validador simbólico” ([[SHACL]]) que detecte/penalice incoherencias del LVLM y retroalimente prompts/decodificación (self-refine simbólico). Literatura reciente sostiene la validez de [[SHACL]] para garantizar consistencia de KG, un vacío habitual en LVLMs. [OUP Academic+1](https://academic.oup.com/dsh/advance-article/doi/10.1093/llc/fqaf067/8213722?searchresult=1)  
 - Alternativa: entrenar/ajustar un decodificador con pérdidas por violación de constraints (inspiración CCN+). [ScienceDirect](https://www.sciencedirect.com/science/article/pii/S0888613X24000112)  
 - En paralelo: enriquecer el scene graph con CSKG y usar un enrutador simbólico paso a paso (NeSyGRN). [SpringerLink](https://link.springer.com/article/10.1007/s41060-025-00827-7)
 
@@ -79,7 +79,7 @@ Tendencia 2025: los LVLMs avanzan en benchmarks de razonamiento, pero la fidelid
 - Concept Bottleneck Models (CBM) y variantes recientes (p.ej., CB-LLMs): predicción mediada por conceptos etiquetables; facilitan auditoría y edición de conceptos. 
 - Explanation Bottleneck Models (XBM): generan explicación textual intermedia y la usan como cuello de botella. 
 - Concept-based (TCAV/CAVs, concept generation) para explicar señales de alto nivel en visión/lenguaje. 
-- Prototipos y saliency (Grad-CAM, etc.) como apoyo, aunque menos semánticos. Relevancia 2024–2025: consolidación de explicabilidad basada en conceptos y cuellos de botella para alinear con conocimiento experto. [ResearchGate+3openreview.net+3ojs.aaai.org+3](https://openreview.net/forum?id=RC5FPYVQaH&utm_source=chatgpt.com)
+- Prototipos y saliency (Grad-CAM, etc.) como apoyo, aunque menos semánticos. Relevancia 2024–2025: consolidación de explicabilidad basada en conceptos y cuellos de botella para alinear con conocimiento experto. [ResearchGate+3openreview.net+3ojs.aaai.org+3](https://openreview.net/forum?id=RC5FPYVQaH)
 
 ## Propuesta concreta (MVP publicable)  
 ### Pipeline  
