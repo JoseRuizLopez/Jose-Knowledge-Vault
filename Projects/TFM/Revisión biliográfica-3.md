@@ -49,7 +49,7 @@ El **survey sobre razonamiento visual neurosimbólico** enumera los conjuntos de
     
 - **rsbench (NeurIPS 2024)** – Conjunto de tareas diseñadas para evaluar la calidad de conceptos y detectar _reasoning shortcuts_ (RS). Proporciona tareas aritméticas, lógicas y de alto riesgo en las que los modelos pueden resolver la tarea mediante atajos; ofrece métricas y procedimientos de verificación formal para determinar si un modelo utiliza conceptos correctos [arxiv.org](https://arxiv.org/pdf/2406.10368.pdf#:~:text=knowledge%20often%20suffer%20from%20reasoning,solved).
     
-- **CUBIC (2025)** – Método y dataset para _identificación de sesgos_ en modelos de visión utilizando _concept embeddings_ y clasificadores lineales. CUBIC detecta conceptos que desvían la representación de la etiqueta principal sin requerir ejemplos de fallos ni anotaciones de sesgos [arxiv.org](https://arxiv.org/pdf/2505.11060.pdf). Este recurso está asociado con el grupo de Natalia Díaz‑Rodríguez y resulta útil para estudiar sesgos en modelos de visión‑lenguaje.
+- **CUBIC (2025)** – Método y dataset para _identificación de sesgos_ en modelos de visión utilizando _concept embeddings_ y clasificadores lineales. CUBIC detecta conceptos que desvían la representación de la etiqueta principal sin requerir ejemplos de fallos ni anotaciones de sesgos [^1]. Este recurso está asociado con el grupo de Natalia Díaz‑Rodríguez y resulta útil para estudiar sesgos en modelos de visión‑lenguaje.
     
 - **NeSy4VRD** – Extiende VRD con anotaciones simbólicas y reglas para evaluar la coherencia lógica de las predicciones [neurosymbolic-ai-journal.com](https://neurosymbolic-ai-journal.com/system/files/nai-paper-719.pdf#:~:text=VRD%20,109%2071%20%E2%9C%97%20%E2%9C%97%20%E2%9C%97).
     
@@ -103,7 +103,7 @@ Los **modelos de visión‑lenguaje** como **CLIP**, **BLIP**, **Flamingo** o **
     
 - **NSVS‑TL** (2024) – Marco neurosimbólico para búsqueda de escenas en vídeo. Usa modelos de percepción (VideoLLaMA, ViCLIP) para detectar proposiciones atómicas por fotograma y luego aplica autómatas probabilistas y lógica temporal para razonar sobre la evolución de eventos. La separación de percepción y razonamiento mejora la detección de eventos en secuencias largas y se valida en Waymo y NuScenes [arxiv.org](https://arxiv.org/pdf/2403.11021.pdf#:~:text=tem%20that%20leverages%20vision,code%20is%20available%20at%20GitHub3).
     
-- **CUBIC** (2025) – Aprovecha embeddings de VLMs para identificar sesgos sin necesidad de anotaciones específicas. Estudia cómo los conceptos presentes en las imágenes desplazan la representación de la etiqueta principal y detecta conceptos que inducen desviaciones importantes [arxiv.org](https://arxiv.org/pdf/2505.11060.pdf).
+- **CUBIC** (2025) – Aprovecha embeddings de VLMs para identificar sesgos sin necesidad de anotaciones específicas. Estudia cómo los conceptos presentes en las imágenes desplazan la representación de la etiqueta principal y detecta conceptos que inducen desviaciones importantes [^1].
     
 
 ### 3.4. Revisiones y tendencias
@@ -131,9 +131,9 @@ Para orientar el trabajo de fin de máster se han definido varias **tareas clave
     
 - **Investigar formas de explicabilidad**: revisar técnicas de atribución (Grad‑CAM, SHAP), cuellos de botella conceptuales y modelos que ofrecen reglas lógicas; examinar cómo medir la calidad de la explicación.
     
-- **Analizar sesgos con CUBIC**: utilizar el método **CUBIC** para detectar conceptos que inducen sesgos en modelos de visión‑lenguaje[^1](https://arxiv.org/pdf/2505.11060.pdf), integrándolo en la evaluación del proyecto.
+- **Analizar sesgos con CUBIC**: utilizar el método **CUBIC** para detectar conceptos que inducen sesgos en modelos de visión‑lenguaje  [^1], integrándolo en la evaluación del proyecto.
     
-- **Revisar papers clave**: profundizar en trabajos recientes de interés, como **OG‑SGG**[[2]](https://arxiv.org/abs/2202.10201#:~:text=,in%20the%20generated%20scene%20graphs), **SGRec3D**[[3]](https://arxiv.org/abs/2309.15702), la evaluación holística **HELM**[[4]](https://crfm.stanford.edu/helm/) y el benchmark **BIG‑Bench**[[5]](https://arxiv.org/abs/2206.04615#:~:text=benchmark%20%28BIG,can%20be%20improved%20with%20prompting) para disponer de referencias actualizadas.
+- **Revisar papers clave**: profundizar en trabajos recientes de interés, como **OG‑SGG** [^2], **SGRec3D** [^3](https://arxiv.org/abs/2309.15702), la evaluación holística **HELM**[[4]](https://crfm.stanford.edu/helm/) y el benchmark **BIG‑Bench**[^5](https://arxiv.org/abs/2206.04615#:~:text=benchmark%20%28BIG,can%20be%20improved%20with%20prompting) para disponer de referencias actualizadas.
     
 - La **revisión sistemática de 2024** analiza 167 publicaciones de 2020–2024. Concluye que la mayoría de trabajos se centran en aprendizaje e inferencia (63 %) y en lógica y razonamiento (35 %), mientras que las áreas de _explainability_ y _trustworthiness_ están poco exploradas (28 %) [arxiv.org](https://arxiv.org/html/2501.05435v1#:~:text=Results%3A%20From%20an%20initial%20pool,trustworthiness%20with%20other%20research%20areas). La revisión propone investigar la meta‑cognición y la integración de explicabilidad con otras áreas para avanzar hacia modelos fiables y transparentes [arxiv.org](https://arxiv.org/html/2501.05435v1#:~:text=Discussion%3A%20The%20findings%20reveal%20a,processes%2C%20enhancing%20autonomy%20and%20adaptability).
     
@@ -153,9 +153,9 @@ Para orientar el trabajo de fin de máster se han definido varias **tareas clave
     
 - **MuRelSGG** (2025): integra Transformers multimodales y grafo de conocimiento, mejorando la predicción de relaciones largas [researchrepository.universityofgalway.ie](https://researchrepository.universityofgalway.ie/bitstreams/5c908dc4-877c-411a-adaa-75e413e58592/download).
     
-- **OG‑SGG** (2022): marco guiado por ontologías que refina un generador de grafos de escena existente utilizando axiomas de una ontología. Su estudio de transferencia en **telepresencia robótica** muestra mejoras cuantitativas y cualitativas al incorporar conocimiento experto[[2]](https://arxiv.org/abs/2202.10201#:~:text=,in%20the%20generated%20scene%20graphs).
+- **OG‑SGG** (2022): marco guiado por ontologías que refina un generador de grafos de escena existente utilizando axiomas de una ontología. Su estudio de transferencia en **telepresencia robótica** muestra mejoras cuantitativas y cualitativas al incorporar conocimiento experto [^2]
     
-- **SGRec3D** (2024): método de **preentrenamiento auto‑supervisado** para predicción de grafos de escena tridimensionales. Reconstruye la escena 3D a partir de un cuello de botella de grafo y no requiere etiquetas de relaciones durante el preentrenamiento; logra mejoras de +10 % en predicción de objetos y +4 % en relaciones usando sólo 10 % de datos etiquetados[[3]](https://arxiv.org/abs/2309.15702).
+- **SGRec3D** (2024): método de **preentrenamiento auto‑supervisado** para predicción de grafos de escena tridimensionales. Reconstruye la escena 3D a partir de un cuello de botella de grafo y no requiere etiquetas de relaciones durante el preentrenamiento; logra mejoras de +10 % en predicción de objetos y +4 % en relaciones usando sólo 10 % de datos etiquetados[^3].
     
 
 2. **Modelos neurosimbólicos**:
@@ -242,8 +242,8 @@ Un **benchmark neurosimbólico** se puede formalizar como un triple ⟨_dataset_
 1. **Utilidad descendente**, es decir, relación con aplicaciones reales.
 2. **Validez y actualización periódica** de los datos
 3. **Interpretabilidad de la puntuación**, de modo que las métricas sean comprensibles y trazables.
-4. **Accesibilidad y reproducibilidad**[[6]](https://hai.stanford.edu/assets/files/hai-policy-brief-what-makes-a-good-ai-benchmark.pdf#:~:text=tools,The%20core%20themes%20include). 
-El estudio **BetterBench** desarrolla un marco de evaluación con **46 prácticas recomendadas** que cubren todo el ciclo de vida del benchmark (diseño, implementación, documentación, mantenimiento y retirada) y evalúa 24 benchmarks; concluye que muchos benchmarks populares carecen de significancia estadística y replicabilidad[[7]](https://arxiv.org/html/2411.12990v1#:~:text=AI%20models%20are%20increasingly%20prevalent,assessments%20to%20support%20benchmark%20comparability).
+4. **Accesibilidad y reproducibilidad**[^6](https://hai.stanford.edu/assets/files/hai-policy-brief-what-makes-a-good-ai-benchmark.pdf#:~:text=tools,The%20core%20themes%20include). 
+El estudio **BetterBench** desarrolla un marco de evaluación con **46 prácticas recomendadas** que cubren todo el ciclo de vida del benchmark (diseño, implementación, documentación, mantenimiento y retirada) y evalúa 24 benchmarks; concluye que muchos benchmarks populares carecen de significancia estadística y replicabilidad[^7](https://arxiv.org/html/2411.12990v1#:~:text=AI%20models%20are%20increasingly%20prevalent,assessments%20to%20support%20benchmark%20comparability).
 
 ### 5.4. Retos en la evaluación neurosimbólica
 
@@ -266,9 +266,9 @@ Estos benchmarks muestran la diversidad de tareas evaluadas, pero se han identif
 
 ### 5.6. Marcos de evaluación holística
 
-Recientemente han surgido iniciativas para evaluar modelos de manera holística con múltiples métricas y escenarios. Por ejemplo, el proyecto **HELM** de la Universidad de Stanford proporciona un **marco reproducible y transparente** para evaluar modelos fundacionales en distintos escenarios y modalidades. En su web, HELM ofrece tablas de líderes que combinan numerosas métricas y escenarios, y permite evaluar modelos de texto, audio, visión y combinados; el sitio enfatiza que las tablas son reproducibles y comparables[[4]](https://crfm.stanford.edu/helm/)[[8]](https://crfm.stanford.edu/helm/). La página incluye categorías como _Capabilities_, _Audio_, _HEIM_ (text‑to‑image) y _VHELM_ (visión‑lenguaje), lo que muestra la amplitud del marco.
+Recientemente han surgido iniciativas para evaluar modelos de manera holística con múltiples métricas y escenarios. Por ejemplo, el proyecto **HELM** de la Universidad de Stanford proporciona un **marco reproducible y transparente** para evaluar modelos fundacionales en distintos escenarios y modalidades. En su web, HELM ofrece tablas de líderes que combinan numerosas métricas y escenarios, y permite evaluar modelos de texto, audio, visión y combinados; el sitio enfatiza que las tablas son reproducibles y comparables[[4]](https://crfm.stanford.edu/helm/)[^4](https://crfm.stanford.edu/helm/). La página incluye categorías como _Capabilities_, _Audio_, _HEIM_ (text‑to‑image) y _VHELM_ (visión‑lenguaje), lo que muestra la amplitud del marco.
 
-Otro referente es el benchmark **BIG‑Bench**. El artículo _Beyond the Imitation Game_ introduce un conjunto de **204 tareas** aportadas por **450 autores** de **132 instituciones**; las tareas abarcan temas como lingüística, matemáticas, razonamiento común y sesgos sociales[[5]](https://arxiv.org/abs/2206.04615#:~:text=benchmark%20%28BIG,can%20be%20improved%20with%20prompting). Al evaluar modelos de distintas arquitecturas (GPT de OpenAI, transformadores densos y dispersos) y tamaños, los autores observan que la precisión y calibración mejoran con el tamaño del modelo pero siguen siendo bajas en términos absolutos. También informan de que los sesgos sociales tienden a aumentar con el tamaño en contextos ambiguos, aunque pueden mitigarse mediante prompts[[5]](https://arxiv.org/abs/2206.04615#:~:text=benchmark%20%28BIG,can%20be%20improved%20with%20prompting). Un análisis de Deepgram profundiza en las conclusiones de BIG‑Bench y destaca que el benchmark incluye tareas específicas para medir el **sesgo social**, revelando que el sesgo suele aumentar en modelos grandes pero puede reducirse mediante prompts[[9]](https://deepgram.com/learn/big-bench-llm-benchmark-guide#:~:text=Social%20Bias%20Discovered%20Through%20BigBench).
+Otro referente es el benchmark **BIG‑Bench**. El artículo _Beyond the Imitation Game_ introduce un conjunto de **204 tareas** aportadas por **450 autores** de **132 instituciones**; las tareas abarcan temas como lingüística, matemáticas, razonamiento común y sesgos sociales[^5](https://arxiv.org/abs/2206.04615#:~:text=benchmark%20%28BIG,can%20be%20improved%20with%20prompting). Al evaluar modelos de distintas arquitecturas (GPT de OpenAI, transformadores densos y dispersos) y tamaños, los autores observan que la precisión y calibración mejoran con el tamaño del modelo pero siguen siendo bajas en términos absolutos. También informan de que los sesgos sociales tienden a aumentar con el tamaño en contextos ambiguos, aunque pueden mitigarse mediante prompts[^5](https://arxiv.org/abs/2206.04615#:~:text=benchmark%20%28BIG,can%20be%20improved%20with%20prompting). Un análisis de Deepgram profundiza en las conclusiones de BIG‑Bench y destaca que el benchmark incluye tareas específicas para medir el **sesgo social**, revelando que el sesgo suele aumentar en modelos grandes pero puede reducirse mediante prompts[^8](https://deepgram.com/learn/big-bench-llm-benchmark-guide#:~:text=Social%20Bias%20Discovered%20Through%20BigBench).
 
 ## 6. Explicabilidad y confianza en modelos neurosimbólicos
 
@@ -285,7 +285,7 @@ Aunque el objetivo de la IA neurosimbólica es lograr sistemas interpretables, m
 5. **Representación unificada**: investigación reciente busca una representación común para redes neuronales y lógicas; aún es un reto abierto [arxiv.org](https://arxiv.org/html/2411.04383v1#:~:text=Explainability%20is%20an%20essential%20reason,representations%2C%20enhancing%20model%20explainability%2C%20ethical).
     
 
-El **survey de Khan et al.** señala que la inyección de conocimiento mediante KGs permite generar explicaciones más ricas, al enriquecer los grafos de escena con semántica y reglas [neurosymbolic-ai-journal.com](https://neurosymbolic-ai-journal.com/system/files/nai-paper-719.pdf). Por su parte, **CUBIC** demuestra que detectar sesgos requiere métodos basados en conceptos, ya que los mapas de saliencia no siempre reflejan la lógica del modelo [arxiv.org](https://arxiv.org/pdf/2505.11060.pdf).
+El **survey de Khan et al.** señala que la inyección de conocimiento mediante KGs permite generar explicaciones más ricas, al enriquecer los grafos de escena con semántica y reglas [neurosymbolic-ai-journal.com](https://neurosymbolic-ai-journal.com/system/files/nai-paper-719.pdf). Por su parte, **CUBIC** demuestra que detectar sesgos requiere métodos basados en conceptos, ya que los mapas de saliencia no siempre reflejan la lógica del modelo [^1].
 
 ## 7. Recomendaciones y plan de trabajo
 
@@ -319,34 +319,35 @@ El campo de la IA neurosimbólica ha evolucionado rápidamente y se encuentra en
 
 Para el TFM, es recomendable diseñar un pipeline que combine **Scene Graph Generation**, **grafos de conocimiento** y **razonamiento simbólico**, integrando también técnicas de **visión‑lenguaje** cuando sea beneficioso. Esta aproximación permitirá explorar la interacción entre distintas fuentes de conocimiento, evaluar las métricas de consistencia y sesgo, y contribuir a la creación de modelos más transparentes y fiables.
 
-[https://arxiv.org/pdf/2505.11060.pdf](https://arxiv.org/pdf/2505.11060.pdf)
 
-[[2]](https://arxiv.org/abs/2202.10201#:~:text=,in%20the%20generated%20scene%20graphs) [2202.10201] OG-SGG: Ontology-Guided Scene Graph Generation. A Case Study in Transfer Learning for Telepresence Robotics
 
-[https://arxiv.org/abs/2202.10201](https://arxiv.org/abs/2202.10201)
-
-[[3]](https://arxiv.org/abs/2309.15702) [2309.15702] SGRec3D: Self-Supervised 3D Scene Graph Learning via Object-Level Scene Reconstruction
 
 [https://arxiv.org/abs/2309.15702](https://arxiv.org/abs/2309.15702)
 
-[[4]](https://crfm.stanford.edu/helm/) [[8]](https://crfm.stanford.edu/helm/) Holistic Evaluation of Language Models (HELM)
-
 [https://crfm.stanford.edu/helm/](https://crfm.stanford.edu/helm/)
 
-[[5]](https://arxiv.org/abs/2206.04615#:~:text=benchmark%20%28BIG,can%20be%20improved%20with%20prompting) [2206.04615] Beyond the Imitation Game: Quantifying and extrapolating the capabilities of language models
 
-[https://arxiv.org/abs/2206.04615](https://arxiv.org/abs/2206.04615)
-
-[[6]](https://hai.stanford.edu/assets/files/hai-policy-brief-what-makes-a-good-ai-benchmark.pdf#:~:text=tools,The%20core%20themes%20include) hai-policy-brief-what-makes-a-good-ai-benchmark.pdf
-
-[https://hai.stanford.edu/assets/files/hai-policy-brief-what-makes-a-good-ai-benchmark.pdf](https://hai.stanford.edu/assets/files/hai-policy-brief-what-makes-a-good-ai-benchmark.pdf)
-
-[[7]](https://arxiv.org/html/2411.12990v1#:~:text=AI%20models%20are%20increasingly%20prevalent,assessments%20to%20support%20benchmark%20comparability) BetterBench: Assessing AI Benchmarks, Uncovering Issues, and Establishing Best Practices
-
-[https://arxiv.org/html/2411.12990v1](https://arxiv.org/html/2411.12990v1)
-
-[[9]](https://deepgram.com/learn/big-bench-llm-benchmark-guide#:~:text=Social%20Bias%20Discovered%20Through%20BigBench) BIG-Bench: The New Benchmark for Language Models | Deepgram
 
 [https://deepgram.com/learn/big-bench-llm-benchmark-guide](https://deepgram.com/learn/big-bench-llm-benchmark-guide)
 
 [^1]: (https://arxiv.org/pdf/2505.11060.pdf) CUBIC: Concept Embeddings for Unsupervised Bias Identification using VLMs
+	
+
+[^2]: (https://arxiv.org/abs/2202.10201#:~:text=,in%20the%20generated%20scene%20graphs) [2202.10201] OG-SGG: Ontology-Guided Scene Graph Generation. A Case Study in Transfer Learning for Telepresence Robotics
+
+[^3]: (https://arxiv.org/abs/2309.15702) [2309.15702] SGRec3D: Self-Supervised 3D Scene Graph Learning via Object-Level Scene Reconstruction
+
+[^4]:(https://crfm.stanford.edu/helm/) Holistic Evaluation of Language Models (HELM)
+
+
+[^5]:(https://arxiv.org/abs/2206.04615#:~:text=benchmark%20%28BIG,can%20be%20improved%20with%20prompting) [2206.04615] Beyond the Imitation Game: Quantifying and extrapolating the capabilities of language models
+
+
+[^6]:(https://hai.stanford.edu/assets/files/hai-policy-brief-what-makes-a-good-ai-benchmark.pdf#:~:text=tools,The%20core%20themes%20include) hai-policy-brief-what-makes-a-good-ai-benchmark.pdf
+
+
+[^7]:(https://arxiv.org/html/2411.12990v1#:~:text=AI%20models%20are%20increasingly%20prevalent,assessments%20to%20support%20benchmark%20comparability) BetterBench: Assessing AI Benchmarks, Uncovering Issues, and Establishing Best Practices
+
+
+
+[^8]:(https://deepgram.com/learn/big-bench-llm-benchmark-guide#:~:text=Social%20Bias%20Discovered%20Through%20BigBench) BIG-Bench: The New Benchmark for Language Models | Deepgram
