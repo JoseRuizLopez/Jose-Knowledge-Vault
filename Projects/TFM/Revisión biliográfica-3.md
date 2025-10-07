@@ -93,7 +93,11 @@ Los enfoques NeSy pueden clasificarse en tres categorías [arxiv.org](https://ar
 3. **Aprendizaje de reglas** (hibrido): inducen reglas lógicas a partir de datos utilizando modelos neuronales como generadores; por ejemplo, **DeepProbLog**, **Neural Theorem Provers**, **Differentiable ILP**.
     
 
-La tesis del Politécnico de Turín (2023/24) muestra un caso práctico en escenas de conducción: utiliza un Transformer relacional para generar scene graphs y propone dos mecanismos de inyección de conocimiento: (i) un embebido de grafo de conocimiento (KGE) basado en PandaSet y (ii) LTNs con axiomas sobre tráfico. Los dos métodos mejoran la precisión, pero la KGE depende de la cobertura del KG, mientras que LTN requiere un diseño cuidadoso de axiomas [webthesis.biblio.polito.it](https://webthesis.biblio.polito.it/29354/#:~:text=frequency%2C%20which%20can%20lead%20to,optimal%20axioms%20based%20on%20domain).
+La tesis del Politécnico de Turín (2023/24) muestra un caso práctico en escenas de conducción: utiliza un Transformer relacional para generar scene graphs y propone dos mecanismos de inyección de conocimiento: 
+1. Un embebido de grafo de conocimiento (KGE) basado en PandaSet.
+2. LTNs con axiomas sobre tráfico.
+ 
+Los dos métodos mejoran la precisión, pero la KGE depende de la cobertura del KG, mientras que LTN requiere un diseño cuidadoso de axiomas [webthesis.biblio.polito.it](https://webthesis.biblio.polito.it/29354/#:~:text=frequency%2C%20which%20can%20lead%20to,optimal%20axioms%20based%20on%20domain).
 
 ### 3.3. Modelos de visión‑lenguaje (VLMs) y fusión con razonamiento
 
@@ -182,7 +186,8 @@ Para orientar el trabajo de fin de máster se han definido varias **tareas clave
 
 ### 4.2. Direcciones posibles para el TFM
 
-1. **Pipeline DL + KG + Razonamiento simbólico**: adoptar un modelo de SGG (como SGTR+ o MuRelSGG) para extraer grafos de escena, alinear sus etiquetas con un KG de dominio (p. ej., CSKG, un KG propio sobre tráfico o patrimonio) y emplear un módulo de razonamiento simbólico (LTN o DeepProbLog) para verificar coherencia e inferir relaciones.
+#### 1. Pipeline DL + KG + Razonamiento simbólico
+Adoptar un modelo de SGG (como SGTR+ o MuRelSGG) para extraer grafos de escena, alinear sus etiquetas con un KG de dominio (p. ej., CSKG, un KG propio sobre tráfico o patrimonio) y emplear un módulo de razonamiento simbólico (LTN o DeepProbLog) para verificar coherencia e inferir relaciones.
     
 
 - _Ventaja_: Aprovecha la estructura de X‑NeSyL y MonuMAI; genera explicaciones simbólicas.
@@ -190,7 +195,8 @@ Para orientar el trabajo de fin de máster se han definido varias **tareas clave
 - _Desafío_: Requiere diseñar un KG específico y axiomas de coherencia; se deben equilibrar las métricas de precisión (R@K, mR@K) con la coherencia lógica.
     
 
-2. **Modelos de visión‑lenguaje con lógica**: utilizar VLMs pre‑entrenados (BLIP, LLaVA) para generar descripciones semánticas de imágenes y traducirlas a conceptos simbólicos. Posteriormente, emplear programadores lógicos (ASP, Prolog) o LTNs para razonar sobre las descripciones. El enfoque **NeSyGPT** muestra que un modelo fundacional puede proporcionar conocimiento implícito y que es posible aprender reglas con pocos ejemplos [^2].
+##### 2. Modelos de visión‑lenguaje con lógica:
+Utilizar VLMs pre‑entrenados (BLIP, LLaVA) para generar descripciones semánticas de imágenes y traducirlas a conceptos simbólicos. Posteriormente, emplear programadores lógicos (ASP, Prolog) o LTNs para razonar sobre las descripciones. El enfoque **NeSyGPT** muestra que un modelo fundacional puede proporcionar conocimiento implícito y que es posible aprender reglas con pocos ejemplos [^2].
     
 
 - _Ventaja_: Reduce la necesidad de etiquetado manual; puede aprovechar LLMs para generar la interfaz simbólica.
@@ -198,7 +204,8 @@ Para orientar el trabajo de fin de máster se han definido varias **tareas clave
 - _Desafío_: La alineación imagen‑texto puede introducir sesgos; se deben definir métricas para evaluar la calidad de los conceptos extraídos.
     
 
-3. **Evaluación y mitigación de sesgos**: incorporar herramientas como **CUBIC** para identificar conceptos que inducen sesgos en las representaciones y **RSBench** para detectar atajos de razonamiento. Esto permitirá medir la robustez y la equidad del modelo.
+#### 3. Evaluación y mitigación de sesgos
+Incorporar herramientas como **CUBIC** para identificar conceptos que inducen sesgos en las representaciones y **RSBench** para detectar atajos de razonamiento. Esto permitirá medir la robustez y la equidad del modelo.
     
 
 - _Ventaja_: Añade una dimensión de confianza y ética al proyecto; ofrece la posibilidad de publicar resultados novedosos sobre sesgos.
@@ -206,7 +213,8 @@ Para orientar el trabajo de fin de máster se han definido varias **tareas clave
 - _Desafío_: Requiere implementar métricas de concept shift y verificación formal.
     
 
-4. **Vídeo y razonamiento temporal**: si el dominio incluye secuencias (por ejemplo, escenas de tráfico con vídeo), se puede explorar **NSVS‑TL**, que separa la percepción de la lógica temporal y demuestra mejoras en la identificación de eventos [arxiv.org](https://arxiv.org/pdf/2403.11021.pdf#:~:text=tem%20that%20leverages%20vision,code%20is%20available%20at%20GitHub3).
+#### 4. Vídeo y razonamiento temporal
+Si el dominio incluye secuencias (por ejemplo, escenas de tráfico con vídeo), se puede explorar **NSVS‑TL**, que separa la percepción de la lógica temporal y demuestra mejoras en la identificación de eventos [arxiv.org](https://arxiv.org/pdf/2403.11021.pdf#:~:text=tem%20that%20leverages%20vision,code%20is%20available%20at%20GitHub3).
     
 
 - _Ventaja_: Permite abordar la interacción humana con el entorno (punto sugerido por las tutoras) y la evolución temporal de eventos.
@@ -289,37 +297,31 @@ El **survey de Khan et al.** señala que la inyección de conocimiento mediant
 
 ## 7. Recomendaciones y plan de trabajo
 
-1. **Definir el dominio y construir un KG propio**: decida si el proyecto se centrará en escenas de tráfico, patrimonio o contextos urbanos. A partir de ahí, diseñe un _grafo de conocimiento_ con entidades, relaciones y reglas adecuadas. Herramientas como Neo4j o RDF permiten crear el KG.
+1. **Definir el dominio y construir un KG propio**: decidir si el proyecto se centrará en escenas de tráfico, patrimonio o contextos urbanos. A partir de ahí, diseñar un _grafo de conocimiento_ con entidades, relaciones y reglas adecuadas. Herramientas como Neo4j o RDF permiten crear el KG.
     
 2. **Seleccionar un pipeline base**: una opción sólida es adoptar un modelo de **Scene Graph Generation** (p. ej., **SGTR+** o **MuRelSGG**) para extraer grafos de escena, seguido de un módulo de mapeo de etiquetas al KG y un razonador simbólico (LTN, DeepProbLog o ASP). Esta arquitectura permite evaluar tanto la precisión visual como la coherencia lógica, y alinea el TFM con la metodología X‑NeSyL.
     
-3. **Evaluar modelos de visión‑lenguaje**: experimente con **BLIP** o **LLaVA** para obtener descripciones semánticas y utilice **NeSyGPT** como inspiración para combinar estos modelos con reglas lógicas. Este enfoque puede reducir la necesidad de anotaciones manuales y facilitar la generación de conceptos.
+3. **Evaluar modelos de visión‑lenguaje**: experimentar con **BLIP** o **LLaVA** para obtener descripciones semánticas y utilice **NeSyGPT** como inspiración para combinar estos modelos con reglas lógicas. Este enfoque puede reducir la necesidad de anotaciones manuales y facilitar la generación de conceptos.
     
-4. **Incorporar métricas de sesgo y concepto**: utilice **CUBIC** para analizar la existencia de sesgos y **RSBench** para examinar si el modelo aprende atajos de razonamiento. Integre estas herramientas en el proceso de evaluación para asegurar que el sistema no sólo sea preciso sino también justo y explicable.
+4. **Incorporar métricas de sesgo y concepto**: utilizar **CUBIC** para analizar la existencia de sesgos y **RSBench** para examinar si el modelo aprende atajos de razonamiento. Integrar estas herramientas en el proceso de evaluación para asegurar que el sistema no sólo sea preciso sino también justo y explicable.
     
-5. **Diseñar una estrategia de explicabilidad**: defina cómo se van a generar y presentar las explicaciones. Se pueden emplear técnicas de atribución (Grad‑CAM, SHAP) combinadas con reglas de KG o adoptar modelos con cuello de botella conceptual para obtener explicaciones editables.
+5. **Diseñar una estrategia de explicabilidad**: definir cómo se van a generar y presentar las explicaciones. Se pueden emplear técnicas de atribución (Grad‑CAM, SHAP) combinadas con reglas de KG o adoptar modelos con cuello de botella conceptual para obtener explicaciones editables.
     
 6. **Plan de desarrollo**:
+	- **Revisión bibliográfica continua**: ampliar la lectura a surveys y artículos recientes (2023–2025) sobre NeSy, SGG y VLMs.
     
-
-- **Revisión bibliográfica continua**: ampliar la lectura a surveys y artículos recientes (2023–2025) sobre NeSy, SGG y VLMs.
+	- **Construcción del KG y selección de datasets**: elegir datasets como Visual Genome, DSceneKG u otros según el dominio; mapear sus etiquetas al KG.
     
-- **Construcción del KG y selección de datasets**: elegir datasets como Visual Genome, DSceneKG u otros según el dominio; mapear sus etiquetas al KG.
+	- **Implementación del pipeline**: entrenar el modelo de SGG (o VLM) y desarrollar el razonador simbólico; luego incorporar módulos de explicabilidad y sesgo.
     
-- **Implementación del pipeline**: entrenar el modelo de SGG (o VLM) y desarrollar el razonador simbólico; luego incorporar módulos de explicabilidad y sesgo.
+	- **Evaluación**: aplicar métricas R@K, mR@K, CUE, RSBench, entre otras, y comparar con benchmarks existentes.
     
-- **Evaluación**: aplicar métricas R@K, mR@K, CUE, RSBench, entre otras, y comparar con benchmarks existentes.
-    
-- **Iteración y mejora**: ajustar el modelo mediante inyección de conocimiento o ampliación del KG; considerar la posibilidad de probar distintos modelos (NeSy vs VLM) y documentar las ventajas e inconvenientes de cada uno.
+	- **Iteración y mejora**: ajustar el modelo mediante inyección de conocimiento o ampliación del KG; considerar la posibilidad de probar distintos modelos (NeSy vs VLM) y documentar las ventajas e inconvenientes de cada uno.
     
 
 ## 8. Conclusiones
 
 El campo de la IA neurosimbólica ha evolucionado rápidamente y se encuentra en plena expansión. Los datasets como **Visual Genome**, **DSceneKG**, **rsbench** y **CUBIC** proporcionan distintos escenarios para evaluar modelos que combinan percepción y razonamiento. Las revisiones recientes destacan la importancia de integrar conocimiento simbólico para mejorar la predicción de relaciones y la explicabilidad [^10]. [researchrepository.universityofgalway.ie](https://researchrepository.universityofgalway.ie/bitstreams/5c908dc4-877c-411a-adaa-75e413e58592/download), al tiempo que señalan que la investigación en explicabilidad y confianza está todavía en ciernes [^9].
-
-Para el TFM, es recomendable diseñar un pipeline que combine **Scene Graph Generation**, **grafos de conocimiento** y **razonamiento simbólico**, integrando también técnicas de **visión‑lenguaje** cuando sea beneficioso. Esta aproximación permitirá explorar la interacción entre distintas fuentes de conocimiento, evaluar las métricas de consistencia y sesgo, y contribuir a la creación de modelos más transparentes y fiables.
-
-
 
 
 
