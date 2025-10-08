@@ -13,5 +13,6 @@
   "renderLinkCitations": true,
   "pullFromZotero": true,
   "cslStyleURL": "https://raw.githubusercontent.com/citation-style-language/styles/master/ieee-with-url.csl",
-  "cslLang": "en-US"
+  "cslLang": "en-US",
+  "showCitekeyTooltips": false
 }
