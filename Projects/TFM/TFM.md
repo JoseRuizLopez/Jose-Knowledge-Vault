@@ -5,7 +5,7 @@ links: [[100  Projects|Projects]]
 -  [[Parte Simbolica|Parte Simbólica]]
 -  [[Primera Reunion|Primera Reunión]]
 - [[Inicio de Planificación]]
-- [[Revisión biliográfica-3|Revisión Bibliográfica]]
+- [[Revisión bibliográfica-3|Revisión Bibliográfica]]
 
 
 
