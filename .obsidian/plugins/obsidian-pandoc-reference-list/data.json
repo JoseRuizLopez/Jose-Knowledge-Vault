@@ -5,12 +5,13 @@
     {
       "id": 1,
       "name": "Mi biblioteca",
-      "lastUpdate": 1759955953741
+      "lastUpdate": 1759958756765
     }
   ],
   "renderCitations": true,
   "renderCitationsReadingMode": true,
   "renderLinkCitations": true,
   "pullFromZotero": true,
-  "cslStyleURL": "https://raw.githubusercontent.com/citation-style-language/styles/master/ieee-with-url.csl"
+  "cslStyleURL": "https://raw.githubusercontent.com/citation-style-language/styles/master/ieee-with-url.csl",
+  "cslLang": "en-US"
 }
