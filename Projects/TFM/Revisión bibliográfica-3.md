@@ -2,7 +2,7 @@
 
 ## 1. Fundamentos teóricos
 
-El **aprendizaje neurosimbólico (NeSy)** combina redes neuronales con técnicas simbólicas para conseguir modelos capaces de aprender de datos, razonar con reglas y ofrecer explicaciones formales [^1]. La mayor dificultad es la _asimilación_ entre los componentes: los modelos basados en datos requieren grandes cantidades de etiquetas, mientras que los enfoques end-to-end pueden escalar mal por la explosión combinatoria en la asignación de símbolos [^1]. Los trabajos recientes intentan resolver este problema mediante técnicas que extraen características simbólicas de modelos fundacionales, como BLIP, y que posteriormente aprenden reglas lógicas con métodos como Answer Set Programming [^1].
+El **aprendizaje neurosimbólico (NeSy)** combina redes neuronales con técnicas simbólicas para conseguir modelos capaces de aprender de datos, razonar con reglas y ofrecer explicaciones formales @amodeoOGSGGOntologyGuidedScene2022 . La mayor dificultad es la _asimilación_ entre los componentes: los modelos basados en datos requieren grandes cantidades de etiquetas, mientras que los enfoques end-to-end pueden escalar mal por la explosión combinatoria en la asignación de símbolos @amodeoOGSGGOntologyGuidedScene2022. Los trabajos recientes intentan resolver este problema mediante técnicas que extraen características simbólicas de modelos fundacionales, como BLIP, y que posteriormente aprenden reglas lógicas con métodos como Answer Set Programming @amodeoOGSGGOntologyGuidedScene2022.
 
 La **generación de grafos de escena (Scene Graph Generation, SGG)** detecta objetos y predice relaciones para representar una escena como un grafo con nodos (entidades) y aristas (relaciones). Esta representación facilita tareas de razonamiento visual como pregunta–respuesta, captioning y recuperación de información [^2]. Las métricas habituales para evaluar SGG son el _Recall@K_, el _mean Recall@K_ (mR@K) y el _zero-shot Recall@K_ (zR@K) [^2].
 
@@ -102,7 +102,7 @@ Los dos métodos mejoran la precisión, pero la KGE depende de la cobertura del 
 
 Los **modelos de visión-lenguaje** como **CLIP**, **BLIP**, **Flamingo** o **LLaVA** aprenden alineaciones entre imágenes y texto en espacios embebidos.
 
-- **NeSyGPT** (2024) – Arquitectura que afina el modelo de visión-lenguaje BLIP para extraer características simbólicas. Estas características se utilizan para aprender reglas lógicas mediante Answer Set Programming y resolver tareas complejas. NeSyGPT necesita menos datos etiquetados, escala a tareas con muchos símbolos y reduce la ingeniería manual [^1]. Se demuestra que su precisión supera a métodos base y permite utilizar LLMs para generar preguntas y la interfaz programática [^1].
+- **NeSyGPT** (2024) – Arquitectura que afina el modelo de visión-lenguaje BLIP para extraer características simbólicas. Estas características se utilizan para aprender reglas lógicas mediante Answer Set Programming y resolver tareas complejas. NeSyGPT necesita menos datos etiquetados, escala a tareas con muchos símbolos y reduce la ingeniería manual @amodeoOGSGGOntologyGuidedScene2022. Se demuestra que su precisión supera a métodos base y permite utilizar LLMs para generar preguntas y la interfaz programática @amodeoOGSGGOntologyGuidedScene2022.
     
 - **NSVS-TL** (2024) – Marco neurosimbólico para búsqueda de escenas en vídeo. Usa modelos de percepción (VideoLLaMA, ViCLIP) para detectar proposiciones atómicas por fotograma y luego aplica autómatas probabilistas y lógica temporal para razonar sobre la evolución de eventos. La separación de percepción y razonamiento mejora la detección de eventos en secuencias largas y se valida en Waymo y NuScenes arxiv.org [^9].
     
@@ -136,7 +136,7 @@ Para orientar el trabajo de fin de máster se han definido varias **tareas clave
     
 - **Analizar sesgos con CUBIC**: utilizar el método **CUBIC** para detectar conceptos que inducen sesgos en modelos de visión-lenguaje [^8], integrándolo en la evaluación del proyecto.
     
-- **Revisar papers clave**: profundizar en trabajos recientes de interés, como **OG-SGG** [^1], **SGRec3D** [^13], la evaluación holística **HELM** [^14] y el benchmark **BIG-Bench** [^15] para disponer de referencias actualizadas.
+- **Revisar papers clave**: profundizar en trabajos recientes de interés, como **OG-SGG** @amodeoOGSGGOntologyGuidedScene2022, **SGRec3D** [^13], la evaluación holística **HELM** [^14] y el benchmark **BIG-Bench** [^15] para disponer de referencias actualizadas.
     
 - La **revisión sistemática de 2024** analiza 167 publicaciones de 2020–2024. Concluye que la mayoría de trabajos se centran en aprendizaje e inferencia (63 %) y en lógica y razonamiento (35 %), mientras que las áreas de _explainability_ y _trustworthiness_ están poco exploradas (28 %) [^16]. La revisión propone investigar la meta-cognición y la integración de explicabilidad con otras áreas para avanzar hacia modelos fiables y transparentes [^16].
     
@@ -155,7 +155,7 @@ Para orientar el trabajo de fin de máster se han definido varias **tareas clave
     
 - **MuRelSGG** (2025): integra Transformers multimodales y grafo de conocimiento, mejorando la predicción de relaciones largas researchrepository.universityofgalway.ie [^11].
     
-- **OG-SGG** (2022): marco guiado por ontologías que refina un generador de grafos de escena existente utilizando axiomas de una ontología. Su estudio de transferencia en **telepresencia robótica** muestra mejoras cuantitativas y cualitativas al incorporar conocimiento experto [^1].
+- **OG-SGG** (2022): marco guiado por ontologías que refina un generador de grafos de escena existente utilizando axiomas de una ontología. Su estudio de transferencia en **telepresencia robótica** muestra mejoras cuantitativas y cualitativas al incorporar conocimiento experto @amodeoOGSGGOntologyGuidedScene2022.
     
 - **SGRec3D** (2024): método de **preentrenamiento auto-supervisado** para predicción de grafos de escena tridimensionales. Reconstruye la escena 3D a partir de un cuello de botella de grafo y no requiere etiquetas de relaciones durante el preentrenamiento; logra mejoras de +10 % en predicción de objetos y +4 % en relaciones usando sólo 10 % de datos etiquetados [^13].
     
@@ -165,7 +165,7 @@ Para orientar el trabajo de fin de máster se han definido varias **tareas clave
 
 - **DeepProbLog**, **Logic Tensor Networks**, **Neural Theorem Provers**, **Differentiable ILP** – Aprenden reglas lógicas a partir de datos y permiten entrenamiento supervisado o semi-supervisado.
     
-- **NeSyGPT** – Combina BLIP con Answer Set Programming, aprovechando el conocimiento implícito de modelos fundacionales [^1].
+- **NeSyGPT** – Combina BLIP con Answer Set Programming, aprovechando el conocimiento implícito de modelos fundacionales @amodeoOGSGGOntologyGuidedScene2022.
     
 - **LTNs en tráfico** – La tesis del Politécnico de Turín demuestra que las LTNs permiten inyectar axiomas de conducción y mejoran la coherencia de las predicciones webthesis.biblio.polito.it [^10].
     
@@ -194,7 +194,7 @@ Adoptar un modelo de SGG (como SGTR+ o MuRelSGG) para extraer grafos de escena, 
     
 
 ##### 2. Modelos de visión-lenguaje con lógica:
-Utilizar VLMs pre-entrenados (BLIP, LLaVA) para generar descripciones semánticas de imágenes y traducirlas a conceptos simbólicos. Posteriormente, emplear programadores lógicos (ASP, Prolog) o LTNs para razonar sobre las descripciones. El enfoque **NeSyGPT** muestra que un modelo fundacional puede proporcionar conocimiento implícito y que es posible aprender reglas con pocos ejemplos [^1].
+Utilizar VLMs pre-entrenados (BLIP, LLaVA) para generar descripciones semánticas de imágenes y traducirlas a conceptos simbólicos. Posteriormente, emplear programadores lógicos (ASP, Prolog) o LTNs para razonar sobre las descripciones. El enfoque **NeSyGPT** muestra que un modelo fundacional puede proporcionar conocimiento implícito y que es posible aprender reglas con pocos ejemplos @amodeoOGSGGOntologyGuidedScene2022.
     
 
 - _Ventaja_: Reduce la necesidad de etiquetado manual; puede aprovechar LLMs para generar la interfaz simbólica.
@@ -321,8 +321,6 @@ El **survey de Khan et al.** señala que la inyección de conocimiento mediante 
 El campo de la IA neurosimbólica ha evolucionado rápidamente y se encuentra en plena expansión. Los datasets como **Visual Genome**, **DSceneKG**, **rsbench** y **CUBIC** proporcionan distintos escenarios para evaluar modelos que combinan percepción y razonamiento. Las revisiones recientes destacan la importancia de integrar conocimiento simbólico para mejorar la predicción de relaciones y la explicabilidad [^2]. researchrepository.universityofgalway.ie [^11], al tiempo que señalan que la investigación en explicabilidad y confianza está todavía en ciernes [^16].
 
 
-
-[^1]: https://arxiv.org/abs/2202.10201
 [^2]: https://neurosymbolic-ai-journal.com/system/files/nai-paper-719.pdf
 [^3]: https://arxiv.org/pdf/2411.03225.pdf
 [^4]: https://www.dgl.ai/dgl_docs/generated/dgl.data.FB15kDataset.html
