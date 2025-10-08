@@ -2,5 +2,7 @@
   "image-converter",
   "graph-banner",
   "obsidian-git",
-  "obsidian-version-history-diff"
+  "obsidian-version-history-diff",
+  "obsidian-pandoc-reference-list",
+  "obsidian-zotero-desktop-connector"
 ]
