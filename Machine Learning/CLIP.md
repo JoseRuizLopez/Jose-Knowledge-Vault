@@ -35,7 +35,7 @@ Si le das una imagen de un gato y los textos “un perro”, “un gato”, “u
 CLIP predice que el texto más cercano es “un gato”.
 
 ---
-## Por qué es útil para tu TFM
+## Por qué es útil para el [[TFM]]
 Mi [[TFM]] busca **reconocimiento semántico de escenas**, donde los objetos y relaciones tienen **significado simbólico**.
 
 CLIP es una **excelente capa de percepción** para esto, porque:
@@ -63,17 +63,18 @@ Imagen  ──► Visual Encoder  ─┐
 ---
 ## 🧠 En resumen
 
-|Aspecto|CLIP|
-|---|---|
-|**Acrónimo**|Contrastive Language–Image Pre-training|
-|**Desarrollado por**|OpenAI (2021)|
-|**Qué hace**|Alinea imágenes y texto en un mismo espacio semántico|
-|**Entrenamiento**|400 millones de pares imagen-texto|
-|**Utilidad**|Clasificación zero-shot, embeddings semánticos, transferencia|
-|**Por qué te sirve**|Puente entre visión profunda (DL) y conocimiento simbólico (KG)|
+| Aspecto              | CLIP                                                            |
+| -------------------- | --------------------------------------------------------------- |
+| **Acrónimo**         | Contrastive Language–Image Pre-training                         |
+| **Desarrollado por** | OpenAI (2021)                                                   |
+| **Qué hace**         | Alinea imágenes y texto en un mismo espacio semántico           |
+| **Entrenamiento**    | 400 millones de pares imagen-texto                              |
+| **Utilidad**         | Clasificación zero-shot, embeddings semánticos, transferencia   |
+| **Por qué me sirve** | Puente entre visión profunda (DL) y conocimiento simbólico (KG) |
+
 
 ---
-## 💡 Ejemplo aplicado a tu TFM
+## 💡 Ejemplo aplicado a mi [[TFM]]
 Por ejemplo, CLIP detecta la relación:
 
 > Imagen → “a man driving a car near a traffic light”

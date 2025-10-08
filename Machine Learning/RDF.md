@@ -19,7 +19,7 @@ Estas tripletas pueden representarse como un **grafo dirigido**, donde los nodos
 
 `<http://ejemplo.org/imagen1> <http://ejemplo.org/tieneAutor> "José Ruiz López".`
 
-En la práctica, RDF se utiliza para construir **grafos de conocimiento (Knowledge Graphs)**, que pueden ser consultados mediante el lenguaje **SPARQL** y sirven de base para el razonamiento simbólico en sistemas neuro-simbólicos, como el enfoque que describes en tu TFM.
+En la práctica, RDF se utiliza para construir **grafos de conocimiento (Knowledge Graphs)**, que pueden ser consultados mediante el lenguaje **SPARQL** y sirven de base para el razonamiento simbólico en sistemas neuro-simbólicos.
 
 ---
 tags:

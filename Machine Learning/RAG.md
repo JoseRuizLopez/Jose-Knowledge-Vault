@@ -1,6 +1,6 @@
 links: [[001 - 020 Machine Learning|Machine Learning]]
 
-# 🧠 Retrieval-Augmented Generation (RAG)
+# Retrieval-Augmented Generation (RAG)
 
 ## 🧩 ¿Qué es RAG?
 **Retrieval-Augmented Generation (RAG)** es una técnica avanzada en el campo de la inteligencia artificial y procesamiento del lenguaje natural (NLP) que permite a los modelos de lenguaje acceder a información externa antes de generar una respuesta. A diferencia de los modelos generativos tradicionales que responden únicamente con base en lo que aprendieron durante su entrenamiento, **RAG combina generación de texto con búsqueda de información**, lo que lo hace más preciso, flexible y verificable.
@@ -64,7 +64,7 @@ Un sistema RAG consta de dos módulos principales:
 - Generación de ejemplos o código usando la base documental del proyecto.
 
 ### 🧠 Productividad personal
-- Búsqueda de información en tus propias notas, emails o archivos PDF.
+- Búsqueda de información en notas propias, emails o archivos PDF.
 - Resumen de múltiples documentos en lenguaje natural.
 
 ## 🛠️ Tecnologías y frameworks
@@ -72,7 +72,7 @@ Un sistema RAG consta de dos módulos principales:
 ### Frameworks para construir sistemas RAG
 - **[[Haystack]]**: Orientado a búsqueda y QA; muy usado en entornos empresariales.
 - **[[LangChain]]**: Composición de cadenas y agentes con LLMs + recuperación.
-- **[[LlamaIndex]]**: Ideal para conectar tus documentos con un modelo LLM.
+- **[[LlamaIndex]]**: Ideal para conectar documentos con un modelo LLM.
 
 ### Bases vectoriales
 - **[[FAISS]]**: Rápido, ideal para desarrollo local.

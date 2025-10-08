@@ -8,7 +8,7 @@ En general, el componente simbólico:
 - **Actúa como guía o regulador** del aprendizaje profundo.
 
 Es decir, es **todo lo que no se aprende directamente de los datos**, sino que viene de **estructura conceptual o conocimiento experto**.  
-En tu caso, eso incluye desde un **grafo de conocimiento (KG)** hasta un **sistema de reglas o restricciones** sobre cómo deberían comportarse los objetos y sus relaciones en una escena.
+En este caso, eso incluye desde un **grafo de conocimiento (KG)** hasta un **sistema de reglas o restricciones** sobre cómo deberían comportarse los objetos y sus relaciones en una escena.
 
 ---
 
@@ -66,7 +66,7 @@ Usas el grafo simbólico para **justificar** lo que el modelo visual predijo:
 > “Clasifiqué esto como una calle porque hay coches, peatones y semáforos alineados.”
 ---
 ## 🧩 3. Cómo interactúan parte neuronal y simbólica
-Piensa en tu sistema como **dos cerebros colaborando**:
+Se podría entender como **dos cerebros colaborando**:
 
 | Parte                       | Función      | Ejemplo                                                                |
 | --------------------------- | ------------ | ---------------------------------------------------------------------- |
@@ -93,24 +93,22 @@ Dependiendo del enfoque y tiempo que tengas, hay varios niveles de profundidad:
 ---
 ## 🧭 5. Cómo explicárselo a Siham Tabik
 
-Puedes decir algo como:
-
 > “La parte simbólica de mi TFM será el módulo que represente y razone sobre el conocimiento. Mi idea es diseñar un grafo de conocimiento con las entidades y relaciones válidas entre objetos de la escena.  
 > Este grafo servirá tanto para verificar la coherencia de las relaciones detectadas por el modelo visual como para generar explicaciones estructuradas del tipo ‘por qué se ha clasificado así’.  
 > Además, me gustaría estudiar cómo integrar parte de ese conocimiento como restricciones suaves durante el entrenamiento, siguiendo la línea de [[X-NeSyL]].”
 
-Eso conecta directamente con su marco y con los papers que revisamos (EXPLANet, SHAP-Backprop, Semantic Loss...).
+Esto conecta directamente con el marco de Siham y con los papers (EXPLANet, SHAP-Backprop, Semantic Loss...).
 
 ---
 ## 🧱 6. En resumen
 
-|Rol|Qué hace la parte simbólica|
-|---|---|
-|**Representar**|Define un modelo conceptual del mundo (KG, reglas, ontología)|
-|**Verificar**|Comprueba que las predicciones neuronales sean coherentes|
-|**Inferir**|Deduce relaciones adicionales basadas en reglas|
-|**Explicar**|Justifica decisiones con conocimiento explícito|
-|**Guiar**|(Opcional) Aporta restricciones o feedback al entrenamiento|
+| Rol             | Qué hace la parte simbólica                                   |
+| --------------- | ------------------------------------------------------------- |
+| **Representar** | Define un modelo conceptual del mundo (KG, reglas, ontología) |
+| **Verificar**   | Comprueba que las predicciones neuronales sean coherentes     |
+| **Inferir**     | Deduce relaciones adicionales basadas en reglas               |
+| **Explicar**    | Justifica decisiones con conocimiento explícito               |
+| **Guiar**       | (Opcional) Aporta restricciones o feedback al entrenamiento   |
 
 
 
