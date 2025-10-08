@@ -1,5 +1,6 @@
 {
   "cssTheme": "Obsidian gruvbox",
   "theme": "moonstone",
-  "accentColor": ""
+  "accentColor": "",
+  "showRibbon": true
 }

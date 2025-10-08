@@ -20,7 +20,7 @@ Aquí se define **qué sabes del mundo**, y lo formalizas.
 El DL detecta objetos y relaciones, pero se define un **grafo de conocimiento (KG)** que describe:
 - Qué entidades existen (`Persona`, `Coche`, `Edificio`, `Semáforo`...)
 - Qué relaciones son posibles (`está_cerca_de`, `conduce`, `entra_en`, `parte_de`...)
-- Qué tipos de relaciones no son válidas (`Persona dentro de Coche` sí, pero `Coche dentro de Persona` no).
+- Qué tipos de relaciones no son válidas (`Persona dentro de Coche` sí, pero `Coche dentro de Persona` no). 
 
 🔧 Ejemplo:
 `Regla 1: "Si un objeto es Persona y otro es Coche, la relación válida es 'conduce' o 'entra_en', pero no 'parte_de'." Regla 2: "Si un objeto es Edificio, puede tener relación 'parte_de' con Ciudad."`
