@@ -115,6 +115,20 @@ Los **modelos de visión-lenguaje** como **CLIP**, **BLIP**, **Flamingo** o **LL
     
 
 ### 3.5. Tareas y objetivos del TFM
+### 3.5. Síntesis de hallazgos y líneas emergentes
+
+La revisión bibliográfica muestra que los estudios recientes priorizan la integración de conocimiento simbólico y razonamiento explícito para mejorar la **explicabilidad** y la **robustez** de los sistemas neurosimbólicos. A partir del análisis de más de 160 publicaciones entre 2020 y 2025 se identifican tres direcciones principales:
+
+- **Evaluación y detección de sesgos con CUBIC.** El método **CUBIC** [8] emplea _concept embeddings_ para identificar conceptos que inducen sesgos en modelos de visión-lenguaje sin requerir anotaciones de fallos. Este enfoque permite diagnosticar _concept shifts_ y analizar cómo los modelos fundacionales desplazan la representación semántica de la etiqueta principal.
+    
+- **Revisión de modelos y benchmarks clave.** Destacan propuestas como **OG-SGG** [@amodeoOGSGGOntologyGuidedScene2022], que incorpora axiomas ontológicos para guiar la generación de grafos de escena; **SGRec3D** [@kochSGRec3DSelfSupervised3D2023], que introduce un preentrenamiento auto-supervisado tridimensional; la evaluación holística **HELM** [@HolisticEvaluationLanguage], centrada en reproducibilidad y transparencia; y el benchmark **BIG-Bench** , que proporciona una referencia unificada para tareas de razonamiento y sesgos en modelos fundacionales.
+    
+- **Tendencias en explicabilidad y meta-cognición.** La revisión sistemática de 2024 [16] evidencia que solo un 28 % de los trabajos aborda explícitamente la explicabilidad o la confianza. Se propone investigar la _meta-cognición_ y la integración de explicaciones con otras áreas del aprendizaje para avanzar hacia sistemas más interpretables y fiables. De forma complementaria, el estudio de Zhang y Sheng [17] ofrece una clasificación de métodos NeSy según el grado de explicitud de sus representaciones intermedias, destacando el reto aún abierto de lograr **representaciones unificadas** entre componentes neuronales y simbólicos.
+    
+
+En conjunto, estas líneas consolidan la necesidad de combinar **métricas de sesgo y fidelidad conceptual** con evaluaciones de **explicabilidad simbólica**, así como de diseñar benchmarks que permitan medir no solo la precisión, sino la coherencia y la transparencia de los modelos.
+
+----
 
 Para orientar el trabajo de fin de máster se han definido varias **tareas clave**. Estas tareas guiarán la revisión bibliográfica y el diseño experimental:
 
@@ -291,35 +305,12 @@ Aunque el objetivo de la IA neurosimbólica es lograr sistemas interpretables, m
 
 El **survey de Khan et al.** señala que la inyección de conocimiento mediante KGs permite generar explicaciones más ricas, al enriquecer los grafos de escena con semántica y reglas [@khanSurveyNeurosymbolicVisual2025]. Por su parte, **CUBIC** demuestra que detectar sesgos requiere métodos basados en conceptos, ya que los mapas de saliencia no siempre reflejan la lógica del modelo [@mendezCUBICConceptEmbeddings2025].
 
-## 7. Recomendaciones y plan de trabajo
 
-1. **Definir el dominio y construir un KG propio**: decidir si el proyecto se centrará en escenas de tráfico, patrimonio o contextos urbanos. A partir de ahí, diseñar un _grafo de conocimiento_ con entidades, relaciones y reglas adecuadas. Herramientas como Neo4j o RDF permiten crear el KG.
-    
-2. **Seleccionar un pipeline base**: una opción sólida es adoptar un modelo de **Scene Graph Generation** (p. ej., **SGTR+** o **MuRelSGG**) para extraer grafos de escena, seguido de un módulo de mapeo de etiquetas al KG y un razonador simbólico (LTN, DeepProbLog o ASP). Esta arquitectura permite evaluar tanto la precisión visual como la coherencia lógica, y alinea el TFM con la metodología X-NeSyL.
-    
-3. **Evaluar modelos de visión-lenguaje**: experimentar con **BLIP** o **LLaVA** para obtener descripciones semánticas y utilice **NeSyGPT** como inspiración para combinar estos modelos con reglas lógicas. Este enfoque puede reducir la necesidad de anotaciones manuales y facilitar la generación de conceptos.
-    
-4. **Incorporar métricas de sesgo y concepto**: utilizar **CUBIC** para analizar la existencia de sesgos y **RSBench** para examinar si el modelo aprende atajos de razonamiento. Integrar estas herramientas en el proceso de evaluación para asegurar que el sistema no sólo sea preciso sino también justo y explicable.
-    
-5. **Diseñar una estrategia de explicabilidad**: definir cómo se van a generar y presentar las explicaciones. Se pueden emplear técnicas de atribución (Grad-CAM, SHAP) combinadas con reglas de KG o adoptar modelos con cuello de botella conceptual para obtener explicaciones editables.
-    
-6. **Plan de desarrollo**:
-	- **Revisión bibliográfica continua**: ampliar la lectura a surveys y artículos recientes (2023–2025) sobre NeSy, SGG y VLMs.
-    
-	- **Construcción del KG y selección de datasets**: elegir datasets como Visual Genome, DSceneKG u otros según el dominio; mapear sus etiquetas al KG.
-    
-	- **Implementación del pipeline**: entrenar el modelo de SGG (o VLM) y desarrollar el razonador simbólico; luego incorporar módulos de explicabilidad y sesgo.
-    
-	- **Evaluación**: aplicar métricas R@K, mR@K, CUE, RSBench, entre otras, y comparar con benchmarks existentes.
-    
-	- **Iteración y mejora**: ajustar el modelo mediante inyección de conocimiento o ampliación del KG; considerar la posibilidad de probar distintos modelos (NeSy vs VLM) y documentar las ventajas e inconvenientes de cada uno.
-    
-
-## 8. Conclusiones
+## 7. Conclusiones
 
 El campo de la IA neurosimbólica ha evolucionado rápidamente y se encuentra en plena expansión. Los datasets como **Visual Genome**, **DSceneKG**, **rsbench** y **CUBIC** proporcionan distintos escenarios para evaluar modelos que combinan percepción y razonamiento. Las revisiones recientes destacan la importancia de integrar conocimiento simbólico para mejorar la predicción de relaciones y la explicabilidad [@khanSurveyNeurosymbolicVisual2025]. researchrepository.universityofgalway.ie [@junaidkhanMuRelSGGMultimodalRelationship2025], al tiempo que señalan que la investigación en explicabilidad y confianza está todavía en ciernes [@coleloughNeuroSymbolicAI20242025].
 
-## 9.Bibliografía
+## 8.Bibliografía
 [1]
 
 F. Amodeo, F. Caballero, N. Díaz-Rodríguez, and L. Merino, “OG-SGG: Ontology-Guided Scene Graph Generation. A Case Study in Transfer Learning for Telepresence Robotics,” _IEEE Access_, vol. 10, pp. 132564–132583, 2022, doi: [10.1109/ACCESS.2022.3230590](https://doi.org/10.1109/ACCESS.2022.3230590). Available: [http://arxiv.org/abs/2202.10201](http://arxiv.org/abs/2202.10201). [Accessed: Oct. 08, 2025]
