@@ -6,7 +6,7 @@ Reference: [[LLaVA-OneVision.pdf|LLaVA-OneVision: Easy Visual Task Transfer]]
 
 ## Contexto
 
-LLaVA (“**Large Language and Vision Assistant**”) comenzó como un modelo _vision-language_ basado en CLIP + LLaMA, centrado en **instrucción-tuning multimodal**: enseñar a un modelo de lenguaje grande (LLM) a “razonar” sobre imágenes.
+LLaVA (“**Large Language and Vision Assistant**”) comenzó como un modelo _vision-language_ basado en [[CLIP]] + LLaMA, centrado en **instrucción-tuning multimodal**: enseñar a un modelo de lenguaje grande (LLM) a “razonar” sobre imágenes.
 
 **LLaVA-OneVision (OV)** es su evolución más ambiciosa:
 
@@ -20,7 +20,7 @@ El sistema adopta una **arquitectura modular unificada**:
 
 |Módulo|Descripción|
 |---|---|
-|**Visual Encoder**|Un **ViT-L o EVA-CLIP** pre-entrenado que produce embeddings densos multi-resolución.|
+|**Visual Encoder**|Un **ViT-L o EVA-[[CLIP]]** pre-entrenado que produce embeddings densos multi-resolución.|
 |**Projector multimodal**|Proyecta las features visuales al espacio del lenguaje (alineación con LLaMA-3 / Vicuna).|
 |**LLM Backbone**|LLaMA-3-7B / 13B con _multimodal adapters_ integrados en los tokens visuales.|
 |**Unified Interface**|Entrada multimodal (texto, imagen, vídeo, OCR, diagramas) y salida textual libre o estructurada.|
@@ -74,7 +74,7 @@ En lugar de tener arquitecturas separadas para captioning, VQA o grounding, **On
     → “The man is washing the car.”
     
 4. **Cross-modal alignment progresivo:**  
-    Usa un alineamiento _contrastive + instruction-based_, mejor que el CLIP clásico.
+    Usa un alineamiento _contrastive + instruction-based_, mejor que el [[CLIP]] clásico.
     
 
 

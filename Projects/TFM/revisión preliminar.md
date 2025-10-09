@@ -6,7 +6,7 @@ El **aprendizaje neurosimbólico (NeSy)** combina redes neuronales con técnicas
 
 La **generación de grafos de escena (Scene Graph Generation, SGG)** detecta objetos y predice relaciones para representar una escena como un grafo con nodos (entidades) y aristas (relaciones). Esta representación facilita tareas de razonamiento visual como pregunta–respuesta, captioning y recuperación de información [@khanSurveyNeurosymbolicVisual2025]. Las métricas habituales para evaluar SGG son el _Recall@K_, el _mean Recall@K_ (mR@K) y el _zero-shot Recall@K_ (zR@K) [@khanSurveyNeurosymbolicVisual2025].
 
-Los **modelos de conocimiento simbólico** suelen estructurar sus datos mediante grafos de conocimiento (KG), que almacenan hechos como tripletas sujeto–relación–objeto [@wickramarachchiKnowledgeGraphsDriving2024]. Existen **estándares de representación** como RDF, OWL y SPARQL para codificar y consultar KGs; herramientas como _Neo4j_ y _RDF triple stores_ son comunes para implementarlos. En el ámbito visual, los _scene graphs_ se crean a partir de anotaciones de datasets como Visual Genome y se alinean con conceptos de un KG mediante mapeos de labels.
+Los **modelos de conocimiento simbólico** suelen estructurar sus datos mediante grafos de conocimiento (KG), que almacenan hechos como tripletas sujeto–relación–objeto [@wickramarachchiKnowledgeGraphsDriving2024]. Existen **estándares de representación** como [[RDF]], [[OWL]] y SPARQL para codificar y consultar KGs; herramientas como _Neo4j_ y _RDF triple stores_ son comunes para implementarlos. En el ámbito visual, los _scene graphs_ se crean a partir de anotaciones de datasets como Visual Genome y se alinean con conceptos de un KG mediante mapeos de labels.
 
 ## 2. Bases de datos y estándares para modelos simbólicos
 
@@ -58,7 +58,7 @@ El **survey sobre razonamiento visual neurosimbólico** enumera los conjuntos de
 
 ### 2.4. Estándares de representación y herramientas
 
-- **RDF/OWL/SPARQL** – Lenguajes estándar para codificar ontologías y consultar KGs.
+- **[[RDF]]/[[OWL]]/SPARQL** – Lenguajes estándar para codificar ontologías y consultar KGs.
     
 - **Neo4j** – Base de datos de grafos con lenguaje de consulta Cypher; empleada para almacenar y consultar grafos de escena o conocimiento.
     
@@ -100,7 +100,7 @@ Los dos métodos mejoran la precisión, pero la KGE depende de la cobertura del 
 
 ### 3.3. Modelos de visión-lenguaje (VLMs) y fusión con razonamiento
 
-Los **modelos de visión-lenguaje** como **CLIP**, **BLIP**, **Flamingo** o **LLaVA** aprenden alineaciones entre imágenes y texto en espacios embebidos.
+Los **modelos de visión-lenguaje** como **[[CLIP]]**, **BLIP**, **Flamingo** o **LLaVA** aprenden alineaciones entre imágenes y texto en espacios embebidos.
 
 - **NeSyGPT** (2024) – Arquitectura que afina el modelo de visión-lenguaje BLIP para extraer características simbólicas. Estas características se utilizan para aprender reglas lógicas mediante Answer Set Programming y resolver tareas complejas. NeSyGPT necesita menos datos etiquetados, escala a tareas con muchos símbolos y reduce la ingeniería manual [@amodeoOGSGGOntologyGuidedScene2022]. Se demuestra que su precisión supera a métodos base y permite utilizar LLMs para generar preguntas y la interfaz programática [@amodeoOGSGGOntologyGuidedScene2022].
     
@@ -162,7 +162,7 @@ En conjunto, estas líneas consolidan la necesidad de combinar **métricas de se
 3. **Modelos de visión-lenguaje**:
     
 
-- **CLIP / BLIP / LLaVA / VideoLLaMA** – Aprenden correspondencias imagen-texto; pueden utilizarse para extraer conceptos y como módulos de percepción.
+- **[[CLIP]] / BLIP / LLaVA / VideoLLaMA** – Aprenden correspondencias imagen-texto; pueden utilizarse para extraer conceptos y como módulos de percepción.
     
 - **NSVS-TL** – Ejemplo de integración de VLMs con lógica temporal para búsqueda de vídeos arxiv.org [@choiNeuroSymbolicVideoUnderstanding2025]..
     
