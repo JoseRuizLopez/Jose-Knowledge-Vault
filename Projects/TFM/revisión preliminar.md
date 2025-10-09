@@ -104,7 +104,7 @@ Los **modelos de visión-lenguaje** como **CLIP**, **BLIP**, **Flamingo** o **LL
 
 - **NeSyGPT** (2024) – Arquitectura que afina el modelo de visión-lenguaje BLIP para extraer características simbólicas. Estas características se utilizan para aprender reglas lógicas mediante Answer Set Programming y resolver tareas complejas. NeSyGPT necesita menos datos etiquetados, escala a tareas con muchos símbolos y reduce la ingeniería manual [@amodeoOGSGGOntologyGuidedScene2022]. Se demuestra que su precisión supera a métodos base y permite utilizar LLMs para generar preguntas y la interfaz programática [@amodeoOGSGGOntologyGuidedScene2022].
     
-- **NSVS-TL** (2024) – Marco neurosimbólico para búsqueda de escenas en vídeo. Usa modelos de percepción (VideoLLaMA, ViCLIP) para detectar proposiciones atómicas por fotograma y luego aplica autómatas probabilistas y lógica temporal para razonar sobre la evolución de eventos. La separación de percepción y razonamiento mejora la detección de eventos en secuencias largas y se valida en Waymo y NuScenes arxiv.org [@choiNeuroSymbolicVideoUnderstanding2025]..
+- **NSVS-TL** (2024) – Marco neurosimbólico para búsqueda de escenas en vídeo. Usa modelos de percepción (VideoLLaMA, ViCLIP) para detectar proposiciones atómicas por fotograma y luego aplica autómatas probabilistas y lógica temporal para razonar sobre la evolución de eventos. La separación de percepción y razonamiento mejora la detección de eventos en secuencias largas y se valida en Waymo y NuScenes arxiv.org [@choiNeuroSymbolicVideoUnderstanding2025].
     
 - **CUBIC** (2025) – Aprovecha embeddings de VLMs para identificar sesgos sin necesidad de anotaciones específicas. Estudia cómo los conceptos presentes en las imágenes desplazan la representación de la etiqueta principal y detecta conceptos que inducen desviaciones importantes [@mendezCUBICConceptEmbeddings2025].
     
@@ -114,47 +114,19 @@ Los **modelos de visión-lenguaje** como **CLIP**, **BLIP**, **Flamingo** o **LL
 - El **survey de Khan et al. (2025)** ofrece una revisión exhaustiva del razonamiento visual neurosimbólico con grafos de escena y sentido común. Destaca que inyectar conocimiento mejora la expresividad de las representaciones y permite tareas posteriores como VQA y recuperación de imágenes. Clasifica los enfoques según la arquitectura neuronal, la fuente de conocimiento y el acoplamiento NeSy, y discute datasets y métricas [@khanSurveyNeurosymbolicVisual2025].
     
 
-### 3.5. Tareas y objetivos del TFM
 ### 3.5. Síntesis de hallazgos y líneas emergentes
 
 La revisión bibliográfica muestra que los estudios recientes priorizan la integración de conocimiento simbólico y razonamiento explícito para mejorar la **explicabilidad** y la **robustez** de los sistemas neurosimbólicos. A partir del análisis de más de 160 publicaciones entre 2020 y 2025 se identifican tres direcciones principales:
 
-- **Evaluación y detección de sesgos con CUBIC.** El método **CUBIC** [8] emplea _concept embeddings_ para identificar conceptos que inducen sesgos en modelos de visión-lenguaje sin requerir anotaciones de fallos. Este enfoque permite diagnosticar _concept shifts_ y analizar cómo los modelos fundacionales desplazan la representación semántica de la etiqueta principal.
+- **Evaluación y detección de sesgos con CUBIC.** El método **CUBIC** [@mendezCUBICConceptEmbeddings2025] emplea _concept embeddings_ para identificar conceptos que inducen sesgos en modelos de visión-lenguaje sin requerir anotaciones de fallos. Este enfoque permite diagnosticar _concept shifts_ y analizar cómo los modelos fundacionales desplazan la representación semántica de la etiqueta principal.
     
-- **Revisión de modelos y benchmarks clave.** Destacan propuestas como **OG-SGG** [@amodeoOGSGGOntologyGuidedScene2022], que incorpora axiomas ontológicos para guiar la generación de grafos de escena; **SGRec3D** [@kochSGRec3DSelfSupervised3D2023], que introduce un preentrenamiento auto-supervisado tridimensional; la evaluación holística **HELM** [@HolisticEvaluationLanguage], centrada en reproducibilidad y transparencia; y el benchmark **BIG-Bench** , que proporciona una referencia unificada para tareas de razonamiento y sesgos en modelos fundacionales.
+- **Revisión de modelos y benchmarks clave.** Destacan propuestas como **OG-SGG** [@amodeoOGSGGOntologyGuidedScene2022], que incorpora axiomas ontológicos para guiar la generación de grafos de escena; **SGRec3D** [@kochSGRec3DSelfSupervised3D2023], que introduce un preentrenamiento auto-supervisado tridimensional; la evaluación holística **HELM** [@HolisticEvaluationLanguage], centrada en reproducibilidad y transparencia; y el benchmark **BIG-Bench** [@BIGBenchNewBenchmark2024], que proporciona una referencia unificada para tareas de razonamiento y sesgos en modelos fundacionales.
     
-- **Tendencias en explicabilidad y meta-cognición.** La revisión sistemática de 2024 [16] evidencia que solo un 28 % de los trabajos aborda explícitamente la explicabilidad o la confianza. Se propone investigar la _meta-cognición_ y la integración de explicaciones con otras áreas del aprendizaje para avanzar hacia sistemas más interpretables y fiables. De forma complementaria, el estudio de Zhang y Sheng [17] ofrece una clasificación de métodos NeSy según el grado de explicitud de sus representaciones intermedias, destacando el reto aún abierto de lograr **representaciones unificadas** entre componentes neuronales y simbólicos.
+- **Tendencias en explicabilidad y meta-cognición.** La revisión sistemática de 2024 [@coleloughNeuroSymbolicAI20242025] evidencia que solo un 28 % de los trabajos aborda explícitamente la explicabilidad o la confianza. Se propone investigar la _meta-cognición_ y la integración de explicaciones con otras áreas del aprendizaje para avanzar hacia sistemas más interpretables y fiables. De forma complementaria, el estudio de Zhang y Sheng [@zhangNeuroSymbolicAIExplainability2024] ofrece una clasificación de métodos NeSy según el grado de explicitud de sus representaciones intermedias, destacando el reto aún abierto de lograr **representaciones unificadas** entre componentes neuronales y simbólicos.
     
 
 En conjunto, estas líneas consolidan la necesidad de combinar **métricas de sesgo y fidelidad conceptual** con evaluaciones de **explicabilidad simbólica**, así como de diseñar benchmarks que permitan medir no solo la precisión, sino la coherencia y la transparencia de los modelos.
 
-----
-
-Para orientar el trabajo de fin de máster se han definido varias **tareas clave**. Estas tareas guiarán la revisión bibliográfica y el diseño experimental:
-
-- **Revisar bases de datos y estándares simbólicos**: examinar datasets para grafos de conocimiento y grafos de escena, así como estándares de representación (RDF, OWL, SPARQL) y tecnologías de almacenamiento (Neo4j, RDF stores).
-    
-- **Realizar una revisión bibliográfica del campo**: estudiar la evolución de los modelos neurosimbólicos y de visión-lenguaje, desde los enfoques clásicos (DeepProbLog, LTNs) hasta los más recientes. Se analizarán las tendencias en acoplamiento NeSy y las soluciones híbridas.
-    
-- **Definir la dirección del proyecto**: decidir si se adopta una **solución concreta** y se optimiza (por ejemplo, elegir un modelo de SGG y mejorarlo con un KG) o si se comparan varias arquitecturas (NeSy frente a VLMs).
-    
-- **Seleccionar modelos candidatos**: establecer qué modelos de SGG, NeSy y visión-lenguaje resultan adecuados para el dominio elegido; por ejemplo, _SGTR+_, _MuRelSGG_, _OG-SGG_ y _SGRec3D_ para grafos de escena, o _NeSyGPT_ y _NSVS-TL_ como prototipos neurosimbólicos.
-    
-- **Evaluar y mejorar modelos**: valorar si conviene mejorar un modelo específico (por ejemplo, afinando un SGG con un KG) o combinar varias técnicas; esta decisión dependerá de las necesidades de explicabilidad y del dominio.
-    
-- **Comparar NeSy frente a modelos de lenguaje-visión**: analizar las ventajas y limitaciones de los modelos neurosimbólicos (razonamiento explícito, reglas) frente a las redes multimodales (BLIP, LLaVA) que sólo ofrecen salidas neuronales.
-    
-- **Estudiar benchmarks neurosimbólicos**: identificar benchmarks existentes para evaluar componentes neuronales y simbólicos; analizar qué se mide (precisión, explicación, fidelidad simbólica) y qué métricas faltan.
-    
-- **Investigar formas de explicabilidad**: revisar técnicas de atribución (Grad-CAM, SHAP), cuellos de botella conceptuales y modelos que ofrecen reglas lógicas; examinar cómo medir la calidad de la explicación.
-    
-- **Analizar sesgos con CUBIC**: utilizar el método **CUBIC** para detectar conceptos que inducen sesgos en modelos de visión-lenguaje [@mendezCUBICConceptEmbeddings2025], integrándolo en la evaluación del proyecto.
-    
-- **Revisar papers clave**: profundizar en trabajos recientes de interés, como **OG-SGG** [@amodeoOGSGGOntologyGuidedScene2022], **SGRec3D** [@kochSGRec3DSelfSupervised3D2023], la evaluación holística **HELM** [@HolisticEvaluationLanguage] y el benchmark **BIG-Bench** [@srivastavaImitationGameQuantifying2023] para disponer de referencias actualizadas.
-    
-- La **revisión sistemática de 2024** analiza 167 publicaciones de 2020–2024. Concluye que la mayoría de trabajos se centran en aprendizaje e inferencia (63 %) y en lógica y razonamiento (35 %), mientras que las áreas de _explainability_ y _trustworthiness_ están poco exploradas (28 %) [@coleloughNeuroSymbolicAI20242025]. La revisión propone investigar la meta-cognición y la integración de explicabilidad con otras áreas para avanzar hacia modelos fiables y transparentes [@coleloughNeuroSymbolicAI20242025].
-    
-- Un estudio de 2024 propone una clasificación de métodos NeSy basada en la explicabilidad, considerando si las representaciones intermedias y las decisiones son explícitas o implícitas. Destaca que aún existen retos para lograr representaciones unificadas y colaboraciones eficientes entre componentes neuronales y simbólicos [@zhangNeuroSymbolicAIExplainability2024].
 ## 4. Modelos a considerar y posibles direcciones
 
 ### 4.1. Modelos de base
@@ -206,7 +178,7 @@ Adoptar un modelo de SGG (como SGTR+ o MuRelSGG) para extraer grafos de escena, 
 - _Desafío_: Requiere diseñar un KG específico y axiomas de coherencia; se deben equilibrar las métricas de precisión (R@K, mR@K) con la coherencia lógica.
     
 
-##### 2. Modelos de visión-lenguaje con lógica:
+#### 2. Modelos de visión-lenguaje con lógica:
 Utilizar VLMs pre-entrenados (BLIP, LLaVA) para generar descripciones semánticas de imágenes y traducirlas a conceptos simbólicos. Posteriormente, emplear programadores lógicos (ASP, Prolog) o LTNs para razonar sobre las descripciones. El enfoque **NeSyGPT** muestra que un modelo fundacional puede proporcionar conocimiento implícito y que es posible aprender reglas con pocos ejemplos [@amodeoOGSGGOntologyGuidedScene2022].
     
 
