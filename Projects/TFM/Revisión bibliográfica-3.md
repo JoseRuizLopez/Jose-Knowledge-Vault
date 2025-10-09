@@ -6,7 +6,7 @@ El **aprendizaje neurosimbólico (NeSy)** combina redes neuronales con técnicas
 
 La **generación de grafos de escena (Scene Graph Generation, SGG)** detecta objetos y predice relaciones para representar una escena como un grafo con nodos (entidades) y aristas (relaciones). Esta representación facilita tareas de razonamiento visual como pregunta–respuesta, captioning y recuperación de información [@khanSurveyNeurosymbolicVisual2025]. Las métricas habituales para evaluar SGG son el _Recall@K_, el _mean Recall@K_ (mR@K) y el _zero-shot Recall@K_ (zR@K) [@khanSurveyNeurosymbolicVisual2025].
 
-Los **modelos de conocimiento simbólico** suelen estructurar sus datos mediante grafos de conocimiento (KG), que almacenan hechos como tripletas sujeto–relación–objeto arxiv.org [^3]. Existen **estándares de representación** como RDF, OWL y SPARQL para codificar y consultar KGs; herramientas como _Neo4j_ y _RDF triple stores_ son comunes para implementarlos. En el ámbito visual, los _scene graphs_ se crean a partir de anotaciones de datasets como Visual Genome y se alinean con conceptos de un KG mediante mapeos de labels.
+Los **modelos de conocimiento simbólico** suelen estructurar sus datos mediante grafos de conocimiento (KG), que almacenan hechos como tripletas sujeto–relación–objeto [@wickramarachchiKnowledgeGraphsDriving2024]. Existen **estándares de representación** como RDF, OWL y SPARQL para codificar y consultar KGs; herramientas como _Neo4j_ y _RDF triple stores_ son comunes para implementarlos. En el ámbito visual, los _scene graphs_ se crean a partir de anotaciones de datasets como Visual Genome y se alinean con conceptos de un KG mediante mapeos de labels.
 
 ## 2. Bases de datos y estándares para modelos simbólicos
 
@@ -15,9 +15,9 @@ Los **modelos de conocimiento simbólico** suelen estructurar sus datos mediante
   
 |Dataset/ontología|Características|Utilidad en NeSy|
 |---|---|---|
-|**Freebase / FB15K**|Subconjunto de la base de datos de Freebase con 14 951 entidades y 1 345 tipos de relación dgl.ai [^4]; se emplea para _link prediction_ y evaluación de embeddings.|Buena cobertura de dominios diversos; base para tareas de completado de KG pero no captura la complejidad multimodal de escenas reales arxiv.org [^3].|
+|**Freebase / FB15K**|Subconjunto de la base de datos de Freebase con 14 951 entidades y 1 345 tipos de relación dgl.ai [@FB15kDatasetDGL25]; se emplea para _link prediction_ y evaluación de embeddings.|Buena cobertura de dominios diversos; base para tareas de completado de KG pero no captura la complejidad multimodal de escenas reales arxiv.org [@wickramarachchiKnowledgeGraphsDriving2024].|
 |**FB15k-237**|Versión depurada del FB15K con 237 relaciones para evitar la inferencia trivial; muy usada en benchmarks de enlace.|Sirve como línea base para KGE y permite comparaciones entre modelos.|
-|**WordNet / WN18**|Versión de WordNet con 40 943 synsets (nodos) y 18 relaciones dgl.ai [^5].|Proporciona jerarquías semánticas y relaciones léxicas; adecuado para tareas lingüísticas y para experimentar con inferencias en KG.|
+|**WordNet / WN18**|Versión de WordNet con 40 943 synsets (nodos) y 18 relaciones dgl.ai [@WN18DatasetDGL25].|Proporciona jerarquías semánticas y relaciones léxicas; adecuado para tareas lingüísticas y para experimentar con inferencias en KG.|
 |**ConceptNet / CSKG**|Grafo de sentido común que integra DBpedia, Wikidata y otras fuentes. Aporta relaciones como _is-a_, _part-of_, _used-for_.|Fuente habitual para inyectar conocimiento en SGG; métodos como SGG-CKI utilizan CSKG para mejorar la predicción de relaciones raras [@khanSurveyNeurosymbolicVisual2025].|
 |**ATOMIC**|Grafo de inferencia social centrado en causas y efectos; útil para tareas de razonamiento sobre acciones humanas.|Permite reforzar modelos que necesitan inferir motivaciones o consecuencias de interacciones humanas.|
 |**DBpedia / YAGO / Wikidata**|KG extraídos de Wikipedia; contienen millones de entidades y propiedades.|Sirven de base para KGs generales; se pueden recortar o fusionar con otros KGs para dominios específicos.|
@@ -40,21 +40,21 @@ El **survey sobre razonamiento visual neurosimbólico** enumera los conjuntos de
     
 - **VQA-v2, VCR, KB-VQA, FVQA, OK-VQA, KRVQA** – Datasets para preguntas y respuestas con variada cantidad de imágenes y Q&A, donde las preguntas requieren conocimiento externo o razonamiento multistep [@khanSurveyNeurosymbolicVisual2025].
     
-- **KANDY benchmark** – Genera tareas incrementales inspiradas en patrones de Kandinsky; permite crear curricula de clasificación binaria y analizar la interpretación de conceptos por modelos neurales o simbólicos arxiv.org [^6].
+- **KANDY benchmark** – Genera tareas incrementales inspiradas en patrones de Kandinsky; permite crear curricula de clasificación binaria y analizar la interpretación de conceptos por modelos neurales o simbólicos [@lorelloKANDYBenchmarkIncremental2024].
     
 
 ### 2.3. Datasets neurosimbólicos y entornos específicos
 
-- **DSceneKG (2024)** – Colección de grafos de conocimiento de escenas de conducción construidos a partir de datos multimodales de PandaSet, NuScenes, Waymo Open Dataset y KITTI arxiv.org [^3]. Incluye una _Driving Scenes Ontology_ para formalizar los objetos, eventos y condiciones de tráfico y se propone como benchmark realista para tareas de inferencia simbólica y aprendizaje neurosimbólico arxiv.org [^3].
+- **DSceneKG (2024)** – Colección de grafos de conocimiento de escenas de conducción construidos a partir de datos multimodales de PandaSet, NuScenes, Waymo Open Dataset y KITTI arxiv.org [@wickramarachchiKnowledgeGraphsDriving2024]. Incluye una _Driving Scenes Ontology_ para formalizar los objetos, eventos y condiciones de tráfico y se propone como benchmark realista para tareas de inferencia simbólica y aprendizaje neurosimbólico arxiv.org [@wickramarachchiKnowledgeGraphsDriving2024].
     
-- **rsbench (NeurIPS 2024)** – Conjunto de tareas diseñadas para evaluar la calidad de conceptos y detectar _reasoning shortcuts_ (RS). Proporciona tareas aritméticas, lógicas y de alto riesgo en las que los modelos pueden resolver la tarea mediante atajos; ofrece métricas y procedimientos de verificación formal para determinar si un modelo utiliza conceptos correctos arxiv.org [^7].
+- **rsbench (NeurIPS 2024)** – Conjunto de tareas diseñadas para evaluar la calidad de conceptos y detectar _reasoning shortcuts_ (RS). Proporciona tareas aritméticas, lógicas y de alto riesgo en las que los modelos pueden resolver la tarea mediante atajos; ofrece métricas y procedimientos de verificación formal para determinar si un modelo utiliza conceptos correctos [@bortolottiNeuroSymbolicBenchmarkSuite2024].
     
-- **CUBIC (2025)** – Método y dataset para _identificación de sesgos_ en modelos de visión utilizando _concept embeddings_ y clasificadores lineales. CUBIC detecta conceptos que desvían la representación de la etiqueta principal sin requerir ejemplos de fallos ni anotaciones de sesgos [^8]. Este recurso está asociado con el grupo de Natalia Díaz-Rodríguez y resulta útil para estudiar sesgos en modelos de visión-lenguaje.
+- **CUBIC (2025)** – Método y dataset para _identificación de sesgos_ en modelos de visión utilizando _concept embeddings_ y clasificadores lineales. CUBIC detecta conceptos que desvían la representación de la etiqueta principal sin requerir ejemplos de fallos ni anotaciones de sesgos [@mendezCUBICConceptEmbeddings2025]. Este recurso está asociado con el grupo de Natalia Díaz-Rodríguez y resulta útil para estudiar sesgos en modelos de visión-lenguaje.
     
 - **NeSy4VRD** – Extiende VRD con anotaciones simbólicas y reglas para evaluar la coherencia lógica de las predicciones [@khanSurveyNeurosymbolicVisual2025].
     
-- **TLV datasets** – Conjuntos de vídeo con especificaciones de lógica temporal utilizados en **NSVS-TL** (Neuro-Symbolic Video Search con Temporal Logic). Se generan etiquetas de acontecimientos usando lógica temporal y se prueban en vídeos de Waymo y NuScenes arxiv.org [^9].
-    
+- **TLV datasets** – Conjuntos de vídeo con especificaciones de lógica temporal utilizados en **NSVS-TL** (Neuro-Symbolic Video Search con Temporal Logic). Se generan etiquetas de acontecimientos usando lógica temporal y se prueban en vídeos de Waymo y NuScenes [@choiNeuroSymbolicVideoUnderstanding2025].
+
 
 ### 2.4. Estándares de representación y herramientas
 
@@ -62,13 +62,13 @@ El **survey sobre razonamiento visual neurosimbólico** enumera los conjuntos de
     
 - **Neo4j** – Base de datos de grafos con lenguaje de consulta Cypher; empleada para almacenar y consultar grafos de escena o conocimiento.
     
-- **Logic Tensor Networks (LTNs)** – Marco para aprender reglas lógicas con incrustaciones diferenciables; se ha utilizado para inyectar axiomas en SGG, como en la tesis de Turín sobre escenas de tráfico webthesis.biblio.polito.it [^10].
+- **Logic Tensor Networks (LTNs)** – Marco para aprender reglas lógicas con incrustaciones diferenciables; se ha utilizado para inyectar axiomas en SGG, como en la tesis de Turín sobre escenas de tráfico [@dimasiSceneGraphGeneration2023].
 
 ## 3. Evolución de los modelos neurosimbólicos y panorama bibliográfico
 
 ### 3.1. Generación de grafos de escena y neuronas con conocimiento
 
-En SGG, los primeros métodos se basaban únicamente en redes CNN/LSTM y anotaciones de datasets. Estos modelos tienen dificultades para predecir relaciones poco frecuentes o semánticamente complejas researchrepository.universityofgalway.ie [^11]. Para abordar estas limitaciones, la investigación reciente incorpora conocimiento externo en forma de KGs o reglas:
+En SGG, los primeros métodos se basaban únicamente en redes CNN/LSTM y anotaciones de datasets. Estos modelos tienen dificultades para predecir relaciones poco frecuentes o semánticamente complejas [@junaidkhanMuRelSGGMultimodalRelationship2025]. Para abordar estas limitaciones, la investigación reciente incorpora conocimiento externo en forma de KGs o reglas:
 
 - **SGG-CKI** (2021) utiliza CNNs y LSTM, inyectando un grafo de sentido común (CSKG) mediante acoplamiento laxo; mejora el _recall_ en relaciones inusuales [@khanSurveyNeurosymbolicVisual2025].
     
@@ -78,16 +78,16 @@ En SGG, los primeros métodos se basaban únicamente en redes CNN/LSTM y anotaci
     
 - **KERN** y **KB-GAN** emplean GNN y técnicas generativas para incorporar estadísticas de relaciones; se centran en reducir el sesgo hacia relaciones frecuentes [@khanSurveyNeurosymbolicVisual2025].
     
-- **MuRelSGG** (Khan et al., 2025) integra Transformer multimodal y grafo de conocimiento para enriquecer las relaciones. Utiliza módulos M-HAT y ViT para predecir relaciones y posteriormente alinear con conocimiento de sentido común, logrando mejoras significativas en el _recall_ researchrepository.universityofgalway.ie [^11].
+- **MuRelSGG** (Khan et al., 2025) integra Transformer multimodal y grafo de conocimiento para enriquecer las relaciones. Utiliza módulos M-HAT y ViT para predecir relaciones y posteriormente alinear con conocimiento de sentido común, logrando mejoras significativas en el _recall_ researchrepository.universityofgalway.ie [@junaidkhanMuRelSGGMultimodalRelationship2025].
     
 
 ### 3.2. Modelos neurosimbólicos generales
 
-Los enfoques NeSy pueden clasificarse en tres categorías arxiv.org [^12]:
+Los enfoques NeSy pueden clasificarse en tres categorías [@delongNeurosymbolicAIReasoning2025]:
 
 1. **Embeddings informados lógicamente** (_Neural for Symbol_): convierten reglas lógicas en vectores y ajustan redes neuronales con restricciones o regularizadores lógicos. Ejemplo: Graph Neural Networks con regularización por relaciones; knowledge graph embeddings con reglas.
     
-2. **Restricciones lógicas sobre el entrenamiento** (_Symbol for Neural_): imponen axiomas durante la optimización, como en Logic Tensor Networks (LTNs) y las redes de probabilidad de LTN para grafos de escena webthesis.biblio.polito.it [^10].
+2. **Restricciones lógicas sobre el entrenamiento** (_Symbol for Neural_): imponen axiomas durante la optimización, como en Logic Tensor Networks (LTNs) y las redes de probabilidad de LTN para grafos de escena webthesis.biblio.polito.it [@dimasiSceneGraphGeneration2023].
     
 3. **Aprendizaje de reglas** (híbrido): inducen reglas lógicas a partir de datos utilizando modelos neuronales como generadores; por ejemplo, **DeepProbLog**, **Neural Theorem Provers**, **Differentiable ILP**.
     
@@ -96,7 +96,7 @@ La tesis del Politécnico de Turín (2023/24) muestra un caso práctico en escen
 1. Un embebido de grafo de conocimiento (KGE) basado en PandaSet.
 2. LTNs con axiomas sobre tráfico.
  
-Los dos métodos mejoran la precisión, pero la KGE depende de la cobertura del KG, mientras que LTN requiere un diseño cuidadoso de axiomas webthesis.biblio.polito.it [^10].
+Los dos métodos mejoran la precisión, pero la KGE depende de la cobertura del KG, mientras que LTN requiere un diseño cuidadoso de axiomas webthesis.biblio.polito.it [@dimasiSceneGraphGeneration2023].
 
 ### 3.3. Modelos de visión-lenguaje (VLMs) y fusión con razonamiento
 
@@ -104,9 +104,9 @@ Los **modelos de visión-lenguaje** como **CLIP**, **BLIP**, **Flamingo** o **LL
 
 - **NeSyGPT** (2024) – Arquitectura que afina el modelo de visión-lenguaje BLIP para extraer características simbólicas. Estas características se utilizan para aprender reglas lógicas mediante Answer Set Programming y resolver tareas complejas. NeSyGPT necesita menos datos etiquetados, escala a tareas con muchos símbolos y reduce la ingeniería manual [@amodeoOGSGGOntologyGuidedScene2022]. Se demuestra que su precisión supera a métodos base y permite utilizar LLMs para generar preguntas y la interfaz programática [@amodeoOGSGGOntologyGuidedScene2022].
     
-- **NSVS-TL** (2024) – Marco neurosimbólico para búsqueda de escenas en vídeo. Usa modelos de percepción (VideoLLaMA, ViCLIP) para detectar proposiciones atómicas por fotograma y luego aplica autómatas probabilistas y lógica temporal para razonar sobre la evolución de eventos. La separación de percepción y razonamiento mejora la detección de eventos en secuencias largas y se valida en Waymo y NuScenes arxiv.org [^9].
+- **NSVS-TL** (2024) – Marco neurosimbólico para búsqueda de escenas en vídeo. Usa modelos de percepción (VideoLLaMA, ViCLIP) para detectar proposiciones atómicas por fotograma y luego aplica autómatas probabilistas y lógica temporal para razonar sobre la evolución de eventos. La separación de percepción y razonamiento mejora la detección de eventos en secuencias largas y se valida en Waymo y NuScenes arxiv.org [@choiNeuroSymbolicVideoUnderstanding2025]..
     
-- **CUBIC** (2025) – Aprovecha embeddings de VLMs para identificar sesgos sin necesidad de anotaciones específicas. Estudia cómo los conceptos presentes en las imágenes desplazan la representación de la etiqueta principal y detecta conceptos que inducen desviaciones importantes [^8].
+- **CUBIC** (2025) – Aprovecha embeddings de VLMs para identificar sesgos sin necesidad de anotaciones específicas. Estudia cómo los conceptos presentes en las imágenes desplazan la representación de la etiqueta principal y detecta conceptos que inducen desviaciones importantes [@mendezCUBICConceptEmbeddings2025].
     
 
 ### 3.4. Revisiones y tendencias
@@ -134,14 +134,13 @@ Para orientar el trabajo de fin de máster se han definido varias **tareas clave
     
 - **Investigar formas de explicabilidad**: revisar técnicas de atribución (Grad-CAM, SHAP), cuellos de botella conceptuales y modelos que ofrecen reglas lógicas; examinar cómo medir la calidad de la explicación.
     
-- **Analizar sesgos con CUBIC**: utilizar el método **CUBIC** para detectar conceptos que inducen sesgos en modelos de visión-lenguaje [^8], integrándolo en la evaluación del proyecto.
+- **Analizar sesgos con CUBIC**: utilizar el método **CUBIC** para detectar conceptos que inducen sesgos en modelos de visión-lenguaje [@mendezCUBICConceptEmbeddings2025], integrándolo en la evaluación del proyecto.
     
-- **Revisar papers clave**: profundizar en trabajos recientes de interés, como **OG-SGG** [@amodeoOGSGGOntologyGuidedScene2022], **SGRec3D** [^13], la evaluación holística **HELM** [^14] y el benchmark **BIG-Bench** [^15] para disponer de referencias actualizadas.
+- **Revisar papers clave**: profundizar en trabajos recientes de interés, como **OG-SGG** [@amodeoOGSGGOntologyGuidedScene2022], **SGRec3D** [@kochSGRec3DSelfSupervised3D2023], la evaluación holística **HELM** [@HolisticEvaluationLanguage] y el benchmark **BIG-Bench** [@srivastavaImitationGameQuantifying2023] para disponer de referencias actualizadas.
     
-- La **revisión sistemática de 2024** analiza 167 publicaciones de 2020–2024. Concluye que la mayoría de trabajos se centran en aprendizaje e inferencia (63 %) y en lógica y razonamiento (35 %), mientras que las áreas de _explainability_ y _trustworthiness_ están poco exploradas (28 %) [^16]. La revisión propone investigar la meta-cognición y la integración de explicabilidad con otras áreas para avanzar hacia modelos fiables y transparentes [^16].
+- La **revisión sistemática de 2024** analiza 167 publicaciones de 2020–2024. Concluye que la mayoría de trabajos se centran en aprendizaje e inferencia (63 %) y en lógica y razonamiento (35 %), mientras que las áreas de _explainability_ y _trustworthiness_ están poco exploradas (28 %) [@coleloughNeuroSymbolicAI20242025]. La revisión propone investigar la meta-cognición y la integración de explicabilidad con otras áreas para avanzar hacia modelos fiables y transparentes [@coleloughNeuroSymbolicAI20242025].
     
-- Un estudio de 2024 propone una clasificación de métodos NeSy basada en la explicabilidad, considerando si las representaciones intermedias y las decisiones son explícitas o implícitas. Destaca que aún existen retos para lograr representaciones unificadas y colaboraciones eficientes entre componentes neuronales y simbólicos arxiv.org [^17].
-
+- Un estudio de 2024 propone una clasificación de métodos NeSy basada en la explicabilidad, considerando si las representaciones intermedias y las decisiones son explícitas o implícitas. Destaca que aún existen retos para lograr representaciones unificadas y colaboraciones eficientes entre componentes neuronales y simbólicos [@zhangNeuroSymbolicAIExplainability2024].
 ## 4. Modelos a considerar y posibles direcciones
 
 ### 4.1. Modelos de base
@@ -153,11 +152,11 @@ Para orientar el trabajo de fin de máster se han definido varias **tareas clave
     
 - **SGTR+** (2024): versión basada en Transformer para SGG; ofrece un pipeline end-to-end con mayor capacidad de generalización.
     
-- **MuRelSGG** (2025): integra Transformers multimodales y grafo de conocimiento, mejorando la predicción de relaciones largas researchrepository.universityofgalway.ie [^11].
+- **MuRelSGG** (2025): integra Transformers multimodales y grafo de conocimiento, mejorando la predicción de relaciones largas researchrepository.universityofgalway.ie [@junaidkhanMuRelSGGMultimodalRelationship2025].
     
 - **OG-SGG** (2022): marco guiado por ontologías que refina un generador de grafos de escena existente utilizando axiomas de una ontología. Su estudio de transferencia en **telepresencia robótica** muestra mejoras cuantitativas y cualitativas al incorporar conocimiento experto [@amodeoOGSGGOntologyGuidedScene2022].
     
-- **SGRec3D** (2024): método de **preentrenamiento auto-supervisado** para predicción de grafos de escena tridimensionales. Reconstruye la escena 3D a partir de un cuello de botella de grafo y no requiere etiquetas de relaciones durante el preentrenamiento; logra mejoras de +10 % en predicción de objetos y +4 % en relaciones usando sólo 10 % de datos etiquetados [^13].
+- **SGRec3D** (2024): método de **preentrenamiento auto-supervisado** para predicción de grafos de escena tridimensionales. Reconstruye la escena 3D a partir de un cuello de botella de grafo y no requiere etiquetas de relaciones durante el preentrenamiento; logra mejoras de +10 % en predicción de objetos y +4 % en relaciones usando sólo 10 % de datos etiquetados [@kochSGRec3DSelfSupervised3D2023].
     
 
 2. **Modelos neurosimbólicos**:
@@ -167,11 +166,11 @@ Para orientar el trabajo de fin de máster se han definido varias **tareas clave
     
 - **NeSyGPT** – Combina BLIP con Answer Set Programming, aprovechando el conocimiento implícito de modelos fundacionales [@amodeoOGSGGOntologyGuidedScene2022].
     
-- **LTNs en tráfico** – La tesis del Politécnico de Turín demuestra que las LTNs permiten inyectar axiomas de conducción y mejoran la coherencia de las predicciones webthesis.biblio.polito.it [^10].
+- **LTNs en tráfico** – La tesis del Politécnico de Turín demuestra que las LTNs permiten inyectar axiomas de conducción y mejoran la coherencia de las predicciones webthesis.biblio.polito.it [@dimasiSceneGraphGeneration2023].
     
-- **RSBench** – Proporciona tareas personalizables para evaluar si un modelo utiliza atajos de razonamiento y mide la calidad de los conceptos mediante métricas y verificación formal arxiv.org [^7].
+- **RSBench** – Proporciona tareas personalizables para evaluar si un modelo utiliza atajos de razonamiento y mide la calidad de los conceptos mediante métricas y verificación formal arxiv.org [@bortolottiNeuroSymbolicBenchmarkSuite2024].
     
-- **Res-CBM** (2024) – Modelo con cuellos de botella conceptuales residuales que complementa el banco de conceptos y define la métrica _Concept Utilization Efficiency (CUE)_ para medir la eficiencia descriptiva de los conceptos arxiv.org [^18].
+- **Res-CBM** (2024) – Modelo con cuellos de botella conceptuales residuales que complementa el banco de conceptos y define la métrica _Concept Utilization Efficiency (CUE)_ para medir la eficiencia descriptiva de los conceptos [@shangIncrementalResidualConcept2024].
     
 
 3. **Modelos de visión-lenguaje**:
@@ -179,7 +178,7 @@ Para orientar el trabajo de fin de máster se han definido varias **tareas clave
 
 - **CLIP / BLIP / LLaVA / VideoLLaMA** – Aprenden correspondencias imagen-texto; pueden utilizarse para extraer conceptos y como módulos de percepción.
     
-- **NSVS-TL** – Ejemplo de integración de VLMs con lógica temporal para búsqueda de vídeos arxiv.org [^9].
+- **NSVS-TL** – Ejemplo de integración de VLMs con lógica temporal para búsqueda de vídeos arxiv.org [@choiNeuroSymbolicVideoUnderstanding2025]..
     
 
 ### 4.2. Direcciones posibles para el TFM
@@ -212,7 +211,7 @@ Incorporar herramientas como **CUBIC** para identificar conceptos que inducen se
     
 
 #### 4. Vídeo y razonamiento temporal
-Si el dominio incluye secuencias (por ejemplo, escenas de tráfico con vídeo), se puede explorar **NSVS-TL**, que separa la percepción de la lógica temporal y demuestra mejoras en la identificación de eventos arxiv.org [^9].
+Si el dominio incluye secuencias (por ejemplo, escenas de tráfico con vídeo), se puede explorar **NSVS-TL**, que separa la percepción de la lógica temporal y demuestra mejoras en la identificación de eventos arxiv.org [@choiNeuroSymbolicVideoUnderstanding2025]..
     
 
 - _Ventaja_: Permite abordar la interacción humana con el entorno (punto sugerido por las tutoras) y la evolución temporal de eventos.
@@ -235,11 +234,11 @@ Si el dominio incluye secuencias (por ejemplo, escenas de tráfico con vídeo), 
 
 ### 5.2. Métricas de calidad de conceptos y atajos de razonamiento
 
-- **Concept Utilization Efficiency (CUE)** – Mide la eficiencia con la que los conceptos en un CBM describen la información relevante y permite compararlos con modelos sin cuello de botella arxiv.org [^18].
+- **Concept Utilization Efficiency (CUE)** – Mide la eficiencia con la que los conceptos en un CBM describen la información relevante y permite compararlos con modelos sin cuello de botella arxiv.org [@shangIncrementalResidualConcept2024].
     
-- **Métricas de RSBench** – Incluyen medidas de consistencia entre la predicción y el conjunto de conceptos correctos; RSBench proporciona también un algoritmo _countrss_ para verificar si una tarea permite atajos de razonamiento arxiv.org [^7].
+- **Métricas de RSBench** – Incluyen medidas de consistencia entre la predicción y el conjunto de conceptos correctos; RSBench proporciona también un algoritmo _countrss_ para verificar si una tarea permite atajos de razonamiento arxiv.org [@bortolottiNeuroSymbolicBenchmarkSuite2024].
     
-- **Métricas de explicabilidad** – Incluyen métodos de atribución (Grad-CAM, SHAP, TCAV), comparación entre mapas de saliencia y reglas simbólicas (SHAP-Backprop en X-NeSyL), y las categorías de explicabilidad (implícita vs explícita) propuestas por el estudio de Zhang & Sheng arxiv.org [^17].
+- **Métricas de explicabilidad** – Incluyen métodos de atribución (Grad-CAM, SHAP, TCAV), comparación entre mapas de saliencia y reglas simbólicas (SHAP-Backprop en X-NeSyL), y las categorías de explicabilidad (implícita vs explícita) propuestas por el estudio de Zhang & Sheng arxiv.org [@zhangNeuroSymbolicAIExplainability2024].
     
 
 ### 5.3. Definición de benchmark y criterios de calidad
@@ -249,7 +248,7 @@ Un **benchmark neurosimbólico** se puede formalizar como un triple ⟨_dataset_
 2. **Validez y actualización periódica** de los datos
 3. **Interpretabilidad de la puntuación**, de modo que las métricas sean comprensibles y trazables.
 4. **Accesibilidad y reproducibilidad** [^19] 
-El estudio **BetterBench** desarrolla un marco de evaluación con **46 prácticas recomendadas** que cubren todo el ciclo de vida del benchmark (diseño, implementación, documentación, mantenimiento y retirada) y evalúa 24 benchmarks; concluye que muchos benchmarks populares carecen de significancia estadística y replicabilidad arxiv.org [^19].
+El estudio **BetterBench** desarrolla un marco de evaluación con **46 prácticas recomendadas** que cubren todo el ciclo de vida del benchmark (diseño, implementación, documentación, mantenimiento y retirada) y evalúa 24 benchmarks; concluye que muchos benchmarks populares carecen de significancia estadística y replicabilidad .
 
 ### 5.4. Retos en la evaluación neurosimbólica
 
@@ -271,26 +270,26 @@ Estos benchmarks muestran la diversidad de tareas evaluadas, pero se han identif
 
 ### 5.6. Marcos de evaluación holística
 
-Recientemente han surgido iniciativas para evaluar modelos de manera holística con múltiples métricas y escenarios. Por ejemplo, el proyecto **HELM** de la Universidad de Stanford proporciona un **marco reproducible y transparente** para evaluar modelos fundacionales en distintos escenarios y modalidades. En su web, HELM ofrece tablas de líderes que combinan numerosas métricas y escenarios, y permite evaluar modelos de texto, audio, visión y combinados; el sitio enfatiza que las tablas son reproducibles y comparables [^14]. La página incluye categorías como _Capabilities_, _Audio_, _HEIM_ (text-to-image) y _VHELM_ (visión-lenguaje), lo que muestra la amplitud del marco.
+Recientemente han surgido iniciativas para evaluar modelos de manera holística con múltiples métricas y escenarios. Por ejemplo, el proyecto **HELM** de la Universidad de Stanford proporciona un **marco reproducible y transparente** para evaluar modelos fundacionales en distintos escenarios y modalidades. En su web, HELM ofrece tablas de líderes que combinan numerosas métricas y escenarios, y permite evaluar modelos de texto, audio, visión y combinados; el sitio enfatiza que las tablas son reproducibles y comparables [@HolisticEvaluationLanguage]. La página incluye categorías como _Capabilities_, _Audio_, _HEIM_ (text-to-image) y _VHELM_ (visión-lenguaje), lo que muestra la amplitud del marco.
 
-Otro referente es el benchmark **BIG-Bench**. El artículo _Beyond the Imitation Game_ introduce un conjunto de **204 tareas** aportadas por **450 autores** de **132 instituciones**; las tareas abarcan temas como lingüística, matemáticas, razonamiento común y sesgos sociales [^15]. Al evaluar modelos de distintas arquitecturas (GPT de OpenAI, transformadores densos y dispersos) y tamaños, los autores observan que la precisión y calibración mejoran con el tamaño del modelo pero siguen siendo bajas en términos absolutos. También informan de que los sesgos sociales tienden a aumentar con el tamaño en contextos ambiguos, aunque pueden mitigarse mediante prompts deepgram.com [^20].
+Otro referente es el benchmark **BIG-Bench**. El artículo _Beyond the Imitation Game_ introduce un conjunto de **204 tareas** aportadas por **450 autores** de **132 instituciones**; las tareas abarcan temas como lingüística, matemáticas, razonamiento común y sesgos sociales [@srivastavaImitationGameQuantifying2023]. Al evaluar modelos de distintas arquitecturas (GPT de OpenAI, transformadores densos y dispersos) y tamaños, los autores observan que la precisión y calibración mejoran con el tamaño del modelo pero siguen siendo bajas en términos absolutos. También informan de que los sesgos sociales tienden a aumentar con el tamaño en contextos ambiguos, aunque pueden mitigarse mediante prompts deepgram.com [^20].
 
 ## 6. Explicabilidad y confianza en modelos neurosimbólicos
 
-Aunque el objetivo de la IA neurosimbólica es lograr sistemas interpretables, muchos trabajos se centran en la precisión y descuidan la explicabilidad. La revisión de 2024 señala que sólo el 28 % de los artículos analizados estudian explicabilidad y confianza [^16]. Existen diferentes niveles de explicabilidad:
+Aunque el objetivo de la IA neurosimbólica es lograr sistemas interpretables, muchos trabajos se centran en la precisión y descuidan la explicabilidad. La revisión de 2024 señala que sólo el 28 % de los artículos analizados estudian explicabilidad y confianza [@coleloughNeuroSymbolicAI20242025]. Existen diferentes niveles de explicabilidad:
 
-1. **Representaciones y decisiones implícitas**: el modelo produce una salida sin exponer internamente conceptos; se puede aplicar saliency maps (Grad-CAM, SHAP) pero no hay garantía de coherencia con el conocimiento arxiv.org [^17].
+1. **Representaciones y decisiones implícitas**: el modelo produce una salida sin exponer internamente conceptos; se puede aplicar saliency maps (Grad-CAM, SHAP) pero no hay garantía de coherencia con el conocimiento arxiv.org [@zhangNeuroSymbolicAIExplainability2024].
     
 2. **Representaciones parciales y decisiones parciales**: por ejemplo, redes que generan grafos de escena pero toman decisiones finales de forma opaca.
     
-3. **Representaciones o decisiones explícitas**: modelos que exponen conceptos o reglas, como **DeepProbLog**, **LTNs** o **CBMs**. En CBM, el cuello de botella conceptual permite a los usuarios modificar conceptos para estudiar la sensibilidad del modelo arxiv.org [^18].
+3. **Representaciones o decisiones explícitas**: modelos que exponen conceptos o reglas, como **DeepProbLog**, **LTNs** o **CBMs**. En CBM, el cuello de botella conceptual permite a los usuarios modificar conceptos para estudiar la sensibilidad del modelo arxiv.org [@shangIncrementalResidualConcept2024].
     
 4. **Representaciones y decisiones totalmente explícitas**: sistemas lógicos donde la interpretación completa es visible (programas ASP). Estos modelos suelen ser más transparentes pero menos flexibles.
     
-5. **Representación unificada**: investigación reciente busca una representación común para redes neuronales y lógicas; aún es un reto abierto arxiv.org [^17].
+5. **Representación unificada**: investigación reciente busca una representación común para redes neuronales y lógicas; aún es un reto abierto arxiv.org [@zhangNeuroSymbolicAIExplainability2024].
     
 
-El **survey de Khan et al.** señala que la inyección de conocimiento mediante KGs permite generar explicaciones más ricas, al enriquecer los grafos de escena con semántica y reglas [@khanSurveyNeurosymbolicVisual2025]. Por su parte, **CUBIC** demuestra que detectar sesgos requiere métodos basados en conceptos, ya que los mapas de saliencia no siempre reflejan la lógica del modelo [^8].
+El **survey de Khan et al.** señala que la inyección de conocimiento mediante KGs permite generar explicaciones más ricas, al enriquecer los grafos de escena con semántica y reglas [@khanSurveyNeurosymbolicVisual2025]. Por su parte, **CUBIC** demuestra que detectar sesgos requiere métodos basados en conceptos, ya que los mapas de saliencia no siempre reflejan la lógica del modelo [@mendezCUBICConceptEmbeddings2025].
 
 ## 7. Recomendaciones y plan de trabajo
 
@@ -318,7 +317,7 @@ El **survey de Khan et al.** señala que la inyección de conocimiento mediante 
 
 ## 8. Conclusiones
 
-El campo de la IA neurosimbólica ha evolucionado rápidamente y se encuentra en plena expansión. Los datasets como **Visual Genome**, **DSceneKG**, **rsbench** y **CUBIC** proporcionan distintos escenarios para evaluar modelos que combinan percepción y razonamiento. Las revisiones recientes destacan la importancia de integrar conocimiento simbólico para mejorar la predicción de relaciones y la explicabilidad [@khanSurveyNeurosymbolicVisual2025]. researchrepository.universityofgalway.ie [^11], al tiempo que señalan que la investigación en explicabilidad y confianza está todavía en ciernes [^16].
+El campo de la IA neurosimbólica ha evolucionado rápidamente y se encuentra en plena expansión. Los datasets como **Visual Genome**, **DSceneKG**, **rsbench** y **CUBIC** proporcionan distintos escenarios para evaluar modelos que combinan percepción y razonamiento. Las revisiones recientes destacan la importancia de integrar conocimiento simbólico para mejorar la predicción de relaciones y la explicabilidad [@khanSurveyNeurosymbolicVisual2025]. researchrepository.universityofgalway.ie [@junaidkhanMuRelSGGMultimodalRelationship2025], al tiempo que señalan que la investigación en explicabilidad y confianza está todavía en ciernes [@coleloughNeuroSymbolicAI20242025].
 
 
 [1]
@@ -330,22 +329,12 @@ F. Amodeo, F. Caballero, N. Díaz-Rodríguez, and L. Merino, “OG-SGG: Ontology
 M. J. Khan, F. Ilievski, J. G. Breslin, and E. Curry, “A survey of neurosymbolic visual reasoning with scene graphs and common sense knowledge,” _Neurosymbolic Artificial Intelligence_, vol. 1, p. NAI-240719, Mar. 2025, doi: [10.3233/NAI-240719](https://doi.org/10.3233/NAI-240719). Available: [https://journals.sagepub.com/doi/10.3233/NAI-240719](https://journals.sagepub.com/doi/10.3233/NAI-240719). [Accessed: Oct. 08, 2025]
 
 
-[^3]: https://arxiv.org/pdf/2411.03225.pdf
-[^4]: https://www.dgl.ai/dgl_docs/generated/dgl.data.FB15kDataset.html
-[^5]: https://www.dgl.ai/dgl_docs/generated/dgl.data.WN18Dataset.html
-[^6]: https://arxiv.org/abs/2402.17431
-[^7]: https://arxiv.org/pdf/2406.10368.pdf
-[^8]: https://arxiv.org/pdf/2505.11060.pdf
-[^9]: https://arxiv.org/pdf/2403.11021.pdf
-[^10]: https://webthesis.biblio.polito.it/29354/
-[^11]: https://researchrepository.universityofgalway.ie/bitstreams/5c908dc4-877c-411a-adaa-75e413e58592/download
-[^12]: https://arxiv.org/pdf/2302.07200
-[^13]: https://arxiv.org/abs/2309.15702
-[^14]: https://crfm.stanford.edu/helm/
-[^15]: https://arxiv.org/abs/2206.04615
-[^16]: https://arxiv.org/html/2501.05435v1
-[^17]: https://arxiv.org/html/2411.04383v1
-[^18]: https://arxiv.org/pdf/2404.08978.pdf
+
+[@HolisticEvaluationLanguage]: https://crfm.stanford.edu/helm/
+[@srivastavaImitationGameQuantifying2023]: https://arxiv.org/abs/2206.04615
+[@coleloughNeuroSymbolicAI20242025]: https://arxiv.org/html/2501.05435v1
+[@zhangNeuroSymbolicAIExplainability2024]: https://arxiv.org/html/2411.04383v1
+[@shangIncrementalResidualConcept2024]: https://arxiv.org/pdf/2404.08978.pdf
 [^19]: https://arxiv.org/html/2411.12990v1
 [^20]: https://deepgram.com/learn/big-bench-llm-benchmark-guide
 
