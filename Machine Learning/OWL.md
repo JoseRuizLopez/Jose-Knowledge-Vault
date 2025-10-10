@@ -1,7 +1,7 @@
 links: [[001 - 020 Machine Learning|Machine Learning]]
 
 # Web Ontology Language (OWL)
-**Web Ontology Language (OWL)** es un lenguaje estándar del **W3C** diseñado para **definir, estructurar y razonar sobre ontologías** en la **Web Semántica**. Se construye sobre **RDF (Resource Description Framework)** y **RDFS (RDF Schema)**, añadiendo una capa más expresiva que permite representar **conocimiento complejo, relaciones jerárquicas y restricciones lógicas**.
+**Web Ontology Language (OWL)** es un lenguaje estándar del **W3C** diseñado para **definir, estructurar y razonar sobre ontologías** en la **Web Semántica**. Se construye sobre **[[RDF]] (Resource Description Framework)** y **RDFS (RDF Schema)**, añadiendo una capa más expresiva que permite representar **conocimiento complejo, relaciones jerárquicas y restricciones lógicas**.
 
 En términos simples, OWL permite **definir clases, propiedades y axiomas** que describen cómo se relacionan los conceptos entre sí, de forma que los sistemas automáticos puedan **inferir nuevo conocimiento** a partir de lo ya descrito.
 

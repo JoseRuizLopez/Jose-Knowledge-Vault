@@ -9,7 +9,7 @@ Mientras que **[[OWL]]** se usa para **razonar** (inferir nuevo conocimiento), *
 
 ### 🧩 Estructura conceptual
 
-SHACL introduce el concepto de **Shape** (forma o molde), que define **cómo deben ser los nodos** de un grafo RDF:
+SHACL introduce el concepto de **Shape** (forma o molde), que define **cómo deben ser los nodos** de un grafo [[RDF]]:
 
 - **Node Shapes** → definen restricciones sobre un tipo de entidad (por ejemplo, que toda `Persona` tenga nombre y edad).
     

@@ -1,18 +1,16 @@
 {
-  "pathToPandoc": "",
+  "pathToPandoc": "/usr/bin/pandoc",
   "tooltipDelay": 400,
   "zoteroGroups": [
     {
       "id": 1,
       "name": "Mi biblioteca",
-      "lastUpdate": 1760094673931
+      "lastUpdate": 1760030980412
     }
   ],
   "renderCitations": true,
   "renderCitationsReadingMode": true,
   "renderLinkCitations": true,
   "pullFromZotero": true,
-  "cslStyleURL": "https://raw.githubusercontent.com/citation-style-language/styles/master/ieee-with-url.csl",
-  "cslLang": "en-US",
-  "showCitekeyTooltips": false
+  "cslStyleURL": "https://raw.githubusercontent.com/citation-style-language/styles/master/ieee-with-url.csl"
 }

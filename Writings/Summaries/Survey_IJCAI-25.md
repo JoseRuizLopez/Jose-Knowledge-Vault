@@ -28,7 +28,7 @@ La figura sitúa tareas como **DocRE (DWIE), NLI/FOLIO, Temporal Commonsense (Mc
     - **DFORL (2024)**: extracción eficiente con _propositionalization_ y búsqueda acotada por profundidad; mejora eficiencia pero rendimiento **inconsistente en WN18RR**.
     - **NCRL (2023)**: composicionalidad de reglas mediante muestreo de caminos y atención; **mejora WN18RR** en ausencia de relaciones inversas.
     - **Fold-SE / NeSyFOLD (2024):** ILP para tabular/visión (reglas desde máscaras de activación CNN). Limitaciones por dependencia de CNN y etiquetado semántico restringido.
-    - **JMLR (2024) en DocRE-DWIE:** _soft-proof_ sobre HCs que **supera** al black-box DocRE-CLiP en DWIE (ver tabla de competitividad).
+    - **JMLR (2024) en DocRE-DWIE:** _soft-proof_ sobre HCs que **supera** al black-box DocRE-[[CLiP]] en DWIE (ver tabla de competitividad).
 
 - **Natural Logic:** extracción de operadores lógicos “naturales” con preprocesado lingüístico + QA (casos en NLI/IE). (Marco dentro de la misma sección).
 

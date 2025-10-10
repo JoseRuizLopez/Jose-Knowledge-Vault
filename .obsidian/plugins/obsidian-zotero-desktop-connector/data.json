@@ -6,9 +6,8 @@
   "pdfExportImageQuality": 90,
   "citeFormats": [
     {
-      "name": "Format#1",
+      "name": "Format #1",
       "format": "pandoc",
-      "cslStyle": "ieee-with-url",
       "brackets": true
     }
   ],
