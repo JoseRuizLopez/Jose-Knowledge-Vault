@@ -4,6 +4,12 @@ links: [[007 - 020 Introduccion a la Ciencia de Datos|Introducción a la Ciencia
 
 ## R
 
+
+## Tarea Continua
+Leer los datos de california.
+Limpiar los datos.
+Coger las 3 mejore variables.
+Y probar 4 no lineales.
 ## Practica 2
 ![[2025-10-15_18-24.png]]
 
