@@ -66,7 +66,7 @@ Si bien [[ElasticSearch]] permite realizar **búsquedas vectoriales** con [[kNN]
 
 - **FAISS:** Desarrollado por Facebook AI, optimiza la búsqueda en grandes volúmenes de embeddings con indexación eficiente. Es ideal para búsquedas en bases de datos masivas, aunque requiere más configuración.
 - **Pinecone:** Un servicio gestionado que optimiza la búsqueda de [[Métricas de Similitud|similitud semántica]], facilitando la escalabilidad sin preocuparse por la infraestructura.
-- **ElasticSearch:** Aunque soporta búsquedas vectoriales, no está optimizado para grandes volúmenes de embeddings y puede ser menos eficiente en búsquedas de alta dimensión.
+- **[[ElasticSearch]]:** Aunque soporta búsquedas vectoriales, no está optimizado para grandes volúmenes de embeddings y puede ser menos eficiente en búsquedas de alta dimensión.
 
 En mi experiencia, si se busca escalabilidad con un **mantenimiento mínimo**, **Pinecone es la mejor opción**. Si se necesita control total y optimización a nivel de hardware, FAISS es preferible.
 
