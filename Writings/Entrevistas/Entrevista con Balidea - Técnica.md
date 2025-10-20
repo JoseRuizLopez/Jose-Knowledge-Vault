@@ -41,7 +41,7 @@ El fine-tuning de LLMs presenta desafíos como el [[Overfitting]], el **consumo 
 
 1. **Regularización y reducción de sobreajuste:** Utilicé técnicas como **dropout** y **congelación de capas superiores** para evitar el ajuste excesivo al conjunto de datos.
 2. **Uso de [[LoRA]] y Adapter Layers:** En lugar de ajustar todos los parámetros del modelo, aproveché métodos como [[LoRA]] para **reducir la cantidad de parámetros entrenables** y **mejorar la eficiencia**.
-3. **Optimización del consumo de recursos:** Implementé entrenamiento distribuido en Google Cloud y utilicé técnicas de [[mixed precision]] para acelerar el entrenamiento reduciendo el consumo de memoria sin comprometer la precisión.
+3. **Optimización del consumo de recursos:** Implementé entrenamiento distribuido en [[Google Cloud]] y utilicé técnicas de [[mixed precision]] para acelerar el entrenamiento reduciendo el consumo de memoria sin comprometer la precisión.
 
 ### Si tuvieras que mejorar la capacidad de un modelo de lenguaje para manejar documentos largos, ¿qué estrategias implementarías?
 Para mejorar la capacidad de un LLM en documentos largos, emplearía varias estrategias:
