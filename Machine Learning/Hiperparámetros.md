@@ -29,7 +29,7 @@ Los **hiperparámetros** son configuraciones externas que **controlan la arquite
     - Evaluación mediante métricas como precisión o AUC[^1][^3]
 4. **Selección final**: Elegir la combinación con mejor rendimiento en datos de validación[^4][^5]
 
-Los hiperparámetros críticos varían por modelo: en [[001 - 021 Redes Neuronales|redes neuronales]] incluyen **funciones de activación**(|ReLU, sigmoide)[^2][^3], mientras que en [[árboles de decisión]] sería la **profundidad máxima**[^6]. Su correcto ajuste mejora la capacidad predictiva y reduce problemas como el sobreajuste, logrando un equilibrio óptimo entre sesgo y varianza[^1][^5].
+Los hiperparámetros críticos varían por modelo: en [[001 - 021 Redes Neuronales|redes neuronales]] incluyen **funciones de activación**(|ReLU, sigmoide)[^2][^3], mientras que en [[Decision Trees|árboles de decisión]] sería la **profundidad máxima**[^6]. Su correcto ajuste mejora la capacidad predictiva y reduce problemas como el sobreajuste, logrando un equilibrio óptimo entre sesgo y varianza[^1][^5].
 
 ---
 tags:

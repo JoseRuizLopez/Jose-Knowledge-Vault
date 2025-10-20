@@ -60,12 +60,12 @@ Define qué tan "cercanos" son dos puntos. La elección depende de la naturaleza
 
 ## ✅ Ventajas y ❌ Desventajas
 
-|**Ventajas**|**Desventajas**|
-|---|---|
-|✅ **Simple e intuitivo**: Fácil de entender y explicar.|❌ **Coste computacional**: Lento en la predicción, ya que debe comparar el nuevo punto con _todos_ los puntos de entrenamiento.|
-|✅ **Sin fase de entrenamiento**: Es un algoritmo _lazy_, los nuevos datos se pueden agregar fácilmente.|❌ **"Maldición de la Dimensionalidad"**: Pierde efectividad a medida que aumenta el número de características (dimensiones).|
-|✅ **Versátil**: Funciona tanto para clasificación como para regresión.|❌ **Sensible al escalado**: Requiere [[normalización]] o estandarización de características, ya que las variables con rangos más grandes dominarán las distancias.|
-|✅ **No paramétrico**: No hace suposiciones sobre la distribución de los datos.|❌ **Sensible a datos desbalanceados**: En clasificación, la clase mayoritaria tiende a dominar la votación. Requiere técnicas de [[Balanceo de Clases]].|
+| **Ventajas**                                                                                                             |**Desventajas**|
+| ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ✅ **Simple e intuitivo**: Fácil de entender y explicar.                                                                  |❌ **Coste computacional**: Lento en la predicción, ya que debe comparar el nuevo punto con _todos_ los puntos de entrenamiento.|
+| ✅ **Sin fase de entrenamiento**: Es un algoritmo [[Lazy Learning\|lazy]], los nuevos datos se pueden agregar fácilmente. |❌ **"Maldición de la Dimensionalidad"**: Pierde efectividad a medida que aumenta el número de características (dimensiones).|
+| ✅ **Versátil**: Funciona tanto para clasificación como para regresión.                                                   |❌ **Sensible al escalado**: Requiere [[normalización]] o estandarización de características, ya que las variables con rangos más grandes dominarán las distancias.|
+| ✅ **No paramétrico**: No hace suposiciones sobre la distribución de los datos.                                           |❌ **Sensible a datos desbalanceados**: En clasificación, la clase mayoritaria tiende a dominar la votación. Requiere técnicas de [[Balanceo de Clases]].|
 
 ---
 
