@@ -6,6 +6,12 @@
       "path": "Machine Learning/Subsampling.md",
       "subpath": "#Balanceo de Clases",
       "title": "Balanceo de Clases"
+    },
+    {
+      "type": "file",
+      "ctime": 1760975537219,
+      "path": "Machine Learning/Redes Neuronales/001 - 021 Redes Neuronales.md",
+      "subpath": "#Funciones de Activación"
     }
   ]
 }
