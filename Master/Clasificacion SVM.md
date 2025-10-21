@@ -6,6 +6,10 @@ El parámetro C si o si hay que modificar lo al usar sckit-learn, siempre hay qu
 Son procesos bastantes rápidos.
 Se pueden añadir mas características para intentar mejorarlo.
 
+Pero no suele funcionar.
 
 # Clasificación SVM no Lineal
 ## Kernel Polinómico
+
+
+Con SVC(kernel="linear") podemos elegir entre los 3 Kernels.
