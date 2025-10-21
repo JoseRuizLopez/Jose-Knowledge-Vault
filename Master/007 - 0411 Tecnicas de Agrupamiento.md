@@ -1,4 +1,4 @@
-Link: [[007 - 041 Teoria|Teoría]]
+Link: [[007 - 0410 Teoria|Teoría]]
 
 
 # Técnicas de Agrupamiento
