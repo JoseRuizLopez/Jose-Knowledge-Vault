@@ -1,4 +1,4 @@
-links: [[001 - 020 Machine Learning|Machine Learning]]
+links: [[007 - 0310 Teoria|Teoría]]
 
 
 # Máquinas de Vectores Soporte (SVM)
