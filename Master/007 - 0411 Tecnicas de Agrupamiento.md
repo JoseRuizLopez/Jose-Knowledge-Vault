@@ -12,10 +12,17 @@ El **clustering** se usa para:
 - También se ha usado para paralelizar comparaciones entre datos, por ejemplo tu huella con las huellas en un BD, para agrupar las huellas en grupos de mismo tamaños y clasificamos solo en ese grupo.
 - Muchos otros ejemplos.
 
-Para medir similitud, por ejemplo en imagenes se usa Deep Learning y distancia entre esos embeddings.
+Para medir similitud, por ejemplo en imágenes se usa Deep Learning y distancia entre esos embeddings.
 
 El clustering real nunca se puede asegurar.
 
 ## K-means
 
+Intenta minimizar la distancia a los centroides de manera rápida. Pero tiene el riesgo de caer en un mínimo local.
+
+> [!FÓRMULA]
+> 1. Eligir de forma aleatoria k puntos (el punto refiriéndose a alguno de los datos). Donde cada punto sería el centro del claster.
+> 2. Mientras haya cambios:
+> 	1. Reasignar cada objeto al claster mas cercano
+> 	2. Recalcular los claster como el punto medio de cada claster
 
