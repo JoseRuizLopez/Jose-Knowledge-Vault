@@ -18,7 +18,7 @@ El clustering real nunca se puede asegurar.
 
 ## K-means
 
-Intenta minimizar la distancia a los centroides de manera rápida. Pero tiene el riesgo de caer en un mínimo local.
+Intenta minimizar la distancia a los centroides de manera rápida, siendo un algoritmo buzzy. Pero tiene el riesgo de caer en un mínimo local.
 
 > [!FÓRMULA]
 > 1. Eligir de forma aleatoria k puntos (el punto refiriéndose a alguno de los datos). Donde cada punto sería el centro del claster.
