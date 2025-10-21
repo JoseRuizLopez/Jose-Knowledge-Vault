@@ -69,7 +69,7 @@ Las SVM también pueden usarse para regresión.
 - Para tareas de regresión no lineal, también se pueden utilizar SVM kernelizadas.
     
 
-📌 Ventajas y Desventajas
+## 📌 Ventajas y Desventajas
 
 ✅ **Ventajas**:
 
