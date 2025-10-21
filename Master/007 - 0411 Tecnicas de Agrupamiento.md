@@ -26,3 +26,19 @@ Intenta minimizar la distancia a los centroides de manera rápida, siendo un alg
 > 	1. Reasignar cada objeto al claster mas cercano
 > 	2. Recalcular los claster como el punto medio de cada claster
 
+### Fortalezas
+- Simple y detecta clústeres esféricos
+- Es un algoritmo relativamente eficiente
+  O(k\*m\*iteraciones)
+### Debilidades:
+- Mínimos locales
+- ¿Cómo manejamos datos nominales?
+- ¿Determinar el valor de k?
+-  Sensibilidad al ruido
+- Hay tipos de clusters que no podrán ser encontrados (p.ej non-convex) Como los que no son esféricos o si los tamaños y/o densidades no son uniformes, ya que K-means saca agrupaciones uniformes.
+
+
+
+### Posibles preguntas en el examen sobre k-means
+- Dibuja un dataset donde no funcione el k-means y otro si.
+- Te pone un caso donde razones y expliques porque se va a la mierda.
