@@ -42,3 +42,5 @@ Intenta minimizar la distancia a los centroides de manera rápida, siendo un alg
 ### Posibles preguntas en el examen sobre k-means
 - Dibuja un dataset donde no funcione el k-means y otro si.
 - Te pone un caso donde razones y expliques porque se va a la mierda.
+- No se aplica de forma explcita la función de coste. 
+- Se puede ap
