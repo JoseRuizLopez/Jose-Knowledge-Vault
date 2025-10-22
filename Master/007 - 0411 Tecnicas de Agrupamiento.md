@@ -47,7 +47,13 @@ Intenta minimizar la distancia a los centroides de manera rápida, siendo un alg
 - ¿Se puede aplicar el descenso de gradiente como función de coste?
 - ¿Por que no se usa la función de coste dentro del k-means, pero siempre el coste va hacia abajo?
 	- Intrínsecamente no se usa, pero matemáticamente la función de coste no empeora por mover los centroides, aunque no garantice que caiga en un máximo local.
+- ¿Tiene sentido cambiar la función de distancia? 
+	- No porque se pierde el garantizado de obtener la mejora de la función de coste, pierde el sentido para el calculo del centroide.
 
 
-### Recomendaciones
-Usar pipelines de Sckiitlearn para realizar los pre-procesamientos.
+### Scikit-Learn
+Usar pipelines de Scikit-Learn para realizar los pre-procesamientos.
+- Se debe de entender que hacen los parámetros.
+- labels_: son los colores para las clases.
+- innercia_: nos guarda la función de coste.
+- 
