@@ -20,6 +20,9 @@ El clustering real nunca se puede asegurar.
 
 Intenta minimizar la distancia a los centroides de manera rápida, siendo un algoritmo buzzy. Pero tiene el riesgo de caer en un mínimo local.
 
+> No se aplica de forma explicita la función de coste. 
+
+
 > [!FÓRMULA]
 > 1. Eligir de forma aleatoria k puntos (el punto refiriéndose a alguno de los datos). Donde cada punto sería el centro del claster.
 > 2. Mientras haya cambios:
@@ -38,9 +41,13 @@ Intenta minimizar la distancia a los centroides de manera rápida, siendo un alg
 - Hay tipos de clusters que no podrán ser encontrados (p.ej non-convex) Como los que no son esféricos o si los tamaños y/o densidades no son uniformes, ya que K-means saca agrupaciones uniformes.
 
 
-
 ### Posibles preguntas en el examen sobre k-means
 - Dibuja un dataset donde no funcione el k-means y otro si.
 - Te pone un caso donde razones y expliques porque se va a la mierda.
-- No se aplica de forma explcita la función de coste. 
-- Se puede ap
+- ¿Se puede aplicar el descenso de gradiente como función de coste?
+- ¿Por que no se usa la función de coste dentro del k-means, pero siempre el coste va hacia abajo?
+	- Intrínsecamente no se usa, pero matemáticamente la función de coste no empeora por mover los centroides, aunque no garantice que caiga en un máximo local.
+
+
+### Recomendaciones
+Usar pipelines de Sckiitlearn para realizar los pre-procesamientos.
