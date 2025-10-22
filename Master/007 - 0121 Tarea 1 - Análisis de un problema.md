@@ -1,3 +1,7 @@
+links: [[007 - 0120 Practicas|Prácticas]]
+
+
+
 # Tarea 1: Análisis de un problema para un proyecto de investigación
 Este documento resume la estructura lógica y los pasos necesarios para realizar un análisis de un problema que sirva de base para el diseño de un proyecto de investigación.
 *Basado en la estructura del PDF «[[Simulación y evaluación de Políticas Urbanas.pdf|Simulación y evaluación de Políticas Urbanas]]»* 
