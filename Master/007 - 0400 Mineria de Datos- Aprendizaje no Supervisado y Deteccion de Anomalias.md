@@ -6,6 +6,8 @@ links: [[007 Master|Máster]]
 - [[007 - 0410 Teoria|Teoría]]
 - [[007 - 0420 Practicas|Prácticas]]
 
+---
+## Notas Generales
 La ponderación será: 0,6 examen+0,4 trabajo práctico. Será necesario obtener más de 3,5 en
 cada una de las partes para hacer la media.
 
