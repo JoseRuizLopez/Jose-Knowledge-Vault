@@ -60,5 +60,13 @@ Usar pipelines de Scikit-Learn para realizar los pre-procesamientos.
 ## Elementos básicos de un algoritmo de clustering
 
 
-Medidas de calidad
-- SI nos da la formula,si tiene sentido usar esa medida para esos datos.
+## Medidas de calidad
+- Pregunta si nos da la formula,si tiene sentido usar esa medida para esos datos.
+- Pregunta siempre entre los métodos intrínsecos y los métodos extrínsecos.
+
+## K-medoids (PAM)
+- Es menos sensible al ruido.
+- Es mas interpretable.
+- Ahora si se puede cambiar el calculo de distancia.
+Pero:
+- Tiene mayor computo.
