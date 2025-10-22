@@ -56,4 +56,5 @@ Usar pipelines de Scikit-Learn para realizar los pre-procesamientos.
 - Se debe de entender que hacen los parámetros.
 - labels_: son los colores para las clases.
 - innercia_: nos guarda la función de coste.
-- 
+
+## Elementos básicos de un algoritmo de clustering
