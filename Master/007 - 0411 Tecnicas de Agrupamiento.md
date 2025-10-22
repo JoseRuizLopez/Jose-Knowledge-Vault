@@ -58,3 +58,7 @@ Usar pipelines de Scikit-Learn para realizar los pre-procesamientos.
 - innercia_: nos guarda la función de coste.
 
 ## Elementos básicos de un algoritmo de clustering
+
+
+Medidas de calidad
+- SI nos da la formula,si tiene sentido usar esa medida para esos datos.
