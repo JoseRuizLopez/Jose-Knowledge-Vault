@@ -65,8 +65,12 @@ Usar pipelines de Scikit-Learn para realizar los pre-procesamientos.
 - Pregunta siempre entre los métodos intrínsecos y los métodos extrínsecos.
 
 ## K-medoids (PAM)
+Una de las preguntas típicas del examen es:
+
+**Ventajas**
 - Es menos sensible al ruido.
 - Es mas interpretable.
-- Ahora si se puede cambiar el calculo de distancia.
-Pero:
+- Ahora si se puede cambiar el calculo de distancia y aun así sigue garantizando que se recude la funciona de coste.
+
+**Desventajas**
 - Tiene mayor computo.
