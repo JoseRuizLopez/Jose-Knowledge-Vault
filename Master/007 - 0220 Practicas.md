@@ -1,4 +1,4 @@
-links: [[007 - 020 Introduccion a la Ciencia de Datos|Introducción a la Ciencia de Datos]]
+links: [[007 - 0200 Introduccion a la Ciencia de Datos|Introducción a la Ciencia de Datos]]
 
 # Practicas
 
@@ -11,7 +11,7 @@ Limpiar los datos.
 Coger las 3 mejore variables.
 Y probar 4 no lineales.
 
-Para knn tiene sentido a veces quitar alguna variable no interesante antes que hacer grandes formulas.
+Para [[knn]] tiene sentido a veces quitar alguna variable no interesante antes que hacer grandes formulas.
 ## Practica 2
 ![[2025-10-15_18-24.png]]
 

@@ -2,7 +2,7 @@ links: [[001 - 020 Machine Learning|Machine Learning]]
 
 # Prunning
 
-El *pruning* es una **técnica de optimización** que consiste en **eliminar componentes innecesarios** de un modelo para **reducir su complejidad**, mejorar **su eficiencia** y evitar el *overfitting*. Se aplica en redes neuronales, árboles de decisión y otros modelos, adaptándose a distintas arquitecturas y objetivos[^4][^6].
+El *pruning* es una **técnica de optimización** que consiste en **eliminar componentes innecesarios** de un modelo para **reducir su complejidad**, mejorar **su eficiencia** y evitar el *overfitting*. Se aplica en redes neuronales, [[Decision Trees|árboles de decisión]] y otros modelos, adaptándose a distintas arquitecturas y objetivos[^4][^6].
 
 
 ### Objetivos principales

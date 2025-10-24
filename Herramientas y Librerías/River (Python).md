@@ -21,7 +21,7 @@ links: [[001 - 020 Machine Learning|Machine Learning]] | [[River Data Drift]]
     - Compatible con algoritmos como **ADWIN** y **Page-Hinkley**, útiles para monitorear cambios en el rendimiento del modelo.
 
 4. **Soporte para Modelos de Clasificación, Regresión y Clustering**
-    - Incluye **[[árboles de decisión]]**, **regresión logística**, **Naive Bayes**, **K-Means**, entre otros.
+    - Incluye **[[Decision Trees|árboles de decisión]]**, **regresión logística**, **Naive Bayes**, **K-Means**, entre otros.
     - Compatible con **procesamiento de texto** y **[[series temporales]]**.
 
 5. **Integración con Sci-kit Learn y Pandas**    

@@ -7,7 +7,7 @@ links: [[Entrevista con Balidea]]
 En mi experiencia en EDUCA EDTECH Group, he trabajado en varios proyectos de IA. Uno de los más destacados fue el **fine‑tunning** de **Llama** para crear un modelo local, lo que me permitió probar una forma de **reducir significativamente los costos de generación de contenido**. Gestioné la infraestructura en [[Google Cloud]] y **optimicé el proceso** para que el modelo se adaptara a las **necesidades específicas del proyecto**. Esta experiencia me ha permitido profundizar en la **integración de LLMs** en **entornos productivos**.
 
 ### En cuanto a la implementación de sistemas de búsqueda basados en NLP, ¿cómo abordaste el desafío de detectar similitudes entre contenidos, por ejemplo, en blogs o artículos?
-Implementé un **proceso de detección de duplicidad** de contenidos basado en NLP. En primer lugar, desarrollé un preprocesamiento exhaustivo de texto que incluyó la limpieza y normalización de los datos. Posteriormente, **transformé los textos en embeddings** para **capturar sus características semánticas**. Estos embeddings fueron indexados en [[ElasticSearch]], donde apliqué una [[búsqueda kNN]] para **detectar duplicidades**. Para **evaluar y afinar** el proceso, probé **distintas [[métricas de similitud]]**, empleando tanto la [[Métricas de Similitud|similitud coseno]] como la [[Métricas de Similitud|similitud de Jaccard]], lo que me permitió identificar duplicidades de manera precisa y eficiente.
+Implementé un **proceso de detección de duplicidad** de contenidos basado en NLP. En primer lugar, desarrollé un preprocesamiento exhaustivo de texto que incluyó la limpieza y normalización de los datos. Posteriormente, **transformé los textos en embeddings** para **capturar sus características semánticas**. Estos embeddings fueron indexados en [[ElasticSearch]], donde apliqué una [[KNN|búsqueda kNN]] para **detectar duplicidades**. Para **evaluar y afinar** el proceso, probé **distintas [[métricas de similitud]]**, empleando tanto la [[Métricas de Similitud|similitud coseno]] como la [[Métricas de Similitud|similitud de Jaccard]], lo que me permitió identificar duplicidades de manera precisa y eficiente.
 
 ### ¿Podrías explicarme qué es el [[RAG|Retrieval-Augmented Generation (RAG]]) y cómo lo has aplicado en tus proyectos?
 [[RAG]] es una técnica que combina **modelos de lenguaje generativos** con **sistemas de recuperación de información**. La idea es que, en lugar de depender únicamente de un modelo generativo para producir respuestas, se utilice un mecanismo de búsqueda que **aporte datos contextuales relevantes**, mejorando así la **precisión** y **relevancia de las respuestas** generadas. En mi caso, investigué sobre [[RAG]] y utilicé [[Pinecone]] para la **indexación de cursos**, lo que permitió mejorar los resultados en la generación de contenido al proporcionar al modelo **información complementaria y actualizada**.
@@ -41,7 +41,7 @@ El fine-tuning de LLMs presenta desafíos como el [[Overfitting]], el **consumo 
 
 1. **Regularización y reducción de sobreajuste:** Utilicé técnicas como **dropout** y **congelación de capas superiores** para evitar el ajuste excesivo al conjunto de datos.
 2. **Uso de [[LoRA]] y Adapter Layers:** En lugar de ajustar todos los parámetros del modelo, aproveché métodos como [[LoRA]] para **reducir la cantidad de parámetros entrenables** y **mejorar la eficiencia**.
-3. **Optimización del consumo de recursos:** Implementé entrenamiento distribuido en Google Cloud y utilicé técnicas de [[mixed precision]] para acelerar el entrenamiento reduciendo el consumo de memoria sin comprometer la precisión.
+3. **Optimización del consumo de recursos:** Implementé entrenamiento distribuido en [[Google Cloud]] y utilicé técnicas de [[mixed precision]] para acelerar el entrenamiento reduciendo el consumo de memoria sin comprometer la precisión.
 
 ### Si tuvieras que mejorar la capacidad de un modelo de lenguaje para manejar documentos largos, ¿qué estrategias implementarías?
 Para mejorar la capacidad de un LLM en documentos largos, emplearía varias estrategias:
@@ -59,14 +59,14 @@ Implementar **arquitecturas optimizadas para texto extenso**, como [[Longformer]
 Evalué **distintos embeddings** basados en la tarea y los datos disponibles. Para mi proyecto, probé dos enfoques:
 
 1. **Word Embeddings clásicos (Word2Vec, GloVe):** Son útiles para tareas generales, pero no capturan suficiente contexto para comparaciones precisas en textos largos.
-2. **[[Contextual Embeddings]] (BERT, SBERT):** Opté por utilizar Sentence-BERT (SBERT), ya que produce embeddings más adecuados para la comparación de textos completos en términos semánticos. Estos embeddings fueron indexados en [[ElasticSearch]] y se aplicó una [[búsqueda kNN]] para la detección de duplicidades con métricas de [[Métricas de Similitud|similitud coseno y Jaccard]]. Realizando las divisiones por frases y por párrafos.
+2. **[[Contextual Embeddings]] (BERT, SBERT):** Opté por utilizar Sentence-BERT (SBERT), ya que produce embeddings más adecuados para la comparación de textos completos en términos semánticos. Estos embeddings fueron indexados en [[ElasticSearch]] y se aplicó una [[KNN|búsqueda kNN]] para la detección de duplicidades con métricas de [[Métricas de Similitud|similitud coseno y Jaccard]]. Realizando las divisiones por frases y por párrafos.
 
 ### ¿Qué ventajas tiene utilizar [[FAISS]] o [[Pinecone]] frente a [[ElasticSearch]] para búsquedas de similitud basadas en embeddings?
 Si bien [[ElasticSearch]] permite realizar **búsquedas vectoriales** con [[kNN]] y [[HNSW]], herramientas como [[FAISS]] y [[Pinecone]] están **diseñadas específicamente** para **búsqueda de alta dimensión y gran escala**.
 
 - **FAISS:** Desarrollado por Facebook AI, optimiza la búsqueda en grandes volúmenes de embeddings con indexación eficiente. Es ideal para búsquedas en bases de datos masivas, aunque requiere más configuración.
 - **Pinecone:** Un servicio gestionado que optimiza la búsqueda de [[Métricas de Similitud|similitud semántica]], facilitando la escalabilidad sin preocuparse por la infraestructura.
-- **ElasticSearch:** Aunque soporta búsquedas vectoriales, no está optimizado para grandes volúmenes de embeddings y puede ser menos eficiente en búsquedas de alta dimensión.
+- **[[ElasticSearch]]:** Aunque soporta búsquedas vectoriales, no está optimizado para grandes volúmenes de embeddings y puede ser menos eficiente en búsquedas de alta dimensión.
 
 En mi experiencia, si se busca escalabilidad con un **mantenimiento mínimo**, **Pinecone es la mejor opción**. Si se necesita control total y optimización a nivel de hardware, FAISS es preferible.
 
