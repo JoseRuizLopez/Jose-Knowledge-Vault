@@ -58,6 +58,8 @@ Usar pipelines de Scikit-Learn para realizar los pre-procesamientos.
 - innercia_: nos guarda la función de coste.
 
 ## Elementos básicos de un algoritmo de clustering
+Se pueden usar algunas medidas de distancia o similitud.
+La diferencia entre ambas medidas es que en similitud, la similaridad puede ser del 100% pero no son el mismo objeto, en cambio la de distancia si se consideraría el mismo objeto.
 
 
 ## Medidas de calidad
@@ -65,6 +67,8 @@ Usar pipelines de Scikit-Learn para realizar los pre-procesamientos.
 - Pregunta siempre entre los métodos intrínsecos y los métodos extrínsecos.
 
 ## K-medoids (PAM)
+Sigue sin resolver el problema de seleccionar el k. Hay que seguir usando la regla del codo o de la rodilla; ni arregla la inicialización.
+
 Una de las preguntas típicas del examen es:
 
 **Ventajas**
@@ -74,3 +78,11 @@ Una de las preguntas típicas del examen es:
 
 **Desventajas**
 - Tiene mayor computo.
+
+
+## GMMs
+Gaussian Mixture Models. Generan los clusteres asignando un porcentaje de probabilidad a cada cluster.
+Sigue sin resolver el problema de selección de k ni arregla la inicialización.
+**Ventajas**
+- Puede generar Clusters que no son esféricos (elipsoides), a diferencia de PAM y k-means.
+- 
