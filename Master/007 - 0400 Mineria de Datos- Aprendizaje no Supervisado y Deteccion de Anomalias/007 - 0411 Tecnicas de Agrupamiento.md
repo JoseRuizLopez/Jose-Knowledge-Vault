@@ -85,4 +85,12 @@ Gaussian Mixture Models. Generan los clusteres asignando un porcentaje de probab
 Sigue sin resolver el problema de selección de k ni arregla la inicialización.
 **Ventajas**
 - Puede generar Clusters que no son esféricos (elipsoides), a diferencia de PAM y k-means.
-- 
+
+## DBSCAN
+**Ventajas**
+- No hay que establecer numero de clusters.
+- Funciona bien para separar clusters que no tienen una formas concretas.
+
+**Desventajas**
+- Hay datos que no podrá clasificar, como cuando la dispersion de los datos de los clasters no son iguales entre distintos clusteres.
+
