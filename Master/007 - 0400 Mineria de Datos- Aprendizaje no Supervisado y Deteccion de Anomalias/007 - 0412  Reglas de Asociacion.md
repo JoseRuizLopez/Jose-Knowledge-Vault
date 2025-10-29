@@ -8,4 +8,6 @@ Si se da el **antecedente**, entonces con una alta probabilidad se da el **conse
 Donde en esos datos, no pueden ser de los 2 tipos a la vez.
 
 
-## Me 
+## Medidas Clásicas
+**Soporte**: Porcentaje del dato que aparece en un **itemset**. Por ejemplo, hay 50 pañales en las compras de 100 compras totales.
+**Confianza**: De toda las transacciones, en cuantas pasan que están las 2 transacciones. Es decir, de cuantas en todas las que se compran pañales, ¿también se compran cervezas?
