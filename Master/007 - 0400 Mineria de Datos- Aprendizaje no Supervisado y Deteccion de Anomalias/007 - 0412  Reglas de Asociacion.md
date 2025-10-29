@@ -13,9 +13,18 @@ Donde en esos datos, no pueden ser de los 2 tipos a la vez.
 **Confianza**: De toda las transacciones, en cuantas pasan que están las 2 transacciones. Es decir, de cuantas en todas las que se compran pañales, ¿también se compran cervezas?
 
 ## Métodos Clásicos
+Todos comprueban todo el abanico de soluciones, todo el espacio de muestras. Generan todas las soluciones posibles.
 #### Apriori
-Ahorra coste, pero no sabemos el umbral.
+==Repasar este método==
+Poda los que no superan el umbral.
+- Ahorra coste, pero no sabemos el umbral.
+
 #### Eclat
-Funcionaria bien, pero ocupa demasiada memoria.
+- Funcionaria bien, pero ocupa demasiada memoria.
 #### FP-growth
 Genera la estructura primero, y luego calcula. Solo consulta una vez la BD, solo para construir la estructura.
+_El año pasado, en el examen hubo un ejercicio pidiendo generar el árbol._
+- Es super paralelizable.
+
+## Conjuntos maximales y cerrados 
+Los maximales son los frecuentes que si le añadais cualquier elemento mas, dejan de ser frecuentes.
