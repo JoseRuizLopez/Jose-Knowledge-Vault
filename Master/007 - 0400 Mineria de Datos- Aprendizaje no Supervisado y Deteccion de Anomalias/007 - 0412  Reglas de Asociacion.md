@@ -27,4 +27,7 @@ _El año pasado, en el examen hubo un ejercicio pidiendo generar el árbol._
 - Es super paralelizable.
 
 ## Conjuntos maximales y cerrados 
-Los maximales son los frecuentes que si le añadais cualquier elemento mas, dejan de ser frecuentes.
+Los **maximales** son los frecuentes que si le añadáis cualquier elemento mas, dejan de ser frecuentes.
+Los **cerrados** son los frecuentes que si le añades un ítem, su soporte baja. Los maximales son también cerrados.
+
+Pero lo interesante son las relaciones que no son super altas, y que tampoco son bajas. Por ejemplo, el 90% de los clientes si compran X producto, eso el jefe ya lo sabría, pero no con el 50% por ejemplo.
