@@ -16,7 +16,7 @@ Donde en esos datos, no pueden ser de los 2 tipos a la vez.
 Todos comprueban todo el abanico de soluciones, todo el espacio de muestras. Generan todas las soluciones posibles.
 #### Apriori
 ==Repasar este método==
-Poda los que no superan el umbral.
+Usa la propiedad de **Soporte**. Poda los que no superan el umbral.
 - Ahorra coste, pero no sabemos el umbral.
 
 #### Eclat
