@@ -32,3 +32,6 @@ Los **cerrados** son los frecuentes que si le añades un ítem, su soporte baja.
 
 Pero lo interesante son las relaciones que no son super altas, y que tampoco son bajas. Por ejemplo, el 90% de los clientes si compran X producto, eso el jefe ya lo sabría, pero no con el 50% por ejemplo.
 
+
+## Apuntes
+Hay que seccionar los datos para dirigirlos al análisis que deseamos.
