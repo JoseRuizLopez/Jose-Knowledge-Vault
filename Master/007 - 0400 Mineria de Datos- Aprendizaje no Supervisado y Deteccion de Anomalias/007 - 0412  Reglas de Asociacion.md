@@ -34,4 +34,4 @@ Pero lo interesante son las relaciones que no son super altas, y que tampoco son
 
 
 ## Apuntes
-Hay que seccionar los datos para dirigirlos al análisis que deseamos.
+Hay que seccionar los datos para orientas nuestra búsqueda a lo que deseamos.
