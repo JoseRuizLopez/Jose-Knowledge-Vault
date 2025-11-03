@@ -1,7 +1,7 @@
 Link: [[007 - 0410 Teoria|Teoría]]
 
 
-# Reglas de Asociación
+# Primera Parte
 **Aprendizaje no Supervisado**: No tenemos los datos esperados, o si los tenemos, no nos interesa predecir los resultados.
 
 Si se da el **antecedente**, entonces con una alta probabilidad se da el **consecuente**.
@@ -35,4 +35,5 @@ Pero lo interesante son las relaciones que no son super altas, y que tampoco son
 
 ## Apuntes
 Hay que seccionar los datos para orientas nuestra búsqueda a lo que deseamos.
-	
+
+# Segunda parte
