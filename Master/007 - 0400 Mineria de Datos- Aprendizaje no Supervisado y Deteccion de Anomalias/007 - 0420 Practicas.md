@@ -7,6 +7,7 @@
 - Fecha del entrado el 11 de Enero de 2026 hasta las 23:55.
 - Cupos del trabajo:
 	- Reglas de Asociación: 50%   -> Se puede hacer en Python.
+		- No pueden pasar de 10 páginas.
 	- Clustering: 25%
 	- Anomalías: 25%
 
