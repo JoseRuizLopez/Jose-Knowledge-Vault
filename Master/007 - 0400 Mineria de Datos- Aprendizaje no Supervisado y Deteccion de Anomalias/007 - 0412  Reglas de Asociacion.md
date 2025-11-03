@@ -37,3 +37,6 @@ Pero lo interesante son las relaciones que no son super altas, y que tampoco son
 Hay que seccionar los datos para orientas nuestra búsqueda a lo que deseamos.
 
 # Segunda parte
+Si ocurre A, entonces ocurre B.
+
+Porque no puedes tocar el Antecedente para provocar el consecuente.
