@@ -3,11 +3,13 @@
 
 
 # Practicas
-
-Cupos del trabajo:
-- Reglas de Asociación: 50%
-- Clustering: 25%
-- Anomalías: 25%
+- Selección del trabajo el día 13 de Noviembre de 2025 a partir de las 22:00.
+- Fecha del entrado el 11 de Enero de 2026 hasta las 23:55.
+- Cupos del trabajo:
+	- Reglas de Asociación: 50%   -> Se puede hacer en Python.
+		- No pueden pasar de 10 páginas.
+	- Clustering: 25%
+	- Anomalías: 25%
 
 
 ---
