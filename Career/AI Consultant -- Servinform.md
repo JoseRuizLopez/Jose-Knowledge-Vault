@@ -18,6 +18,9 @@ links: [[006 Career |Career]]
 - Añadir información en el informe del Job05.
 - Modularización del Job 05 para el uso del Balanceador.
 - Optimización de las consultas del Job05.
+- Optimización de los jobs para aumentar su eficiencia.
+- Desarrollo de un flujo paralelo para procesar nuevas llamadas.
+- Mantenimiento del proyecto atendiendo las peticiones de los clientes.
 - **Stack utilizado**: Desarrollo en **Django** con base de datos **PostgreSQL**.
 - **Infraestructura**: Modificación de los **Dockerfiles** para usar junto al balanceador.
 
