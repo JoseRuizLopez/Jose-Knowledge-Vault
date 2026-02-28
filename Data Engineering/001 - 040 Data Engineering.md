@@ -4,7 +4,7 @@ links: [[001  Concepts|Concepts]]
 *Ir a ...*
 - [[ElasticSearch]]
 - [[Google Cloud]]
-- 
+- [[Vertex AI]]
 
 
 

@@ -1,4 +1,4 @@
-links: [[100  Projects]]
+links: [[001 - 020 Inteligencia Artificial|Inteligencia Artificial]]
 
 
 # MonuMAI

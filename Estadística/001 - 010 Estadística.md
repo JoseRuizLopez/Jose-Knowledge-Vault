@@ -6,6 +6,7 @@ links: [[001  Concepts|Concepts]]
 	- [[Varianza]]
 	- [[Desviación Estándar]]
 	- [[Test de Kolmogorov-Smirnov]]
+	- [[Índice de Estabilidad de la Población]]
 
 
 
