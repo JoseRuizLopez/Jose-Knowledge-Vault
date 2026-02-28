@@ -1,4 +1,4 @@
-links: [[Mineria de Medios Sociales]]
+links: [[MineriaMediosSociales/DifusionDeInformacion/IndependentCascadeModel]]
 
 
 # Independent Cascade Model
