@@ -1,4 +1,4 @@
-links: [[TFM]] 
+links: [[no-TFM]] 
 
 # Revisión bibliográfica
 ## Bases de datos y estándares actuales para modelos simbólicos  
@@ -110,4 +110,4 @@ Tendencia 2025: los LVLMs avanzan en benchmarks de razonamiento, pero la fidelid
 
 ---
 tags:
-	#Index #TFM
+	#Index #no-TFM

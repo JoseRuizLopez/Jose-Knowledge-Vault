@@ -1,7 +1,7 @@
 links: [[001 - 020 Machine Learning|Machine Learning]]
 
 # Shapes Constraint Language (SHACL)
-**SHACL (Shapes Constraint Language)** es un estándar del **W3C** diseñado para **validar, describir y restringir datos [[RDF]]**. Su objetivo principal es **comprobar que un grafo [[RDF]] cumple con una estructura o reglas esperadas**, algo esencial cuando se trabaja con **grafos de conocimiento** en aplicaciones de inteligencia artificial, web semántica o sistemas neuro-simbólicos como el del [[TFM]].
+**SHACL (Shapes Constraint Language)** es un estándar del **W3C** diseñado para **validar, describir y restringir datos [[RDF]]**. Su objetivo principal es **comprobar que un grafo [[RDF]] cumple con una estructura o reglas esperadas**, algo esencial cuando se trabaja con **grafos de conocimiento** en aplicaciones de inteligencia artificial, web semántica o sistemas neuro-simbólicos como el del [[no-TFM]].
 
 Mientras que **[[OWL]]** se usa para **razonar** (inferir nuevo conocimiento), **SHACL** se usa para **validar** (detectar incoherencias o errores estructurales). Por eso, [[OWL]] y **SHACL** son **complementarios**.
 
@@ -73,7 +73,7 @@ ex:PersonaShape
 
 ---
 
-En el contexto del **[[TFM]]**, **SHACL** puede servir para **verificar la coherencia estructural** del grafo resultante tras la alineación neuronal–simbólica, asegurando que las relaciones detectadas por el modelo cumplen las **restricciones semánticas** definidas en el **Knowledge Graph (KG)**.
+En el contexto del **[[no-TFM]]**, **SHACL** puede servir para **verificar la coherencia estructural** del grafo resultante tras la alineación neuronal–simbólica, asegurando que las relaciones detectadas por el modelo cumplen las **restricciones semánticas** definidas en el **Knowledge Graph (KG)**.
 
 ---
 tags:

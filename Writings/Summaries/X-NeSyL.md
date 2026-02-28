@@ -20,7 +20,7 @@ Este es el paper base de **X-NeSyL**. Su meta es fusionar representaciones apren
 - Mostrar que se puede “alinear” la interpretación interna del modelo (via SHAP) con el conocimiento experto.
 - Un caso de estudio concreto: [[MonuMAI]], con clasificación de fachadas monumentales. [ACM Digital Library+3arXiv+3ScienceDirect+3](https://arxiv.org/abs/2104.11914)
 
-**Cómo mencionarlo en mi [[TFM]]**
+**Cómo mencionarlo en mi [[no-TFM]]**
 - Puedo usarlo como **referente metodológico central**: “mi propuesta adapta la metodología X-NeSyL al dominio de escenas complejas, extendiéndola hacia relaciones espaciales y funcionales”.
 - Puedo reutilizar su métrica de alineación explicativa, o adaptarla para tu dominio.
 - Puedo estudiar y comparar tu **SAG vs KG** como ellos hacen, pero en un dominio diferente.

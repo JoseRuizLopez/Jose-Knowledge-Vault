@@ -1,4 +1,4 @@
-links: [[TFM]] 
+links: [[no-TFM]] 
 
 # Guía para la Reunión con Siham Tabik (TFM Neuro-Simbólico)
 
@@ -196,4 +196,4 @@ Otra idea sería usar varios Llama que uno aprendido la gastronomía española y
 
 ---
 tags:
-	#Index #TFM
+	#Index #no-TFM

@@ -1,4 +1,4 @@
-links: [[TFM]] 
+links: [[no-TFM]] 
 
 ## Parte simbólica en un modelo neurosimbólico
 
@@ -114,4 +114,4 @@ Esto conecta directamente con el marco de Siham y con los papers (EXPLANet, SHAP
 
 ---
 tags:
-	#Index #TFM
+	#Index #no-TFM

@@ -1,6 +1,6 @@
 links: [[100  Projects|Projects]] 
 
-# TFM
+# no-TFM
 *Ir a ...*
 -  [[Parte Simbolica|Parte Simbólica]]
 -  [[Primera Reunion|Primera Reunión]]
@@ -11,4 +11,4 @@ links: [[100  Projects|Projects]]
 
 ---
 tags:
-	#Index #TFM
+	#Index #no-TFM

@@ -1,4 +1,4 @@
-	links: [[TFM]] 
+links: [[no-TFM]] 
 
 # Inicio de Planificación
 Modelos neurosimbólicos para el reconocimiento semántico de escenas (visión‑lenguaje) con razonamiento y mitigación de sesgos
@@ -141,4 +141,4 @@ Tareas centradas en imagen (y opcionalmente vídeo corto) con foco en interaccio
 
 ---
 tags:
-	#Index #TFM
+	#Index #no-TFM
