@@ -1,4 +1,4 @@
-links: [[no-TFM]] 
+links: [[Projects/no-TFM/no-TFM]] 
 
 # Guía para la Reunión con Siham Tabik (TFM Neuro-Simbólico)
 

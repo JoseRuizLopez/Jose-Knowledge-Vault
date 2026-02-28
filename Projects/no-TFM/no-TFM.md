@@ -2,8 +2,8 @@ links: [[100  Projects|Projects]]
 
 # no-TFM
 *Ir a ...*
--  [[Parte Simbolica|Parte Simbólica]]
--  [[Primera Reunion|Primera Reunión]]
+- [[Parte Simbolica|Parte Simbólica]]
+- [[Primera Reunion|Primera Reunión]]
 - [[Inicio de Planificación]]
 - [[Revisión bibliográfica-3|Revisión Bibliográfica]]
 

@@ -1,4 +1,4 @@
-links: [[no-TFM]] 
+links: [[Projects/no-TFM/no-TFM]] 
 
 ## Parte simbólica en un modelo neurosimbólico
 

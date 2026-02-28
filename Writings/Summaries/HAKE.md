@@ -169,7 +169,7 @@ Además, demuestra **gran capacidad de transferencia** entre datasets sin reentr
 
 
 
-## Conexión directa con el [[no-TFM]]
+## Conexión directa con el [[Projects/no-TFM/no-TFM]]
 
 |Objetivo de tu TFM|Relación con HAKE|
 |---|---|
@@ -186,7 +186,7 @@ Además, demuestra **gran capacidad de transferencia** entre datasets sin reentr
 > **HAKE transforma la comprensión de actividades humanas en una tarea neuro-simbólica jerárquica:**  
 > detecta **primitivos visuales**, los **combina mediante reglas lógicas**, y obtiene **actividades explicables y generalizables**.
 
-**Contribuye a el [[no-TFM]]** como ejemplo de:
+**Contribuye a el [[Projects/no-TFM/no-TFM]]** como ejemplo de:
 
 - Integración explícita de conocimiento simbólico en visión.
     

@@ -35,8 +35,8 @@ Si le das una imagen de un gato y los textos “un perro”, “un gato”, “u
 CLIP predice que el texto más cercano es “un gato”.
 
 ---
-## Por qué es útil para el [[no-TFM]]
-Mi [[no-TFM]] busca **reconocimiento semántico de escenas**, donde los objetos y relaciones tienen **significado simbólico**.
+## Por qué es útil para el [[Projects/no-TFM/no-TFM]]
+Mi [[Projects/no-TFM/no-TFM]] busca **reconocimiento semántico de escenas**, donde los objetos y relaciones tienen **significado simbólico**.
 
 CLIP es una **excelente capa de percepción** para esto, porque:
 1. **Ya asocia texto ↔ imagen**, así que puedes mapear fácilmente los objetos detectados con **conceptos simbólicos** del KG.
@@ -74,7 +74,7 @@ Imagen  ──► Visual Encoder  ─┐
 
 
 ---
-## 💡 Ejemplo aplicado a mi [[no-TFM]]
+## 💡 Ejemplo aplicado a mi [[Projects/no-TFM/no-TFM]]
 Por ejemplo, CLIP detecta la relación:
 
 > Imagen → “a man driving a car near a traffic light”
