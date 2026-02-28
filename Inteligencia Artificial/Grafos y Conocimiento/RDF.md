@@ -1,4 +1,4 @@
-links: [[001 - 020 Machine Learning|Machine Learning]]
+links: [[001 - 020 Inteligencia Artificial|Inteligencia Artificial]]
 
 # Resource Description Framework (RDF)
 **Resource Description Framework (RDF)** es un modelo estándar del **W3C** (World Wide Web Consortium) diseñado para representar y describir información estructurada en la **Web Semántica**. Su objetivo es permitir que los datos puedan ser **compartidos, integrados y entendidos por máquinas**, no solo por humanos.

@@ -1,4 +1,4 @@
-links: [[001 - 020 Machine Learning|Machine Learning]]
+links: [[001 - 020 Inteligencia Artificial|Inteligencia Artificial]]
 
 # Subsampling
 El **subsampling** (submuestreo) es una técnica utilizada para reducir la cantidad de datos en un conjunto de información sin perder información esencial. Se emplea en diversas áreas como el procesamiento de señales, la estadística, el aprendizaje automático y la compresión de datos.

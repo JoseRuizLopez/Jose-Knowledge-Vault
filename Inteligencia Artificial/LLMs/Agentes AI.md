@@ -1,9 +1,9 @@
-links: [[001 - 020 Machine Learning|Machine Learning]]
+links: [[001 - 020 Inteligencia Artificial|Inteligencia Artificial]]
 
 
 # Agentes AI
 
-Los agentes de IA son **sistemas computacionales** diseñados para **interactuar con su entorno** de **manera autónoma**. Su objetivo es recopilar información, procesarla y actuar en función de objetivos predeterminados o aprendidos. Estos sistemas han transformado industrias al **automatizar procesos**, **mejorar la eficiencia** y **facilitar la toma de decisiones** en situaciones complejas. La evolución de estos agentes ha sido impulsada por avances en áreas como el [[001 - 020 Machine Learning|Machine Learning]], el **NLP** y la **robótica**.
+Los agentes de IA son **sistemas computacionales** diseñados para **interactuar con su entorno** de **manera autónoma**. Su objetivo es recopilar información, procesarla y actuar en función de objetivos predeterminados o aprendidos. Estos sistemas han transformado industrias al **automatizar procesos**, **mejorar la eficiencia** y **facilitar la toma de decisiones** en situaciones complejas. La evolución de estos agentes ha sido impulsada por avances en áreas como el [[001 - 020 Inteligencia Artificial|Inteligencia Artificial]], el **NLP** y la **robótica**.
 
 ## Definición y Componentes
 

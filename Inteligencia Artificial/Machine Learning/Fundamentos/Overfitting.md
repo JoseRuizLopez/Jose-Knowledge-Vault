@@ -1,4 +1,4 @@
-links: [[001 - 020 Machine Learning|Machine Learning]]
+links: [[001 - 020 Inteligencia Artificial|Inteligencia Artificial]]
 
 # Overfitting
 El sobreajuste (overfitting) es el efecto de sobreentrenar un algoritmo de aprendizaje con unos ciertos datos para los que se conoce el resultado deseado, de esta forma el modelo aprende demasiado bien los detalles y ruido del conjunto de entrenamiento, perdiendo capacidad de generalización en datos nuevos.

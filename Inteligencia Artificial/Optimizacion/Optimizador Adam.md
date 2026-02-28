@@ -1,4 +1,4 @@
-links: [[001 - 020 Machine Learning|Machine Learning]]
+links: [[001 - 020 Inteligencia Artificial|Inteligencia Artificial]]
 
 # Optimizador Adam
 El **optimizador Adam** (Adaptive Moment Estimation) representa un hito en la evolución de **algoritmos de optimización** para aprendizaje automático. Desarrollado por *Kingma* y *Ba* en 2014[^1], combina técnicas de **momentum** y **escalado adaptativo de gradientes**, ofreciendo ventajas en convergencia y adaptabilidad a geometrías complejas de funciones objetivo.

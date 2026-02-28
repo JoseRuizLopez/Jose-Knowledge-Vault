@@ -12,7 +12,7 @@ The repository is organized into thematic sections, including:
 
 - **Estadística** → statistical concepts, tests, and formulas.  
 - **Herramientas y Librerías** → notes on Python libraries and AI tools.  
-- **Machine Learning** → core ML concepts and applied methods.  
+- **Inteligencia Artificial** → core ML, deep learning, LLMs, and applied AI methods.
 - **Programming** → programming fundamentals, workflows, and practices.  
 - **Master** → academic notes and research methodology.  
 - **Writings** → summaries, interviews, and essays.  

@@ -1,4 +1,4 @@
-links: [[001 - 020 Machine Learning|Machine Learning]]
+links: [[001 - 020 Inteligencia Artificial|Inteligencia Artificial]]
 
 # Desvanecimiento de Gradientes
 Este fenómeno ocurre cuando los gradientes se vuelven **extremadamente pequeños** durante el **entrenamiento de redes neuronales profundas**, lo que dificulta la actualización efectiva de los pesos y puede detener el aprendizaje[^2][^4].

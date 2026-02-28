@@ -1,9 +1,9 @@
-links: [[001 - 020 Machine Learning|Machine Learning]]
+links: [[001 - 020 Inteligencia Artificial|Inteligencia Artificial]]
 
 
 # Lazy Learning
 
-**Lazy Learning** (Aprendizaje Perezoso), también conocido como **aprendizaje basado en instancias**, es un paradigma de [[001 - 020 Machine Learning|Machine Learning]] en el que el algoritmo **pospone la mayor parte del cómputo** hasta el momento de la predicción.
+**Lazy Learning** (Aprendizaje Perezoso), también conocido como **aprendizaje basado en instancias**, es un paradigma de [[001 - 020 Inteligencia Artificial|Inteligencia Artificial]] en el que el algoritmo **pospone la mayor parte del cómputo** hasta el momento de la predicción.
 
 A diferencia de otros métodos, un algoritmo _lazy_ **no construye un modelo generalizado** durante la fase de entrenamiento. En su lugar, simplemente **almacena todas las instancias** del conjunto de datos de entrenamiento.
 

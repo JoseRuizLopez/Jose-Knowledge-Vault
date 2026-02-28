@@ -1,4 +1,4 @@
-links: [[001 - 020 Machine Learning|Machine Learning]]
+links: [[001 - 020 Inteligencia Artificial|Inteligencia Artificial]]
 
 # 🧠 Knowledge-Augmented Generation (KAG)
 ## ¿Qué es KAG?

@@ -1,4 +1,4 @@
-links: [[001 - 020 Machine Learning|Machine Learning]]
+links: [[001 - 020 Inteligencia Artificial|Inteligencia Artificial]]
 
 # Batch Normalization (BN)
 **Batch Normalization (BN)** es una técnica utilizada en redes neuronales profundas para acelerar el entrenamiento y mejorar la estabilidad del modelo. 

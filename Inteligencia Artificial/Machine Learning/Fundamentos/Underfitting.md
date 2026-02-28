@@ -1,8 +1,8 @@
-links: [[001 - 020 Machine Learning|Machine Learning]]
+links: [[001 - 020 Inteligencia Artificial|Inteligencia Artificial]]
 
 # Underfitting
 
-El **Underfitting** (o subajuste) es un problema común en [[001 - 020 Machine Learning|Machine Learning]] donde un modelo es **demasiado simple** para capturar la estructura subyacente o los patrones en los datos de entrenamiento.
+El **Underfitting** (o subajuste) es un problema común en [[001 - 020 Inteligencia Artificial|Inteligencia Artificial]] donde un modelo es **demasiado simple** para capturar la estructura subyacente o los patrones en los datos de entrenamiento.
 
 A diferencia del [[Overfitting]], que memoriza el ruido, el _underfitting_ ni siquiera logra aprender la relación fundamental. Como resultado, el modelo tiene un **rendimiento deficiente** tanto en los datos de entrenamiento como en los datos de prueba (validación).
 

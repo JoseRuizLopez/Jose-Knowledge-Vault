@@ -1,4 +1,4 @@
-links: [[001 - 020 Machine Learning|Machine Learning]]
+links: [[001 - 020 Inteligencia Artificial|Inteligencia Artificial]]
 
 # Redes Neuronales
 Las **redes neuronales artificiales** (RNA) son modelos computacionales inspirados en la estructura y funcionamiento del cerebro humano. Están diseñadas para procesar información de manera distribuida y adaptativa, permitiendo el aprendizaje a partir de datos.

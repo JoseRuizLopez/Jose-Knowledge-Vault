@@ -1,9 +1,9 @@
-links: [[001 - 020 Machine Learning|Machine Learning]]
+links: [[001 - 020 Inteligencia Artificial|Inteligencia Artificial]]
 
 
 # K-Nearest Neighbors (KNN)
 
-**K-Nearest Neighbors (KNN)**, o K-Vecinos más Cercanos, es un algoritmo fundamental de [[001 - 020 Machine Learning|Machine Learning]] supervisado. Es un método **no paramétrico** (no asume una distribución específica de los datos) y de [[lazy learning]].
+**K-Nearest Neighbors (KNN)**, o K-Vecinos más Cercanos, es un algoritmo fundamental de [[001 - 020 Inteligencia Artificial|Inteligencia Artificial]] supervisado. Es un método **no paramétrico** (no asume una distribución específica de los datos) y de [[lazy learning]].
 
 Su funcionamiento se basa en la premisa de "similitud de características": asume que los puntos de datos que son similares (vecinos) existen en proximidad. Por lo tanto, asigna una etiqueta a un nuevo punto de datos basándose en las etiquetas de sus vecinos más cercanos.
 

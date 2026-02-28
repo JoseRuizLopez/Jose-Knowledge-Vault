@@ -1,4 +1,4 @@
-links: [[001 - 020 Machine Learning|Machine Learning]]
+links: [[001 - 020 Inteligencia Artificial|Inteligencia Artificial]]
 
 🔗 References: [Page Reference](https://www.evidentlyai.com/ml-in-production/data-drift#:~:text=Data%20drift%20is%20a%20change%20in%20the%20input%20data.,between%20input%20and%20target%20variables)
 

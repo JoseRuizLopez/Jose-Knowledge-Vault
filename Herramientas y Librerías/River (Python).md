@@ -1,4 +1,4 @@
-links: [[001 - 020 Machine Learning|Machine Learning]] | [[River Data Drift]]
+links: [[001 - 020 Inteligencia Artificial|Inteligencia Artificial]] | [[River Data Drift]]
 
 
 # River

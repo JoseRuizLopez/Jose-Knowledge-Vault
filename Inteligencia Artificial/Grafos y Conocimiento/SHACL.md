@@ -1,4 +1,4 @@
-links: [[001 - 020 Machine Learning|Machine Learning]]
+links: [[001 - 020 Inteligencia Artificial|Inteligencia Artificial]]
 
 # Shapes Constraint Language (SHACL)
 **SHACL (Shapes Constraint Language)** es un estándar del **W3C** diseñado para **validar, describir y restringir datos [[RDF]]**. Su objetivo principal es **comprobar que un grafo [[RDF]] cumple con una estructura o reglas esperadas**, algo esencial cuando se trabaja con **grafos de conocimiento** en aplicaciones de inteligencia artificial, web semántica o sistemas neuro-simbólicos como el del [[Projects/no-TFM/no-TFM]].

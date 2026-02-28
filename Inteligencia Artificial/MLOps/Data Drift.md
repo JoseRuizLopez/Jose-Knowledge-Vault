@@ -1,4 +1,4 @@
-links: [[001 - 020 Machine Learning|Machine Learning]]
+links: [[001 - 020 Inteligencia Artificial|Inteligencia Artificial]]
 
 # Data Drift
 > 📌 **Nota:** Para entender mejor las diferencias entre **Data Drift** y **Concept Drift**, revisar [[Data Drift vs Concept Drift]].

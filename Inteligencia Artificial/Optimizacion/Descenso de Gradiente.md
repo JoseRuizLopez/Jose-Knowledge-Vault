@@ -1,4 +1,4 @@
-links: [[001 - 020 Machine Learning|Machine Learning]]
+links: [[001 - 020 Inteligencia Artificial|Inteligencia Artificial]]
 
 # Descenso de Gradiente
 El descenso de gradiente es un algoritmo de optimización fundamental en campos como el aprendizaje automático, la ingeniería y la investigación operativa. Su objetivo principal es minimizar funciones de coste mediante iteraciones que ajustan parámetros en dirección opuesta al gradiente de la función. Este método destaca por su simplicidad conceptual y versatilidad, aunque enfrenta desafíos en términos de convergencia y sensibilidad a condiciones iniciales. En este informe, exploraremos su formulación matemática, aplicaciones prácticas en sistemas adaptativos y telecomunicaciones, limitaciones frente a técnicas metaheurísticas, y avances recientes para mejorar su eficiencia en problemas de alta dimensionalidad[^1] [^2]. 

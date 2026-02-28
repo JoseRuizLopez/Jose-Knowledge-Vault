@@ -5,7 +5,7 @@ links: [[001 - 040 Data Engineering|Data Engineering]]
 
 **Google Cloud Platform (GCP)** es la suite de servicios de computación en la nube ofrecida por Google. Utiliza la misma infraestructura global que Google usa internamente para sus productos de usuario final, como el Buscador de Google, Gmail y YouTube.
 
-GCP ofrece un conjunto robusto de servicios modulares que incluyen **computación, almacenamiento de datos, análisis de datos (Big Data) y [[001 - 020 Machine Learning|Machine Learning]]**. Está diseñado para ofrecer alta escalabilidad, seguridad y rendimiento, permitiendo a las empresas construir, probar y desplegar aplicaciones en una infraestructura global.
+GCP ofrece un conjunto robusto de servicios modulares que incluyen **computación, almacenamiento de datos, análisis de datos (Big Data) y [[001 - 020 Inteligencia Artificial|Inteligencia Artificial]]**. Está diseñado para ofrecer alta escalabilidad, seguridad y rendimiento, permitiendo a las empresas construir, probar y desplegar aplicaciones en una infraestructura global.
 
 ---
 
@@ -46,7 +46,7 @@ GCP organiza sus servicios en varias categorías principales:
 
 ### IA y Machine Learning
 
-- **AI Platform (Vertex AI)**: Plataforma unificada para construir, desplegar y gestionar modelos de [[001 - 020 Machine Learning|Machine Learning]].
+- **AI Platform (Vertex AI)**: Plataforma unificada para construir, desplegar y gestionar modelos de [[001 - 020 Inteligencia Artificial|Inteligencia Artificial]].
     
 - **APIs de IA**: Modelos pre-entrenados para Visión (Vision AI), Lenguaje (Natural Language AI), y Conversación ([[Dialogflow]]).
     
