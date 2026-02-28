@@ -1,7 +1,7 @@
 links: [[100  Projects]]
 
 
-# Influence Maximization
+# TFM — Influence Maximization
 
 Página central del área de *Influence Maximization* para el TFM. Agrupa toda la literatura, conceptos, modelos y experimentos relacionados.
 
@@ -58,23 +58,11 @@ Página central del área de *Influence Maximization* para el TFM. Agrupa toda l
 
 ---
 
-## 🗂️ Estado del TFM
-
-| Fase | Estado |
-|------|--------|
-| Revisión bibliográfica | 🔄 En progreso |
-| Implementación modelos base | ⏳ Pendiente |
-| Implementación métodos comunidades | ⏳ Pendiente |
-| Experimentos comparativos | ⏳ Pendiente |
-| Redacción | ⏳ Pendiente |
-
----
-
 ## 📝 Notas y reuniones
 
-- [[Reunion_Cordon_01]] — primera reunión con el supervisor
+- [[Reunion_Cordon_01]] — primera reunión con el tutor
 
 
 ---
 tags:
-	#TFM #InfluenceMaximization #NetworkScience #Índice
+	#TFM #InfluenceMaximization #NetworkScience #Index 

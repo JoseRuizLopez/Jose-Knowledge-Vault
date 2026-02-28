@@ -1,4 +1,4 @@
-links: [[Influence Maximization]] [[Network Science]] [[Social Network Analysis]]
+links: [[TFM]]
 
 
 # Kempe, Kleinberg & Tardos (2003) — Maximizing the Spread of Influence through a Social Network

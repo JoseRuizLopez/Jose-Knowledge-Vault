@@ -69,6 +69,13 @@
         "a": 1,
         "rgb": 4798031
       }
+    },
+    {
+      "query": "tag:#TFM",
+      "color": {
+        "a": 1,
+        "rgb": 936100
+      }
     }
   ],
   "collapse-display": true,
@@ -81,6 +88,6 @@
   "repelStrength": 11.4137214137214,
   "linkStrength": 0.816008316008316,
   "linkDistance": 288,
-  "scale": 0.6757621765136719,
+  "scale": 1.328248431472555,
   "close": true
 }
