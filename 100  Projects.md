@@ -4,8 +4,8 @@ links: [[000  HOME |Home]]
 *Ir a ...*
 - [[101 - Chatbot Personal|Chatbot Personal]]
 - [[MonuMAI]]
-- [[no-TFM]]
-- [[TFM]]
+- [[102 - no-TFM|No TFM]]
+- [[103 - TFM|TFM — Influence Maximization]]
 
 
 ---

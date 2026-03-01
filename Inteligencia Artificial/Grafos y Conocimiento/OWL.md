@@ -49,7 +49,7 @@ OWL se basa en **tripletas RDF**, pero introduce una semántica más rica:
 - **OWL Full**: máxima expresividad, pero menos eficiente para el razonamiento.
     
 
-En el [[Projects/no-TFM/no-TFM]], OWL sería la herramienta adecuada para **formalizar el conocimiento simbólico del dominio** (por ejemplo, las relaciones válidas entre objetos de una escena) y **verificar coherencia o inferir nuevas relaciones** cuando se alinea con las predicciones de la red neuronal.
+En el [[102 - no-TFM]], OWL sería la herramienta adecuada para **formalizar el conocimiento simbólico del dominio** (por ejemplo, las relaciones válidas entre objetos de una escena) y **verificar coherencia o inferir nuevas relaciones** cuando se alinea con las predicciones de la red neuronal.
 
 ---
 tags:

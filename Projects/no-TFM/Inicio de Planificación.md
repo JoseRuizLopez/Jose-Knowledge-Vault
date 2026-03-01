@@ -1,4 +1,4 @@
-links: [[Projects/no-TFM/no-TFM]] 
+links: [[102 - no-TFM]] 
 
 # Inicio de Planificación
 Modelos neurosimbólicos para el reconocimiento semántico de escenas (visión‑lenguaje) con razonamiento y mitigación de sesgos

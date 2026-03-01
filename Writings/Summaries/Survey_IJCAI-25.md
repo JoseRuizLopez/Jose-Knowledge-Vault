@@ -71,7 +71,7 @@ La encuesta aporta una **tabla comparativa**: NeSy **gana** en tareas de **regul
 - **Regularización simbólica** como antídoto al sesgo y a la dependencia de datos sintéticos; **composicionalidad** con menor dependencia del tamaño de entrenamiento.
 
 ---
-## Qué te aporta al [[Projects/no-TFM/no-TFM]]
+## Qué te aporta al [[102 - no-TFM]]
 
 1. **Escoge familia según objetivo:**
     - **Enforzamiento de reglas** (FOL/PSL) para **coherencia y seguridad** en _scene understanding_ (p. ej., reglas espaciales/funcionales en HOI/SG).

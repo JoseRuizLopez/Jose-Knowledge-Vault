@@ -1,4 +1,4 @@
-links: [[Projects/no-TFM/no-TFM]] 
+links: [[102 - no-TFM]] 
 
 # Revisión bibliográfica
 ## Bases de datos y estándares actuales para modelos simbólicos  
