@@ -1,4 +1,4 @@
-links: [[007 - 0200 Introduccion a la Ciencia de Datos|Introducción a la Ciencia de Datos]]
+links: [[Master/007 - 0200 Introduccion a la Ciencia de Datos/007 - 0200 Introduccion a la Ciencia de Datos|Introducción a la Ciencia de Datos]]
 
 # Practicas
 
