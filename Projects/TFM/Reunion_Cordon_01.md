@@ -6,6 +6,8 @@ links: [[103 - TFM]]
 Primera reunión de seguimiento del TFM con el tutor.
 
 ## Temas tratados
+Con el TFM del compañero hicieorn un grasp.
+
 
 ## Acuerdos y próximos pasos
 
