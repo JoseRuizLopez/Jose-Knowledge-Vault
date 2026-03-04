@@ -6,16 +6,17 @@ links: [[103 - TFM]]
 Primera reunión de seguimiento del TFM con el tutor.
 
 ## Temas tratados
-Con el TFM de Isaac de la Politecnica de Madrid hicieron un grasp.
-Puedo reutulizar el estado del arte de este tfm en mi introduccón.
+Con el TFM de Isaac de la Politécnica de Madrid hicieron un grasp.
+Puedo reutilizar el estado del arte de este TFM en mi introducción.
 
 EL PSO era el que mejor resultados tenia en la comparación.
 
-La idea inical:
-- Usando clusterin descriptivo/conceptual. 
+La idea inicial:
+- Usando clustering descriptivo/conceptual.  Usando metaheuristicas.
 
 ## Acuerdos y próximos pasos
-
+- Mirarme estos 2 papers que me ha compartido y cacharrear un poco con ese TFM.
+- Ver si me interesa esa idea principal.
 
 ---
 tags:
