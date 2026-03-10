@@ -24,6 +24,3 @@ Thumbs.db
 # Miscelánea
 *.log
 
-# Proyectos privados (no indexar en el repositorio público)
-Projects/CurvAI/
-

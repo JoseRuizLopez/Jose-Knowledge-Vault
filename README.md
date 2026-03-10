@@ -19,20 +19,18 @@ The repository is organized into thematic sections, including:
 - **Career** → professional notes and references.
 - **Sources** → references, books, and papers.
 
-> **Note:** Some personal projects under active development are intentionally excluded from this public repository and are not covered by the license below.  
-
 ---
 
 ## 📖 Usage
 
-Feel free to explore, share, and adapt the content.  
-If you build upon it, please provide proper attribution and share your contributions under the same license.  
+Feel free to explore, share, and adapt the content.
+If you build upon it, please provide proper attribution and share your contributions under the same license.
 
 ---
 
 ## 📜 License
 
-The learning notes and reference materials in this repository (statistics, ML, programming, tools, etc.) are licensed under the
+All notes and materials in this repository are licensed under the
 [Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/).
 
 You are free to:
@@ -42,7 +40,5 @@ You are free to:
 Under the following terms:
 - **Attribution** — You must give appropriate credit.
 - **ShareAlike** — If you remix, transform, or build upon the material, you must distribute your contributions under the same license.
-
-**Exclusions:** Personal projects under active development (e.g. commercial or proprietary products) are explicitly excluded from this license. All rights reserved for those materials.  
 
 ---
