@@ -124,6 +124,12 @@ Este paper es obra del tutor del TFM (Óscar Cordón) y es la referencia metodol
 - El benchmark CELF / CELF++ / PSO establece la línea de comparación del TFM.
 
 ---
+## Dudas sobre el Paper
+
+> These methods only require one run of a Monte Carlo simulation to validate the single solution obtained using heuristic functions, thus increasing the efficiency at the cost of a loss of efficacy.
+- ¿Porque dice que con los greedys basados en "degree and closeness centrality" solo es necesario una simulacion de Monte Carlo?
+
+---
 
 ## Ver también
 
