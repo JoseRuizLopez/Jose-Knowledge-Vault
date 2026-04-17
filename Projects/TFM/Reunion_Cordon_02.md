@@ -6,11 +6,11 @@ links: [[103 - TFM]]
 ### 1. Objetivos Inmediatos (Próximos Pasos)
 La prioridad actual es la toma de contacto con el entorno técnico y la replicación de resultados previos.
 
-- **Entorno de desarrollo:** Descargar el repositorio actual, verificar su funcionamiento y realizar ingeniería inversa para comprender la lógica interna.
+- **Entorno de desarrollo:** Descargar el repositorio del [[IPMU2026_paper_47.pdf|paper principal]], verificar su funcionamiento y realizar ingeniería inversa para comprender la lógica interna.
     
 - **Gestión de repositorios:** Una vez validado el primer repositorio, Isaac proporcionará acceso a recursos adicionales.
     
-- **Configuración de Solvers:** Investigar la herramienta **PuLP**. Para la resolución de modelos, se plantean tres alternativas de acceso a solvers potentes:
+- **Configuración de Solvers:** Investigar la herramienta **PuLP**, y como se podria introducir debilmente en el paper de [[IPMU2026_paper_47.pdf|Motaz Ben]]. Para la resolución de modelos, se plantean tres alternativas de acceso a solvers potentes:
     
     1. **Gurobi:** Utilizar la licencia académica gratuita.
         
