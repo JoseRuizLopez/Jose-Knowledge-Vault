@@ -6,11 +6,11 @@ links: [[103 - TFM]]
 ### 1. Objetivos Inmediatos (Próximos Pasos)
 La prioridad actual es la toma de contacto con el entorno técnico y la replicación de resultados previos.
 
-- **Entorno de desarrollo:** Descargar el repositorio del [[IPMU2026_paper_47.pdf|paper principal]], verificar su funcionamiento y realizar ingeniería inversa para comprender la lógica interna.
+- **Entorno de desarrollo:** Descargar el repositorio del [[Reformulating_Infuence_Maximization_throughDescriptive_Clustering.pdf|paper principal]], verificar su funcionamiento y realizar ingeniería inversa para comprender la lógica interna.
     
 - **Gestión de repositorios:** Una vez validado el primer repositorio, Isaac proporcionará acceso a recursos adicionales.
     
-- **Configuración de Solvers:** Investigar la herramienta **PuLP**, y como se podria introducir debilmente en el paper de [[IPMU2026_paper_47.pdf|Motaz Ben]]. Para la resolución de modelos, se plantean tres alternativas de acceso a solvers potentes:
+- **Configuración de Solvers:** Investigar la herramienta **PuLP**, y como se podria introducir debilmente en el paper de [[Reformulating_Infuence_Maximization_throughDescriptive_Clustering.pdf|Motaz Ben]]. Para la resolución de modelos, se plantean tres alternativas de acceso a solvers potentes:
     
     1. **Gurobi:** Utilizar la licencia académica gratuita.
         
@@ -45,7 +45,7 @@ Se han facilitado los siguientes materiales de apoyo:
 
 - **Escritura colaborativa:** Invitación al proyecto en **Overleaf** (revisar correo/enlace compartido).
     
-- **Bibliografía base:** * _Libro de referencia:_ [Springer - Optimización/Modelado](https://link.springer.com/book/10.1007/978-3-031-60103-3). El **Capítulo 1** es fundamental para el marco teórico. Archivo disponible en el Google Drive compartido.
+- **Bibliografía base:** * _Libro de referencia:_ [[CMSA - Libro.pdf|Springer - Optimización/Modelado]]. El **Capítulo 1** es fundamental para el marco teórico. Archivo disponible en el Google Drive compartido.
     
 - **Documentación Técnica:**
     
@@ -53,19 +53,19 @@ Se han facilitado los siguientes materiales de apoyo:
         
 - **Código de referencia:**
     
-    - [Repositorio GitHub - Alpha-HCIM.py](https://github.com/2x254/IPMU_RegularPaper/blob/main/Alpha-HCIM.py): Script específico para replicar el modelo _Alpha-HCIM_.
+    - [Repositorio GitHub - Alpha-HCIM.py](https://github.com/2x254/IPMU_RegularPaper/blob/main/Alpha-HCIM.py): Script específico para replicar el modelo _Alpha-HCIM_, del [[Reformulating_Infuence_Maximization_throughDescriptive_Clustering.pdf|Paper de Motaz Ben Hassine]]
         
 
 ---
 
 ### 🚀 Tareas Pendientes (To-Do List)
 
-- [ ] Clonar el repo de GitHub y ejecutar el script `Alpha-HCIM.py`.
+- [ ] Clonar el repo de GitHub y ejecutar el script `Alpha-HCIM.py`. Probar a tocatear el paper.
     
 - [ ] Solicitar/Configurar licencia de estudiante en Gurobi o acceso al servidor de Isaac.
     
 - [ ] Leer el Capítulo 1 del libro en el Drive.
     
-- [ ] Acceder al Overleaf y revisar la estructura del documento.
+- [x] Acceder al Overleaf y revisar la estructura del documento.
     
-- [ ] Diseñar el plan de pruebas para el estudio de escalabilidad.
+- [ ] Diseñar (y empezar a probar) el plan de pruebas para el estudio de escalabilidad.
