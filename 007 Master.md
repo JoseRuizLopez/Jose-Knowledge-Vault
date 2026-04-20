@@ -7,7 +7,7 @@ links: [[000  HOME |Home]]
 - [[007 - 0300 Mineria de Datos- Preprocesamiento y Clasificacion|007 - 0300 Minería de Datos: Preprocesamiento y Clasificación]]
 - [[007 - 0400 Mineria de Datos- Aprendizaje no Supervisado y Deteccion de Anomalias|007 - 0400 Minería de Datos: Aprendizaje no Supervisado y Detección de Anomalías]]
 - [[Master/007 - 0500 BIG DATA I/007 - 0500 BIG DATA I]]
-- [[007 - 0700 BIG DATA II]]
+- [[007 - 0900 Emprendimiento y Transferencia de Conocimiento]]
 
 
 ---
