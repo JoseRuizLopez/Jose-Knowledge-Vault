@@ -64,7 +64,7 @@ Se han facilitado los siguientes materiales de apoyo:
     
 - [ ] Solicitar/Configurar licencia de estudiante en Gurobi o acceso al servidor de Isaac.
     
-- [ ] Leer el Capítulo 1 del libro en el Drive.
+- [x] Leer el Capítulo 1 del libro en el Drive.
     
 - [x] Acceder al Overleaf y revisar la estructura del documento.
     
