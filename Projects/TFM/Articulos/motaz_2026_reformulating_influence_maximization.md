@@ -26,19 +26,19 @@ Este artículo presenta un enfoque novedoso para el problema de maximización de
 - **Restricciones del modelo ILP (IMILP)**:
     - **Restricción de superposición (Constraint 1)**: Asegura que cada transacción `Ti` sea cubierta por un máximo de `θ` patrones seleccionados. El parámetro `θ` es sintonizable; `θ = 1` impone una cobertura disjunta, mientras que valores mayores permiten más superposición. La elección óptima de `θ` es crucial para equilibrar la viabilidad de la solución y la calidad de la difusión.
     - **Restricción del número de semillas (Constraint 2)**: Garantiza que se seleccionen exactamente `k` patrones (nodos) como semillas.
-- **Algoritmo iterativo para `θ`**: Debido a que ciertos valores de `θ` pueden hacer que el ILP sea inviable, se propone un algoritmo iterativo simple que ajusta `θ` progresivamente. Si no se encuentra una solución óptima, `θ` se incrementa y el ILP se resuelve de nuevo hasta obtener una solución óptima [7].
+- **Algoritmo iterativo para `θ`**: Debido a que ciertos valores de `θ` pueden hacer que el ILP sea inviable, se propone un algoritmo iterativo simple que ajusta `θ` progresivamente. Si no se encuentra una solución óptima, `θ` se incrementa y el ILP se resuelve de nuevo hasta obtener una solución óptima.
 
 ### Resultados Experimentales
 
-- **Rendimiento superior**: El enfoque DCIIM muestra un rendimiento superior en términos de propagación de influencia (σ(S)) en comparación con métodos de vanguardia, especialmente en escenarios desafiantes con conjuntos de semillas pequeños y bajas probabilidades de cascada [1] [8].
-- **Eficiencia computacional**: DCIIM supera significativamente a todos los métodos de referencia en tiempo de ejecución en todos los datasets y valores de `k` probados. Por ejemplo, en la red Email-Eu-Core, DCIIM calcula soluciones en segundos, mientras que otros métodos exceden el umbral de tiempo de espera o requieren tiempos considerablemente más largos [8] [2].
-- **Impacto del parámetro `θ`**: Los experimentos en redes sintéticas LFR revelaron que la propagación de influencia es sensible a valores pequeños de `θ`, pero se estabiliza para valores mayores. Un `θ = 2` se identifica como una opción efectiva para el parámetro de superposición inicial, ya que permite una superposición limitada que puede aumentar la propagación sin redundancia excesiva [9] [10] [8].
+- **Rendimiento superior**: El enfoque DCIIM muestra un rendimiento superior en términos de propagación de influencia (σ(S)) en comparación con métodos de vanguardia, especialmente en escenarios desafiantes con conjuntos de semillas pequeños y bajas probabilidades de cascada.
+- **Eficiencia computacional**: DCIIM supera significativamente a todos los métodos de referencia en tiempo de ejecución en todos los datasets y valores de `k` probados. Por ejemplo, en la red Email-Eu-Core, DCIIM calcula soluciones en segundos, mientras que otros métodos exceden el umbral de tiempo de espera o requieren tiempos considerablemente más largos.
+- **Impacto del parámetro `θ`**: Los experimentos en redes sintéticas LFR revelaron que la propagación de influencia es sensible a valores pequeños de `θ`, pero se estabiliza para valores mayores. Un `θ = 2` se identifica como una opción efectiva para el parámetro de superposición inicial, ya que permite una superposición limitada que puede aumentar la propagación sin redundancia excesiva.
 
 ### Conclusiones
 
-- **Enfoque novedoso y equilibrado**: El artículo introduce DCIIM como un enfoque novedoso que modela redes sociales como datasets transaccionales y formula el problema de IM como un ILP con una restricción de superposición controlada. Este método logra un fuerte equilibrio entre la maximización de la propagación de información y el mantenimiento de un bajo costo computacional [2].
-- **Eficacia y escalabilidad**: Las evaluaciones experimentales demuestran que DCIIM es efectivo, logrando una mayor propagación de influencia y una eficiencia computacional significativamente mejor en comparación con otros métodos existentes [2].
-- **Trabajo futuro**: La investigación futura se centrará en escalar DCIIM a redes más grandes y desarrollar variantes heurísticas que mejoren aún más la eficiencia y escalabilidad computacional mediante técnicas como preprocesamiento, poda y compresión de grafos [2].
+- **Enfoque novedoso y equilibrado**: El artículo introduce DCIIM como un enfoque novedoso que modela redes sociales como datasets transaccionales y formula el problema de IM como un ILP con una restricción de superposición controlada. Este método logra un fuerte equilibrio entre la maximización de la propagación de información y el mantenimiento de un bajo costo computacional.
+- **Eficacia y escalabilidad**: Las evaluaciones experimentales demuestran que DCIIM es efectivo, logrando una mayor propagación de influencia y una eficiencia computacional significativamente mejor en comparación con otros métodos existentes.
+- **Trabajo futuro**: La investigación futura se centrará en escalar DCIIM a redes más grandes y desarrollar variantes heurísticas que mejoren aún más la eficiencia y escalabilidad computacional mediante técnicas como preprocesamiento, poda y compresión de grafos.
 
 ---
 tags:
