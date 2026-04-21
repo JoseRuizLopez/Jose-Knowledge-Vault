@@ -10,7 +10,7 @@ La prioridad actual es la toma de contacto con el entorno técnico y la replicac
     
 - **Gestión de repositorios:** Una vez validado el primer repositorio, Isaac proporcionará acceso a recursos adicionales.
     
-- **Configuración de Solvers:** Investigar la herramienta **PuLP**, y como se podria introducir debilmente en el paper de [[Reformulating_Infuence_Maximization_throughDescriptive_Clustering.pdf|Motaz Ben]]. Para la resolución de modelos, se plantean tres alternativas de acceso a solvers potentes:
+- **Configuración de Solvers:** Investigar la herramienta **[[PuLP]]**, y como se podría introducir débilmente en el paper de [[Reformulating_Infuence_Maximization_throughDescriptive_Clustering.pdf|Motaz Ben]]. Para la resolución de modelos, se plantean tres alternativas de acceso a solvers potentes:
     
     1. **Gurobi:** Utilizar la licencia académica gratuita.
         
