@@ -127,7 +127,7 @@ Este paper es el punto de partida de toda la literatura de *influence maximizati
 
 ## Ver también
 
-- [[CELF — Cost-Effective Lazy Forward]] — optimización del greedy (Leskovec et al., 2007)
+- [[CELF|CELF — Cost-Effective Lazy Forward]] — optimización del greedy (Leskovec et al., 2007)
 - [[Influence Maximization with Community Detection]] — extensión relevante para el TFM
 - [[Independent Cascade Model]] — definición detallada del modelo
 
