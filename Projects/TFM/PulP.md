@@ -10,7 +10,7 @@ PuLP es una librería de Python para formular y resolver problemas de [[Programa
 pip install pulp
 ```
 
-Por defecto incluye el _solver_ [[CBC]] (COIN-OR Branch and Cut). Para _solvers_ comerciales como [[Gurobi]] o [[CPLEX]], se necesita instalación y licencia aparte.
+Por defecto incluye el _solver_ [[CBC Solver|CBBC]] (COIN-OR Branch and Cut). Para _solvers_ comerciales como [[Gurobi]] o [[CPLEX]], se necesita instalación y licencia aparte.
 
 ## Componentes de un problema
 
