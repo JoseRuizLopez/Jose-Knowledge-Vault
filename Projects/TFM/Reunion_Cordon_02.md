@@ -85,7 +85,7 @@ Se han facilitado los siguientes materiales de apoyo:
 
 #### Observaciones clave
 
-**1. Optimalidad confirmada.** CBC y GUROBI obtienen exactamente los mismos σ(S) en ambos datasets y para todo k. Eso valida que el ILP de ***DCIIM*** está resolviéndose a optimalidad en los dos solvers — la elección del solver no cambia las semillas ganadoras.
+**1. Optimalidad confirmada.** CBC y GUROBI obtienen exactamente los mismos σ(S) en ambos datasets y para todo k. Eso valida que el ILP de ***DCIIM*** está resolviéndose a optimalidad en los dos solvers, la elección del solver no cambia las semillas ganadoras.
 
 **2. La comparación de solvers se invierte según el tamaño:**
 
@@ -112,26 +112,26 @@ El plan debe responder, en orden de prioridad:
 
 #### 2. Variables del experimento
 
-| Tipo                    | Variable                 | Niveles propuestos                                       | Descripción                                                                                                                                                                        |
-| ----------------------- | ------------------------ | -------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Independientes (factor) | N (LFR)                  | 1000, 5000, 10000, 20000*, 50000*                        | Número de nodos del grafo sintético LFR — mide escalabilidad pura en tamaño                                                                                                        |
-| Independientes          | μ (LFR)                  | 0.1, 0.3, 0.5, 0.7, 0.9                                  | Parámetro de mezcla LFR: a mayor μ, comunidades menos definidas y propagación IC menos predecible                                                                                  |
-| Independientes          | k                        | 3, 5, 10, 20, 50                                         | Número de semillas a seleccionar — controla el tamaño del conjunto semilla S y la complejidad del ILP                                                                              |
-| Independientes          | overlapallowance inicial | 1, 2, 3                                                  | Máximo solapamiento permitido entre patrones que cubren una misma transacción — afecta la factibilidad del ILP y el nº de iteraciones de DCIIM                                     |
-| Independientes          | Solver                   | CBC, GUROBI                                              | Motor de resolución del ILP — compara el solver open-source de PuLP frente al comercial Gurobi                                                                                     |
-| Independientes          | Datasets reales          | karate, dolphins, books, football, emailEuCore, citeseer | Redes reales de distintos dominios y tamaños — miden generalización más allá de los grafos sintéticos LFR                                                                          |
-| Controladas             | p (prob. propagación IC) | 0.1 (fijo)                                               | Probabilidad de activación por arista en el modelo IC — fijada para aislar el efecto de N y k                                                                                      |
-| Controladas             | mc (réplicas IC)         | 100 (fijo)                                               | Número de simulaciones Monte Carlo para estimar σ(S) — fijado como balance entre precisión y coste computacional                                                                   |
-| Controladas             | semilla NumPy global     | fija por réplica                                         | Semilla del generador de números aleatorios — garantiza reproducibilidad y comparabilidad entre solvers                                                                            |
-| Dependientes            | t_ILP                    | —                                                        | Tiempo de resolución del programa lineal entero (devuelto por `prob.solutionTime`)                                                                                                 |
-| Dependientes            | t_total                  | —                                                        | Tiempo de pared completo por configuración: incluye cobertura + ILP + IC                                                                                                           |
-| Dependientes            | t_coverage               | —                                                        | Tiempo de construir `coverage_count` en [DCIIM.py:63](vscode-webview://1k4femob1itf30b9njd8div9i1fc2ork0dbk7o0c8apoub3ge9u6/DCIIM.py#L63) — operación O(                           |
-| Dependientes            | t_IC                     | —                                                        | Tiempo de la simulación Monte Carlo en [DCIIM.py:18-43](vscode-webview://1k4femob1itf30b9njd8div9i1fc2ork0dbk7o0c8apoub3ge9u6/DCIIM.py#L18-L43) — dominante en grafos con N grande |
-| Dependientes            | σ(S)                     | —                                                        | Influencia esperada del conjunto semilla S bajo el modelo IC — métrica de calidad de la solución                                                                                   |
-| Dependientes            | n_iter_DCIIM             | —                                                        | Número de incrementos de `overlapallowance` hasta obtener factibilidad — indica robustez del parámetro inicial                                                                     |
-| Dependientes            | RAM pico                 | MB                                                       | Memoria residente máxima del proceso — identifica limitaciones de escalabilidad por memoria antes que por tiempo                                                                   |
+| Tipo                    | Variable                 | Niveles propuestos                                       | Descripción                                                                                                                                         |
+| ----------------------- | ------------------------ | -------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Independientes (factor) | N (LFR)                  | 1000, 5000, 10000, 20000\*, 50000\*                      | Número de nodos del grafo sintético LFR, mide escalabilidad pura en tamaño                                                                          |
+| Independientes          | μ (LFR)                  | 0.1, 0.3, 0.5, 0.7, 0.9                                  | Parámetro de mezcla LFR: a mayor μ, comunidades menos definidas y propagación IC menos predecible                                                   |
+| Independientes          | k                        | 3, 5, 10, 20, 50                                         | Número de semillas a seleccionar, controla el tamaño del conjunto semilla S y la complejidad del ILP                                                |
+| Independientes          | overlapallowance inicial | 1, 2, 3                                                  | Máximo solapamiento permitido entre patrones que cubren una misma transacción, afecta la factibilidad del ILP y el nº de iteraciones de ***DCIIM*** |
+| Independientes          | Solver                   | CBC, GUROBI                                              | Motor de resolución del ILP, compara el solver open-source de PuLP frente al comercial Gurobi                                                       |
+| Independientes          | Datasets reales          | karate, dolphins, books, football, emailEuCore, citeseer | Redes reales de distintos dominios y tamaños, miden generalización más allá de los grafos sintéticos LFR                                            |
+| Controladas             | p (prob. propagación IC) | 0.1 (fijo)                                               | Probabilidad de activación por arista en el modelo IC, fijada para aislar el efecto de N y k                                                        |
+| Controladas             | mc (réplicas IC)         | 100 (fijo)                                               | Número de simulaciones Monte Carlo para estimar σ(S), fijado como balance entre precisión y coste computacional                                     |
+| Controladas             | semilla NumPy global     | fija por réplica                                         | Semilla del generador de números aleatorios, garantiza reproducibilidad y comparabilidad entre solvers                                              |
+| Dependientes            | t_ILP                    | —                                                        | Tiempo de resolución del programa lineal entero (devuelto por `prob.solutionTime`)                                                                  |
+| Dependientes            | t_total                  | —                                                        | Tiempo de pared completo por configuración: incluye cobertura + ILP + IC                                                                            |
+| Dependientes            | t_coverage               | —                                                        | Tiempo de construir `coverage_count` en ***DCIIM***, operación O(                                                                                   |
+| Dependientes            | t_IC                     | —                                                        | Tiempo de la simulación Monte Carlo en ***DCIIM***, dominante en grafos con N grande                                                                |
+| Dependientes            | σ(S)                     | —                                                        | Influencia esperada del conjunto semilla S bajo el modelo IC, métrica de calidad de la solución                                                     |
+| Dependientes            | n_iter_DCIIM             | —                                                        | Número de incrementos de `overlapallowance` hasta obtener factibilidad, indica robustez del parámetro inicial                                       |
+| Dependientes            | RAM pico                 | MB                                                       | Memoria residente máxima del proceso, identifica limitaciones de escalabilidad por memoria antes que por tiempo                                     |
 
-*Niveles 20k/50k condicionados a viabilidad: añadir time-out global (p.ej. 1800 s) y abortar si se rebasa.
+*Niveles 20k/50k condicionados a viabilidad: debemos añadir time-out global (p.ej. 1800 s) y abortar si se rebasa.
 
 #### 3. Diseño experimental
 
@@ -141,7 +141,7 @@ Diseño **factorial fraccionado** en tres bloques para no explotar combinatoriam
 
 - Fijo: μ=0.3, overlapallowance=2, p=0.1, mc=100
 - Variable: N ∈ {1000, 5000, 10000, 20000, 50000}, k ∈ {3, 5, 10, 20}, solver ∈ {CBC, GUROBI}
-- 5 × 4 × 2 = 40 corridas × 3 réplicas = **120 ejecuciones**
+- 5 × 4 × 2 = 40 runs × 3 réplicas = **120 ejecuciones**
 
 **Bloque B. Sensibilidad estructural** (efecto de μ)
 
@@ -155,26 +155,26 @@ Diseño **factorial fraccionado** en tres bloques para no explotar combinatoriam
 - Variable: dataset × k ∈ {3, 5, 10}
 - 6 × 3 × 3 réplicas = **54 ejecuciones**
 
-Total ≈ 190 ejecuciones. Si el bloque A se completa en una semana, está dimensionado correctamente.
+Total ≈ 190 ejecuciones.
 
 #### 4. Protocolo por ejecución
 
-Para cada corrida, registrar como CSV una fila con: `N, |E|, μ, k, overlapallowance, solver, replica, t_coverage, t_ILP, t_IC, t_total, sigma_S, n_iter_DCIIM, ram_peak, status`.
+Para cada run, registrar como CSV una fila con: `N, |E|, μ, k, overlapallowance, solver, replica, t_coverage, t_ILP, t_IC, t_total, sigma_S, n_iter_DCIIM, ram_peak, status`.
 
-Pasos:
+**Pasos:**
 
 1. Reset de la semilla aleatoria al inicio (`np.random.seed(replica)`).
 2. Cargar grafo, medir |V|, |E|, ⟨k⟩.
 3. Cronometrar separadamente: construcción de `coverage_count`, ILP (ya se mide), simulación IC.
-4. Imponer **time-out por solver** (`timeLimit=1800`) y **time-out global** (`SIGALRM` o equivalente) — registrar status: optimal / time-out / infeasible.
+4. Imponer **time-out por solver** (`timeLimit=1800`) y **time-out global** (`SIGALRM` o equivalente), registrar status: optimal / time-out / infeasible.
 5. Capturar RAM con `resource.getrusage(RUSAGE_SELF).ru_maxrss` al final.
 6. Guardar también las semillas elegidas para poder auditar σ(S) a posteriori.
 
-#### 5. Modificaciones mínimas a [DCIIM.py](vscode-webview://1k4femob1itf30b9njd8div9i1fc2ork0dbk7o0c8apoub3ge9u6/DCIIM.py)
+#### 5. Modificaciones mínimas a ***DCIIM***
 
-- Parametrizar dataset, k, μ, overlapallowance, solver y semilla por **CLI/argparse**, en lugar de descomentar líneas — imprescindible para automatizar 190 corridas.
+- Parametrizar dataset, k, μ, overlapallowance, solver y semilla por **CLI/argparse**, en lugar de descomentar líneas, imprescindible para automatizar 190 runs.
 - Separar las tres fases con `time.perf_counter()`: cobertura, ILP, IC.
-- Corregir el bug de `np.random.seed(i)` dentro del bucle interno en [DCIIM.py:32](vscode-webview://1k4femob1itf30b9njd8div9i1fc2ork0dbk7o0c8apoub3ge9u6/DCIIM.py#L32) **antes** de empezar el estudio (afecta a la varianza de σ(S) entre réplicas).
+- Corregir el bug de `np.random.seed(i)` dentro del bucle interno en ***DCIIM*** **antes** de empezar el estudio (afecta a la varianza de σ(S) entre réplicas).
 - Volcar resultados a `results/scalability_<timestamp>.csv` por _append_.
 - Un wrapper `run_experiments.sh` (o `Makefile`) que itere los bloques A/B/C.
 
