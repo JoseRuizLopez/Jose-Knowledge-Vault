@@ -61,7 +61,7 @@ Se han facilitado los siguientes materiales de apoyo:
 
 ### 🚀 Tareas Pendientes (To-Do List)
 
-- [ ] Clonar el repo de GitHub y ejecutar el script `Alpha-HCIM.py`. Probar a tocatear el paper.
+- [x] Clonar el repo de GitHub y ejecutar el script `Alpha-HCIM.py`. Probar a tocatear el paper.
     
 - [ ] Solicitar/Configurar licencia de estudiante en Gurobi o acceso al servidor de Isaac.
     
