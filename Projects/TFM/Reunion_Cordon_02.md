@@ -63,7 +63,7 @@ Se han facilitado los siguientes materiales de apoyo:
 
 - [x] Clonar el repo de GitHub y ejecutar el script `Alpha-HCIM.py`. Probar a tocatear el paper.
     
-- [ ] Solicitar/Configurar licencia de estudiante en Gurobi o acceso al servidor de Isaac.
+- [x] Solicitar/Configurar licencia de estudiante en Gurobi o acceso al servidor de Isaac.
     
 - [x] Leer el Capítulo 1 del libro en el Drive.
     
