@@ -1,0 +1,12 @@
+Informe: ejecuciones donde DCIIM incrementó overlapallowance (n_iter_dciim > 0)
+======================================================================
+Bloque A: ninguna ejecución necesitó incrementar overlapallowance.
+
+Bloque B: ninguna ejecución necesitó incrementar overlapallowance.
+
+Bloque C: 3 ejecución(es) con incremento:
+dataset  N  k  overlap solver  seed  n_iter_dciim  status
+ karate 34 10        2 GUROBI     1             2 optimal
+ karate 34 10        2 GUROBI     2             2 optimal
+ karate 34 10        2 GUROBI     3             2 optimal
+

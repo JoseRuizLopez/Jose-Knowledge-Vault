@@ -195,3 +195,56 @@ Para cada run, registrar como CSV una fila con: `N, |E|, μ, k, overlapallowance
 |`coverage_count` O(|T|
 |Varianza alta entre réplicas por la semilla mal puesta de IC|Arreglar el bug y verificar coef. variación < 5% antes del run completo|
 |GUROBI con licencia académica no disponible en alguna máquina|Tener perfil CBC-only como plan B para reproducibilidad externa|
+
+---
+
+## Resultados del Estudio de Escalabilidad
+
+### Bloque A — Escalabilidad en N (LFR sintético, μ=0.3)
+
+**1. Complejidad empírica superlineal confirmada.**
+Las curvas log-log de t_total vs N son rectas con pendiente ≈ 2 en ambos solvers, lo que sugiere un crecimiento empírico O(N²). A N=50 000, t_total alcanza ~1 750 s (~29 min) por ejecución, haciendo inviable cualquier búsqueda masiva de hiperparámetros.
+
+**2. k no tiene impacto en el tiempo total.**
+Las cuatro curvas (k = 3, 5, 10, 20) son prácticamente indistinguibles en la escala log-log. El tiempo de ejecución es insensible al número de semillas, lo que confirma que el cuello de botella no está en el ILP.
+
+**3. El cuello de botella absoluto es `coverage_count`.**
+El desglose por componente revela que `coverage_count` (O(|T|·|P|)) consume >99 % del tiempo total en todos los tamaños. El ILP y la simulación IC son prácticamente invisibles en las gráficas de barras. Esto invalida la hipótesis original de que la simulación Monte Carlo sería el componente dominante en N grandes (al menos con mc=100 y los grafos LFR probados).
+
+**Implicación directa para Fase 2:** la propuesta de mejora debe atacar `coverage_count`, no el solver. Estrategias candidatas: muestreo de patrones, representaciones sparse de la matriz de cobertura, o reformulaciones que eviten construirla explícitamente.
+
+---
+
+### Bloque B — Sensibilidad estructural (μ, N=5 000, k=5, GUROBI)
+
+**4. σ(S) tiene dependencia no monótona con μ.**
+La influencia crece desde μ=0.1 (σ≈91) hasta μ=0.7 (σ≈104) y cae ligeramente en μ=0.9 (σ≈99). La red con mezcla moderada-alta (μ=0.7) maximiza la propagación porque las semillas atraviesan fácilmente las fronteras comunitarias. En el extremo μ=0.9 (comunidades casi disueltas), la red se homogeneiza y la ganancia marginal de cada semilla se reduce.
+
+---
+
+### CBC vs. GUROBI — Tiempos de ILP
+
+**5. Punto de cruce N* entre 10 000 y 20 000 nodos.**
+
+| N | Speedup GUROBI (cbc/gur) | Ganador |
+|---|---|---|
+| 1 000 | ~0.66 | CBC |
+| 5 000 | ~0.56 | CBC |
+| 10 000 | ~0.33 | CBC (GUROBI ~3× más lento) |
+| 20 000 | ~1.27 | **GUROBI** |
+| 50 000 | ~1.22–1.53 | **GUROBI** |
+
+Por debajo de N≈15 000, el overhead de inicialización de GUROBI supera a sus ventajas algorítmicas. A partir de N≈20 000, el presolve y los heurísticos de GUROBI compensan y lo hacen preferible. Sin embargo, dado que el ILP representa <1 % del tiempo total, esta diferencia es irrelevante para el rendimiento global hasta que `coverage_count` quede resuelto.
+
+---
+
+### Bloque C — Redes reales e incrementos de `overlapallowance`
+
+**6. La parametrización por defecto (overlapallowance=2) es robusta.**
+En los bloques A y B (grafos LFR sintéticos) ninguna ejecución necesitó incrementar `overlapallowance`. En el bloque C, únicamente la red **karate (N=34, k=10)** requirió 2 incrementos en las 3 réplicas. La causa es estructural: seleccionar k=10 semillas en una red de solo 34 nodos fuerza solapamiento excesivo entre los patrones de cobertura. El resto de redes reales resolvieron a optimalidad sin incrementos.
+
+---
+
+### Conclusión Global
+
+El principal cuello de botella de DCIIM es la construcción de `coverage_count` (O(|T|·|P|)), no el solver ILP ni la simulación Monte Carlo. La elección entre CBC y GUROBI es una optimización secundaria hasta que este problema quede atacado.
