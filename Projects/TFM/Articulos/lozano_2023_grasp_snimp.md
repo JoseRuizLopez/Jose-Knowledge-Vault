@@ -6,7 +6,7 @@ links: [[103 - TFM]]
 **Referencia completa:**
 Lozano-Osorio, I., Sánchez-Oro, J., Duarte, A., Cordón, Ó. (2023). *A quick GRASP-based method for influence maximization in social networks*. Journal of Ambient Intelligence and Humanized Computing, 14, 3767–3779. https://doi.org/10.1007/s12652-021-03510-4
 
-Paper de Óscar Cordón (tutor del TFM) que propone una metaheurística [[GRASP]] (*Greedy Randomized Adaptive Search Procedure*) para resolver el **Social Network Influence Maximization Problem** ([[SNIMP]]). El objetivo principal es minimizar el uso de simulaciones [[Monte Carlo]] en la evaluación del modelo de difusión, logrando soluciones de alta calidad en tiempo reducido. Supera a PSO — considerado el estado del arte según [[banerjee_2020_survey_influence_maximization]] — en todas las instancias del benchmark.
+Paper de Óscar Cordón (tutor del TFM) que propone una metaheurística [[GRASP]] (*Greedy Randomized Adaptive Search Procedure*) para resolver el **Social Network Influence Maximization Problem** ([[SNIMP]]). El objetivo principal es minimizar el uso de simulaciones [[Monte Carlo]] en la evaluación del modelo de difusión, logrando soluciones de alta calidad en tiempo reducido. Supera a PSO — considerado el estado del arte según [[banerjee_2020_survey_influence_maximization 1]] — en todas las instancias del benchmark.
 
 ---
 
@@ -97,7 +97,7 @@ Tamaños de seed set: $k \in \{10, 20, 30, 40, 50\}$ → **35 instancias en tota
 
 - **[[CELF]]** (Leskovec et al., 2007): greedy hill-climbing con lazy forward.
 - **[[CELF++]]** (Goyal et al., 2011): versión optimizada de CELF.
-- **PSO** (Gong et al., 2016): *Particle Swarm Optimization*, estado del arte según [[banerjee_2020_survey_influence_maximization]].
+- **PSO** (Gong et al., 2016): *Particle Swarm Optimization*, estado del arte según [[banerjee_2020_survey_influence_maximization 1]].
 
 ### Resultados principales
 
@@ -133,7 +133,7 @@ Este paper es obra del tutor del TFM (Óscar Cordón) y es la referencia metodol
 
 ## Ver también
 
-- [[banerjee_2020_survey_influence_maximization]] — survey que este paper cita como referencia de estado del arte
+- [[banerjee_2020_survey_influence_maximization 1]] — survey que este paper cita como referencia de estado del arte
 - [[kempe_kleinberg_tardos_2003]] — paper fundacional del área
 - [[CELF]] — uno de los algoritmos comparados
 - [[CELF++]] — uno de los algoritmos comparados
