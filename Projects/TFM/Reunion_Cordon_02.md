@@ -2,7 +2,7 @@ links: [[103 - TFM]]
 
 
 *Jose Ruiz (alumno), Oscar Cordon (tutor) e Isaac (Cotutor)*
-# Reunión Cordón 01
+# Reunión Cordón 02
 
 ### 1. Objetivos Inmediatos (Próximos Pasos)
 La prioridad actual es la toma de contacto con el entorno técnico y la replicación de resultados previos.
@@ -69,7 +69,7 @@ Se han facilitado los siguientes materiales de apoyo:
     
 - [x] Acceder al Overleaf y revisar la estructura del documento.
     
-- [ ] Diseñar (y empezar a probar) el plan de pruebas para el estudio de escalabilidad.
+- [x] Diseñar (y empezar a probar) el plan de pruebas para el estudio de escalabilidad.
 
 
 ## Tareas Realizadas
