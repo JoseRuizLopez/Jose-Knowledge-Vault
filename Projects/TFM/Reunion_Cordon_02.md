@@ -254,10 +254,14 @@ reunion:
 
 Se claraente que es exponencial y se demustra clarqamente que es sufre mucho la metodlogia con estancias granmdes.
 
-Nos interesa mucho mas el estudio del overlapallowance (phi). El mu no nos interesa por 
+Nos interesa mucho mas el estudio del overlapallowance (phi). El mu no nos interesa porque solo se usa para generar las redes generadas.
 
 Añadir también k 10 y 15 para las tablas reales.
 
-Debemos de reproducir un estudio de los phi, pero con 3/4 redes grandes reales (nuestras o de la literatura.) Phi de 1 a 10. Puedo cogerlas de los papers que me ha mandao Isaac. Es probable que para esas instancias, el modelo no sea capaz de que encuentre 
+Debemos de reproducir un estudio de los phi, pero con 3/4 redes grandes reales (nuestras o de la literatura.) Phi de 1 a 10. Puedo cogerlas de los papers que me ha mandado Isaac. Es probable que para esas instancias, el modelo no sea capaz de que encuentre valor factible. (10k, 20k, 50k, 100k)
 
 Seguir escribiendo literatura.
+
+Debo de añadir un limite de overlapallowance o poner un timeout general.
+
+Las va a crear como Issues en mi GitHub.
