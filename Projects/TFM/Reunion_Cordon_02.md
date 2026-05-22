@@ -253,3 +253,5 @@ El principal cuello de botella de DCIIM es la construcción de `coverage_count` 
 reunion:
 
 Se claraente que es exponencial y se demustra clarqamente que es sufre mucho la metodlogia con estancias granmdes.
+
+Nos interesa mucho mas el estudio del overlapallowance (phi)
