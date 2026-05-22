@@ -248,3 +248,8 @@ En los bloques A y B (grafos LFR sintéticos) ninguna ejecución necesitó incre
 ### Conclusión Global
 
 El principal cuello de botella de DCIIM es la construcción de `coverage_count` (O(|T|·|P|)), no el solver ILP ni la simulación Monte Carlo. La elección entre CBC y GUROBI es una optimización secundaria hasta que este problema quede atacado.
+
+
+reunion:
+
+Se claraente que es exponencial y se demustra clarqamente que es sufre mucho la metodlogia con estancias granmdes.
