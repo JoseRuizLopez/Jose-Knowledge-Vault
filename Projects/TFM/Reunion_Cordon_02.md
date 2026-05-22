@@ -189,12 +189,12 @@ Para cada run, registrar como CSV una fila con: `N, |E|, μ, k, overlapallowance
 
 #### 7. Riesgos y mitigaciones
 
-|Riesgo|Mitigación|
-|---|---|
-|Bloque A inviable a N=50k por memoria/tiempo|Time-out 1800 s + reportar como "no escalable a esa N"|
-|`coverage_count` O(|T|
-|Varianza alta entre réplicas por la semilla mal puesta de IC|Arreglar el bug y verificar coef. variación < 5% antes del run completo|
-|GUROBI con licencia académica no disponible en alguna máquina|Tener perfil CBC-only como plan B para reproducibilidad externa|
+| Riesgo                                                        | Mitigación                                                              |
+| ------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| Bloque A inviable a N=50k por memoria/tiempo                  | Time-out 1800 s + reportar como "no escalable a esa N"                  |
+| `coverage_count` O(                                           | T                                                                       |
+| Varianza alta entre réplicas por la semilla mal puesta de IC  | Arreglar el bug y verificar coef. variación < 5% antes del run completo |
+| GUROBI con licencia académica no disponible en alguna máquina | Tener perfil CBC-only como plan B para reproducibilidad externa         |
 
 ---
 
