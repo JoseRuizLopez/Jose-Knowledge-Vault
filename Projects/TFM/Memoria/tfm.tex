@@ -510,6 +510,10 @@ TODO
 
 % Estructura en embudo: de lo general (difusión en redes) al hueco concreto (escalabilidad de DCIIM) que motiva el TFM.
 
+Para entender la importancia de la maximización de influencia en redes sociales, es necesario comprender cómo se propaga la información en estas redes.
+La difusión de información es un fenómeno complejo que involucra múltiples factores, como la estructura de la red, el comportamiento de los usuarios y las características del contenido compartido.
+La forma en que la información se propaga puede tener un impacto significativo en diversas áreas, como el marketing viral, las campañas de salud pública y la contención de desinformación.
+
 \subsection{La difusión de información en redes sociales} \label{subsec:difusion}
 
 % TODO: Por qué importa cómo se propaga la información en una red social.
@@ -518,7 +522,9 @@ TODO
 
 \subsection{El problema de la maximización de la influencia} \label{subsec:problema_im}
 
-El problema de cómo maximizar la influencia en redes sociales ha recibido una atención creciente en los últimos años. Al tratarse de un problema NP-duro, no se conoce un algoritmo eficiente que garantice obtener la solución óptima. Por ello, numerosos autores han propuesto distintas técnicas que permiten obtener soluciones de buena calidad en un tiempo razonable.
+El problema de cómo maximizar la influencia en redes sociales ha recibido una atención creciente en los últimos años.
+Al tratarse de un problema NP-duro, no se conoce un algoritmo eficiente que garantice obtener la solución óptima.
+Por ello, numerosos autores han propuesto distintas técnicas que permiten obtener soluciones de buena calidad en un tiempo razonable.
 
 % TODO: Formulación clásica de Kempe, Kleinberg y Tardos (2003) con el Modelo de Cascada Independiente (añadir \cite).
 % TODO: Garantía (1 - 1/e) del greedy por submodularidad y coste de estimar sigma(S) mediante simulación Monte Carlo.
@@ -528,15 +534,19 @@ El problema de cómo maximizar la influencia en redes sociales ha recibido una a
 
 \subsection{Una reformulación basada en clustering descriptivo} \label{subsec:dciim}
 
-Una de las propuestas más recientes es la de Ben Hassine \cite{motaz}, que aborda el problema desde un punto de vista distinto pero con el mismo objetivo. Su planteamiento transforma el dominio del problema y lo adapta a una perspectiva de clustering descriptivo: el grafo de la red social se representa como un conjunto de datos transaccional, en el que el vecindario de cada nodo forma una transacción.
+Una de las propuestas más recientes es la de Ben Hassine \cite{motaz}, que aborda el problema desde un punto de vista distinto pero con el mismo objetivo.
+Su planteamiento transforma el dominio del problema y lo adapta a una perspectiva de clustering descriptivo: el grafo de la red social se representa como un conjunto de datos transaccional, en el que el vecindario de cada nodo forma una transacción.
 
-Sobre esta nueva representación, el autor formula un modelo de Programación Lineal Entera (ILP, por sus siglas en inglés) para resolver el problema de selección de nodos semilla. El modelo resultante se denomina DCIIM, está inspirado en el clustering descriptivo y permite un solapamiento controlado entre los vecindarios seleccionados, regulado por el parámetro de \textit{overlap allowance} ($\varphi$), para evitar conflictos en la propagación.
+Sobre esta nueva representación, el autor formula un modelo de Programación Lineal Entera (ILP, por sus siglas en inglés) para resolver el problema de selección de nodos semilla.
+El modelo resultante se denomina DCIIM, está inspirado en el clustering descriptivo y permite un solapamiento controlado entre los vecindarios seleccionados, regulado por el parámetro de \textit{overlap allowance} ($\varphi$), para evitar conflictos en la propagación.
 
 % TODO: Cerrar con por qué es atractiva: soluciones óptimas para su formulación y resultados competitivos frente a métodos del estado del arte.
 
 \subsection{Limitaciones de escalabilidad y motivación del trabajo} \label{subsec:motivacion}
 
-Este planteamiento obtiene buenos resultados en comparación con otros métodos del estado del arte. Sin embargo, el autor no analiza su escalabilidad: el modelo se ha evaluado únicamente con redes de tamaño reducido en número de nodos y aristas. Para evaluar su comportamiento en instancias de mayor tamaño, en este trabajo se ha diseñado un estudio de escalabilidad con redes de tamaño creciente, tanto sintéticas como reales.
+Este planteamiento obtiene buenos resultados en comparación con otros métodos del estado del arte.
+Sin embargo, el autor no analiza su escalabilidad: el modelo se ha evaluado únicamente con redes de tamaño reducido en número de nodos y aristas.
+Para evaluar su comportamiento en instancias de mayor tamaño, en este trabajo se ha diseñado un estudio de escalabilidad con redes de tamaño creciente, tanto sintéticas como reales.
 
 % TODO: Adelantar, sin cifras, lo observado (detalle en \ref{chap:resultObtenidos}):
 %   - El tiempo de ejecución crece de forma muy pronunciada con el tamaño de la red.
