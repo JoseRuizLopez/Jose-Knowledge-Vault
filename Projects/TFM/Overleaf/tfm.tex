@@ -1,0 +1,678 @@
+% Clase del documento
+\documentclass[12pt,twoside,titlepage]{report}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%% Paquetes %%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[a4paper,bindingoffset=3mm,bottom=35mm]{geometry}
+
+% Usad \usepackage[dvips]{graphicx} o \usepackage[pdftex]{graphicx} (no ambos)
+%\usepackage[dvips]{graphicx} %%% para LaTeX. Las figuras deben estar en formato eps
+
+\usepackage[colorlinks=true,pdftex]{hyperref}   %%% Opcional. Para incluir marcadores y enlaces en el pdf
+\usepackage[pdftex]{graphicx}  %%% para pdflatex. Las figuras pueden estar en pdf, jpg, svg y otros formatos
+
+
+\usepackage[spanish]{babel}
+
+%\usepackage[latin1]{inputenc} % Usad en WinEdt/MikTex
+\usepackage[utf8]{inputenc} % Usad en overleaf
+
+%\usepackage[T1]{fontenc}
+
+
+% Algunos paquetes útiles
+
+\usepackage{amsmath,amssymb}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{afterpage}
+\usepackage{paralist}
+\usepackage{array}
+\usepackage{enumerate}
+\usepackage{paralist}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{setspace}
+\usepackage{listings}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{fancyhdr}
+\usepackage{rotating}
+\usepackage{multirow}
+\usepackage{booktabs} 
+\usepackage{siunitx} 
+\sisetup{ detect-all, table-number-alignment = center, group-separator = {,}, }
+
+
+% Otros paquetes
+
+\usepackage{quotchap}
+\usepackage{lipsum}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%% Definiciones básicas %%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\nombreautor}{José Ruiz López\\Correo de contacto: ruizlopezjose@correo.ugr.es}
+\newcommand{\nombretutor}{Óscar Cordón García e Isaac Lozano Osorio}
+\newcommand{\titulotrabajo}{TITULO}
+\newcommand{\escuela}{Escuela Técnica Superior\\de Ingenierías Informática\\ y de Telecomunicación}
+\newcommand{\escuelalargo}{Escuela Técnica Superior de Ingenierías Informática y de Telecomunicaciones}
+\newcommand{\universidad}{Universidad de Granada}
+\newcommand{\fecha}{Fecha}
+\newcommand{\grado}{Máster Universitario en Ciencia de Datos e Ingeniería de Computadores}
+\newcommand{\curso}{Curso 2026-2027}
+\newcommand{\logoUniversidad}{logo-ugr.png}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%% Otras definiciones %%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Definiciones de colores (para hidelinks)
+\definecolor{BlueLink}{rgb}{0.165,0.322,0.745}
+\definecolor{PinkLink}{rgb}{0.8,0.22,0.5}
+\definecolor{gray}{rgb}{0.6,0.6,0.6}
+
+
+% Enlaces
+\hypersetup{hidelinks,pageanchor=true,colorlinks,citecolor=PinkLink,urlcolor=black,linkcolor=BlueLink}
+
+
+\newcommand\blankpage{%
+    \newpage
+    \null
+    \thispagestyle{empty}%
+    %\addtocounter{page}{-1}%
+    \newpage}
+
+
+% Texto referencias
+\addto{\captionsspanish}{\renewcommand{\bibname}{Bibliografía}}
+
+% Texto Índice de tablas
+\addto\captionsspanish{
+\def\tablename{Tabla}
+\def\listtablename{\'{I}ndice de tablas}
+}
+
+
+\floatname{algorithm}{Algoritmo}
+
+\newfloat{algorithm}{t}{lop}
+
+
+%\newenvironment{pseudocodigo}[1][htb]
+%  {\renewcommand{\algorithmcfname}{Pseudocódig}% Update algorithm name
+%   \begin{algorithm}[#1]%
+%  }{\end{algorithm}}
+  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%% Estilo de código (en Python) %%%%%%%%%%%%%%%%%%%%%%%
+
+\definecolor{bg}{rgb}{0.95,0.95,0.95}
+\definecolor{mydeepteal}{rgb}{0.16,0.22,0.23}
+\definecolor{myteal}{rgb}{0.31,0.44,0.46}
+\definecolor{mymediumteal}{rgb}{0.41,0.58,0.60}
+
+\DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{12} % for bold
+\DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{12}  % for normal
+
+
+%\newcommand*{\FormatDigit}[1]{\textcolor{mydeepteal}{#1}}
+\newcommand*{\FormatDigit}[1]{\textcolor{black}{#1}}
+
+% Python style for highlighting
+\newcommand\mypythonstyle{\lstset{
+language=Python,
+basicstyle=\ttfamily\small,
+%basicstyle=\linespread{1.0}\footnotesize\ttm,
+otherkeywords={self},             % Add keywords here
+keywordstyle=\bfseries\ttfamily\color{myteal},
+%keywordstyle=\ttb\color{myteal},
+commentstyle=\itshape\color{myteal},
+stringstyle=\color{mydeepteal},
+emph={MyClass,__init__},          % Custom highlighting
+emphstyle=\ttb\color{mydeepteal},    % Custom highlighting style
+% Any extra options here
+showstringspaces=false,            %
+backgroundcolor=\color{bg},
+rulecolor = \color{bg},
+%identifierstyle=\color{deepgreen},
+breaklines=true,
+numbers=left,
+numbersep=5pt,
+numberstyle=\tiny,
+tabsize=4,
+xleftmargin=1em,
+frame = single,
+framesep = 3pt,
+framextopmargin=0pt,
+framexbottommargin=0pt,
+framexleftmargin=0pt,
+framexrightmargin=0pt,
+fontadjust=true,
+basewidth=0.55em, % compactness of code
+upquote=true,
+}}
+
+% Python environment
+\lstnewenvironment{mypython}[1][]
+{
+\mypythonstyle
+\lstset{#1}
+}
+{}
+
+\newcommand\mypythonstylenormalinline{\lstset{
+language=Python,
+basicstyle=\ttfamily\normalsize,
+%basicstyle=\linespread{1.0}\footnotesize\ttm,
+otherkeywords={self},            % Add keywords here
+keywordstyle=\bfseries\ttfamily\color{myteal},
+%keywordstyle=\ttb\color{myteal},
+commentstyle=\itshape\color{mymediumteal},
+stringstyle=\color{mydeepteal},
+emph={MyClass,__init__},          % Custom highlighting
+emphstyle=\ttb\color{mydeepteal},    % Custom highlighting style
+% Any extra options here
+showstringspaces=false,            %
+backgroundcolor=\color{bg},
+rulecolor = \color{bg},
+%identifierstyle=\color{deepgreen},
+breaklines=false,
+numbers=left,
+numbersep=5pt,
+numberstyle=\tiny,
+tabsize=4,
+xleftmargin=0em,
+frame = single,
+framesep = 3pt,
+framextopmargin=0pt,
+framexbottommargin=0pt,
+framexleftmargin=0pt,
+framexrightmargin=0pt,
+fontadjust=true,
+%basewidth=0.55em, % compactness of code
+upquote=true,
+}}
+
+\newcommand\mypythoninline[1]{{\mypythonstylenormalinline\lstinline!#1!}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% Comandos definidos por el autor 
+
+\newcommand{\transpuesta}{\mbox{\tiny $\mathsf{T}$}}
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                           Inicio del documento                       
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+\pagestyle{plain}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Portada %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\pagenumbering{gobble}
+%\pagenumbering{arabic}
+
+% Universidad, Facultad
+\begin{titlepage}
+\selectlanguage{spanish}
+
+
+% logo
+\begin{center}
+    \includegraphics[scale=0.7]{\logoUniversidad}
+\end{center}
+
+\bigskip
+
+\begin{center}
+\begin{LARGE}
+\escuela \\
+\end{LARGE}
+\end{center}
+
+\bigskip
+\bigskip
+
+% Grado
+\begin{center}
+\begin{large}
+\textbf{\grado}\\
+\end{large}
+\end{center}
+
+% Curso
+\begin{center}
+\begin{large}
+\textbf{\curso}\\
+\end{large}
+\end{center}
+
+\bigskip
+
+\textbf{\begin{center}
+\begin{large}
+\textbf{Trabajo Fin de Máster}
+\end{large}
+\end{center}}
+
+\bigskip
+\bigskip
+\bigskip
+
+% Nombre del TFG
+\begin{center}
+\textbf{\begin{large}
+\MakeUppercase{\titulotrabajo}\\
+\end{large}}
+\end{center}
+
+% Nombre del autor
+\vspace{\fill}
+\begin{center}
+\textbf{Autor: \nombreautor}\\ \smallskip
+% Tutor
+\textbf{Directores: \nombretutor}\\
+% Añadir segundo tutor si hubiera
+
+
+\bigskip
+
+% Fecha
+%\textbf{\fecha}\\
+\end{center}
+\end{titlepage}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%% Opcional %%%%%%%%%%%%%%%%%%%%%%
+%\blankpage
+
+%\thispagestyle{empty}
+%\begin{center}
+
+% Nombre del trabajo
+%\textbf{\begin{large}
+%\MakeUppercase{\titulotrabajo}\\*
+%\end{large}}
+%\vspace*{0.2cm}
+%\vspace{5cm}
+
+% Nombre del autor y del tutor
+%\large Autor: \nombreautor \\* \medskip
+%\large Tutor: \nombretutor \\*
+
+%\vfill
+
+% Escuela, universidad y fecha
+%\escuelalargo \\ \smallskip
+%\universidad \\
+%\vspace{1cm}
+%\fecha \\
+
+%\clearpage
+
+%\end{center}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hypersetup{pageanchor=true}
+
+\normalsize
+\afterpage{\blankpage} % Se deben añadir página en blanco para que lo capítulos de la memoria o estas secciones introductorias empiecen en páginas impares
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+% Estilo de párrafo de los capítulos
+\setlength{\parskip}{0.75em}
+\renewcommand{\baselinestretch}{1.25}
+% Interlineado simple
+\spacing{1}
+
+\pagenumbering{Roman}
+\setcounter{page}{2}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%% Agradecimientos o dedicatoria %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter*{Agradecimientos}
+
+TODO
+
+\afterpage{\blankpage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Resumen %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter*{Resumen}
+
+% Esto se hace lo último
+
+
+
+
+\mbox{} \bigskip
+
+\noindent \textbf{Palabras clave}:
+\begin{compactitem}
+    \item Maximización
+    \item Influencia
+    \item Algoritmo
+    \item Grafo
+\end{compactitem}
+
+\afterpage{\blankpage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Índices %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Estilo de párrafo de los Índices
+\setlength{\parskip}{1pt}
+\renewcommand{\baselinestretch}{1}
+\renewcommand{\contentsname}{Índice de contenidos}
+
+
+% Índice de contenidos
+\tableofcontents
+\afterpage{\blankpage}
+
+% Índice de tablas (OPCIONAL)
+\listoftables
+\afterpage{\blankpage}
+\addcontentsline{toc}{chapter}{\noindent \listtablename}
+
+% Índice de figuras (OPCIONAL)
+\listoffigures
+\afterpage{\blankpage}
+\addcontentsline{toc}{chapter}{\listfigurename}
+
+% Índice de códigos/algoritmos (OPCIONAL).   El término "Códigos" se puede cambiar por "Métodos", "Funciones", "Algoritmos", etc.
+\renewcommand\lstlistlistingname{Códigos}
+\renewcommand\lstlistingname{Código}
+\renewcommand\lstlistlistingname{Índice de códigos}
+
+\lstlistoflistings
+\afterpage{\blankpage}
+\addcontentsline{toc}{chapter}{\lstlistlistingname}
+
+
+% En este documento (de momento) no se ha considerado incluir un índice de algoritmos/pseudocódigos, como el que aparece en \ref{AdditionalLouvain}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%% Cabeceras y pies de página (Opcional) %%%%%%%%%%%%%%%%%%%%%%%
+
+%\setlength{\headheight}{15.2pt}
+\pagestyle{fancy}
+
+
+\renewcommand{\chaptermark}[1]{\markboth{Capítulo \thechapter.\ #1}{}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LO]{\leftmark}
+\fancyhead[RO]{}
+\fancyhead[RE]{\nouppercase\rightmark}
+\fancyhead[LE]{}
+\fancyfoot[C]{\thepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Capítulos de la memoria %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+% Capítulo 1
+\chapter{Introducción} \label{chap:intro}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Estilo resto de páginas
+\pagestyle{fancy}
+
+
+% Estilo de párrafo de los capítulos
+\setlength{\parskip}{0.75em}
+\renewcommand{\baselinestretch}{1.25}
+% Interlineado simple
+\spacing{1}
+% Numeración contenido
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\section{Contexto y motivación} \label{sec:contexto}
+
+% Estructura en embudo: de lo general (difusión en redes) al hueco concreto (escalabilidad de DCIIM) que motiva el TFM.
+
+\subsection{La difusión de información en redes sociales} \label{subsec:difusion}
+
+% TODO: Por qué importa cómo se propaga la información en una red social.
+% Aplicaciones: marketing viral, campañas de salud pública, contención de desinformación.
+% Definir de forma intuitiva el problema: elegir k nodos semilla que maximicen la propagación esperada.
+
+\subsection{El problema de la maximización de la influencia} \label{subsec:problema_im}
+
+El problema de cómo maximizar la influencia en redes sociales ha recibido una atención creciente en los últimos años. Al tratarse de un problema NP-duro, no se conoce un algoritmo eficiente que garantice obtener la solución óptima. Por ello, numerosos autores han propuesto distintas técnicas que permiten obtener soluciones de buena calidad en un tiempo razonable.
+
+% TODO: Formulación clásica de Kempe, Kleinberg y Tardos (2003) con el Modelo de Cascada Independiente (añadir \cite).
+% TODO: Garantía (1 - 1/e) del greedy por submodularidad y coste de estimar sigma(S) mediante simulación Monte Carlo.
+% TODO: Párrafo breve con las familias de enfoques (Banerjee et al., 2020): greedy y optimizaciones (CELF, CELF++),
+%       heurísticas de centralidad, métodos basados en comunidades y metaheurísticas (GRASP de Lozano et al., 2023).
+%       El detalle se deja para el Estado del arte (\ref{sec:estado_arte}).
+
+\subsection{Una reformulación basada en clustering descriptivo} \label{subsec:dciim}
+
+Una de las propuestas más recientes es la de Ben Hassine \cite{motaz}, que aborda el problema desde un punto de vista distinto pero con el mismo objetivo. Su planteamiento transforma el dominio del problema y lo adapta a una perspectiva de clustering descriptivo: el grafo de la red social se representa como un conjunto de datos transaccional, en el que el vecindario de cada nodo forma una transacción.
+
+Sobre esta nueva representación, el autor formula un modelo de Programación Lineal Entera (ILP, por sus siglas en inglés) para resolver el problema de selección de nodos semilla. El modelo resultante se denomina DCIIM, está inspirado en el clustering descriptivo y permite un solapamiento controlado entre los vecindarios seleccionados, regulado por el parámetro de \textit{overlap allowance} ($\varphi$), para evitar conflictos en la propagación.
+
+% TODO: Cerrar con por qué es atractiva: soluciones óptimas para su formulación y resultados competitivos frente a métodos del estado del arte.
+
+\subsection{Limitaciones de escalabilidad y motivación del trabajo} \label{subsec:motivacion}
+
+Este planteamiento obtiene buenos resultados en comparación con otros métodos del estado del arte. Sin embargo, el autor no analiza su escalabilidad: el modelo se ha evaluado únicamente con redes de tamaño reducido en número de nodos y aristas. Para evaluar su comportamiento en instancias de mayor tamaño, en este trabajo se ha diseñado un estudio de escalabilidad con redes de tamaño creciente, tanto sintéticas como reales.
+
+% TODO: Adelantar, sin cifras, lo observado (detalle en \ref{chap:resultObtenidos}):
+%   - El tiempo de ejecución crece de forma muy pronunciada con el tamaño de la red.
+%   - El cuello de botella no es el ILP, sino la simulación Monte Carlo y la construcción de coverage_count.
+%   - En redes grandes, ciertos valores de phi pueden impedir encontrar una solución factible.
+% TODO: Motivación final y puente a Objetivos (\ref{sec:objetivos}): la reformulación es valiosa pero no es aplicable
+%       a redes reales de tamaño medio o grande. Pregunta guía: ¿cómo conservar la perspectiva de clustering descriptivo
+%       haciéndola escalable? Anunciar la línea de solución (p. ej. CMSA o metaheurísticas) sin entrar en detalle.
+
+\section{Objetivos} \label{sec:objetivos}
+
+Los objetivos todavía no están definidos claramente, pero el objetivo general es buscar una nueva posible solución para solucionar el problema de seleccionar nodos semillas en un grafo que represente una red social para maximizar la influencia utilizando el Modelo de Cascada Independiente, partiendo de la nueva perspectiva de Motaz \cite{motaz}.
+
+Unos posibles objetivos serían:
+- Buscar una forma de 
+
+\section{Estructura del documento} \label{sec:estructura}
+
+
+
+\chapter{Literatura} \label{chap:lit} 
+
+
+\section{Estado del arte} \label{sec:estado_arte} 
+
+
+
+
+\blankpage
+
+\chapter{Formulación del problema} \label{chap:formulacion_problema}
+
+
+\chapter{Descripción informática} \label{chap:descinf}
+
+\section{Herramientas utilizadas} \label{sec:herramientas}
+
+
+\section{Metodología} \label{sec:metodologia}
+
+\section{Conjunto de datos} \label{sec:datos}
+
+
+\section{Asignación de presupuesto} \label{sec:asignacion_presupuestos}
+
+
+\section{Arquitectura} \label{sec:desc_programas}
+
+% Diagrama de clases
+
+
+
+
+
+
+% Capítulo 3
+\chapter{Descripción algorítmica} \label{chap:descalg}
+
+
+% Nuevo capítulo
+\chapter{Resultados} \label{chap:resultObtenidos}
+
+
+
+\blankpage
+
+
+
+
+
+
+
+% Nuevo capítulo
+
+\chapter{Conclusiones y trabajos futuros} \label{chap:conclusiones}
+
+
+
+\blankpage
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Bibliografía %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\phantomsection
+\addcontentsline{toc}{chapter}{Bibliografía}
+
+\footnotesize{
+%\bibliographystyle{hispa}
+\bibliographystyle{IEEEtran}
+\bibliography{bibliografia}
+}
+
+
+
+% No expandir elementos para llenar toda la página
+\raggedbottom
+\afterpage{\blankpage}
+
+\newpage
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Apéndices %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\appendix
+
+\phantomsection
+\addcontentsline{toc}{chapter}{Apéndices}
+
+\mbox{}
+\vfill
+\begin{center}
+\begin{Huge}
+\textbf{Apéndices}
+\end{Huge}
+\end{center}
+\vfill
+\mbox{}
+\thispagestyle{empty}
+
+\newpage
+\mbox{}
+\thispagestyle{empty}
+\newpage
+
+
+% Primer apéndice
+\chapter{Este es el primer apéndice} \label{chap:apendice}
+
+
+
+
+
+% Fin del documento
+\end{document}
