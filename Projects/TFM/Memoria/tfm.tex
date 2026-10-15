@@ -517,7 +517,7 @@ La forma en que la información se propaga puede tener un impacto significativo 
 \subsection{La difusión de información en redes sociales} \label{subsec:difusion}
 
 % TODO: Por qué importa cómo se propaga la información en una red social.
-% Aplicaciones: marketing viral, campañas de salud pública, contención de desinformación.
+% Aplicaciones: marketing viral \cite{domingos2001mining}, campañas de salud pública, contención de desinformación \cite{Budak2011, Kimura2009}.
 % Definir de forma intuitiva el problema: elegir k nodos semilla que maximicen la propagación esperada.
 
 \subsection{El problema de la maximización de la influencia} \label{subsec:problema_im}
@@ -526,10 +526,15 @@ El problema de cómo maximizar la influencia en redes sociales ha recibido una a
 Al tratarse de un problema NP-duro, no se conoce un algoritmo eficiente que garantice obtener la solución óptima.
 Por ello, numerosos autores han propuesto distintas técnicas que permiten obtener soluciones de buena calidad en un tiempo razonable.
 
-% TODO: Formulación clásica de Kempe, Kleinberg y Tardos (2003) con el Modelo de Cascada Independiente (añadir \cite).
-% TODO: Garantía (1 - 1/e) del greedy por submodularidad y coste de estimar sigma(S) mediante simulación Monte Carlo.
-% TODO: Párrafo breve con las familias de enfoques (Banerjee et al., 2020): greedy y optimizaciones (CELF, CELF++),
-%       heurísticas de centralidad, métodos basados en comunidades y metaheurísticas (GRASP de Lozano et al., 2023).
+% TODO: Formulación clásica de Kempe, Kleinberg y Tardos \cite{kempe2003maximizing} con el Modelo de Cascada Independiente.
+%       Antecedente: Domingos y Richardson \cite{domingos2001mining}.
+% TODO: Garantía (1 - 1/e) del greedy por submodularidad \cite{kempe2003maximizing} y coste de estimar sigma(S)
+%       mediante simulación Monte Carlo \cite{metropolis1949monte, kalos2008monte}.
+% TODO: Párrafo breve con las familias de enfoques \cite{banerjee2020survey}:
+%       greedy y optimizaciones: CELF \cite{leskovec2007cost}, CELF++ \cite{goyal2011celf++}, \cite{mirzasoleiman2015lazier};
+%       heurísticas eficientes: \cite{chen2009efficient}; algoritmos casi lineales: \cite{tang2014influence, tang2015influence};
+%       implementaciones escalables y paralelas: \cite{minutoli2019fast, wang2024fast};
+%       metaheurísticas: GRASP \cite{LozanoOsorio2021, lozano2024efficient, resende2013grasp}.
 %       El detalle se deja para el Estado del arte (\ref{sec:estado_arte}).
 
 \subsection{Una reformulación basada en clustering descriptivo} \label{subsec:dciim}
