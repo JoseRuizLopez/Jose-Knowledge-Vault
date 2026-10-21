@@ -1,0 +1,22 @@
+\subsection{Limitaciones de escalabilidad y motivación del trabajo} \label{subsec:motivacion}
+
+El propio autor señala como trabajo futuro escalar DCIIM a redes más grandes, y su evaluación experimental se limita a redes de tamaño reducido en número de nodos y aristas.
+Para evaluar su comportamiento en instancias de mayor tamaño, en este trabajo se ha diseñado un estudio de escalabilidad con redes de tamaño creciente, tanto sintéticas, generadas con el modelo LFR \cite{lancichinetti2008benchmark}, como reales.
+
+Los resultados de este estudio se presentan en el capítulo~\ref{chap:resultObtenidos}, pero permiten adelantar varias conclusiones.
+El tiempo de ejecución crece de forma muy pronunciada con el número de nodos, hasta volver impracticable una exploración sistemática de parámetros en las redes de mayor tamaño.
+Ese crecimiento apenas varía con el número de semillas $k$, lo que ya sugiere que el ILP no es lo que determina el coste.
+El perfilado por componentes lo confirma.
+Casi todo el tiempo se consume en construir la estructura de cobertura (\texttt{coverage\_count}), que relaciona cada transacción con los patrones candidatos y cuyo tamaño crece con el producto de ambos; la resolución del ILP y la simulación Monte Carlo ocupan una fracción mínima del total.
+El parámetro $\varphi$, por su parte, condiciona la factibilidad del modelo.
+Cuando el número de semillas es grande en relación con el tamaño de la red, el valor inicial de $\varphi$ no admite solución y el método tiene que incrementarlo varias veces.
+El estudio de $\varphi$ sobre redes reales de gran tamaño examina si, en esas instancias, ciertos valores impiden directamente encontrar una solución factible.
+% TODO: actualizar esta frase con el resultado del estudio de phi en redes reales grandes (10k-100k nodos).
+
+De estos resultados se desprende que la reformulación de Ben Hassine aporta una perspectiva valiosa sobre el problema, pero en su forma actual no se puede aplicar a redes reales de tamaño medio o grande, que son las que aparecen en aplicaciones como el marketing viral o la contención de desinformación.
+La pregunta que guía este trabajo es, por tanto, cómo conservar la perspectiva del clustering descriptivo y hacerla escalable.
+Una línea posible son los algoritmos híbridos que aplican un solver exacto sobre subinstancias reducidas del problema original, como \textit{Construct, Merge, Solve \& Adapt} (CMSA) \cite{blum2024cmsa}.
+En el caso de DCIIM, esto permitiría reutilizar su modelo ILP sobre un subconjunto de patrones candidatos y reduciría también el tamaño de la estructura de cobertura que hay que construir.
+Otra línea es sustituir el modelo exacto por metaheurísticas que operen sobre la misma representación transaccional.
+La sección~\ref{sec:objetivos} concreta los objetivos que se derivan de esta pregunta.
+

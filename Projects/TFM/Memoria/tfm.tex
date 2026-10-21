@@ -508,17 +508,25 @@ TODO
 
 \section{Contexto y motivación} \label{sec:contexto}
 
-% Estructura en embudo: de lo general (difusión en redes) al hueco concreto (escalabilidad de DCIIM) que motiva el TFM.
-
 Para entender la importancia de la maximización de influencia en redes sociales, es necesario comprender cómo se propaga la información en estas redes.
 La difusión de información es un fenómeno complejo que involucra múltiples factores, como la estructura de la red, el comportamiento de los usuarios y las características del contenido compartido.
 La forma en que la información se propaga puede tener un impacto significativo en diversas áreas, como el marketing viral, las campañas de salud pública y la contención de desinformación.
 
 \subsection{La difusión de información en redes sociales} \label{subsec:difusion}
 
-% TODO: Por qué importa cómo se propaga la información en una red social.
-% Aplicaciones: marketing viral \cite{domingos2001mining}, campañas de salud pública, contención de desinformación \cite{Budak2011, Kimura2009}.
-% Definir de forma intuitiva el problema: elegir k nodos semilla que maximicen la propagación esperada.
+Una red social puede modelarse como un grafo $G=(V,E)$ en el que los nodos representan usuarios y las aristas, las relaciones entre ellos, ya sean de amistad, de seguimiento o de interacción.
+Cuando un usuario adopta una idea, un producto o una noticia, puede transmitirla a sus vecinos, y estos a los suyos.
+El alcance final de ese proceso depende en buena medida de quién lo inicia.
+Un mensaje lanzado desde un usuario con pocos contactos, situado en una zona periférica del grafo, tiene menos posibilidades de propagarse que el mismo mensaje lanzado desde una posición bien conectada, desde la que puede llegar a una parte considerable de la red.
+
+Esta observación tiene aplicaciones directas.
+Domingos y Richardson \cite{domingos2001mining} plantearon el marketing viral como el problema de estimar el valor de red de cada cliente, es decir, cuánto contribuye a las ventas a través de su influencia sobre otros clientes, y de dirigir las acciones de marketing hacia quienes tienen un valor de red mayor.
+El mismo razonamiento sirve en una campaña de salud pública, donde interesa que un mensaje de prevención llegue al mayor número de personas con un presupuesto limitado.
+El problema también puede plantearse en sentido inverso.
+Budak et al. \cite{Budak2011} estudian cómo limitar la difusión de desinformación lanzando una campaña competidora desde un conjunto de nodos elegido, y Kimura et al. \cite{Kimura2009} analizan qué enlaces conviene bloquear para reducir la propagación de una contaminación en la red.
+
+En todos estos casos aparece la misma pregunta: si se dispone de un presupuesto para activar inicialmente a $k$ usuarios, llamados nodos semilla (\textit{seed nodes}), ¿qué $k$ usuarios hay que elegir para que la propagación esperada sea máxima?
+Esta pregunta define el problema de la maximización de la influencia.
 
 \subsection{El problema de la maximización de la influencia} \label{subsec:problema_im}
 
@@ -526,16 +534,26 @@ El problema de cómo maximizar la influencia en redes sociales ha recibido una a
 Al tratarse de un problema NP-duro, no se conoce un algoritmo eficiente que garantice obtener la solución óptima.
 Por ello, numerosos autores han propuesto distintas técnicas que permiten obtener soluciones de buena calidad en un tiempo razonable.
 
-% TODO: Formulación clásica de Kempe, Kleinberg y Tardos \cite{kempe2003maximizing} con el Modelo de Cascada Independiente.
-%       Antecedente: Domingos y Richardson \cite{domingos2001mining}.
-% TODO: Garantía (1 - 1/e) del greedy por submodularidad \cite{kempe2003maximizing} y coste de estimar sigma(S)
-%       mediante simulación Monte Carlo \cite{metropolis1949monte, kalos2008monte}.
-% TODO: Párrafo breve con las familias de enfoques \cite{banerjee2020survey}:
-%       greedy y optimizaciones: CELF \cite{leskovec2007cost}, CELF++ \cite{goyal2011celf++}, \cite{mirzasoleiman2015lazier};
-%       heurísticas eficientes: \cite{chen2009efficient}; algoritmos casi lineales: \cite{tang2014influence, tang2015influence};
-%       implementaciones escalables y paralelas: \cite{minutoli2019fast, wang2024fast};
-%       metaheurísticas: GRASP \cite{LozanoOsorio2021, lozano2024efficient, resende2013grasp}.
-%       El detalle se deja para el Estado del arte (\ref{sec:estado_arte}).
+Kempe, Kleinberg y Tardos \cite{kempe2003maximizing} dieron la formulación algorítmica que se sigue usando hoy, a partir del trabajo de Domingos y Richardson \cite{domingos2001mining}.
+En el Modelo de Cascada Independiente (IC, por sus siglas en inglés), la difusión avanza en pasos discretos a partir de un conjunto inicial de nodos activos $S \subseteq V$.
+Cada nodo $u$ que se activa en un paso dispone de una única oportunidad para activar a cada vecino inactivo $v$, con probabilidad $p_{uv}$, y el proceso termina cuando ningún nodo nuevo se activa.
+La función de influencia $\sigma(S)$ es el número esperado de nodos activos al final del proceso, y el problema consiste en encontrar
+\begin{equation}
+S^{*} = \operatorname*{arg\,max}_{S \subseteq V,\ |S| = k} \sigma(S).
+\end{equation}
+
+Kempe et al. demostraron que este problema es NP-duro bajo el modelo IC.
+Demostraron también que $\sigma(S)$ es monótona y submodular: la ganancia que aporta un nodo al añadirlo a un conjunto es al menos igual a la que aporta al añadirlo a cualquier conjunto que contenga al primero.
+Gracias a esta propiedad, el algoritmo voraz que en cada iteración añade el nodo de mayor ganancia marginal obtiene una solución con una influencia de al menos $(1 - 1/e) \approx 63\%$ de la óptima.
+La dificultad práctica está en que $\sigma(S)$ no tiene una expresión cerrada y se estima mediante simulación Monte Carlo \cite{metropolis1949monte, kalos2008monte}, repitiendo el proceso de difusión muchas veces y promediando el número de nodos activados.
+Como el algoritmo voraz evalúa la ganancia marginal de todos los nodos candidatos en cada una de las $k$ iteraciones, el número de simulaciones que necesita lo vuelve inviable en redes de cierto tamaño.
+
+Gran parte de la investigación posterior, recogida en la revisión de Banerjee et al. \cite{banerjee2020survey}, busca reducir este coste.
+CELF \cite{leskovec2007cost} y CELF++ \cite{goyal2011celf++} aprovechan la submodularidad para no reevaluar los nodos cuya ganancia marginal no puede superar a la del mejor candidato, y Mirzasoleiman et al. \cite{mirzasoleiman2015lazier} reducen las evaluaciones de cada iteración mediante muestreo aleatorio de candidatos.
+Chen et al. \cite{chen2009efficient} proponen heurísticas como \textit{degree discount}, que sustituyen la simulación por reglas basadas en el grado de los nodos.
+TIM \cite{tang2014influence} e IMM \cite{tang2015influence} alcanzan tiempos casi lineales en el tamaño de la red con una garantía de aproximación cercana a $(1 - 1/e)$, y trabajos como \cite{minutoli2019fast, wang2024fast} proponen implementaciones paralelas de este tipo de algoritmos.
+Existen además heurísticas de centralidad, métodos que explotan la estructura de comunidades de la red y metaheurísticas como GRASP \cite{resende2013grasp}, que Lozano-Osorio et al. han aplicado a este problema y a su variante con presupuesto \cite{LozanoOsorio2021, lozano2024efficient}.
+El estado del arte (sección~\ref{sec:estado_arte}) revisa estas familias en detalle.
 
 \subsection{Una reformulación basada en clustering descriptivo} \label{subsec:dciim}
 
@@ -544,8 +562,12 @@ Su planteamiento transforma el dominio del problema y lo adapta a una perspectiv
 
 Sobre esta nueva representación, el autor formula un modelo de Programación Lineal Entera (ILP, por sus siglas en inglés) para resolver el problema de selección de nodos semilla.
 El modelo resultante se denomina DCIIM, está inspirado en el clustering descriptivo y permite un solapamiento controlado entre los vecindarios seleccionados, regulado por el parámetro de \textit{overlap allowance} ($\varphi$), para evitar conflictos en la propagación.
+Si un valor de $\varphi$ hace que el ILP no tenga solución factible, el método lo incrementa y vuelve a resolver el modelo hasta encontrar una.
 
-% TODO: Cerrar con por qué es atractiva: soluciones óptimas para su formulación y resultados competitivos frente a métodos del estado del arte.
+La reformulación resulta atractiva por dos motivos.
+El primero es que, al expresar la selección de semillas como un ILP, un solver exacto devuelve la solución óptima de esa formulación, sin recurrir a aproximaciones voraces sobre $\sigma(S)$.
+El segundo es su rendimiento: en los experimentos del autor, DCIIM obtiene una propagación mayor que los métodos con los que se compara, sobre todo con conjuntos de semillas pequeños y probabilidades de propagación bajas, y necesita menos tiempo de ejecución.
+En la red Email-Eu-Core, por ejemplo, calcula soluciones en segundos mientras otros métodos superan el límite de tiempo establecido.
 
 \subsection{Limitaciones de escalabilidad y motivación del trabajo} \label{subsec:motivacion}
 
@@ -563,12 +585,35 @@ Para evaluar su comportamiento en instancias de mayor tamaño, en este trabajo s
 
 \section{Objetivos} \label{sec:objetivos}
 
-Los objetivos todavía no están definidos claramente, pero el objetivo general es buscar una nueva posible solución para solucionar el problema de seleccionar nodos semillas en un grafo que represente una red social para maximizar la influencia utilizando el Modelo de Cascada Independiente, partiendo de la nueva perspectiva de Motaz \cite{motaz}.
+% Versión provisional: revisar con los tutores cuando se cierre el estudio de escalabilidad.
 
-Unos posibles objetivos serían:
-- Buscar una forma de 
+El objetivo general de este trabajo es diseñar un método escalable para seleccionar nodos semilla que maximicen la influencia bajo el Modelo de Cascada Independiente, que conserve la representación transaccional y la perspectiva de clustering descriptivo propuestas por Ben Hassine \cite{motaz} y que pueda aplicarse a redes reales de tamaño medio y grande.
+
+Para alcanzarlo se plantean los siguientes objetivos específicos:
+
+\begin{enumerate}
+    \item Reducir el coste de construir la relación de cobertura entre transacciones y patrones candidatos, mediante técnicas como la poda de candidatos, el preprocesamiento del grafo o representaciones dispersas.
+    \item Diseñar un algoritmo que resuelva la formulación de DCIIM sobre subinstancias reducidas del problema, ya sea un algoritmo híbrido como CMSA, que combina construcción heurística y resolución exacta, o una metaheurística que opere directamente sobre la representación transaccional.
+    % TODO: concretar cuando se decida la línea de solución.
+    \item Incorporar a la propuesta un mecanismo para ajustar el parámetro de solapamiento $\varphi$ que garantice encontrar una solución factible en redes grandes sin depender de reiniciar el modelo completo.
+    \item Evaluar la propuesta sobre redes reales de gran tamaño y compararla con DCIIM y con métodos del estado del arte, como CELF \cite{leskovec2007cost}, IMM \cite{tang2015influence} o GRASP \cite{LozanoOsorio2021}, en términos de influencia esperada $\sigma(S)$ y tiempo de ejecución, validando las diferencias con contrastes estadísticos.
+    % TODO: fijar los métodos de comparación y las redes de evaluación.
+    \item Analizar el compromiso entre calidad de la solución y tiempo de cómputo de la propuesta en función del tamaño de la red, del número de semillas $k$ y de $\varphi$.
+\end{enumerate}
 
 \section{Estructura del documento} \label{sec:estructura}
+
+% Versión provisional: ajustar si cambian los capítulos.
+
+El resto del documento se organiza del siguiente modo.
+El capítulo~\ref{chap:lit} revisa la literatura sobre maximización de la influencia, con los modelos de difusión, las principales familias de algoritmos y los trabajos que relacionan el problema con la detección de comunidades y el clustering descriptivo.
+El capítulo~\ref{chap:formulacion_problema} formaliza el problema bajo el Modelo de Cascada Independiente y presenta el modelo ILP de DCIIM sobre el que se construye el trabajo.
+El capítulo~\ref{chap:descinf} describe las herramientas, la metodología experimental, los conjuntos de datos, la asignación de presupuesto y la arquitectura del software desarrollado.
+El capítulo~\ref{chap:descalg} detalla la propuesta algorítmica.
+El capítulo~\ref{chap:resultObtenidos} recoge los resultados del estudio de escalabilidad de DCIIM y de la comparación experimental de la propuesta.
+Por último, el capítulo~\ref{chap:conclusiones} expone las conclusiones y las líneas de trabajo futuro.
+Los apéndices incluyen material complementario.
+% TODO: describir el contenido de los apéndices cuando existan.
 
 
 
