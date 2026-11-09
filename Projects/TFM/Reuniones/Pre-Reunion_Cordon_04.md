@@ -12,6 +12,96 @@ TFM: estudio de escalabilidad de DCIIM y propuesta de un método escalable.
 
 ---
 
+## Glosario de notación y términos
+
+### Problema y modelo de difusión
+
+| Símbolo / término | Significado |
+|---|---|
+| **IM** (Influence Maximization) | Problema de elegir los k nodos de una red que, activados al inicio, maximizan la difusión esperada. Formulado por Kempe, Kleinberg y Tardos (2003); es NP-difícil. |
+| **G = (V, E)** | Grafo de la red social. V es el conjunto de nodos y E el de aristas. |
+| **N** = \|V\| | Número de nodos. Es la medida principal del tamaño de la red. |
+| **E** = \|E\| | Número de aristas. |
+| **k** | Número de semillas a seleccionar, es decir, el tamaño del conjunto S. Valores usados: 3, 4, 5, 10, 15 y 20. |
+| **S** | Conjunto semilla: los k nodos elegidos para iniciar la difusión. |
+| **σ(S)** | Influencia esperada de S: número medio de nodos que acaban activados cuando la difusión parte de S. Es la **métrica de calidad**; cuanto mayor, mejor. |
+| **IC** (Independent Cascade) | Modelo de difusión de Cascada Independiente. Cada nodo recién activado tiene una única oportunidad de activar a cada vecino, con probabilidad p. |
+| **p** | Probabilidad de propagación por arista en el modelo IC. Fijada en 0,1. |
+| **mc** | Número de simulaciones Monte Carlo para estimar σ(S). Como IC es aleatorio, se simula mc veces y se promedia. Fijado en 100. |
+| **Monte Carlo** | Técnica de estimación por repetición de simulaciones aleatorias. Aquí se usa para calcular σ(S). |
+
+### Formulación de DCIIM
+
+| Símbolo / término | Significado |
+|---|---|
+| **DCIIM** | *Descriptive Clustering-based Influence Maximization*: el método de Motaz que reformula IM como clustering descriptivo resuelto con un ILP. |
+| **Clustering descriptivo** | Agrupamiento en el que cada grupo se describe con un patrón interpretable. En DCIIM, cada semilla «describe» el grupo de nodos que cubre. |
+| **Transacción (T)** | Representación de un nodo como el conjunto formado por él mismo y sus vecinos. La red completa se convierte en una base de N transacciones. |
+| **Patrón** | Conjunto de nodos candidato a describir transacciones. En la versión usada, cada patrón es un único nodo u (patrones de un nodo). |
+| **cover(T, P)** | Función que comprueba si el patrón P cubre la transacción T, es decir, si P ⊆ T. Con patrones de un nodo equivale a comprobar u ∈ T. |
+| **coverage_count** | Número de transacciones que cubre cada patrón. Se calcula llamando a `cover()` sobre todas las transacciones. Es la fase más costosa. |
+| **Σ\|T\|** | Suma de los tamaños de todas las transacciones (≈ 2E + N). Mide el volumen de datos que recorre `cover()`. |
+| **ILP** (Integer Linear Programming) | Programa lineal entero: optimización con variables enteras (aquí binarias: elegir o no un patrón) y restricciones lineales. DCIIM elige los k patrones resolviendo un ILP. |
+| **φ / overlapallowance** | Máximo número de patrones elegidos que pueden cubrir una misma transacción. Controla cuánto pueden solaparse las zonas de influencia de las semillas. Si es demasiado pequeño, el ILP no tiene solución. |
+| **Infactible** | El ILP no tiene ninguna solución que cumpla todas las restricciones. En ese caso DCIIM incrementa φ y vuelve a intentarlo. |
+| **n_iter_dciim** | Número de veces que DCIIM tuvo que incrementar φ hasta que el ILP fue factible. |
+| **--max-iter** | Límite de incrementos de φ que he añadido (por defecto 10). Con 0, φ queda fijo. |
+| **Solver** | Programa que resuelve el ILP. **CBC** es el solver libre que trae PuLP; **Gurobi** es comercial (licencia académica). |
+| **PuLP** | Librería de Python con la que se escribe el ILP y se llama al solver. |
+
+### Tiempos medidos y estados de ejecución
+
+| Símbolo / término | Significado |
+|---|---|
+| **t_coverage** | Tiempo de calcular `coverage_count`. |
+| **t_build** | Tiempo de construir las restricciones del ILP. Se calcula como residuo: t_total − t_coverage − t_ilp − t_ic. |
+| **t_ilp** | Tiempo que tarda el solver en resolver el ILP (`prob.solutionTime`). |
+| **t_ic** | Tiempo de la simulación Monte Carlo para evaluar σ(S). |
+| **t_total** | Tiempo de pared total de la ejecución para un k. |
+| **CPU** (en las tablas) | Tiempo de ejecución del método en segundos. |
+| **optimal** | El ILP se resolvió de forma óptima dentro del tiempo. |
+| **timeout / tout** | La ejecución superó el tiempo límite y no dio resultado. |
+| **global_timeout** | Se superó el `--global-timeout`, que cubre todas las fases (cobertura, ILP y reintentos), no solo el solver. |
+| **Timeout 300 s / 1800 s** | Presupuestos de tiempo usados: 300 s (5 min) en el bloque D y 1800 s (30 min) en los bloques DL y E. |
+| **ram_peak_mb** | Memoria máxima usada por el proceso, en MB. |
+
+### Escalabilidad y análisis
+
+| Símbolo / término | Significado |
+|---|---|
+| **Escala log-log** | Gráfica con ambos ejes en logaritmo. Si t ∝ N^a, aparece como una recta de pendiente a. |
+| **Pendiente (slope)** | Exponente a del ajuste t ∝ N^a. Una pendiente ≈ 2 indica que duplicar N multiplica el tiempo por ~4. |
+| **O(N²)** | Notación de complejidad: el coste crece con el cuadrado de N. |
+| **O(E)** | El coste crece linealmente con el número de aristas. Es el objetivo si se vectoriza la construcción del modelo. |
+| **W = N·(2E + N)** | Medida de carga del modelo de coste: N patrones por Σ\|T\| ≈ 2E + N elementos recorridos. |
+| **t ∝ W^0,98** | El tiempo de construcción es prácticamente proporcional a W (exponente ≈ 1). |
+| **Cuello de botella** | Fase que concentra la mayor parte del tiempo y limita la escalabilidad. |
+| **Vectorizar** | Sustituir bucles de Python por operaciones sobre matrices (NumPy / `scipy.sparse`), mucho más rápidas. |
+| **Matriz de adyacencia + I** | Matriz N×N con 1 donde hay arista, más la identidad (cada nodo se cubre a sí mismo). Equivale a las filas de restricciones con patrones de un nodo. |
+| **Réplica / semilla aleatoria (seed)** | Repetición del experimento con otra semilla del generador aleatorio, para medir la variabilidad. |
+
+### Datos y grafos
+
+| Símbolo / término | Significado |
+|---|---|
+| **LFR** | Generador de grafos sintéticos de Lancichinetti–Fortunato–Radicchi, con estructura comunitaria controlada. Permite variar N de forma limpia. |
+| **μ (mu)** | Parámetro de mezcla de LFR: fracción de aristas de cada nodo que salen de su comunidad. μ bajo da comunidades muy definidas; μ alto, comunidades difusas. |
+| **ad5, mc50** (en nombres LFR) | `average_degree = 5` (grado medio) y `min_community = 50` (tamaño mínimo de comunidad). Otros parámetros: τ1 = 3 (exponente de la distribución de grados) y τ2 = 1,5 (exponente de tamaños de comunidad). Ver `generate_lfr.py`. |
+| **SNAP** | Stanford Network Analysis Project: repositorio de redes reales grandes (CA-AstroPh, Cit-HepPh, Email-Enron, etc.). |
+| **Bloques A–E, DL** | Grupos de experimentos del diseño factorial fraccionado (ver sección 2). |
+
+### Métodos comparados
+
+| Método | Significado |
+|---|---|
+| **Greedy** | Algoritmo voraz de Kempe et al.: añade en cada paso el nodo que más aumenta σ(S). Buena calidad (garantía 1 − 1/e), pero muy lento porque evalúa σ con Monte Carlo para cada candidato. |
+| **HCIM** | Método basado en comunidades usado como baseline en el paper de Motaz: (1) pondera cada arista por la similitud de vecindarios de sus extremos (vecinos comunes normalizados), (2) detecta comunidades y (3) reparte las k semillas entre ellas. |
+| **α-HCIM** | Variante de HCIM en la que el peso de arista combina dos similitudes: (1 − α)·vecinos comunes + α·densidad de aristas entre los vecinos comunes. Se usa α = 1, es decir, solo el segundo término. |
+| **CMSA** | *Construct, Merge, Solve & Adapt* (Blum): metaheurística híbrida que construye soluciones, fusiona sus componentes en una subinstancia reducida y la resuelve con un solver exacto. |
+| **GRASP** | *Greedy Randomized Adaptive Search Procedure*: metaheurística de construcción greedy aleatorizada seguida de búsqueda local. |
+
+---
+
 ## 1. Contexto
 
 ### 1.1. Qué es DCIIM
