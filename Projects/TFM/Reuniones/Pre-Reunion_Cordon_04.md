@@ -225,7 +225,7 @@ Fuente: `results/table_methods_comparison.csv`. σ es la influencia esperada; CP
 | Books | 10 | 37 / 0,07 | 35 / 42,89 | 32 / 2,72 | 34 / 3,92 |
 | football | 15 | 52 / 0,11 | 48 / 86,85 | 52 / 4,80 | 52 / 5,40 |
 
-- DCIIM obtiene una **σ igual o superior** en casi todos los casos. Greedy solo le supera por 1 nodo en karate con k=4, 5 y 15.
+- La calidad es **equivalente** entre métodos. Las diferencias de ±1 nodo (p. ej. Greedy en karate con k=4, 5 y 15) son **empate técnico**: una sola semilla, σ estimada con mc=100, y desviación típica entre réplicas de 0,6–3,5 nodos en el bloque B.
 - El tiempo de CPU es **2–3 órdenes de magnitud menor** que el de Greedy.
 
 **Redes medianas:**
@@ -370,7 +370,7 @@ Se redacta en `tfm.tex` (vault de Obsidian) y se copia a Overleaf.
 1. **Cuello de botella:** cobertura + restricciones ≈ 97–99 %; ILP < 4 %; IC < 2 %.
 2. **Complejidad:** ≈ O(N²), con pendiente 1,90–1,97 independiente de k y del solver.
 3. **Modelo de coste:** t ∝ W^0,98, con W = N·(2E+N); explica todos los timeouts.
-4. **Calidad:** DCIIM ≥ baselines en σ y 2–3 órdenes de magnitud más rápido en redes pequeñas y medianas.
+4. **Calidad:** equivalente a los baselines en redes pequeñas (±1 nodo = ruido), +20 % en citeseer, y 2–3 órdenes de magnitud más rápido en redes pequeñas y medianas.
 5. **Redes SNAP con 300 s:** ningún método termina.
 6. **φ:** no influye en el tiempo. En σ no se puede concluir nada para φ ≥ 3, porque con k = 3 la restricción es redundante; hay que repetirlo con k mayor.
 7. **μ:** no influye en el tiempo.

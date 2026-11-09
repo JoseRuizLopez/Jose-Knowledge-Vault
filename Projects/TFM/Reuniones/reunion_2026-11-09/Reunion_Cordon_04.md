@@ -156,9 +156,9 @@ Bloque D: una semilla, timeout de 300 s, σ(S) evaluada con el mismo IC para tod
 | citeseer | 10 | **75** (7,9 s) | tout | 62 (17,8 s) | 63 (54,8 s) |
 | citeseer | 15 | **90** (7,9 s) | tout | 75 (20,8 s) | 76 (102,6 s) |
 
->**Observación:** con k = 10 y 15 DCIIM sigue igual o por delante en σ en casi todos los casos. Solo pierde por 1 nodo en karate (k = 15) y en football (k = 10). En tiempo gana con mucha diferencia: 2–3 órdenes de magnitud frente a Greedy.
+>**Observación:** en redes pequeñas la calidad es **equivalente** entre los cuatro métodos. Las diferencias son de ±1 nodo: el bloque D usa una sola semilla y σ se estima con 100 simulaciones Monte Carlo, y en el bloque B la desviación típica de σ entre réplicas fue de 0,6–3,5 nodos. Donde sí hay diferencia clara es en el tiempo: DCIIM es **2–3 órdenes de magnitud más rápido** que Greedy (football k = 15: 0,11 s frente a 86,9 s).
 
->**citeseer** es el caso más claro: DCIIM obtiene un **+20 % de σ** frente a HCIM y α-HCIM, en menos tiempo, y Greedy no termina.
+>**citeseer** es el caso más claro: DCIIM obtiene un **+20 % de σ** frente a HCIM y α-HCIM (+13–15 nodos, muy por encima del ruido), en menos tiempo, y Greedy no termina. En emailEuCore la σ es la misma que la de HCIM, pero DCIIM tarda 6,9 s frente a 239 s, y con k = 15 es el único que termina.
 
 >**Redes SNAP (N ≥ 18 000):** con 300 s **no termina ningún método**, tampoco los baselines. No es un problema exclusivo de DCIIM. Con 1800 s, DCIIM sí resuelve CA-AstroPh y CA-CondMat (sección 5).
 
@@ -175,7 +175,7 @@ Bloque D: una semilla, timeout de 300 s, σ(S) evaluada con el mismo IC para tod
 | t_total (s) | 21,2 | 21,7 | 21,2 | 21,7 | 21,2 |
 | σ(S) | 91 | 86 | 100 | 104 | 99 |
 
->Como acordamos, μ queda fuera de las figuras. El tiempo no cambia (variación del 2 %), así que en la memoria pondré una sola frase: **μ no afecta al coste**.
+>Como acordamos, μ queda fuera de las figuras. El tiempo no cambia (variación del 2 %). Varía σ porque cada μ es un grafo distinto, por lo que no es comparable.
 
 ### Incrementos de overlapallowance (`datos/report_overlap_increments.txt`)
 
@@ -183,48 +183,9 @@ Bloque D: una semilla, timeout de 300 s, σ(S) evaluada con el mismo IC para tod
 
 ---
 
-## 8. Lo que necesito decidir hoy
+## 8. Preguntas a decidir
 
-### 8.1. ¿Qué método escalable propongo?
-
-| | **CMSA** | **GRASP** (sobre la representación transaccional) |
-|---|---|---|
-| Idea | Construir varias soluciones, fusionar sus componentes en una subinstancia pequeña y resolverla con el ILP de DCIIM | Construcción greedy aleatorizada más búsqueda local |
-| Relación con DCIIM | Conserva la formulación ILP de Motaz | Se aleja de la formulación exacta |
-| Referencia | Blum (2024), cap. 1 | Lozano-Osorio y Cordón (2023) |
-| Qué ataca | Reduce N en la subinstancia; como el coste es ~N², reducir N compensa mucho | Evita construir el modelo completo |
-| Riesgo | Si la subinstancia se construye con el `cover()` original, el cuello sigue dentro de cada iteración | Se pierde la conexión con el ILP |
-
->**Mi lectura de los datos:** como el ILP es menos del 4 % del tiempo, acelerar el solver no aporta nada. La propuesta tiene que **reducir el modelo que se construye**. Me inclino por **CMSA**, porque mantiene la formulación de DCIIM y ataca directamente el término N². Lo combinaría con la vectorización (8.2) para que construir cada subinstancia sea barato.
-
-### 8.2. ¿Vectorizo la construcción del modelo?
-
-- Con patrones de un nodo, `cover(T, [u])` equivale a comprobar `u ∈ T`. Entonces la cobertura de cada nodo es su grado + 1, y las filas de restricciones son la **matriz de adyacencia + identidad**. Se puede construir en **O(E)** con `scipy.sparse`.
-- Eliminaría el ~97 % del tiempo actual.
-
->**Duda:** ¿lo presento como contribución propia, como baseline mejorado o como paso previo a CMSA? Si se cambia, tengo que relanzar los bloques para que los tiempos sean comparables.
-
-### 8.3. Otras preguntas
-
+- ¿Vectorizo la construcción del modelo?
 - ¿Repito el estudio de φ con k = 10 o 15 en CA-AstroPh y CA-CondMat? Con k = 3 solo se prueban de verdad φ = 1 y 2 (sección 5).
 - ¿Vale como justificación de `--max-iter 10` que nunca se agota, y de 1800 s que es un presupuesto práctico de 30 minutos por k?
-- ¿Cómo cito el trabajo de Motaz en la bibliografía? Ahora mismo está como `@unpublished`.
 
----
-
-## Ficheros de esta carpeta
-
-| Fichero | Contenido |
-|---|---|
-| `figuras/fig_loglog_Nvst.png` | t_total frente a N en log-log (LFR, CBC y Gurobi) |
-| `figuras/fig_bottleneck_bars.png` | Reparto del tiempo por fase |
-| `figuras/fig_cost_model.png` | Modelo de coste y predicción de los timeouts |
-| `figuras/fig_phi.png` | σ(S) y tiempo frente a φ en redes SNAP |
-| `datos/table_methods_comparison.csv` | DCIIM vs baselines, 12 redes, k = 3…15 |
-| `datos/table_phi.csv` | Resumen del estudio de φ |
-| `datos/block_E_phi.csv` | Datos en bruto del bloque E |
-| `datos/table_time_breakdown.csv` | Porcentaje de tiempo por fase |
-| `datos/table_cost_model.csv` | Modelo de coste: previsto frente a observado |
-| `datos/table_loglog_slopes.csv` | Pendientes log-log |
-| `datos/table_mu.csv` | Efecto de μ |
-| `datos/report_overlap_increments.txt` | Casos en los que se incrementó overlapallowance |
