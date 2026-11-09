@@ -179,7 +179,11 @@ Bloque D: una semilla, timeout de 300 s, σ(S) evaluada con el mismo IC para tod
 
 ### Incrementos de overlapallowance (`datos/report_overlap_increments.txt`)
 
->Solo hizo falta subir overlapallowance en **karate**: +2 con k = 10 y +4 con k = 15. En ninguna otra red. Con `--max-iter 10` nunca se llega al límite, lo que justifica dejar ese valor por defecto.
+>Solo hizo falta subir overlapallowance en **karate**: +2 con k = 10 (φ pasa de 2 a 4) y +4 con k = 15 (φ pasa de 2 a 6). En ninguna otra red.
+
+>**Por qué solo karate:** es una red de **34 nodos** con un par de nodos centrales conectados con casi todos los demás. Al elegir 15 de 34 nodos (el 44 % de la red), es inevitable que el vecindario de esos nodos centrales contenga más de 2 semillas. Con φ = 2 el ILP es infactible y hay que relajarlo. En redes grandes y dispersas, k = 15 es una fracción mínima de N y siempre hay semillas lo bastante separadas para cumplir φ = 2.
+
+>**Sobre `--max-iter 10`:** en todos los experimentos realizados (k ≤ 20) nunca se superaron 4 incrementos, así que el límite de 10 deja margen de sobra y no corta ninguna ejecución. Con k mucho mayores en redes pequeñas podría hacer falta más.
 
 ---
 
