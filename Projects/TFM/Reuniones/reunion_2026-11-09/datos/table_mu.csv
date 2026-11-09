@@ -1,0 +1,6 @@
+mu,status,t_total_mean,t_total_std,t_ilp_mean,sigma_mean,sigma_std
+0.1,optimal,21.22,0.06,0.51,91.0,1.0
+0.3,optimal,21.7,0.91,0.51,86.0,1.0
+0.5,optimal,21.21,0.21,0.5,99.67,0.58
+0.7,optimal,21.65,0.47,0.53,104.0,2.0
+0.9,optimal,21.23,0.08,0.45,98.67,3.51
