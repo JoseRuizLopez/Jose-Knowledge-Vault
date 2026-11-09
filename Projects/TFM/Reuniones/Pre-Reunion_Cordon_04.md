@@ -32,22 +32,22 @@ TFM: estudio de escalabilidad de DCIIM y propuesta de un método escalable.
 
 ### Formulación de DCIIM
 
-| Símbolo / término | Significado |
-|---|---|
-| **DCIIM** | *Descriptive Clustering-based Influence Maximization*: el método de Motaz que reformula IM como clustering descriptivo resuelto con un ILP. |
-| **Clustering descriptivo** | Agrupamiento en el que cada grupo se describe con un patrón interpretable. En DCIIM, cada semilla «describe» el grupo de nodos que cubre. |
-| **Transacción (T)** | Representación de un nodo como el conjunto formado por él mismo y sus vecinos. La red completa se convierte en una base de N transacciones. |
-| **Patrón** | Conjunto de nodos candidato a describir transacciones. En la versión usada, cada patrón es un único nodo u (patrones de un nodo). |
-| **cover(T, P)** | Función que comprueba si el patrón P cubre la transacción T, es decir, si P ⊆ T. Con patrones de un nodo equivale a comprobar u ∈ T. |
-| **coverage_count** | Número de transacciones que cubre cada patrón. Se calcula llamando a `cover()` sobre todas las transacciones. Es la fase más costosa. |
-| **Σ\|T\|** | Suma de los tamaños de todas las transacciones (≈ 2E + N). Mide el volumen de datos que recorre `cover()`. |
-| **ILP** (Integer Linear Programming) | Programa lineal entero: optimización con variables enteras (aquí binarias: elegir o no un patrón) y restricciones lineales. DCIIM elige los k patrones resolviendo un ILP. |
-| **φ / overlapallowance** | Máximo número de patrones elegidos que pueden cubrir una misma transacción. Controla cuánto pueden solaparse las zonas de influencia de las semillas. Si es demasiado pequeño, el ILP no tiene solución. |
-| **Infactible** | El ILP no tiene ninguna solución que cumpla todas las restricciones. En ese caso DCIIM incrementa φ y vuelve a intentarlo. |
-| **n_iter_dciim** | Número de veces que DCIIM tuvo que incrementar φ hasta que el ILP fue factible. |
-| **--max-iter** | Límite de incrementos de φ que he añadido (por defecto 10). Con 0, φ queda fijo. |
-| **Solver** | Programa que resuelve el ILP. **CBC** es el solver libre que trae PuLP; **Gurobi** es comercial (licencia académica). |
-| **PuLP** | Librería de Python con la que se escribe el ILP y se llama al solver. |
+| Símbolo / término                    | Significado                                                                                                                                                                                              |
+| ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **DCIIM**                            | *Descriptive Clustering-based Influence Maximization*: el método de Motaz que reformula IM como clustering descriptivo resuelto con un ILP.                                                              |
+| **Clustering descriptivo**           | Agrupamiento en el que cada grupo se describe con un patrón interpretable. En DCIIM, cada semilla «describe» el grupo de nodos que cubre.                                                                |
+| **Transacción (T)**                  | Representación de un nodo como el conjunto formado por él mismo y sus vecinos. La red completa se convierte en una base de N transacciones.                                                              |
+| **Patrón**                           | Conjunto de nodos candidato a describir transacciones. En la versión usada, cada patrón es un único nodo u (patrones de un nodo).                                                                        |
+| **cover(T, P)**                      | Función que comprueba si el patrón P cubre la transacción T, es decir, si P ⊆ T. Con patrones de un nodo equivale a comprobar u ∈ T.                                                                     |
+| **coverage_count**                   | Número de transacciones que cubre cada patrón. Se calcula llamando a `cover()` sobre todas las transacciones. Es la fase más costosa.                                                                    |
+| **Σ\|T\|**                           | Suma de los tamaños de todas las transacciones (≈ 2E + N). Mide el volumen de datos que recorre `cover()`.                                                                                               |
+| **ILP** (Integer Linear Programming) | Programa lineal entero: optimización con variables enteras (aquí binarias: elegir o no un patrón) y restricciones lineales. DCIIM elige los k patrones resolviendo un ILP.                               |
+| **φ / overlapallowance**             | Máximo número de patrones elegidos que pueden cubrir una misma transacción. Controla cuánto pueden solaparse las zonas de influencia de las semillas. Si es demasiado pequeño, el ILP no tiene solución. |
+| **Infactible**                       | El ILP no tiene ninguna solución que cumpla todas las restricciones. En ese caso DCIIM incrementa φ y vuelve a intentarlo.                                                                               |
+| **n_iter_dciim**                     | Número de veces que DCIIM tuvo que incrementar φ hasta que el ILP fue factible.                                                                                                                          |
+| **--max-iter**                       | Límite de incrementos de φ que he añadido (por defecto 10). Con 0, φ queda fijo.                                                                                                                         |
+| **Solver**                           | Programa que resuelve el ILP. **CBC** es el solver libre que trae PuLP; **Gurobi** es comercial (licencia académica).                                                                                    |
+| **PuLP**                             | Librería de Python con la que se escribe el ILP y se llama al solver.                                                                                                                                    |
 
 ### Tiempos medidos y estados de ejecución
 
@@ -256,9 +256,11 @@ Fuente: `results/table_phi.csv` y `results/fig_phi.png`. k=3, φ fijo de 1 a 10,
 | Cit-HepPh, Gnutella, Twitter | timeout con cualquier φ | 1800 s |
 
 **Interpretación:**
-- **φ apenas influye:** a partir de φ=3, σ es idéntica, y el tiempo no depende de φ.
+- **Limitación del diseño:** con **k = 3**, la restricción de solapamiento `Σ_j y_j·cover(T_i, P_j) ≤ φ` solo actúa si φ < 3. Como hay exactamente 3 semillas (`Σ_j y_j = k`), ninguna transacción puede estar cubierta por más de 3, así que **con φ ≥ 3 la restricción es redundante** y el ILP es el mismo problema ([DCIIM.py:102-111](DCIIM.py#L102-L111)). Que σ sea idéntica de φ=3 a φ=10 es **consecuencia matemática, no hallazgo experimental**. El bloque solo estudia de verdad φ = 1 y 2 (variación < 0,3 %).
+- **Lo válido:** el **tiempo no depende de φ**, y las redes que fallan lo hacen con cualquier φ, por el coste de construcción. **No se debe afirmar que φ limita la escalabilidad.**
+- **No hay infactibilidad**, pero con k = 3 solo podía darse con φ = 1 o 2. En las redes grandes el modelo ni se construye, así que la hipótesis de la reunión 03 queda sin comprobar allí.
 - La alternancia de Enron **no se debe a φ**: todos los tiempos rondan los 1800 s, así que es ruido de ejecución en torno al límite.
-- Las redes que fallan lo hacen con cualquier φ, por el coste de construcción. **No se debe afirmar que φ limita la escalabilidad.**
+- **Propuesta:** repetir el bloque E con **k = 10 o 15** en CA-AstroPh y CA-CondMat, para que φ = 1…10 sea siempre una restricción efectiva.
 
 ### 3.6. Efecto de μ, bloque B
 
@@ -370,7 +372,7 @@ Se redacta en `tfm.tex` (vault de Obsidian) y se copia a Overleaf.
 3. **Modelo de coste:** t ∝ W^0,98, con W = N·(2E+N); explica todos los timeouts.
 4. **Calidad:** DCIIM ≥ baselines en σ y 2–3 órdenes de magnitud más rápido en redes pequeñas y medianas.
 5. **Redes SNAP con 300 s:** ningún método termina.
-6. **φ:** no influye ni en σ (a partir de φ=3) ni en el tiempo.
+6. **φ:** no influye en el tiempo. En σ no se puede concluir nada para φ ≥ 3, porque con k = 3 la restricción es redundante; hay que repetirlo con k mayor.
 7. **μ:** no influye en el tiempo.
 8. **overlapallowance:** solo se incrementa en karate; `--max-iter 10` nunca se agota.
 9. **Pendiente de decidir:** CMSA o GRASP, y si se vectoriza la construcción del modelo.

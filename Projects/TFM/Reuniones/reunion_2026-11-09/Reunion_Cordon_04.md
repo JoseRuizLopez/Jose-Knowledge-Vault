@@ -95,8 +95,6 @@ Predicción frente a lo observado (`datos/table_cost_model.csv`):
 
 >**Observación:** el modelo de coste explica por qué Cit-HepPh, Gnutella y Twitter no dan resultado: harían falta entre 1,8× y 17× el presupuesto de 1800 s **solo para construir el modelo**. El solver ni siquiera llega a ejecutarse.
 
->**Cómo lo reportaría:** como **límite de escalabilidad de la construcción del modelo**, no como un fallo del ILP ni como infactibilidad. No subo el timeout ni añado más redes; con el modelo de coste ya se ve hasta dónde llega.
-
 ---
 
 ## 5. Estudio de φ en redes grandes
@@ -114,13 +112,21 @@ Predicción frente a lo observado (`datos/table_cost_model.csv`):
 | p2p-Gnutella31 | tout | tout | tout | 1800 s |
 | twitter_combined | tout | tout | tout | 1800 s |
 
->**Observación:** **φ apenas influye.** A partir de φ = 3 la σ(S) es exactamente la misma, y solo φ = 1 y 2 varían algo (< 0,3 %). El tiempo tampoco cambia con φ.
+>**Limitación del diseño:** con **k = 3**, la restricción de solapamiento solo actúa si **φ < 3**. Las restricciones del ILP son:
+```
+(1)  Σ_j y_j · cover(T_i, P_j) ≤ φ     para cada transacción T_i
+(2)  Σ_j y_j = k
+```
 
->**Sobre la hipótesis de la reunión anterior** (que en redes grandes el modelo no encontraría solución factible): **no se confirma tal cual**. Lo que pasa es que el modelo **no llega a construirse** dentro del tiempo, con cualquier φ. No hay ni un solo caso de infactibilidad en el bloque E.
+>Si solo se eligen 3 semillas, una transacción puede estar cubierta como mucho por 3. Por tanto, con φ ≥ 3 la restricción (1) es redundante y el ILP es exactamente el mismo problema. Que σ(S) sea idéntica de φ = 3 a φ = 10 es **una consecuencia de usar k = 3, no un resultado experimental**. En la práctica, este bloque solo estudia el efecto de φ en **φ = 1 y φ = 2**, donde la variación es < 0,3 %.
+
+>**Lo que sí muestra el bloque E:** el **tiempo no depende de φ** en ningún caso, y las redes que fallan lo hacen con cualquier φ. Esto encaja con que el coste está en construir el modelo, que es igual para cualquier φ.
+
+>**Sobre la hipótesis de la reunión anterior** (que en redes grandes el modelo no encontraría solución factible): la **hipótesis queda sin comprobar** en esas redes porque el modelo **no llega a construirse** dentro del tiempo.
 
 >**Email-Enron:** la alternancia optimal/timeout parece depender de φ, pero no es así. Todos los tiempos están en ~1790–1800 s, así que es ruido de ejecución justo en el límite.
 
->**Conclusión:** φ **no limita la escalabilidad**. Lo que la limita es el tamaño de la red (sección 4).
+>**Conclusión y propuesta:** φ **no limita la escalabilidad en tiempo**. Lo que la limita es el tamaño de la red (sección 4). Para estudiar el efecto de φ sobre la calidad y la factibilidad habría que **repetir el bloque E con k mayor** (p. ej. k = 10 o 15), de forma que φ = 1…10 sea siempre una restricción efectiva.
 
 ---
 
@@ -200,6 +206,7 @@ Bloque D: una semilla, timeout de 300 s, σ(S) evaluada con el mismo IC para tod
 
 ### 8.3. Otras preguntas
 
+- ¿Repito el estudio de φ con k = 10 o 15 en CA-AstroPh y CA-CondMat? Con k = 3 solo se prueban de verdad φ = 1 y 2 (sección 5).
 - ¿Vale como justificación de `--max-iter 10` que nunca se agota, y de 1800 s que es un presupuesto práctico de 30 minutos por k?
 - ¿Cómo cito el trabajo de Motaz en la bibliografía? Ahora mismo está como `@unpublished`.
 
