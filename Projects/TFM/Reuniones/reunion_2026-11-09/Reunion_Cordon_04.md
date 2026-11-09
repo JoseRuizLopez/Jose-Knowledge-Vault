@@ -6,12 +6,12 @@
 
 Tareas que salieron de la reunión 03:
 
-| Tarea | Estado | Dónde |
-|---|---|---|
-| Añadir k = 10 y 15 en las tablas de redes reales | Hecho | Bloque D → `datos/table_methods_comparison.csv` |
-| Estudio de φ (1–10) con redes grandes reales | Hecho | Bloque E → `datos/table_phi.csv`, `figuras/fig_phi.png` |
-| Límite de overlapallowance / timeout general | Hecho | `--max-iter` (por defecto 10) y `--global-timeout` en `DCIIM.py` |
-| Seguir escribiendo literatura | En curso | `tfm.tex` |
+| Tarea                                            | Estado   | Dónde                                                            |
+| ------------------------------------------------ | -------- | ---------------------------------------------------------------- |
+| Añadir k = 10 y 15 en las tablas de redes reales | Hecho    | Bloque D → `datos/table_methods_comparison.csv`                  |
+| Estudio de φ (1–10) con redes grandes reales     | Hecho    | Bloque E → `datos/table_phi.csv`, `figuras/fig_phi.png`          |
+| Límite de overlapallowance / timeout general     | Hecho    | `--max-iter` (por defecto 10) y `--global-timeout` en `DCIIM.py` |
+| Seguir escribiendo literatura                    | En curso | `tfm.tex`                                                        |
 
 Experimentos lanzados:
 
@@ -21,13 +21,13 @@ Experimentos lanzados:
 
 Redes SNAP utilizadas:
 
-| Red | N | E |
-|---|---|---|
-| CA-AstroPh | 18 771 | 198 050 |
-| CA-CondMat | 23 133 | 93 439 |
-| Cit-HepPh | 34 546 | 420 877 |
-| Email-Enron | 36 692 | 183 831 |
-| p2p-Gnutella31 | 62 586 | 147 892 |
+| Red              | N      | E         |
+| ---------------- | ------ | --------- |
+| CA-AstroPh       | 18 771 | 198 050   |
+| CA-CondMat       | 23 133 | 93 439    |
+| Cit-HepPh        | 34 546 | 420 877   |
+| Email-Enron      | 36 692 | 183 831   |
+| p2p-Gnutella31   | 62 586 | 147 892   |
 | twitter_combined | 81 306 | 1 342 296 |
 
 >**Nota:** no he modificado el algoritmo de DCIIM ni el de los baselines; los tiempos son los del código original de Motaz. Lo que he añadido es: CLI, medición del tiempo por fases, `--max-iter`, `--global-timeout` y un evaluador σ(S) común para que todos los métodos se comparen con el mismo modelo IC.
