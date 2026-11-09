@@ -67,18 +67,20 @@ TFM: estudio de escalabilidad de DCIIM y propuesta de un método escalable.
 
 ### Escalabilidad y análisis
 
-| Símbolo / término | Significado |
-|---|---|
-| **Escala log-log** | Gráfica con ambos ejes en logaritmo. Si t ∝ N^a, aparece como una recta de pendiente a. |
-| **Pendiente (slope)** | Exponente a del ajuste t ∝ N^a. Una pendiente ≈ 2 indica que duplicar N multiplica el tiempo por ~4. |
-| **O(N²)** | Notación de complejidad: el coste crece con el cuadrado de N. |
-| **O(E)** | El coste crece linealmente con el número de aristas. Es el objetivo si se vectoriza la construcción del modelo. |
-| **W = N·(2E + N)** | Medida de carga del modelo de coste: N patrones por Σ\|T\| ≈ 2E + N elementos recorridos. |
-| **t ∝ W^0,98** | El tiempo de construcción es prácticamente proporcional a W (exponente ≈ 1). |
-| **Cuello de botella** | Fase que concentra la mayor parte del tiempo y limita la escalabilidad. |
-| **Vectorizar** | Sustituir bucles de Python por operaciones sobre matrices (NumPy / `scipy.sparse`), mucho más rápidas. |
-| **Matriz de adyacencia + I** | Matriz N×N con 1 donde hay arista, más la identidad (cada nodo se cubre a sí mismo). Equivale a las filas de restricciones con patrones de un nodo. |
-| **Réplica / semilla aleatoria (seed)** | Repetición del experimento con otra semilla del generador aleatorio, para medir la variabilidad. |
+| Símbolo / término                      | Significado                                                                                                                                         |
+| -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Escala log-log**                     | Gráfica con ambos ejes en logaritmo. Si t ∝ N^a, aparece como una recta de pendiente a.                                                             |
+| **Pendiente (slope)**                  | Exponente a del ajuste t ∝ N^a. Una pendiente ≈ 2 indica que duplicar N multiplica el tiempo por ~4.                                                |
+| **O(N²)**                              | Notación de complejidad: el coste crece con el cuadrado de N.                                                                                       |
+| **O(E)**                               | El coste crece linealmente con el número de aristas. Es el objetivo si se vectoriza la construcción del modelo.                                     |
+| **W = N·(2E + N)**                     | Medida de carga del modelo de coste: N patrones por Σ\|T\| ≈ 2E + N elementos recorridos.                                                           |
+| **E**                                  | Es el número de aristas del grafo.                                                                                                                  |
+| **N**                                  | Es el número de nodos del grafo.                                                                                                                    |
+| **t ∝ W^0,98**                         | El tiempo de construcción es prácticamente proporcional a W (exponente ≈ 1).                                                                        |
+| **Cuello de botella**                  | Fase que concentra la mayor parte del tiempo y limita la escalabilidad.                                                                             |
+| **Vectorizar**                         | Sustituir bucles de Python por operaciones sobre matrices (NumPy / `scipy.sparse`), mucho más rápidas.                                              |
+| **Matriz de adyacencia + I**           | Matriz N×N con 1 donde hay arista, más la identidad (cada nodo se cubre a sí mismo). Equivale a las filas de restricciones con patrones de un nodo. |
+| **Réplica / semilla aleatoria (seed)** | Repetición del experimento con otra semilla del generador aleatorio, para medir la variabilidad.                                                    |
 
 ### Datos y grafos
 

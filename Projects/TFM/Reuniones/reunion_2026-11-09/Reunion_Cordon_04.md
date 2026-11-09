@@ -1,34 +1,17 @@
-# Reunión Cordón 04 - Resultados del estudio de escalabilidad de DCIIM
+# Reunión Cordón 04
 
-*José Ruiz · 9 de noviembre de 2026*
-
-Datos completos en `datos/` y figuras en `figuras/`.
-
----
-
-## Índice
-
-1. Qué he hecho desde la última reunión
-2. Escalabilidad: cómo crece el tiempo con N
-3. Dónde se va el tiempo (cuello de botella)
-4. Modelo de coste y redes grandes sin resultado
-5. Estudio de φ en redes grandes
-6. Comparación con Greedy, HCIM y α-HCIM (k = 3…15)
-7. Otros resultados (μ, overlapallowance)
-8. Lo que necesito decidir hoy
-
----
+*José Ruiz - 9 de noviembre de 2026*
 
 ## 1. Qué he hecho desde la última reunión
 
 Tareas que salieron de la reunión 03:
 
-| Tarea                                            | Estado   | Dónde                                                            |
-| ------------------------------------------------ | -------- | ---------------------------------------------------------------- |
-| Añadir k = 10 y 15 en las tablas de redes reales | Hecho    | Bloque D → `datos/table_methods_comparison.csv`                  |
-| Estudio de φ (1–10) con redes grandes reales     | Hecho    | Bloque E → `datos/table_phi.csv`, `figuras/fig_phi.png`          |
-| Límite de overlapallowance / timeout general     | Hecho    | `--max-iter` (por defecto 10) y `--global-timeout` en `DCIIM.py` |
-| Seguir escribiendo literatura                    | En curso | `tfm.tex`                                                        |
+| Tarea | Estado | Dónde |
+|---|---|---|
+| Añadir k = 10 y 15 en las tablas de redes reales | Hecho | Bloque D → `datos/table_methods_comparison.csv` |
+| Estudio de φ (1–10) con redes grandes reales | Hecho | Bloque E → `datos/table_phi.csv`, `figuras/fig_phi.png` |
+| Límite de overlapallowance / timeout general | Hecho | `--max-iter` (por defecto 10) y `--global-timeout` en `DCIIM.py` |
+| Seguir escribiendo literatura | En curso | `tfm.tex` |
 
 Experimentos lanzados:
 
@@ -47,7 +30,7 @@ Redes SNAP utilizadas:
 | p2p-Gnutella31 | 62 586 | 147 892 |
 | twitter_combined | 81 306 | 1 342 296 |
 
-> **Nota:** no he modificado el algoritmo de DCIIM ni el de los baselines; los tiempos son los del código original de Motaz. Lo que he añadido es el arnés: CLI, medición del tiempo por fases, `--max-iter`, `--global-timeout` y un evaluador σ(S) común para que todos los métodos se comparen con el mismo modelo IC.
+>**Nota:** no he modificado el algoritmo de DCIIM ni el de los baselines; los tiempos son los del código original de Motaz. Lo que he añadido es: CLI, medición del tiempo por fases, `--max-iter`, `--global-timeout` y un evaluador σ(S) común para que todos los métodos se comparen con el mismo modelo IC.
 
 ---
 
@@ -62,11 +45,9 @@ Pendientes del ajuste log-log (`datos/table_loglog_slopes.csv`), en grafos LFR c
 | CBC | 1,93 | 1,96 | 1,97 | 1,97 |
 | Gurobi | 1,95 | 1,97 | 1,94 | 1,90 |
 
-> **Observación:** en la reunión anterior hablamos de crecimiento exponencial. Al ajustarlo en log-log sale una **recta de pendiente ≈ 2**, así que el crecimiento es **polinómico, aproximadamente cuadrático (O(N²))**: duplicar N multiplica el tiempo por ~4. El resultado práctico es el mismo, porque a partir de ~50 000 nodos no es viable, pero creo que en la memoria conviene decir "cuadrático" y no "exponencial".
+>**Observación:** en la reunión anterior hablamos de crecimiento exponencial. Al ajustarlo en log-log sale una **recta de pendiente ≈ 2**, así que el crecimiento es **polinómico, aproximadamente cuadrático (O(N²))**: duplicar N multiplica el tiempo por ~4. El resultado práctico es el mismo, porque a partir de ~50 000 nodos no es viable.
 
-> 📝 **Observación:** la pendiente **no depende de k ni del solver**. Las curvas de CBC y Gurobi prácticamente se solapan, lo que ya apuntaba a que el ILP no es lo que limita.
-
-> 📝 **Hardware:** comparé con la ejecución antigua en Ubuntu. La máquina actual es ~1,3× más rápida pero la pendiente es la misma: el hardware solo cambia la constante.
+>**Observación:** la pendiente **no depende de k ni del solver**. Las curvas de CBC y Gurobi prácticamente se solapan, lo que ya apuntaba a que el ILP no es lo que limita.
 
 ---
 
@@ -85,13 +66,13 @@ Porcentaje de `t_total` por fase, solo en ejecuciones que terminan (`datos/table
 | CA-CondMat | 698 s | **63 %** | **35 %** | 0,4 % | 1,2 % |
 | Email-Enron | 1719 s | **64 %** | **35 %** | 0,6 % | 0,8 % |
 
-> 📝 **Hallazgo principal:** el cuello de botella **no es el ILP ni Monte Carlo**. Es **construir el modelo en Python**: `coverage_count` más la generación de restricciones se llevan **el 97–99 % del tiempo** en todas las redes con N ≥ 3000. El solver se queda por debajo del 4 % y la simulación IC por debajo del 2 %.
+>**Hallazgo principal:** el cuello de botella **no es el ILP ni Monte Carlo**. Es **construir el modelo en Python**: `coverage_count` más la generación de restricciones se llevan **el 97–99 % del tiempo** en todas las redes con N ≥ 3000. El solver se queda por debajo del 4 % y la simulación IC por debajo del 2 %.
 
-> 📝 Esto corrige lo que tenía apuntado de la reunión 02, donde suponía que el coste estaba en Monte Carlo.
+>Esto rebate lo que teníamos pensado de la reunión 02, donde se suponía que el coste estaba en Monte Carlo.
 
-> 📝 **Por qué pasa:** `cover()`, `coverage_count` y el bucle de restricciones vienen del repositorio original de Motaz y están escritos con bucles de Python, sin vectorizar. Para cada patrón recorren todas las transacciones, con un coste O(N·Σ|T|).
+>**Por qué pasa:** `cover()`, `coverage_count` y el bucle de restricciones vienen del repositorio original de Motaz y están escritos con bucles de Python, sin vectorizar. Para cada patrón recorren todas las transacciones, con un coste O(N·Σ|T|).
 
-> 📝 **Excepción:** emailEuCore es una red pequeña pero muy densa (N = 1005, E = 16 706), así que el ILP pesa un 41 %. Aun así tarda solo 7 s en total.
+>**Excepción:** emailEuCore es una red pequeña pero muy densa (N = 1005, E = 16 706), así que el ILP pesa un 41 %. Aun así tarda solo 7 s en total.
 
 ---
 
@@ -105,16 +86,16 @@ Predicción frente a lo observado (`datos/table_cost_model.csv`):
 
 | Red | Previsto (s) | Observado (s) | ¿Cabe en 1800 s? |
 |---|---|---|---|
-| CA-CondMat | 716 | 661 | ✅ |
-| CA-AstroPh | 1138 | 894 | ✅ |
-| Email-Enron | 2145 | 1736 | ⚠️ En el límite |
-| p2p-Gnutella31 | **3220** | — | ❌ |
-| Cit-HepPh | **4324** | — | ❌ |
-| twitter_combined | **31 046** | — | ❌ |
+| CA-CondMat | 716 | 661 | Sí |
+| CA-AstroPh | 1138 | 894 | Sí |
+| Email-Enron | 2145 | 1736 | En el límite |
+| p2p-Gnutella31 | **3220** | — | No |
+| Cit-HepPh | **4324** | — | No |
+| twitter_combined | **31 046** | — | No |
 
-> 📝 **Observación:** el modelo de coste explica por qué Cit-HepPh, Gnutella y Twitter no dan resultado: harían falta entre 1,8× y 17× el presupuesto de 1800 s **solo para construir el modelo**. El solver ni siquiera llega a ejecutarse.
+>**Observación:** el modelo de coste explica por qué Cit-HepPh, Gnutella y Twitter no dan resultado: harían falta entre 1,8× y 17× el presupuesto de 1800 s **solo para construir el modelo**. El solver ni siquiera llega a ejecutarse.
 
-> 📝 **Cómo lo reportaría:** como **límite de escalabilidad de la construcción del modelo**, no como un fallo del ILP ni como infactibilidad. No subo el timeout ni añado más redes; con el modelo de coste ya se ve hasta dónde llega.
+>**Cómo lo reportaría:** como **límite de escalabilidad de la construcción del modelo**, no como un fallo del ILP ni como infactibilidad. No subo el timeout ni añado más redes; con el modelo de coste ya se ve hasta dónde llega.
 
 ---
 
@@ -133,13 +114,13 @@ Predicción frente a lo observado (`datos/table_cost_model.csv`):
 | p2p-Gnutella31 | tout | tout | tout | 1800 s |
 | twitter_combined | tout | tout | tout | 1800 s |
 
-> 📝 **Observación:** **φ apenas influye.** A partir de φ = 3 la σ(S) es exactamente la misma, y solo φ = 1 y 2 varían algo (< 0,3 %). El tiempo tampoco cambia con φ.
+>**Observación:** **φ apenas influye.** A partir de φ = 3 la σ(S) es exactamente la misma, y solo φ = 1 y 2 varían algo (< 0,3 %). El tiempo tampoco cambia con φ.
 
-> 📝 **Sobre la hipótesis de la reunión anterior** (que en redes grandes el modelo no encontraría solución factible): **no se confirma tal cual**. Lo que pasa es que el modelo **no llega a construirse** dentro del tiempo, con cualquier φ. No hay ni un solo caso de infactibilidad en el bloque E.
+>**Sobre la hipótesis de la reunión anterior** (que en redes grandes el modelo no encontraría solución factible): **no se confirma tal cual**. Lo que pasa es que el modelo **no llega a construirse** dentro del tiempo, con cualquier φ. No hay ni un solo caso de infactibilidad en el bloque E.
 
-> 📝 **Email-Enron:** la alternancia optimal/timeout parece depender de φ, pero no es así. Todos los tiempos están en ~1790–1800 s, así que es ruido de ejecución justo en el límite.
+>**Email-Enron:** la alternancia optimal/timeout parece depender de φ, pero no es así. Todos los tiempos están en ~1790–1800 s, así que es ruido de ejecución justo en el límite.
 
-> 📝 **Conclusión:** φ **no limita la escalabilidad**. Lo que la limita es el tamaño de la red (sección 4).
+>**Conclusión:** φ **no limita la escalabilidad**. Lo que la limita es el tamaño de la red (sección 4).
 
 ---
 
@@ -169,13 +150,13 @@ Bloque D: una semilla, timeout de 300 s, σ(S) evaluada con el mismo IC para tod
 | citeseer | 10 | **75** (7,9 s) | tout | 62 (17,8 s) | 63 (54,8 s) |
 | citeseer | 15 | **90** (7,9 s) | tout | 75 (20,8 s) | 76 (102,6 s) |
 
-> 📝 **Observación:** con k = 10 y 15 DCIIM sigue igual o por delante en σ en casi todos los casos. Solo pierde por 1 nodo en karate (k = 15) y en football (k = 10). En tiempo gana con mucha diferencia: 2–3 órdenes de magnitud frente a Greedy.
+>**Observación:** con k = 10 y 15 DCIIM sigue igual o por delante en σ en casi todos los casos. Solo pierde por 1 nodo en karate (k = 15) y en football (k = 10). En tiempo gana con mucha diferencia: 2–3 órdenes de magnitud frente a Greedy.
 
-> 📝 **citeseer** es el caso más claro: DCIIM obtiene un **+20 % de σ** frente a HCIM y α-HCIM, en menos tiempo, y Greedy no termina.
+>**citeseer** es el caso más claro: DCIIM obtiene un **+20 % de σ** frente a HCIM y α-HCIM, en menos tiempo, y Greedy no termina.
 
-> 📝 **Redes SNAP (N ≥ 18 000):** con 300 s **no termina ningún método**, tampoco los baselines. No es un problema exclusivo de DCIIM. Con 1800 s, DCIIM sí resuelve CA-AstroPh y CA-CondMat (sección 5).
+>**Redes SNAP (N ≥ 18 000):** con 300 s **no termina ningún método**, tampoco los baselines. No es un problema exclusivo de DCIIM. Con 1800 s, DCIIM sí resuelve CA-AstroPh y CA-CondMat (sección 5).
 
-> 📝 Email-Enron da timeout en el bloque D (300 s) y termina en DL/E (1800 s); la única diferencia es el presupuesto de tiempo.
+>Email-Enron da timeout en el bloque D (300 s) y termina en DL/E (1800 s); la única diferencia es el presupuesto de tiempo.
 
 ---
 
@@ -188,11 +169,11 @@ Bloque D: una semilla, timeout de 300 s, σ(S) evaluada con el mismo IC para tod
 | t_total (s) | 21,2 | 21,7 | 21,2 | 21,7 | 21,2 |
 | σ(S) | 91 | 86 | 100 | 104 | 99 |
 
-> 📝 Como acordamos, μ queda fuera de las figuras. El tiempo no cambia (variación del 2 %), así que en la memoria pondré una sola frase: **μ no afecta al coste**.
+>Como acordamos, μ queda fuera de las figuras. El tiempo no cambia (variación del 2 %), así que en la memoria pondré una sola frase: **μ no afecta al coste**.
 
 ### Incrementos de overlapallowance (`datos/report_overlap_increments.txt`)
 
-> 📝 Solo hizo falta subir overlapallowance en **karate**: +2 con k = 10 y +4 con k = 15. En ninguna otra red. Con `--max-iter 10` nunca se llega al límite, lo que justifica dejar ese valor por defecto.
+>Solo hizo falta subir overlapallowance en **karate**: +2 con k = 10 y +4 con k = 15. En ninguna otra red. Con `--max-iter 10` nunca se llega al límite, lo que justifica dejar ese valor por defecto.
 
 ---
 
@@ -208,14 +189,14 @@ Bloque D: una semilla, timeout de 300 s, σ(S) evaluada con el mismo IC para tod
 | Qué ataca | Reduce N en la subinstancia; como el coste es ~N², reducir N compensa mucho | Evita construir el modelo completo |
 | Riesgo | Si la subinstancia se construye con el `cover()` original, el cuello sigue dentro de cada iteración | Se pierde la conexión con el ILP |
 
-> 📝 **Mi lectura de los datos:** como el ILP es menos del 4 % del tiempo, acelerar el solver no aporta nada. La propuesta tiene que **reducir el modelo que se construye**. Me inclino por **CMSA**, porque mantiene la formulación de DCIIM y ataca directamente el término N². Lo combinaría con la vectorización (8.2) para que construir cada subinstancia sea barato.
+>**Mi lectura de los datos:** como el ILP es menos del 4 % del tiempo, acelerar el solver no aporta nada. La propuesta tiene que **reducir el modelo que se construye**. Me inclino por **CMSA**, porque mantiene la formulación de DCIIM y ataca directamente el término N². Lo combinaría con la vectorización (8.2) para que construir cada subinstancia sea barato.
 
 ### 8.2. ¿Vectorizo la construcción del modelo?
 
 - Con patrones de un nodo, `cover(T, [u])` equivale a comprobar `u ∈ T`. Entonces la cobertura de cada nodo es su grado + 1, y las filas de restricciones son la **matriz de adyacencia + identidad**. Se puede construir en **O(E)** con `scipy.sparse`.
 - Eliminaría el ~97 % del tiempo actual.
 
-> 📝 **Duda:** ¿lo presento como contribución propia, como baseline mejorado o como paso previo a CMSA? Si se cambia, tengo que relanzar los bloques para que los tiempos sean comparables.
+>**Duda:** ¿lo presento como contribución propia, como baseline mejorado o como paso previo a CMSA? Si se cambia, tengo que relanzar los bloques para que los tiempos sean comparables.
 
 ### 8.3. Otras preguntas
 
