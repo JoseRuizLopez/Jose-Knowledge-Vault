@@ -57,14 +57,14 @@ Pendientes del ajuste log-log (`datos/table_loglog_slopes.csv`), en grafos LFR c
 
 Porcentaje de `t_total` por fase, solo en ejecuciones que terminan (`datos/table_time_breakdown.csv`):
 
-| Instancia | t_total | coverage_count | Restricciones | Solver ILP | Simulación IC |
-|---|---|---|---|---|---|
-| LFR N=1000 | 1 s | 50 % | 37 % | 5 % | 8 % |
-| LFR N=10000 | 83 s | 55 % | 43 % | 2 % | 0,1 % |
-| LFR N=50000 | 2362 s | **62 %** | **38 %** | 0,1 % | 0,0 % |
-| CA-AstroPh | 935 s | **69 %** | **28 %** | 1,4 % | 1,9 % |
-| CA-CondMat | 698 s | **63 %** | **35 %** | 0,4 % | 1,2 % |
-| Email-Enron | 1719 s | **64 %** | **35 %** | 0,6 % | 0,8 % |
+| Instancia   | t_total | coverage_count | Restricciones | Solver ILP | Simulación IC |
+| ----------- | ------- | -------------- | ------------- | ---------- | ------------- |
+| LFR N=1000  | 1 s     | 50 %           | 37 %          | 5 %        | 8 %           |
+| LFR N=10000 | 83 s    | 55 %           | 43 %          | 2 %        | 0,1 %         |
+| LFR N=50000 | 2362 s  | **62 %**       | **38 %**      | 0,1 %      | 0,0 %         |
+| CA-AstroPh  | 935 s   | **69 %**       | **28 %**      | 1,4 %      | 1,9 %         |
+| CA-CondMat  | 698 s   | **63 %**       | **35 %**      | 0,4 %      | 1,2 %         |
+| Email-Enron | 1719 s  | **64 %**       | **35 %**      | 0,6 %      | 0,8 %         |
 
 >**Hallazgo principal:** el cuello de botella **no es el ILP ni Monte Carlo**. Es **construir el modelo en Python**: `coverage_count` más la generación de restricciones se llevan **el 97–99 % del tiempo** en todas las redes con N ≥ 3000. El solver se queda por debajo del 4 % y la simulación IC por debajo del 2 %.
 
