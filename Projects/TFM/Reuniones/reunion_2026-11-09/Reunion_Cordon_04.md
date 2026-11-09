@@ -103,14 +103,14 @@ Predicción frente a lo observado (`datos/table_cost_model.csv`):
 
 σ(S) y tiempo con φ fijo de 1 a 10, k = 3 y timeout de 1800 s (`datos/table_phi.csv`):
 
-| Red | φ=1 | φ=2 | φ=3 … 10 | Tiempo |
-|---|---|---|---|---|
-| CA-AstroPh | 9618 | 9598 | 9616 (todos iguales) | ~910 s, plano |
-| CA-CondMat | 5041 | 5053 | 5046 (todos iguales) | ~655 s, plano |
-| Email-Enron | 9572 | tout | 9563 con φ = 3 y 5; tout con el resto | ~1790–1800 s |
-| Cit-HepPh | tout | tout | tout | 1800 s |
-| p2p-Gnutella31 | tout | tout | tout | 1800 s |
-| twitter_combined | tout | tout | tout | 1800 s |
+| Red              | φ=1  | φ=2  | φ=3 … 10                              | Tiempo        |
+| ---------------- | ---- | ---- | ------------------------------------- | ------------- |
+| CA-AstroPh       | 9618 | 9598 | 9616 (todos iguales)                  | ~910 s, plano |
+| CA-CondMat       | 5041 | 5053 | 5046 (todos iguales)                  | ~655 s, plano |
+| Email-Enron      | 9572 | tout | 9563 con φ = 3 y 5; tout con el resto | ~1790–1800 s  |
+| Cit-HepPh        | tout | tout | tout                                  | 1800 s        |
+| p2p-Gnutella31   | tout | tout | tout                                  | 1800 s        |
+| twitter_combined | tout | tout | tout                                  | 1800 s        |
 
 >**Limitación del diseño:** con **k = 3**, la restricción de solapamiento solo actúa si **φ < 3**. Las restricciones del ILP son:
 ```
