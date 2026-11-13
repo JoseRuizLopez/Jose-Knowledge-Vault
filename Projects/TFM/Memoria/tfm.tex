@@ -594,13 +594,10 @@ Para evaluar su comportamiento en instancias de mayor tamaño, en este trabajo s
 % Versión anterior (propuesta de método escalable con CMSA/GRASP) en tfm_backup_2026-10-20.tex.
 % ---------------------------------------------------------------------------------------------
 
-\paragraph{Objetivo principal}
+Este trabajo se centra en la escalabilidad de la reformulación de la maximización de la influencia como un problema de clustering descriptivo propuesta por Ben Hassine \cite{motaz} (DCIIM).
+Los objetivos se dividen en principales, relacionados con el análisis de esa escalabilidad y con cómo abordarla, y secundarios, relacionados con la formación adquirida durante el desarrollo del trabajo.
 
-El objetivo principal de este trabajo es analizar la escalabilidad de la reformulación de la maximización de la influencia como un problema de clustering descriptivo propuesta por Ben Hassine \cite{motaz} (DCIIM) y estudiar cómo abordarla, de forma que el método pueda aplicarse a redes reales de tamaño medio y grande sin perder la calidad de las soluciones que obtiene en redes pequeñas.
-
-\paragraph{Objetivos secundarios}
-
-Para alcanzarlo se plantean los siguientes objetivos secundarios:
+\paragraph{Objetivos principales}
 
 \begin{enumerate}
     \item Caracterizar empíricamente cómo crece el tiempo de ejecución de DCIIM con el tamaño de la red, mediante un estudio con redes sintéticas LFR de tamaño creciente y redes reales, y estudiar la influencia del número de semillas $k$, del solver ILP y del parámetro de solapamiento $\varphi$.
@@ -611,6 +608,11 @@ Para alcanzarlo se plantean los siguientes objetivos secundarios:
     % TODO: mantener solo si se llega a implementar; si no, mover a trabajo futuro.
     \item Evaluar el método resultante sobre redes reales de gran tamaño y compararlo con la versión original de DCIIM y con otros métodos de la literatura, como Greedy \cite{kempe2003maximizing}, HCIM y $\alpha$-HCIM, en términos de influencia esperada $\sigma(S)$ y tiempo de ejecución.
     % TODO: fijar los métodos de comparación, las redes y los timeouts definitivos (ILP de 3--4 h).
+\end{enumerate}
+
+\paragraph{Objetivos secundarios}
+
+\begin{enumerate}[resume]
     \item Profundizar en el modelado matemático de problemas de optimización combinatoria mediante programación lineal entera.
     \item Adquirir experiencia en el uso de solvers de optimización, tanto libres (CBC) como comerciales (Gurobi), y en el análisis de su rendimiento.
     \item Mejorar el dominio de Python para computación científica, con especial atención a la eficiencia del código: perfilado, vectorización, paralelismo y gestión de experimentos a gran escala.

@@ -217,7 +217,7 @@ Bloque D: una semilla, timeout de 300 s, σ(S) evaluada con el mismo IC para tod
 	- [ ] Implementar el Monte Carlo en paralelo.
 	- [ ] Construir el modelo aparte y guardarlo en disco, sin límite de tiempo (o uno laxo).
 	- [ ] Hacer los experimentos con las redes grandes, con timeout para el ILP de 3–4 h.
-- [ ] Seguir con el apartado de literatura (hay poca). La revisión se hará cuando estén hechos los 3 primeros apartados.
+- [ ] Seguir con el apartado de literatura (debe de ser poca). La revisión se hará cuando estén hechos los 3 primeros apartados.
 - [ ] Preparar un **título y un párrafo** que definan el TFM.
 - [ ] Definir objetivos:
 	- **Principal:** análisis de la escalabilidad del problema y cómo abordarla.
