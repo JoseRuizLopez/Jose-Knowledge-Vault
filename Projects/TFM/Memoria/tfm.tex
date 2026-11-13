@@ -553,7 +553,7 @@ CELF \cite{leskovec2007cost} y CELF++ \cite{goyal2011celf++} aprovechan la submo
 Chen et al. \cite{chen2009efficient} proponen heurísticas como \textit{degree discount}, que sustituyen la simulación por reglas basadas en el grado de los nodos.
 TIM \cite{tang2014influence} e IMM \cite{tang2015influence} alcanzan tiempos casi lineales en el tamaño de la red con una garantía de aproximación cercana a $(1 - 1/e)$, y trabajos como \cite{minutoli2019fast, wang2024fast} proponen implementaciones paralelas de este tipo de algoritmos.
 Existen además heurísticas de centralidad, métodos que explotan la estructura de comunidades de la red y metaheurísticas como GRASP \cite{resende2013grasp}, que Lozano-Osorio et al. han aplicado a este problema y a su variante con presupuesto \cite{LozanoOsorio2021, lozano2024efficient}.
-El estado del arte (sección~\ref{sec:estado_arte}) revisa estas familias en detalle.
+El capítulo~\ref{chap:lit} revisa estas familias en detalle.
 
 \subsection{Una reformulación basada en clustering descriptivo} \label{subsec:dciim}
 
@@ -590,7 +590,7 @@ Para evaluar su comportamiento en instancias de mayor tamaño, en este trabajo s
 %   - Ajustar cada objetivo a lo que realmente se haya hecho y referenciar el capítulo/sección
 %     donde se cumple (p. ej. "véase la sección~\ref{...}").
 %   - Revisar que las conclusiones (\ref{chap:conclusiones}) respondan uno a uno a estos objetivos.
-%   - Decidir si el objetivo 4 (reducción del modelo, tipo CSNA) se mantiene o pasa a trabajo futuro.
+%   - Decidir si el objetivo 4 (reducción del modelo, tipo CMSA) se mantiene o pasa a trabajo futuro.
 % Versión anterior (propuesta de método escalable con CMSA/GRASP) en tfm_backup_2026-10-20.tex.
 % ---------------------------------------------------------------------------------------------
 
@@ -604,7 +604,7 @@ Los objetivos se dividen en principales, relacionados con el análisis de esa es
     \item Identificar las fases que concentran el coste computacional del método (construcción de la relación de cobertura, generación de restricciones, resolución del ILP y simulación Monte Carlo) y construir un modelo de coste que permita predecir si una red es abordable con un presupuesto de tiempo dado.
     \item Reducir el coste de las fases que limitan la escalabilidad sin modificar la formulación del modelo, por ejemplo construyendo el modelo de forma independiente y almacenándolo en disco, paralelizando la simulación Monte Carlo o usando intérpretes y representaciones más eficientes.
     % TODO: concretar con las técnicas que finalmente se implementen (PyPy, vectorización, paralelismo...).
-    \item Explorar estrategias para reducir el tamaño del modelo, como la propuesta de CSNA de trabajar sobre un subgrafo con las aristas más relevantes, que hagan viable el método en redes de mayor tamaño.
+    \item Explorar estrategias para reducir el tamaño del modelo que hagan viable el método en redes de mayor tamaño, como CMSA \cite{blum2024cmsa}, que resuelve el ILP sobre subinstancias reducidas construidas a partir de soluciones generadas de forma probabilística.
     % TODO: mantener solo si se llega a implementar; si no, mover a trabajo futuro.
     \item Evaluar el método resultante sobre redes reales de gran tamaño y compararlo con la versión original de DCIIM y con otros métodos de la literatura, como Greedy \cite{kempe2003maximizing}, HCIM y $\alpha$-HCIM, en términos de influencia esperada $\sigma(S)$ y tiempo de ejecución.
     % TODO: fijar los métodos de comparación, las redes y los timeouts definitivos (ILP de 3--4 h).
@@ -636,10 +636,88 @@ Los apéndices incluyen material complementario.
 
 
 
-\chapter{Literatura} \label{chap:lit} 
+\chapter{Literatura} \label{chap:lit}
 
+% ---------------------------------------------------------------------------------------------
+% Guía: Esqueleto_Literatura.md. Capítulo corto (4--6 páginas). Cada sección cierra con una frase
+% puente que nombra la limitación que aborda la siguiente. No repetir lo ya dicho en la
+% sección~\ref{subsec:problema_im}; aquí se amplía.
+% ---------------------------------------------------------------------------------------------
 
-\section{Estado del arte} \label{sec:estado_arte} 
+% TODO: párrafo introductorio del capítulo (2--3 frases) que anuncie el recorrido:
+%   difusión -> algoritmos -> comunidades -> programación matemática -> posicionamiento.
+
+\section{Modelos de difusión} \label{sec:lit_difusion}
+
+% TODO:
+%   - IC (solo recordarlo, ya está en la sec. 1.2; la formalización va en el cap. 3) y LT, un párrafo cada uno.
+%   - Por qué se usa IC: es el modelo de DCIIM y de los métodos de comparación.
+%   - Refs: kempe2003maximizing, banerjee2020survey (opcional: Granovetter 1978 para LT).
+%   - PUENTE: con ambos modelos sigma(S) solo se puede estimar por simulación, y eso marca el diseño
+%     de los algoritmos de la sección siguiente.
+
+\section{Algoritmos de maximización de la influencia} \label{sec:lit_algoritmos}
+
+% TODO: organizar por cómo cada familia afronta el coste de estimar sigma(S):
+%   - Reducir evaluaciones: leskovec2007cost, goyal2011celf++, mirzasoleiman2015lazier.
+%   - Muestreo con garantías: tang2014influence, tang2015influence.
+%   - Reglas en lugar de simulación: chen2009efficient, PMIA (chen2010, falta en el .bib), centralidad.
+%   - Metaheurísticas: LozanoOsorio2021, lozano2024efficient (GRASP frente a PSO).
+%   - Paralelismo: minutoli2019fast, wang2024fast.
+%   - PUENTE: todas tratan el grafo como un todo; otra línea aprovecha que la influencia se propaga
+%     mejor dentro de grupos densos.
+
+\section{Enfoques basados en comunidades} \label{sec:lit_comunidades}
+
+% TODO:
+%   - Esquema en dos fases (detectar comunidades, repartir semillas): chen2014cim, kazemzadeh2022influence.
+%   - HCIM y alpha-HCIM (hassine2025community): pesos de arista por similitud de vecindarios,
+%     detección de comunidades y reparto de k. Son los métodos de comparación del TFM.
+%   - LFR (lancichinetti2008benchmark) como banco de pruebas con comunidades conocidas.
+%   - PUENTE: siguen siendo heurísticos -> programación matemática (sección siguiente).
+
+\section{Programación matemática y reducción de instancias} \label{sec:lit_ilp}
+
+Los métodos revisados hasta aquí, incluidos los basados en comunidades, son heurísticos: devuelven soluciones de buena calidad en poco tiempo, pero no garantizan nada sobre lo lejos que quedan del óptimo.
+Una alternativa es expresar la selección de semillas como un modelo de programación lineal entera y delegar su resolución en un solver exacto, que devuelve la solución óptima de esa formulación.
+
+Varios trabajos han seguido este camino \cite{keskin2018influence, guney2019efficient, baghbani2019integer}.
+La dificultad de partida es que $\sigma(S)$ es una esperanza sobre un proceso estocástico y no puede escribirse directamente como una función lineal de las variables de decisión.
+Para sortearla, estas formulaciones se apoyan en un conjunto de realizaciones muestreadas del proceso de difusión y maximizan el número medio de nodos alcanzados en ellas.
+% TODO: verificar esta descripción leyendo keskin2018influence, guney2019efficient y baghbani2019integer
+%       (y añadir una frase concreta de cada uno si aporta).
+El precio de esta aproximación es el tamaño del modelo, porque el número de variables y restricciones crece con el número de nodos y con el de realizaciones, y una estimación fiable de $\sigma(S)$ necesita muchas.
+
+DCIIM \cite{motaz} evita ese problema cambiando la representación.
+El método procede del clustering conceptual basado en minería de patrones \cite{hassine2024conceptual}, en el que un clustering se construye seleccionando patrones que cubren las transacciones de un conjunto de datos.
+Ben Hassine traslada esta idea al grafo: cada nodo junto con su vecindario forma una transacción, cada nodo candidato es un patrón, y elegir $k$ semillas equivale a elegir $k$ patrones que cubran el mayor número posible de transacciones, con un solapamiento entre ellas acotado por el parámetro $\varphi$.
+Como la cobertura es una propiedad estructural del grafo, el modelo no necesita realizaciones de la difusión, y la simulación Monte Carlo solo interviene al final, para estimar $\sigma(S)$ de la solución obtenida.
+DCIIM es, por tanto, un problema de cobertura con restricciones de solapamiento.
+El capítulo~\ref{chap:formulacion_problema} presenta el modelo completo.
+
+Que el modelo no dependa de realizaciones de la difusión no significa que sea pequeño.
+La relación de cobertura entre patrones y transacciones crece con el número de nodos y con el de aristas de la red, y con ella el coste de construir el modelo y de resolverlo.
+Cuando un ILP se vuelve demasiado grande para abordarlo de una vez, la optimización combinatoria ofrece una vía intermedia entre los métodos exactos y las heurísticas: las matheurísticas, que combinan metaheurísticas con técnicas de programación matemática.
+
+Una de ellas es CMSA (\textit{Construct, Merge, Solve \& Adapt}) \cite{blum2024cmsa}, cuya idea central es aplicar de forma iterada un solver ILP a subinstancias reducidas del problema original.
+En cada iteración, el método construye varias soluciones de forma probabilística, normalmente con una heurística voraz aleatorizada (\textit{construct}), y añade sus componentes a una subinstancia (\textit{merge}).
+A continuación resuelve el ILP restringido a los componentes de esa subinstancia con un límite de tiempo (\textit{solve}) y, por último, elimina los componentes que llevan varias iteraciones sin formar parte de la solución del ILP (\textit{adapt}).
+De este modo, el solver nunca trabaja con el modelo completo, sino con una versión mucho más pequeña que contiene los componentes prometedores.
+
+Blum \cite{blum2024cmsa} aplica CMSA a varios problemas definidos sobre grafos, entre ellos el \textit{Minimum Dominating Set} y el \textit{Minimum Positive Influence Dominating Set} (MPIDS), este último planteado precisamente sobre redes sociales.
+En el MPIDS, sobre grafos de hasta 100\,000 nodos y dos millones de aristas, CPLEX deja de ser competitivo a partir de 10\,000 nodos cuando resuelve el modelo completo y en los grafos más grandes solo devuelve la solución trivial, mientras que la variante adaptativa de CMSA funciona en todo el rango.
+El libro muestra además que CMSA funciona especialmente bien con formulaciones de tipo \textit{set covering}, una familia a la que pertenece el modelo de DCIIM.
+
+DCIIM y CMSA comparten, por tanto, varios ingredientes: un modelo ILP de cobertura definido sobre un grafo y un solver exacto como pieza central.
+La diferencia está en lo que se sabe de su comportamiento con instancias grandes.
+La escalabilidad de CMSA se ha estudiado de forma sistemática, mientras que DCIIM solo se ha evaluado en redes de tamaño reducido, y no se sabe hasta qué tamaño de red es viable ni qué parte del método concentra el coste.
+
+\section{Síntesis y posicionamiento} \label{sec:lit_sintesis}
+
+% TODO:
+%   - Tabla: familia | cómo estima sigma(S) | garantía | escalabilidad | usa solver.
+%   - Hueco: la reformulación de Motaz no se ha analizado en redes grandes.
+%   - PUENTE al capítulo~\ref{chap:formulacion_problema}.
 
 
 

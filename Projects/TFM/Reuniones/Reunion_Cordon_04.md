@@ -209,7 +209,7 @@ Bloque D: una semilla, timeout de 300 s, σ(S) evaluada con el mismo IC para tod
 
 ## Trabajo relacionado
 
-- **CSNA** también usa modelos matemáticos, pero crea un nuevo grafo **solo con las aristas más importantes**. Eso lo hace mucho más rápido y viable.
+- **CMSA** (Construct, Merge, Solve & Adapt, [[blum_2024_cmsa_libro]]) también usa modelos matemáticos, pero crea un nuevo grafo **solo con las aristas más importantes**. Eso lo hace mucho más rápido y viable.
 
 ## Siguientes pasos
 
@@ -222,4 +222,4 @@ Bloque D: una semilla, timeout de 300 s, σ(S) evaluada con el mismo IC para tod
 - [X] Definir objetivos:
 	- **Principal:** análisis de la escalabilidad del problema y cómo abordarla.
 	- **Específicos:** lo que voy a aprender (mejorar en Python, uso de solvers, modelado matemático, etc.).
-- [ ] *(A futuro)* Ver cómo hacer el modelo más pequeño y más escalable (CSNA).
+- [ ] *(A futuro)* Ver cómo hacer el modelo más pequeño y más escalable (CMSA).
