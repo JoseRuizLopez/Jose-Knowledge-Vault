@@ -585,20 +585,37 @@ Para evaluar su comportamiento en instancias de mayor tamaño, en este trabajo s
 
 \section{Objetivos} \label{sec:objetivos}
 
-% Versión provisional: revisar con los tutores cuando se cierre el estudio de escalabilidad.
+% ---------------------------------------------------------------------------------------------
+% VERSIÓN PROVISIONAL. Debo de afinar cuando el TFM esté terminado:
+%   - Ajustar cada objetivo a lo que realmente se haya hecho y referenciar el capítulo/sección
+%     donde se cumple (p. ej. "véase la sección~\ref{...}").
+%   - Revisar que las conclusiones (\ref{chap:conclusiones}) respondan uno a uno a estos objetivos.
+%   - Decidir si el objetivo 4 (reducción del modelo, tipo CSNA) se mantiene o pasa a trabajo futuro.
+% Versión anterior (propuesta de método escalable con CMSA/GRASP) en tfm_backup_2026-10-20.tex.
+% ---------------------------------------------------------------------------------------------
 
-El objetivo general de este trabajo es diseñar un método escalable para seleccionar nodos semilla que maximicen la influencia bajo el Modelo de Cascada Independiente, que conserve la representación transaccional y la perspectiva de clustering descriptivo propuestas por Ben Hassine \cite{motaz} y que pueda aplicarse a redes reales de tamaño medio y grande.
+\paragraph{Objetivo principal}
 
-Para alcanzarlo se plantean los siguientes objetivos específicos:
+El objetivo principal de este trabajo es analizar la escalabilidad de la reformulación de la maximización de la influencia como un problema de clustering descriptivo propuesta por Ben Hassine \cite{motaz} (DCIIM) y estudiar cómo abordarla, de forma que el método pueda aplicarse a redes reales de tamaño medio y grande sin perder la calidad de las soluciones que obtiene en redes pequeñas.
+
+\paragraph{Objetivos secundarios}
+
+Para alcanzarlo se plantean los siguientes objetivos secundarios:
 
 \begin{enumerate}
-    \item Reducir el coste de construir la relación de cobertura entre transacciones y patrones candidatos, mediante técnicas como la poda de candidatos, el preprocesamiento del grafo o representaciones dispersas.
-    \item Diseñar un algoritmo que resuelva la formulación de DCIIM sobre subinstancias reducidas del problema, ya sea un algoritmo híbrido como CMSA, que combina construcción heurística y resolución exacta, o una metaheurística que opere directamente sobre la representación transaccional.
-    % TODO: concretar cuando se decida la línea de solución.
-    \item Incorporar a la propuesta un mecanismo para ajustar el parámetro de solapamiento $\varphi$ que garantice encontrar una solución factible en redes grandes sin depender de reiniciar el modelo completo.
-    \item Evaluar la propuesta sobre redes reales de gran tamaño y compararla con DCIIM y con métodos del estado del arte, como CELF \cite{leskovec2007cost}, IMM \cite{tang2015influence} o GRASP \cite{LozanoOsorio2021}, en términos de influencia esperada $\sigma(S)$ y tiempo de ejecución, validando las diferencias con contrastes estadísticos.
-    % TODO: fijar los métodos de comparación y las redes de evaluación.
-    \item Analizar el compromiso entre calidad de la solución y tiempo de cómputo de la propuesta en función del tamaño de la red, del número de semillas $k$ y de $\varphi$.
+    \item Caracterizar empíricamente cómo crece el tiempo de ejecución de DCIIM con el tamaño de la red, mediante un estudio con redes sintéticas LFR de tamaño creciente y redes reales, y estudiar la influencia del número de semillas $k$, del solver ILP y del parámetro de solapamiento $\varphi$.
+    \item Identificar las fases que concentran el coste computacional del método (construcción de la relación de cobertura, generación de restricciones, resolución del ILP y simulación Monte Carlo) y construir un modelo de coste que permita predecir si una red es abordable con un presupuesto de tiempo dado.
+    \item Reducir el coste de las fases que limitan la escalabilidad sin modificar la formulación del modelo, por ejemplo construyendo el modelo de forma independiente y almacenándolo en disco, paralelizando la simulación Monte Carlo o usando intérpretes y representaciones más eficientes.
+    % TODO: concretar con las técnicas que finalmente se implementen (PyPy, vectorización, paralelismo...).
+    \item Explorar estrategias para reducir el tamaño del modelo, como la propuesta de CSNA de trabajar sobre un subgrafo con las aristas más relevantes, que hagan viable el método en redes de mayor tamaño.
+    % TODO: mantener solo si se llega a implementar; si no, mover a trabajo futuro.
+    \item Evaluar el método resultante sobre redes reales de gran tamaño y compararlo con la versión original de DCIIM y con otros métodos de la literatura, como Greedy \cite{kempe2003maximizing}, HCIM y $\alpha$-HCIM, en términos de influencia esperada $\sigma(S)$ y tiempo de ejecución.
+    % TODO: fijar los métodos de comparación, las redes y los timeouts definitivos (ILP de 3--4 h).
+    \item Profundizar en el modelado matemático de problemas de optimización combinatoria mediante programación lineal entera.
+    \item Adquirir experiencia en el uso de solvers de optimización, tanto libres (CBC) como comerciales (Gurobi), y en el análisis de su rendimiento.
+    \item Mejorar el dominio de Python para computación científica, con especial atención a la eficiencia del código: perfilado, vectorización, paralelismo y gestión de experimentos a gran escala.
+    \item Aplicar una metodología experimental rigurosa al análisis de algoritmos: diseño de experimentos, medición de tiempos por fases, ajuste de modelos de coste e interpretación de resultados.
+    % TODO: revisar al final qué se ha aprendido realmente y ajustar la lista.
 \end{enumerate}
 
 \section{Estructura del documento} \label{sec:estructura}

@@ -57,7 +57,7 @@ Guía para redactar la sección *Contexto y motivación* (`\ref{sec:contexto}`) 
 
 - [X] Redactar el bloque 1 desde cero.
 - [ ] Completar el bloque 2 con la formulación de Kempe y el repaso de enfoques.
-- [ ] Completar la entrada `motaz` de `bibliografia.bib` con la venue cuando se publique (ahora es `@unpublished`).
+- [X] Completar la entrada `motaz` de `bibliografia.bib` con la venue cuando se publique (ahora es `@inproceedings`, IPMU 2026, CCIS 3021, pp. 425–439).
 - [X] Pasar los `\cite` de los comentarios TODO al texto conforme se redacte.
 - [ ] Cerrar el bloque 4 con la pregunta de investigación una vez definidos los Objetivos.
 

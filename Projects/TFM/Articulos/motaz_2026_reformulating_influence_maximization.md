@@ -2,7 +2,20 @@ links: [[103 - TFM]]
 
 
 
-*source: [[Reformulating_Infuence_Maximization_throughDescriptive_Clustering.pdf]]*
+*source: [[Reformulating Influence Maximization Through Descriptive Clustering-IPMU2026-pp434-448.pdf]] (versión publicada) · [[Reformulating_Infuence_Maximization_throughDescriptive_Clustering.pdf|preprint]]*
+
+> [!info] Referencia publicada
+> Ben Hassine, M. (2026). *Reformulating Influence Maximization Through Descriptive Clustering*. En B. Vantaggi et al. (Eds.), **IPMU 2026**, Communications in Computer and Information Science, vol. 3021, pp. 425–439. Springer, Cham. https://doi.org/10.1007/978-3-032-29000-7_30
+> - Clave BibTeX: `motaz` (en [[bibliografia.bib]]).
+> - Las páginas impresas son 425–439; el "pp434-448" del nombre del PDF no coincide con la paginación del capítulo.
+
+> [!note] Cambios respecto al preprint (2026-11-13)
+> Son cambios de redacción; el método, el ILP, los experimentos y los resultados son los mismos.
+> - **Trabajos relacionados:** nuevo párrafo sobre enfoques de *association rule mining* para IM (Erlandsson et al. 2016, *Entropy*; Iqbal et al. 2022, *CMC*). Ben Hassine marca la diferencia: esos trabajos extraen reglas, mientras que DCIIM selecciona k nodos que maximizan una cobertura con restricción de solapamiento. Por las dos referencias nuevas cambia la numeración de la bibliografía.
+> - **Motivación (3.1) y Ejemplo 1:** más cortos. Se quita la explicación de la matriz de adyacencia y el detalle de las transacciones T1/T2.
+> - **Primera persona:** "My/I" pasa a "Our/We".
+> - **Sensibilidad de θ:** "se estabiliza en la mayoría de redes" pasa a "en las redes consideradas en nuestros experimentos". Es una afirmación más prudente, y va en la línea del estudio de escalabilidad del TFM.
+> - El repositorio sigue siendo `2x254/IPMU_RegularPaper`.
 # Motaz — Reformulación de la Maximización de Influencia a Través de Clustering Descriptivo
 
 Este artículo presenta un enfoque novedoso para el problema de maximización de influencia (IM) en redes sociales, abordando las limitaciones de eficiencia computacional y calidad de propagación de información de los métodos existentes.

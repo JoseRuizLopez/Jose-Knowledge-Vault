@@ -322,7 +322,7 @@ Fuente: `results/report_overlap_increments.txt`.
 
 ### 5.3. Otras preguntas para los tutores
 - ¿Es suficiente justificar `--max-iter 10` (nunca se agota) y el timeout de 1800 s como presupuesto práctico?
-- ¿Cómo se cita a Motaz en la bibliografía (`@unpublished` o el artículo de IPMU)?
+- ~~¿Cómo se cita a Motaz en la bibliografía (`@unpublished` o el artículo de IPMU)?~~ Resuelto: ya está publicado en IPMU 2026 (CCIS 3021, pp. 425–439); entrada `motaz` actualizada.
 
 ---
 
@@ -343,7 +343,7 @@ Se redacta en `tfm.tex` (vault de Obsidian) y se copia a Overleaf.
 | Descripción algorítmica | Vacío; depende de la decisión 5.1 |
 | Resultados | Vacío; aquí entra todo este estudio |
 | Conclusiones y trabajos futuros | Vacío |
-| Bibliografía | Completar la entrada `motaz` |
+| Bibliografía | Entrada `motaz` completada (IPMU 2026) |
 
 **Tareas pendientes de redacción derivadas del estudio:**
 - Reportar las redes grandes como límite de la construcción del modelo.
