@@ -219,7 +219,7 @@ Bloque D: una semilla, timeout de 300 s, σ(S) evaluada con el mismo IC para tod
 	- [ ] Hacer los experimentos con las redes grandes, con timeout para el ILP de 3–4 h.
 - [ ] Seguir con el apartado de literatura (debe de ser poca). La revisión se hará cuando estén hechos los 3 primeros apartados.
 - [ ] Preparar un **título y un párrafo** que definan el TFM.
-- [ ] Definir objetivos:
+- [X] Definir objetivos:
 	- **Principal:** análisis de la escalabilidad del problema y cómo abordarla.
 	- **Específicos:** lo que voy a aprender (mejorar en Python, uso de solvers, modelado matemático, etc.).
 - [ ] *(A futuro)* Ver cómo hacer el modelo más pequeño y más escalable (CSNA).
