@@ -605,7 +605,6 @@ Los objetivos se dividen en principales, relacionados con el análisis de esa es
     \item Reducir el coste de las fases que limitan la escalabilidad sin modificar la formulación del modelo, por ejemplo construyendo el modelo de forma independiente y almacenándolo en disco, paralelizando la simulación Monte Carlo o usando intérpretes y representaciones más eficientes.
     % TODO: concretar con las técnicas que finalmente se implementen (PyPy, vectorización, paralelismo...).
     \item Explorar estrategias para reducir el tamaño del modelo que hagan viable el método en redes de mayor tamaño, como CMSA \cite{blum2024cmsa}, que resuelve el ILP sobre subinstancias reducidas construidas a partir de soluciones generadas de forma probabilística.
-    % TODO: mantener solo si se llega a implementar; si no, mover a trabajo futuro.
     \item Evaluar el método resultante sobre redes reales de gran tamaño y compararlo con la versión original de DCIIM y con otros métodos de la literatura, como Greedy \cite{kempe2003maximizing}, HCIM y $\alpha$-HCIM, en términos de influencia esperada $\sigma(S)$ y tiempo de ejecución.
     % TODO: fijar los métodos de comparación, las redes y los timeouts definitivos (ILP de 3--4 h).
 \end{enumerate}
@@ -617,7 +616,7 @@ Los objetivos se dividen en principales, relacionados con el análisis de esa es
     \item Adquirir experiencia en el uso de solvers de optimización, tanto libres (CBC) como comerciales (Gurobi), y en el análisis de su rendimiento.
     \item Mejorar el dominio de Python para computación científica, con especial atención a la eficiencia del código: perfilado, vectorización, paralelismo y gestión de experimentos a gran escala.
     \item Aplicar una metodología experimental rigurosa al análisis de algoritmos: diseño de experimentos, medición de tiempos por fases, ajuste de modelos de coste e interpretación de resultados.
-    % TODO: revisar al final qué se ha aprendido realmente y ajustar la lista.
+    % TODO: revisar al final y ajustar la lista.
 \end{enumerate}
 
 \section{Estructura del documento} \label{sec:estructura}
@@ -646,6 +645,10 @@ Los apéndices incluyen material complementario.
 
 % TODO: párrafo introductorio del capítulo (2--3 frases) que anuncie el recorrido:
 %   difusión -> algoritmos -> comunidades -> programación matemática -> posicionamiento.
+
+% Sección contenedora de la plantilla, comentada por ahora: con una sola sección no tiene sentido.
+% Pendiente de comentar con los tutores (opciones: separar CMSA en su propia sección o añadir Fundamentos).
+% \section{Estado del arte} \label{sec:estado_arte}
 
 \section{Modelos de difusión} \label{sec:lit_difusion}
 
@@ -681,18 +684,31 @@ Los apéndices incluyen material complementario.
 Los métodos revisados hasta aquí, incluidos los basados en comunidades, son heurísticos: devuelven soluciones de buena calidad en poco tiempo, pero no garantizan nada sobre lo lejos que quedan del óptimo.
 Una alternativa es expresar la selección de semillas como un modelo de programación lineal entera y delegar su resolución en un solver exacto, que devuelve la solución óptima de esa formulación.
 
-Varios trabajos han seguido este camino \cite{keskin2018influence, guney2019efficient, baghbani2019integer}.
+Varios trabajos han seguido este camino \cite{keskin2018influence, wu2018two, guney2019efficient}.
 La dificultad de partida es que $\sigma(S)$ es una esperanza sobre un proceso estocástico y no puede escribirse directamente como una función lineal de las variables de decisión.
-Para sortearla, estas formulaciones se apoyan en un conjunto de realizaciones muestreadas del proceso de difusión y maximizan el número medio de nodos alcanzados en ellas.
-% TODO: verificar esta descripción leyendo keskin2018influence, guney2019efficient y baghbani2019integer
-%       (y añadir una frase concreta de cada uno si aporta).
-El precio de esta aproximación es el tamaño del modelo, porque el número de variables y restricciones crece con el número de nodos y con el de realizaciones, y una estimación fiable de $\sigma(S)$ necesita muchas.
+Keskin y Güler \cite{keskin2018influence} la eluden fijando los umbrales del modelo LT, de modo que la difusión pasa a ser determinista, y la representan con una variable binaria por nodo y periodo que indica si el nodo está activo en ese instante.
+Güney \cite{guney2019efficient}, en cambio, conserva el carácter estocástico mediante una aproximación muestral: genera un conjunto de realizaciones del modelo IC, cada una con los arcos que resultan activos, comparte entre todas ellas las variables de selección de semillas y maximiza el número medio de nodos activados.
 
-DCIIM \cite{motaz} evita ese problema cambiando la representación.
+Ambas formulaciones tienen que impedir, además, que los nodos de un ciclo se activen entre sí sin que ninguna semilla los alcance.
+Keskin y Güler lo consiguen con el índice temporal: un nodo solo puede activarse en un periodo si sus vecinos activos en el periodo anterior superan su umbral.
+Güney opta por precalcular, para cada nodo y cada realización, el conjunto de nodos desde los que es alcanzable, de manera que un nodo queda activado si alguno de ellos es semilla; el modelo resultante es un problema de cobertura máxima con $k$ elementos.
+
+El precio de estas formulaciones es el tamaño del modelo, que crece con el número de nodos multiplicado por el de periodos o por el de realizaciones; en la de Güney, una red de 12\,133 nodos con 100 realizaciones ya supone más de un millón de variables.
+Los experimentos de ambos trabajos reflejan esta limitación.
+Keskin y Güler conceden una hora a Gurobi, que en una red aleatoria de 1500 nodos no encuentra ninguna solución con nodos activados, y proponen en su lugar una heurística que resuelve el modelo con pocos periodos y los va aumentando de uno en uno.
+Güney llega más lejos: con 25 modelos de 100 realizaciones cada uno resuelve de forma exacta subredes de arXiv de hasta 12\,133 nodos y 50\,000 arcos, con conjuntos de semillas que superan ligeramente a los de CELF \cite{leskovec2007cost} e IMM \cite{tang2015influence}.
+Para redes mayores propone resolver solo la relajación lineal y redondearla con el método \textit{pipage}, lo que garantiza una aproximación de $1-(1-1/p)^p$, donde $p$ es el tamaño del mayor de esos conjuntos de nodos.
+
+Wu y Küçükyavuz \cite{wu2018two}, a quienes el propio Güney señala como el estado del arte, abordan el tamaño del modelo de otra manera: en lugar de escribir de antemano todas las restricciones, resuelven el problema muestreado mediante generación diferida de restricciones.
+Su problema maestro contiene solo las variables de selección de semillas y una variable por realización que acota el número de nodos alcanzados en ella, y en cada iteración añade los cortes que viola la solución actual, construidos a partir de la submodularidad de $\sigma(S)$.
+Con este esquema, y tanto para el modelo IC como para el LT, demuestran la optimalidad del problema muestreado (con una tolerancia del 1\%) con hasta 500 realizaciones en redes de hasta 36\,692 nodos, y en las redes de más de 10\,000 nodos lo hacen en menos tiempo que el algoritmo voraz de Kempe et al. \cite{kempe2003maximizing}.
+La contrapartida es que solo lo comprueban para entre 2 y 5 semillas y que el tiempo crece de forma no lineal con $k$: con $k = 30$ y una hora de límite, en una red de 10\,876 nodos se detienen a un 3,7\% del óptimo.
+
+DCIIM \cite{motaz} sigue un camino distinto: en lugar de reducir un modelo construido sobre realizaciones de la difusión, cambia la representación.
 El método procede del clustering conceptual basado en minería de patrones \cite{hassine2024conceptual}, en el que un clustering se construye seleccionando patrones que cubren las transacciones de un conjunto de datos.
 Ben Hassine traslada esta idea al grafo: cada nodo junto con su vecindario forma una transacción, cada nodo candidato es un patrón, y elegir $k$ semillas equivale a elegir $k$ patrones que cubran el mayor número posible de transacciones, con un solapamiento entre ellas acotado por el parámetro $\varphi$.
 Como la cobertura es una propiedad estructural del grafo, el modelo no necesita realizaciones de la difusión, y la simulación Monte Carlo solo interviene al final, para estimar $\sigma(S)$ de la solución obtenida.
-DCIIM es, por tanto, un problema de cobertura con restricciones de solapamiento.
+DCIIM es, por tanto, un problema de cobertura con restricciones de solapamiento, como el de Güney, pero definido sobre la estructura del grafo y no sobre realizaciones de la difusión.
 El capítulo~\ref{chap:formulacion_problema} presenta el modelo completo.
 
 Que el modelo no dependa de realizaciones de la difusión no significa que sea pequeño.
@@ -703,6 +719,7 @@ Una de ellas es CMSA (\textit{Construct, Merge, Solve \& Adapt}) \cite{blum2024c
 En cada iteración, el método construye varias soluciones de forma probabilística, normalmente con una heurística voraz aleatorizada (\textit{construct}), y añade sus componentes a una subinstancia (\textit{merge}).
 A continuación resuelve el ILP restringido a los componentes de esa subinstancia con un límite de tiempo (\textit{solve}) y, por último, elimina los componentes que llevan varias iteraciones sin formar parte de la solución del ILP (\textit{adapt}).
 De este modo, el solver nunca trabaja con el modelo completo, sino con una versión mucho más pequeña que contiene los componentes prometedores.
+La idea recuerda a la generación diferida de restricciones de Wu y Küçükyavuz, aunque allí el modelo se reduce añadiendo restricciones a demanda y en CMSA se reduce limitando los componentes de la solución.
 
 Blum \cite{blum2024cmsa} aplica CMSA a varios problemas definidos sobre grafos, entre ellos el \textit{Minimum Dominating Set} y el \textit{Minimum Positive Influence Dominating Set} (MPIDS), este último planteado precisamente sobre redes sociales.
 En el MPIDS, sobre grafos de hasta 100\,000 nodos y dos millones de aristas, CPLEX deja de ser competitivo a partir de 10\,000 nodos cuando resuelve el modelo completo y en los grafos más grandes solo devuelve la solución trivial, mientras que la variante adaptativa de CMSA funciona en todo el rango.

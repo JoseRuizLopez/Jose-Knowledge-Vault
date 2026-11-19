@@ -3,7 +3,7 @@ links: [[103 - TFM]]
 
 # Esqueleto: Literatura
 
-Guía para redactar el capítulo de *Literatura* (`\ref{chap:lit}`) de [[tfm.tex]]. Debe ser **corto** (4–6 páginas) y **sin saltos entre secciones**: cada sección termina con la limitación o pregunta que abre la siguiente. Hace de embudo, de los modelos de difusión al hueco que cubre el TFM (escalabilidad de una formulación ILP).
+Guía para redactar el capítulo de *Literatura* (`\ref{chap:lit}`) de [[tfm.tex]]. La sección contenedora de la plantilla (`\section{Estado del arte}`) está comentada: con una sola sección no tiene sentido. Queda pendiente de comentar con los tutores (separar CMSA en su propia sección o añadir Fundamentos). Debe ser **corto** (4–6 páginas) y **sin saltos entre secciones**: cada sección termina con la limitación o pregunta que abre la siguiente. Hace de embudo, de los modelos de difusión al hueco que cubre el TFM (escalabilidad de una formulación ILP).
 
 > [!important] Regla de conexión
 > Cada sección cierra con una frase puente que nombre la limitación que resuelve la siguiente. No se repite lo que ya está en la sección 1.2 de la Introducción: aquí se amplía.
@@ -72,6 +72,7 @@ Guía para redactar el capítulo de *Literatura* (`\ref{chap:lit}`) de [[tfm.tex
 
 - [ ] `hassine2025community`: Hassine (2025), *Community quality and influence maximization: an empirical study*, arXiv 2512.03095 (HCIM, α-HCIM).
 - [ ] `hassine2024conceptual`: Hassine et al. (2024), ECAI 2024, pp. 1648–1655.
-- [ ] `keskin2018influence`, `guney2019efficient`, `baghbani2019integer`: ILP para IM. **Leer los artículos antes de citar los detalles.**
+- [x] `keskin2018influence`, `guney2019efficient`: ILP para IM (leídos y contrastados). `baghbani2019integer` descartado: redundante con Güney y con resultados más débiles.
+- [x] `wu2018two` (Wu & Küçükyavuz, 2018): leído e integrado en la sección de programación matemática (generación diferida de restricciones).
 - [ ] `chen2014cim`, `kazemzadeh2022influence`: comunidades.
 - [ ] `chen2010scalable`: PMIA.
